@@ -29,6 +29,5 @@ import { RegisterComponent } from './components/register/register.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-// @ts-ignore
+
 export class AppModule { }
-// @ts-ignore
