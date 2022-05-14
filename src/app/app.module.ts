@@ -7,10 +7,15 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { AppRoutingModule } from "./app-routing.module";
+import { CompanyDataComponent } from './components/company-data/company-data.component';
+import {CompanyDataModule} from "./components/company-data/company-data.module";
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CompanyDataComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -18,9 +23,12 @@ import { AppRoutingModule } from "./app-routing.module";
     RouterModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    CompanyDataModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+// @ts-ignore
 export class AppModule { }
+// @ts-ignore
