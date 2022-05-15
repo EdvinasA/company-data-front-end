@@ -8,12 +8,10 @@ import {MatIconModule} from "@angular/material/icon";
 import {CompanyDataListComponent} from "./company-data-list/company-data-list.component";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
-import { LoginComponent } from '../login/login.component';
 
 @NgModule({
   declarations: [
-    CompanyDataListComponent,
-    LoginComponent
+    CompanyDataListComponent
   ],
   imports: [
     BrowserModule,

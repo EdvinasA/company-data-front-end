@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="container">
+  <span>Login</span>
+  <form autocomplete="off" [formGroup]="loginForm" class="stack" (ngSubmit)="submitLoginForm()">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required>
+    </mat-form-field>
+    <div *ngIf="email!.touched && email!.invalid"
+    class="error">
+      <strong>Enter valid email!</strong>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div *ngIf="password!.touched && password!.invalid"
+         class="error">
+      <strong>Password can't be blank!</strong>
+    </div>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+    <a href="/register">Don't have an account ? Register!</a>
+  </form>
+</div>
