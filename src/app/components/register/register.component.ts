@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Tokens} from "../models/tokens";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {ConverterService} from "../../services/converter.service";
 
 @Component({
   selector: 'app-register',
@@ -6,10 +11,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  public hide = true;
+  public token!: Tokens | null;
+  public registerForm = new FormGroup({
+    email: new FormControl('asda@gmail.com', [Validators.required, Validators.email]),
+    fullName: new FormControl('Edvinas Alimas', [Validators.required]),
+    password: new FormControl('asd', [Validators.required]),
+  });
 
-  constructor() { }
+  constructor(private router: Router,
+              private userService: UserService,
+              private converter: ConverterService) { }
 
   ngOnInit(): void {
+  }
+
+  submitRegisterForm(registerForm: FormGroup) {
+    let registerBody = this.converter.convertRegisterFormToBody(registerForm);
+
+    this.userService.register(registerBody)
+    .subscribe(data => {
+      this.token = data;
+      localStorage.setItem('token', this.token.token)
+    })
+    // this.router.navigate(['/']);
+  }
+
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  get fullName() {
+    return this.registerForm.get('fullName');
+  }
+
+  get password() {
+    return this.registerForm.get('password');
   }
 
 }

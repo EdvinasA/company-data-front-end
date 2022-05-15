@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitLoginForm() {
-    this.userService.login(this.email)
+  submitLoginForm(loginForm: FormGroup) {
+    this.userService.login(loginForm)
     .subscribe(data => {
       this.token = data;
       localStorage.setItem('token', this.token.token)

@@ -1,6 +1,6 @@
 <div class="container">
   <span>Login</span>
-  <form autocomplete="off" [formGroup]="loginForm" class="stack" (ngSubmit)="submitLoginForm()">
+  <form autocomplete="off" [formGroup]="loginForm" class="stack" (ngSubmit)="submitLoginForm(loginForm)">
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" required>
