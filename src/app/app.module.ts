@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./components/login/login.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from "@angular/common/http";
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

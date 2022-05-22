@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {ConverterService} from "../../services/converter.service";
+import {User} from "../models/User";
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ import {ConverterService} from "../../services/converter.service";
 })
 export class RegisterComponent implements OnInit {
   public hide = true;
-  public token!: Tokens | null;
+  public token!: User | null;
   public registerForm = new FormGroup({
     email: new FormControl('asda@gmail.com', [Validators.required, Validators.email]),
     fullName: new FormControl('Edvinas Alimas', [Validators.required]),
@@ -29,12 +30,7 @@ export class RegisterComponent implements OnInit {
   submitRegisterForm(registerForm: FormGroup) {
     let registerBody = this.converter.convertRegisterFormToBody(registerForm);
 
-    this.userService.register(registerBody)
-    .subscribe(data => {
-      this.token = data;
-      localStorage.setItem('token', this.token.token)
-    })
-    // this.router.navigate(['/']);
+    this.userService.register(registerBody);
   }
 
   get email() {

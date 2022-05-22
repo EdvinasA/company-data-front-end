@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "../../services/user.service";
 import { Tokens } from "../models/tokens";
+import {ConverterService} from "../../services/converter.service";
 
 @Component({
   selector: 'app-login',
@@ -18,18 +19,14 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private router: Router,
-              private userService: UserService) { }
+              private userService: UserService,
+              private converter: ConverterService) { }
 
   ngOnInit(): void {
   }
 
   submitLoginForm(loginForm: FormGroup) {
-    this.userService.login(loginForm)
-    .subscribe(data => {
-      this.token = data;
-      localStorage.setItem('token', this.token.token)
-    })
-    // this.router.navigate(['/']);
+    this.userService.login(this.converter.convertLoginFormToBody(loginForm));
   }
 
   get email() {

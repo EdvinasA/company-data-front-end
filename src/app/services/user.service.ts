@@ -1,26 +1,90 @@
-import { Injectable } from '@angular/core';
-import { environment } from "../../environments/environment";
-import { HttpClient } from "@angular/common/http";
-import { FormGroup } from "@angular/forms";
-import { Observable } from "rxjs";
-import { Tokens } from "../components/models/tokens";
-import { Register } from "../components/models/register";
+import {Injectable} from '@angular/core';
+import {ReplaySubject, Subject, Subscription} from "rxjs";
+import {Register} from "../components/models/register";
+import {Login} from "../components/models/login";
+import {ApiGatewayService} from "./api-gateway.service";
+import {User} from "../components/models/User";
+import {catchError, finalize} from "rxjs/operators";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private cachedUser: User | null = null;
+  public userWasLoaded: boolean = false;
+  public userSubject: Subject<User | null> = new ReplaySubject<User | null>();
 
-  private url = environment.apiUrl;
-
-  constructor(private http: HttpClient) { }
-
-  login(loginForm: FormGroup): Observable<Tokens> {
-    return this.http.post<Tokens>(`${this.url}/user/login`, null);
+  constructor(private http: ApiGatewayService,
+              private _snackBar: MatSnackBar,
+              private router: Router) {
   }
 
-  register(registerBody: Register): Observable<Tokens> {
-    console.log(registerBody);
-    return this.http.post<Tokens>(`${this.url}/user/register'`, registerBody)
+  login(loginBody: Login): Subscription {
+    return this.http
+    .post<User>('/user/login', loginBody)
+    .pipe(
+      catchError((err) => {
+        throw err;
+      }),
+      finalize(() => {
+        this.userWasLoaded = true;
+        this.userSubject.next(this.cachedUser);
+      }),
+    ).subscribe((response) => {
+      if (response.email === null) {
+        this.openSnackBar('Failed to get user!', 'Close');
+      }
+      localStorage.setItem('token', response.token.token)
+      this.router.navigate(['/']);
+      this.cachedUser = response;
+    });
   }
+
+  register(registerBody: Register): Subscription {
+    return this.http
+    .post<User>('/user/register', registerBody)
+    .pipe(
+      catchError((err) => {
+        throw err;
+      }),
+      finalize(() => {
+        this.userWasLoaded = true;
+        this.userSubject.next(this.cachedUser);
+      }),
+    ).subscribe((response) => {
+      if (response === null) {
+        this.openSnackBar('Failed to register the user!', 'Close');
+      }
+      localStorage.setItem('token', response.token.token)
+      this.cachedUser = response;
+      this.router.navigate(['/']);
+    });
+  }
+
+  validate(token: string | null): Subscription {
+    return this.http
+    .get<User>(`/user/${token}`)
+    .pipe(
+      catchError((err) => {
+        throw err;
+      }),
+      finalize(() => {
+        this.userWasLoaded = true;
+        this.userSubject.next(this.cachedUser);
+      }),
+    ).subscribe((response) => {
+      if (response === null) {
+        this.openSnackBar('Failed to validate user!', 'Close');
+      }
+      this.cachedUser = response;
+      this.router.navigate(['/']);
+    });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
 }

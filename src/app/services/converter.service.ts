@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {Register} from "../components/models/register";
+import {Login} from "../components/models/login";
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,14 @@ export class ConverterService {
     };
 
     return registerBody;
+  }
+
+  public convertLoginFormToBody(loginForm: FormGroup) {
+    let loginBody: Login = {
+      email: loginForm.get('email')?.value,
+      password: loginForm.get('password')?.value,
+    };
+
+    return loginBody;
   }
 }
