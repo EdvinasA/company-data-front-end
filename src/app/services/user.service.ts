@@ -3,7 +3,7 @@ import {ReplaySubject, Subject, Subscription} from "rxjs";
 import {Register} from "../components/models/register";
 import {Login} from "../components/models/login";
 import {ApiGatewayService} from "./api-gateway.service";
-import {User} from "../components/models/User";
+import {User} from "../components/models/user";
 import {catchError, finalize} from "rxjs/operators";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
