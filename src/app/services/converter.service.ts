@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {Register} from "../components/models/register";
-import {Login} from "../components/models/login";
+import {Register} from "../models/register";
+import {Login} from "../models/login";
 
 @Injectable({
   providedIn: 'root'

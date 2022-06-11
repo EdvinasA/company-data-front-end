@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ReplaySubject, Subject, Subscription} from "rxjs";
-import {Register} from "../components/models/register";
-import {Login} from "../components/models/login";
+import {Register} from "../models/register";
+import {Login} from "../models/login";
 import {ApiGatewayService} from "./api-gateway.service";
-import {User} from "../components/models/user";
+import {User} from "../models/user";
 import {catchError, finalize} from "rxjs/operators";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";

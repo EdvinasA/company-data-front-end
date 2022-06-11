@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import { Login } from "../../components/models/login";
-import {Register} from "../../components/models/register";
+import { Login } from "../../models/login";
+import {Register} from "../../models/register";
 
 export const USER_LOGIN = '[Login Page] Login';
 export const USER_LOGIN_SUCCESS = '[Login Page] Login Success';
