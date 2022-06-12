@@ -1,0 +1,8 @@
+.footer {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  bottom: 0;
+  position: absolute;
+  padding: 0 100px 20px 100px;
+  width: 100%;
+}
