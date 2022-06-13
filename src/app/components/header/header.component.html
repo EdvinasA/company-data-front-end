@@ -1,13 +1,25 @@
-<mat-toolbar color="primary" *ngIf="shouldDisplayHeader()">
-  <button mat-icon-button>
-    <mat-icon>menu</mat-icon>
+<div class="top-header">
+  <button mat-button>About us</button>
+  <button mat-button>Payment</button>
+  <button mat-button>Delivery</button>
+  <button mat-button>Return and varanty</button>
+  <button mat-button>FAQ</button>
+  <button mat-button>App</button>
+  <button mat-button>Delivery information</button>
+  <button mat-button class="important">IMPORTANT INFORMATION!</button>
+  <div class="separate-buttons">
+    <button mat-button color="primary">Service centers</button>
+    <button mat-button>Contacts</button>
+  </div>
+</div>
+<div class="bottom-header" *ngIf="shouldDisplayHeader()">
+  <span class="title">{{title}}</span>
+  <input matInput placeholder="Enter what you're searching">
+  <button mat-button style="color: black; background-color: green">
+    <mat-icon>search</mat-icon>
   </button>
-  <span>{{title}}</span>
-  <span class="spacer"></span>
+  <button mat-button>Registruotis/Prisijungti</button>
   <button mat-icon-button>
-    <mat-icon>favorite</mat-icon>
+    <mat-icon>shopping_cart</mat-icon>
   </button>
-  <button mat-icon-button>
-    <mat-icon>share</mat-icon>
-  </button>
-</mat-toolbar>
+</div>

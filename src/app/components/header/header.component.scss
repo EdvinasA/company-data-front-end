@@ -1,3 +1,42 @@
-.spacer {
-  flex: 1 1 auto;
+.top-header {
+  font-family: Roboto, sans-serif;
+  background-color: black;
+  font-size: 12px;
+  text-align: center;
+}
+
+.separate-buttons {
+  padding-left: 40px;
+  display: inline;
+}
+
+.mat-button {
+  font-size: 12px;
+  color: white;
+}
+
+.important {
+  background-color: red;
+}
+
+.bottom-header {
+  padding: 5px 0 0 0;
+  height: 50px;
+  text-align: center;
+  width: 100%;
+  background-color: #302d2d;
+}
+
+.bottom-header input {
+  text-align: left;
+  background-color: white;
+  border-radius: 2px;
+  padding: 0 0 0 30px;
+  height: 37px;
+  width: 550px;
+}
+
+.title {
+  color: white;
+  padding: 0 20px 0 0;
 }
