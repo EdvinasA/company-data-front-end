@@ -50,7 +50,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatSelectModule,
     MatOptionModule,
     MatSnackBarModule,
-    MatDividerModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
