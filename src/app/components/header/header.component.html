@@ -18,8 +18,16 @@
   <button mat-button style="color: black; background-color: green">
     <mat-icon>search</mat-icon>
   </button>
-  <button mat-button>Registruotis/Prisijungti</button>
-  <button mat-icon-button>
-    <mat-icon>shopping_cart</mat-icon>
-  </button>
+  <a routerLink="/login" routerLinkActive="active">
+    <button mat-button
+            class="user-form">
+      <mat-icon>person_pin</mat-icon>
+      Register/Login
+    </button>
+  </a>
+  <a routerLink="/cart" routerLinkActive="active">
+    <button mat-icon-button>
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </a>
 </div>
