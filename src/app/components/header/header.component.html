@@ -13,7 +13,9 @@
   </div>
 </div>
 <div class="bottom-header" *ngIf="shouldDisplayHeader()">
+  <a routerLink="/" routerLinkActive="active">
   <span class="title">{{title}}</span>
+  </a>
   <input matInput placeholder="Enter what you're searching">
   <button mat-button style="color: black; background-color: green">
     <mat-icon>search</mat-icon>
