@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
 
+  selectedOption = "popular";
+  selectedPageAmount = "48";
+
   constructor() { }
 
   ngOnInit(): void {

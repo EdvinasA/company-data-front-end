@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
+import { PopoverModule } from "ngx-smart-popover";
 
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
@@ -14,6 +15,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatOptionModule } from "@angular/material/core";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatButtonToggleModule } from "@angular/material/button-toggle";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -23,6 +26,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from "./components/login/login.component";
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { ProductsListItemsComponent } from './components/products-list/products-list-items/products-list-items.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,10 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CartComponent,
+    ProductsListComponent,
+    ProductsListItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MatSelectModule,
     MatOptionModule,
     MatSnackBarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonToggleModule,
+    PopoverModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

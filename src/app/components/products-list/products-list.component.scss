@@ -1,17 +1,45 @@
 .container {
   padding: 50px 0 0 0;
   text-align: center;
-  width: 100%;
+  width: 80%;
   font-family: Roboto, sans-serif;
 }
 
 .header-info {
-  padding: 0 0 0 20px;
-  text-align: left;
+  display: flex;
+  height: 60px;
+  text-align: center;
   border: 1px solid #e1e1e1;
   background: #f9f9f9;
 }
 
-.header-info span {
-  padding: 0 0 0 100px;
+.header-pages-filter {
+  padding: 20px 5px 0 20px;
+  width: 40%;
+  border-right: 1px solid #e1e1e1;
+}
+
+.header-info-display-items {
+  margin: 2px 0 0 22px;
+}
+
+.number-of-pages {
+  width: 8%;
+  text-align: center;
+  padding: 0 10px 0 10px;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+}
+
+.number-of-pages mat-form-field {
+  width: 90%;
+}
+
+.filter {
+  padding: 0 10px 0 10px;
+}
+
+.filter mat-icon {
+  display: inline;
+  vertical-align: middle;
 }
