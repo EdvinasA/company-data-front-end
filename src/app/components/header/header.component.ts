@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit {
   }
 
   shouldDisplayHeader() {
-    return !(localStorage.getItem('token') === null || localStorage.getItem('token') === 'undefined');
+    // return !(localStorage.getItem('token') === null || localStorage.getItem('token') === 'undefined');
+    return true;
   }
 
 }
