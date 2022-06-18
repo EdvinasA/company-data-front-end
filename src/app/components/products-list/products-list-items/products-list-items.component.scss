@@ -32,14 +32,22 @@
   width: 15%;
   display: grid;
   grid-template: 1fr / 1fr;
-  margin: 28px 20px 0 0;
+  margin: 48px 20px 0 0;
   height: 50%;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .price-and-options button {
   width: 100%;
   color: white;
   background: #ed1c24;
+  margin-top: 10px;
+}
+
+.price-and-options a {
+  font-size: 10px;
+  padding-top: 10px;
 }
 
 .small-details a {
@@ -47,7 +55,7 @@
   text-align: left;
   top: 0;
   left: 0;
-  width: 32%;
+  width: 45%;
 }
 
 .small-details span {
