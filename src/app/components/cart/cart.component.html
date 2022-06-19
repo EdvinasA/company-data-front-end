@@ -1,12 +1,65 @@
 <div class="container">
   <div class="button-and-header">
     <h2>Cart</h2>
-    <button mat-button>Continue <mat-icon>arrow_right_alt</mat-icon></button>
+    <button mat-button>Continue
+      <mat-icon>arrow_right_alt</mat-icon>
+    </button>
   </div>
   <div class="header-info">
     <span class="product-column">Products</span>
     <span class="price-column">Price</span>
     <span class="quantity-column">Quantity</span>
     <span class="total-column">Total</span>
+  </div>
+  <div>
+    <div class="item-container">
+      <div class="picture">
+        <img
+          src="https://ksd-images.lt/display/aikido/store/e9692431aec4b2f86a1a35c9bf46925c.jpg?h=2000&w=2000"
+          alt="laptop">
+      </div>
+      <div class="name">
+        <div>
+          <a>Nešiojamas kompiuteris Apple MacBook Air MGN63ZE/A Retina Space Gray, Apple M1, 8 GB,
+            256
+            GB, 13.3 "</a>
+          <p class="code-color">Product code: 850208</p>
+        </div>
+        <div style="padding-top: 40px">
+          <mat-icon
+            matTooltip="Will be delivered in 2 days">
+            directions_car
+          </mat-icon>
+        </div>
+      </div>
+      <div class="price">
+        1 199,00 €
+      </div>
+      <div class="quantity">
+        <button mat-icon-button>
+          <mat-icon>control_point</mat-icon>
+        </button>
+        <input matInput type="number" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">
+        <button mat-icon-button>
+          <mat-icon>remove_circle_outline</mat-icon>
+        </button>
+      </div>
+      <div class="total">
+        <p><strong>1 199,00 €</strong></p>
+      </div>
+    </div>
+    <div class="warranty">
+      <div class="normal-warranty">
+        <mat-checkbox class="example-margin"><a>Product Insurance</a></mat-checkbox>
+        <p>Insure new purchase and save up to 80% of product price</p>
+      </div>
+      <div class="extended-warranty">
+        <mat-checkbox class="example-margin"><a>Extended warranty</a></mat-checkbox>
+        <p>Free item repair</p>
+      </div>
+      <div style="text-align: right">
+        Remove item
+      </div>
+    </div>
   </div>
 </div>

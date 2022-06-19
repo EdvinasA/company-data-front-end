@@ -17,6 +17,8 @@ import { MatOptionModule } from "@angular/material/core";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -62,7 +64,9 @@ import { ProductsListItemsComponent } from './components/products-list/products-
     MatDividerModule,
     MatButtonToggleModule,
     PopoverModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
