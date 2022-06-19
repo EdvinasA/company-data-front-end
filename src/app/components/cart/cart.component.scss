@@ -5,6 +5,19 @@
   font-family: Roboto, sans-serif;
 }
 
+.button-and-header {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.button-and-header button {
+  height: 80%;
+  color: white;
+  background: #ed1c24;
+  width: 15%;
+}
+
 .header-info {
   display: flex;
   height: 60px;
