@@ -37,11 +37,11 @@
       </div>
       <div class="quantity">
         <button mat-icon-button>
-          <mat-icon>control_point</mat-icon>
+          <mat-icon>remove_circle_outline</mat-icon>
         </button>
         <input matInput type="number" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">
         <button mat-icon-button>
-          <mat-icon>remove_circle_outline</mat-icon>
+          <mat-icon>control_point</mat-icon>
         </button>
       </div>
       <div class="total">
@@ -57,9 +57,20 @@
         <mat-checkbox class="example-margin"><a>Extended warranty</a></mat-checkbox>
         <p>Free item repair</p>
       </div>
-      <div style="text-align: right">
-        Remove item
+      <div class="remove-item">
+        <button mat-button>
+          <mat-icon>close</mat-icon>
+          Remove item
+        </button>
       </div>
+    </div>
+  </div>
+  <div class="grid-container">
+    <div class="delivery">
+      <app-cart-delivery></app-cart-delivery>
+    </div>
+    <div class="total-price">
+      <app-cart-total></app-cart-total>
     </div>
   </div>
 </div>

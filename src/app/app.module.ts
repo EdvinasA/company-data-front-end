@@ -31,6 +31,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProductsListItemsComponent } from './components/products-list/products-list-items/products-list-items.component';
+import { CartDeliveryComponent } from './components/cart/cart-delivery/cart-delivery.component';
+import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ProductsListItemsComponent } from './components/products-list/products-
     FooterComponent,
     CartComponent,
     ProductsListComponent,
-    ProductsListItemsComponent
+    ProductsListItemsComponent,
+    CartDeliveryComponent,
+    CartTotalComponent
   ],
   imports: [
     BrowserModule,
