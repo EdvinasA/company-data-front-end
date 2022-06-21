@@ -36,11 +36,14 @@
         1 199,00 €
       </div>
       <div class="quantity">
-        <button mat-icon-button>
+        <button mat-icon-button (click)="decreaseQuantity()" *ngIf="quantity >= 2">
           <mat-icon>remove_circle_outline</mat-icon>
         </button>
-        <input matInput type="number" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">
-        <button mat-icon-button>
+        <input
+          matInput
+          (change)="handleNegativeValue($event)"
+          [(ngModel)]="quantity">
+        <button mat-icon-button (click)="increaseQuantity()">
           <mat-icon>control_point</mat-icon>
         </button>
       </div>
