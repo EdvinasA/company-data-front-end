@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header-info">
     <div class="header-pages-filter">
-      Showing 1 - 48 out of 354
+      Showing 1 - 48 out of {{pageOfLaptops.totalElements}}
     </div>
     <div class="filter">
       <mat-icon>compare_arrows</mat-icon>
@@ -16,8 +16,8 @@
     <div class="number-of-pages">
       <mat-form-field>
         <mat-select disableRipple [(ngModel)]="selectedPageAmount">
-          <mat-option value="48">48</mat-option>
-          <mat-option value="72">72</mat-option>
+          <mat-option value="5">5</mat-option>
+          <mat-option value="10">10</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -32,5 +32,14 @@
       </mat-button-toggle-group>
     </div>
   </div>
-  <app-products-list-items></app-products-list-items>
+  <app-products-list-items [laptops]="pageOfLaptops.content"
+                           [itemsPerPage]="pageOfLaptops.size"
+                           [currentPage]="currentPage"
+                           [totalItems]="pageOfLaptops.totalElements"
+  ></app-products-list-items>
+  <div class="paginator">
+    <pagination-controls previousLabel="Previous"
+                         nextLabel="Next">
+    </pagination-controls>
+  </div>
 </div>

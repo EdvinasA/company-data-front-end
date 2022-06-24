@@ -1,7 +1,5 @@
-import {Laptop} from "./laptop";
-
-export interface PageOfLaptop {
-  content: Laptop[];
+export interface Page {
+  content: [];
   pageable: {
     sort: {
       empty: boolean;
