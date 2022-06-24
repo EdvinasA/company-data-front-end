@@ -14,8 +14,8 @@ export class ProductsService {
   constructor(private http: ApiGatewayService) {
   }
 
-  getPagedListOfLaptops(size: string): Observable<Page> {
-    return this.http.get<Page>(`/shop/laptop?size=${size}`);
+  getPagedListOfLaptops(size: string, page: number): Observable<Page> {
+    return this.http.get<Page>(`/shop/laptop?page=${page}&size=${size}`);
   }
 
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header-info">
     <div class="header-pages-filter">
-      Showing 1 - 48 out of {{pageOfLaptops.totalElements}}
+      Showing {{getFirstAmountOfResultValues()}} - {{getSecondAmountOfResultValues()}} out of {{pageOfLaptops?.totalElements}}
     </div>
     <div class="filter">
       <mat-icon>compare_arrows</mat-icon>
@@ -15,9 +15,11 @@
     </div>
     <div class="number-of-pages">
       <mat-form-field>
-        <mat-select disableRipple [(ngModel)]="selectedPageAmount">
-          <mat-option value="5">5</mat-option>
-          <mat-option value="10">10</mat-option>
+        <mat-select (selectionChange)="changeSizeOfPage($event.value)"
+                    disableRipple
+                    [(ngModel)]="selectedPageAmount">
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -34,11 +36,12 @@
   </div>
   <app-products-list-items [laptops]="pageOfLaptops.content"
                            [itemsPerPage]="pageOfLaptops.size"
-                           [currentPage]="currentPage"
+                           [currentPage]="page"
                            [totalItems]="pageOfLaptops.totalElements"
   ></app-products-list-items>
   <div class="paginator">
-    <pagination-controls previousLabel="Previous"
+    <pagination-controls (pageChange)="changePage($event)"
+                         previousLabel="Previous"
                          nextLabel="Next">
     </pagination-controls>
   </div>

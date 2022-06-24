@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit} from '@angular/core';
 import { ProductsService } from "../../services/products.service";
 import { Page } from "../../models/page";
 import { Subscription } from "rxjs";
@@ -13,15 +13,34 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   public pageOfLaptops!: Page;
   subscription!: Subscription;
   selectedOption = "popular";
-  selectedPageAmount = "5";
-  currentPage = 1;
+  selectedPageAmount = "2";
+  page = 0;
 
   constructor(private productsService: ProductsService) {
   }
 
   ngOnInit(): void {
     this.subscription = this.productsService
-    .getPagedListOfLaptops(this.selectedPageAmount)
+    .getPagedListOfLaptops(this.selectedPageAmount, this.page)
+    .subscribe(page => {
+      this.pageOfLaptops = page;
+    })
+  }
+
+  changeSizeOfPage(event: string) {
+    this.selectedPageAmount = event;
+    console.log(this.selectedPageAmount);
+    this.productsService
+    .getPagedListOfLaptops(this.selectedPageAmount, (this.page - 1))
+    .subscribe(page => {
+      this.pageOfLaptops = page;
+    })
+  }
+
+  changePage(event: number) {
+    this.page = event;
+    this.productsService
+    .getPagedListOfLaptops(this.selectedPageAmount, (this.page - 1))
     .subscribe(page => {
       this.pageOfLaptops = page;
     })
@@ -31,7 +50,24 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  getSelectedPageAmount() {
-    return Number(this.selectedPageAmount);
+  getSecondAmountOfResultValues() {
+    if (this.pageOfLaptops.last) {
+      return this.pageOfLaptops?.totalElements;
+    }
+    return this.pageOfLaptops?.numberOfElements * this.getCurrentPage();
+  }
+
+  getFirstAmountOfResultValues() {
+    if (this.pageOfLaptops.last) {
+      return this.pageOfLaptops?.totalElements - this.pageOfLaptops?.numberOfElements + 1;
+    }
+    return ((this.getCurrentPage() * this.pageOfLaptops?.numberOfElements) - (this.pageOfLaptops?.numberOfElements - 1));
+  }
+
+  getCurrentPage() {
+    if (this.page === 0) {
+      return 1;
+    }
+    return this.page;
   }
 }
