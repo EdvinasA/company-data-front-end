@@ -4,6 +4,7 @@
   width: 25%;
   border: 1px solid #e1e1e1;
   height: 500px;
+  min-height: auto;
 }
 
 .item-card {
@@ -11,7 +12,8 @@
 }
 
 .item-card img {
-  width: 87%;
+  width: 100%;
+  height: 120px
 }
 
 .card-display-container {
