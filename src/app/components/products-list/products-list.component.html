@@ -1,7 +1,8 @@
 <div class="container">
   <div class="header-info">
     <div class="header-pages-filter">
-      Showing {{getFirstAmountOfResultValues()}} - {{getSecondAmountOfResultValues()}} out of {{pageOfLaptops?.totalElements}}
+      Showing {{getFirstAmountOfResultValues()}} - {{getSecondAmountOfResultValues()}} out
+      of {{pageOfLaptops?.totalElements}}
     </div>
     <div class="filter">
       <mat-icon>compare_arrows</mat-icon>
@@ -18,27 +19,34 @@
         <mat-select (selectionChange)="changeSizeOfPage($event.value)"
                     disableRipple
                     [(ngModel)]="selectedPageAmount">
-          <mat-option value="2">2</mat-option>
-          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="8">8</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="header-info-display-items">
-      <mat-button-toggle-group class="header-info-display-items" aria-label="Font Style">
+      <mat-button-toggle-group>
         <mat-button-toggle value="list">
           <mat-icon>list</mat-icon>
         </mat-button-toggle>
+        <span></span>
         <mat-button-toggle value="blocks">
           <mat-icon>view_module</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
   </div>
-  <app-products-list-items [laptops]="pageOfLaptops.content"
+  <app-products-list-items *ngIf="selectedView"
+                           [laptops]="pageOfLaptops.content"
                            [itemsPerPage]="pageOfLaptops.size"
                            [currentPage]="page"
                            [totalItems]="pageOfLaptops.totalElements"
   ></app-products-list-items>
+  <app-products-list-as-card [laptops]="pageOfLaptops.content"
+                             [itemsPerPage]="pageOfLaptops.size"
+                             [currentPage]="page"
+                             [totalItems]="pageOfLaptops.totalElements">
+  </app-products-list-as-card>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"
                          previousLabel="Previous"

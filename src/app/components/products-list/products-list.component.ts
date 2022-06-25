@@ -13,7 +13,8 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   public pageOfLaptops!: Page;
   subscription!: Subscription;
   selectedOption = "popular";
-  selectedPageAmount = "2";
+  selectedPageAmount = "8";
+  selectedView = false;
   page = 0;
 
   constructor(private productsService: ProductsService) {

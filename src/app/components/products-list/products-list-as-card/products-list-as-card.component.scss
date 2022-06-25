@@ -1,0 +1,25 @@
+.card-container {
+  background: white;
+  float: left;
+  width: 25%;
+  border: 1px solid #e1e1e1;
+  height: 500px;
+}
+
+.item-card {
+  padding: 20px;
+}
+
+.item-card img {
+  width: 87%;
+}
+
+.card-display-container {
+  width: 100%;
+  display: inline-block;
+}
+
+.small-details {
+  font-size: 14px;
+  padding: 5px 10px 10px 10px;
+}

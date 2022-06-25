@@ -1,29 +1,32 @@
 <div>
-<div *ngFor="let laptop of laptops | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }">
-  <div class="item-container">
-    <div class="align-image">
-      <img
-        src="{{laptop?.picture}}">
-    </div>
-    <div class="small-details">
-      <a>{{laptop?.name}} "</a>
-      <span class="description">Screen size: <span><strong>{{laptop?.screenSize}} "</strong></span></span>
-      <span
-        class="description">Installed operational system: <span><strong>{{laptop?.operationalSystem}}</strong></span></span>
-      <span
-        class="description">Amount of RAM: <span><strong>{{laptop?.amountOfRam}}</strong></span></span>
-      <span class="description">Kietojo disko talpa (HDD): <span> <strong>–</strong></span></span>
-      <span class="description">SSD disko talpa: <span> <strong>{{laptop?.dataStorageSize}}</strong></span></span>
-      <span class="availability"><mat-icon>brightness_1</mat-icon>Delivery</span>
-      <span class="availability"><mat-icon>brightness_1</mat-icon>Collect</span>
-    </div>
-    <div class="price-and-options">
-      <span>{{laptop?.price | number : '1.2-2'}} € / vnt.</span>
-      <button mat-button>
-        <mat-icon>shopping_cart</mat-icon>
-        To cart
-      </button>
-      <a>Add for comparison</a>
+  <div
+    *ngFor="let laptop of laptops | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }">
+    <div class="item-container">
+      <div class="align-image">
+        <img
+          src="{{laptop?.picture}}">
+      </div>
+      <div class="small-details">
+        <a>{{laptop?.name}} "</a>
+        <span class="description">Screen size: <span><strong>{{laptop?.screenSize}}
+          "</strong></span></span>
+        <span
+          class="description">Installed operational system: <span><strong>{{laptop?.operationalSystem}}</strong></span></span>
+        <span
+          class="description">Amount of RAM: <span><strong>{{laptop?.amountOfRam}}</strong></span></span>
+        <span class="description">Hard drive space (HDD): <span> <strong>–</strong></span></span>
+        <span
+          class="description">SSD space: <span> <strong>{{laptop?.dataStorageSize}}</strong></span></span>
+        <span class="availability"><mat-icon>brightness_1</mat-icon>Delivery</span>
+        <span class="availability"><mat-icon>brightness_1</mat-icon>Collect</span>
+      </div>
+      <div class="price-and-options">
+        <span>{{laptop?.price | number : '1.2-2'}} € / vnt.</span>
+        <button mat-button>
+          <mat-icon>shopping_cart</mat-icon>
+          To cart
+        </button>
+        <a>Add for comparison</a>
+      </div>
     </div>
   </div>
-</div>

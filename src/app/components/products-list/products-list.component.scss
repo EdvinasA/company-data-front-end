@@ -8,19 +8,18 @@
 .header-info {
   display: flex;
   height: 60px;
-  text-align: center;
   border: 1px solid #e1e1e1;
   background: #f9f9f9;
 }
 
 .header-pages-filter {
   padding: 20px 5px 0 20px;
-  width: 40%;
+  width: 45%;
   border-right: 1px solid #e1e1e1;
 }
 
 .header-info-display-items {
-  margin: 2px 0 0 22px;
+  height: 100%;
 }
 
 .number-of-pages {
@@ -37,11 +36,16 @@
 
 .filter {
   padding: 0 10px 0 10px;
+  width: 33%;
+  display: block ruby;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .filter mat-icon {
   display: inline;
   vertical-align: middle;
+  padding-right: 10px;
 }
 
 .paginator {
