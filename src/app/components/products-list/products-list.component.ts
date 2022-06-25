@@ -13,6 +13,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   public pageOfLaptops!: Page;
   subscription!: Subscription;
   selectedOption = "popular";
+  defaultProductDisplay = "blocks";
   selectedPageAmount = "8";
   selectedView = false;
   page = 0;
@@ -30,18 +31,17 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 
   changeSizeOfPage(event: string) {
     this.selectedPageAmount = event;
-    console.log(this.selectedPageAmount);
-    this.productsService
-    .getPagedListOfLaptops(this.selectedPageAmount, (this.page - 1))
-    .subscribe(page => {
-      this.pageOfLaptops = page;
-    })
+    this.request(this.page, this.selectedPageAmount);
   }
 
   changePage(event: number) {
     this.page = event;
+    this.request(this.page, this.selectedPageAmount);
+  }
+
+  request(page: number, size: string) {
     this.productsService
-    .getPagedListOfLaptops(this.selectedPageAmount, (this.page - 1))
+    .getPagedListOfLaptops(size, (page - 1))
     .subscribe(page => {
       this.pageOfLaptops = page;
     })

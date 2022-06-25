@@ -25,7 +25,7 @@
       </mat-form-field>
     </div>
     <div class="header-info-display-items">
-      <mat-button-toggle-group>
+      <mat-button-toggle-group #group="matButtonToggleGroup" [value]="defaultProductDisplay">
         <mat-button-toggle value="list">
           <mat-icon>list</mat-icon>
         </mat-button-toggle>
@@ -36,13 +36,14 @@
       </mat-button-toggle-group>
     </div>
   </div>
-  <app-products-list-items *ngIf="selectedView"
+  <app-products-list-items *ngIf="group.value === 'list'"
                            [laptops]="pageOfLaptops.content"
                            [itemsPerPage]="pageOfLaptops.size"
                            [currentPage]="page"
                            [totalItems]="pageOfLaptops.totalElements"
   ></app-products-list-items>
-  <app-products-list-as-card [laptops]="pageOfLaptops.content"
+  <app-products-list-as-card *ngIf="group.value === 'blocks'"
+                             [laptops]="pageOfLaptops.content"
                              [itemsPerPage]="pageOfLaptops.size"
                              [currentPage]="page"
                              [totalItems]="pageOfLaptops.totalElements">
