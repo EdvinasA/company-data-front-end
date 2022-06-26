@@ -26,7 +26,7 @@ export class UserService {
     .post<User>('/user/login', loginBody)
     .pipe(
       catchError((err) => {
-        throw err;
+        throw err.message();
       }),
       finalize(() => {
         this.userWasLoaded = true;
@@ -36,7 +36,7 @@ export class UserService {
       if (response.email === null) {
         this.openSnackBar('Failed to get user!', 'Close');
       }
-      localStorage.setItem('token', response.token.token)
+      localStorage.setItem('token', response.token)
       this.router.navigate(['/']);
       this.cachedUser = response;
     });
@@ -47,20 +47,22 @@ export class UserService {
     .post<User>('/user/register', registerBody)
     .pipe(
       catchError((err) => {
+        this.openSnackBar('Failed to register the user!', 'Close');
         throw err;
       }),
       finalize(() => {
         this.userWasLoaded = true;
         this.userSubject.next(this.cachedUser);
       }),
-    ).subscribe((response) => {
-      if (response === null) {
-        this.openSnackBar('Failed to register the user!', 'Close');
-      }
-      localStorage.setItem('token', response.token.token)
-      this.cachedUser = response;
-      this.router.navigate(['/']);
-    });
+    ).subscribe(
+      (response) => {
+        localStorage.setItem('token', response.token)
+        this.cachedUser = response;
+        this.router.navigate(['/']);
+    },
+      (error) => {
+        this.openSnackBar('Failed to register the user! Email already occupied!', 'Close');
+      });
   }
 
   validate(token: string | null): Subscription {
@@ -68,6 +70,7 @@ export class UserService {
     .get<User>(`/user/${token}`)
     .pipe(
       catchError((err) => {
+        this.openSnackBar('Failed to validate user!', 'Close');
         throw err;
       }),
       finalize(() => {
@@ -75,9 +78,6 @@ export class UserService {
         this.userSubject.next(this.cachedUser);
       }),
     ).subscribe((response) => {
-      if (response === null) {
-        this.openSnackBar('Failed to validate user!', 'Close');
-      }
       this.cachedUser = response;
       this.router.navigate(['/']);
     });

@@ -14,7 +14,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" type="button"
                 [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -23,15 +23,15 @@
            class="error">
         <strong>Password can't be blank!</strong>
       </div>
-      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login
+      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit">Login
       </button>
       <a href="/register">Don't have an account ? Register!</a>
-      <div class="facebook">
-        <button mat-button><mat-icon>facebook-box</mat-icon> Login with Facebook</button>
-      </div>
-      <div class="google">
-        <button mat-button>Login with Google</button>
-      </div>
     </form>
+    <div class="facebook">
+      <button mat-button><mat-icon>facebook-box</mat-icon> Login with Facebook</button>
+    </div>
+    <div class="google">
+      <button mat-button>Login with Google</button>
+    </div>
   </div>
 </div>
