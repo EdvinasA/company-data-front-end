@@ -1,25 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CartService} from "../../services/cart.service";
+import {Cart} from "../../models/cart";
+import {Subject, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
 
-  quantity = 0;
+  // @ts-ignore
+  cartList: Cart[];
+  subscription!: Subscription;
+  unsubscribeSignal: Subject<Cart[]> = new Subject();
+  quantity = 1;
 
-  constructor() { }
+  constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
+    this.subscription = this.cartService.currentCartList.subscribe(cart => {
+      this.cartList = cart;
+    })
   }
 
-  increaseQuantity() {
-    this.quantity += 1;
+  increaseQuantity(item: Cart) {
+    item.quantity += 1;
   }
 
-  decreaseQuantity() {
-    this.quantity -= 1;
+  decreaseQuantity(item: Cart) {
+    item.quantity -= 1;
   }
 
   handleNegativeValue(event: any) {
@@ -28,6 +38,10 @@ export class CartComponent implements OnInit {
     if (isNaN(number)) {
       this.quantity = 1;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribeSignal.next();
   }
 
 }

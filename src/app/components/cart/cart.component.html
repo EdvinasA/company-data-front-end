@@ -1,6 +1,6 @@
 <div class="container">
   <div class="button-and-header">
-    <h2>Cart</h2>
+    <h2>Cart {{cartList.length}}</h2>
     <button mat-button>Continue
       <mat-icon>arrow_right_alt</mat-icon>
     </button>
@@ -11,19 +11,17 @@
     <span class="quantity-column">Quantity</span>
     <span class="total-column">Total</span>
   </div>
-  <div>
+  <div *ngFor="let item of cartList">
     <div class="item-container">
       <div class="picture">
         <img
-          src="https://ksd-images.lt/display/aikido/store/e9692431aec4b2f86a1a35c9bf46925c.jpg?h=2000&w=2000"
-          alt="laptop">
+          src="{{item.picture}}"
+          alt="{{item.productName}}">
       </div>
       <div class="name">
         <div>
-          <a>Nešiojamas kompiuteris Apple MacBook Air MGN63ZE/A Retina Space Gray, Apple M1, 8 GB,
-            256
-            GB, 13.3 "</a>
-          <p class="code-color">Product code: 850208</p>
+          <a>{{item.productName}}</a>
+          <p class="code-color">Product code: {{item.productCode}}</p>
         </div>
         <div style="padding-top: 40px">
           <mat-icon
@@ -33,17 +31,19 @@
         </div>
       </div>
       <div class="price">
-        1 199,00 €
+        {{item.price}} €
       </div>
       <div class="quantity">
-        <button mat-icon-button (click)="decreaseQuantity()" *ngIf="quantity >= 2">
+        <button mat-icon-button (click)="decreaseQuantity(item)" *ngIf="item.quantity >= 2">
           <mat-icon>remove_circle_outline</mat-icon>
         </button>
+        <div class="empty-space" *ngIf="!(item.quantity >= 2)">
+        </div>
         <input
           matInput
           (change)="handleNegativeValue($event)"
-          [(ngModel)]="quantity">
-        <button mat-icon-button (click)="increaseQuantity()">
+          [(ngModel)]="item.quantity">
+        <button mat-icon-button (click)="increaseQuantity(item)">
           <mat-icon>control_point</mat-icon>
         </button>
       </div>
@@ -53,11 +53,11 @@
     </div>
     <div class="warranty">
       <div class="normal-warranty">
-        <mat-checkbox class="example-margin"><a>Product Insurance</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="item.insurance" class="example-margin"><a>Product Insurance</a></mat-checkbox>
         <p>Insure new purchase and save up to 80% of product price</p>
       </div>
       <div class="extended-warranty">
-        <mat-checkbox class="example-margin"><a>Extended warranty</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="item.warranty" class="example-margin"><a>Extended warranty</a></mat-checkbox>
         <p>Free item repair</p>
       </div>
       <div class="remove-item">
