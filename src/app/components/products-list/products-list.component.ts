@@ -10,7 +10,8 @@ import { Subscription } from "rxjs";
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
 
-  public pageOfLaptops!: Page;
+  // @ts-ignore
+  pageOfLaptops: Page = {};
   subscription!: Subscription;
   selectedOption = "popular";
   defaultProductDisplay = "blocks";
