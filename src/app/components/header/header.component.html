@@ -14,27 +14,17 @@
 </div>
 <div class="bottom-header" *ngIf="shouldDisplayHeader()">
   <a routerLink="/" routerLinkActive="active">
-    <span class="title">{{title}}</span>
+  <span class="title">{{title}}</span>
   </a>
   <input matInput placeholder="Enter what you're searching">
   <button mat-button style="color: black; background-color: green">
     <mat-icon>search</mat-icon>
   </button>
   <a routerLink="/login" routerLinkActive="active">
-    <popover-content #popover>
-
-    </popover-content>
-    <div class="user-form"
-         [popover]="popover"
-         popoverPlacement="bottom"
-         [popoverOnHover]="true"
-         [popoverCloseOnClickOutside]="false"
-         [popoverCloseOnMouseOutside]="true"
-         [popoverDisabled]="false"
-         [popoverAnimation]="true">
+    <button mat-button class="user-form">
       <mat-icon>person_pin</mat-icon>
       Register/Login
-    </div>
+    </button>
   </a>
   <a routerLink="/cart" routerLinkActive="active">
     <button mat-icon-button>
