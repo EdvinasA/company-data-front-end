@@ -37,6 +37,7 @@ import {
   NgxPaginationModule,
   PaginatePipe,
 } from "ngx-pagination";
+import { ProductsListAsCardComponent } from './components/products-list/products-list-as-card/products-list-as-card.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {
     ProductsListComponent,
     ProductsListItemsComponent,
     CartDeliveryComponent,
-    CartTotalComponent
+    CartTotalComponent,
+    ProductsListAsCardComponent
   ],
   imports: [
     BrowserModule,

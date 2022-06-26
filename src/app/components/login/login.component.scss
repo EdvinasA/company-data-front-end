@@ -5,15 +5,27 @@
 }
 
 .container {
-  display: block;
+  display: flex;
   margin: auto;
-  height: 30%;
-  width: 40%;
-  padding: 50px;
+  width: 100%;
+  padding: 60px;
   text-align: center;
+  justify-content: center;
 }
 
 .error {
   color: red;
   margin-bottom: 20px;
+}
+
+.login {
+  width: 50%;
+  border: 1px solid #e1e1e1;
+  padding: 30px 80px 30px 80px;
+  background-color: white;
+}
+
+.container a {
+  font-size: 14px;
+  padding-top: 10px;
 }

@@ -13,7 +13,8 @@ export class ConverterService {
   public convertRegisterFormToBody(registerForm: FormGroup) {
     let registerBody: Register = {
       email: registerForm.get('email')?.value,
-      fullName: registerForm.get('fullName')?.value,
+      name: registerForm.get('name')?.value,
+      lastName: registerForm.get('lastName')?.value,
       password: registerForm.get('password')?.value,
     };
 

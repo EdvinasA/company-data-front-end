@@ -1,5 +1,6 @@
 export class Register {
   email!: string;
-  fullName!: string;
+  name!: string;
+  lastName!: string;
   password!: string;
 }

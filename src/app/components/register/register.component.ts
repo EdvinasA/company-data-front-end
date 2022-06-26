@@ -16,7 +16,8 @@ export class RegisterComponent implements OnInit {
   public token!: User | null;
   public registerForm = new FormGroup({
     email: new FormControl('asda@gmail.com', [Validators.required, Validators.email]),
-    fullName: new FormControl('Edvinas Alimas', [Validators.required]),
+    name: new FormControl('Edvinas', [Validators.required]),
+    lastName: new FormControl('Alimas', [Validators.required]),
     password: new FormControl('asd', [Validators.required]),
   });
 

@@ -5,12 +5,32 @@
 }
 
 .container {
-  margin-top: 250px;
-  width: 15%;
+  display: flex;
+  margin: auto;
+  width: 100%;
+  padding: 60px;
   text-align: center;
+  justify-content: center;
+}
+
+.register {
+  width: 50%;
+  border: 1px solid #e1e1e1;
+  padding: 30px 80px 30px 80px;
+  background-color: white;
 }
 
 .error {
   color: red;
   margin-bottom: 20px;
+}
+
+.register span {
+  font-size: 28px;
+}
+
+.back-to-login {
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
 }
