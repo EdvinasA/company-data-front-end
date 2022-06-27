@@ -8,6 +8,24 @@
   transition: height 0.1s;
 }
 
+@media screen and (max-width: 1200px) {
+  .card-container {
+    width: 33.33%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card-container {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    width: 100%;
+  }
+}
+
 .image {
   padding: 20px;
 }
