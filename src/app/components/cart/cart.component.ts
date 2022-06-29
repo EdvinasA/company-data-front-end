@@ -33,11 +33,14 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   handleNegativeValue(event: any) {
-    console.log(event.target.value);
     let number = Number(event.target.value);
     if (isNaN(number)) {
       this.quantity = 1;
     }
+  }
+
+  removeItemFromCart(item: Cart) {
+    this.cartService.removeItemFromCartList(item);
   }
 
   ngOnDestroy(): void {

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ApiGatewayService} from "./api-gateway.service";
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {Cart} from "../models/cart";
 
 @Injectable({
@@ -17,21 +17,32 @@ export class CartService {
   }
 
   updateCartList(item: Cart) {
-    if (this.cartItemsList.includes(item)) {
-      // @ts-ignore
-      let item = this.cartItemsList.find(cartItem => cartItem.id === item.id);
-      if (item != null) {
-        // @ts-ignore
-        this.cartItemsList.find(cartItem => cartItem.id === item.id).quantity += 1;
-      }
+    let itemInCart = this.cartItemsList.find(cartItem => cartItem.id === item.id);
+    if (itemInCart != undefined) {
+      this.cartItemsList[this.findIndexToUpdate(itemInCart)].quantity += 1;
+    } else {
+      this.cartItemsList.push(item);
     }
-    this.cartItemsList.push(item);
 
     this.itemsList.next(this.cartItemsList);
   }
 
+  removeItemFromCartList(item: Cart) {
+    let itemInCartIndex = this.findIndexToUpdate(item);
+
+    this.cartItemsList.splice(itemInCartIndex, 1);
+  }
+
   findIndexToUpdate(item: Cart) {
     // @ts-ignore
-    return item.id === this;
+    return this.cartItemsList.findIndex(cartItem => cartItem.id === item.id)
+  }
+
+  getCart(userId: string): Observable<Cart[]> {
+    return this.http.get<Cart[]>(`/shop/cart/${userId}`);
+  }
+
+  updateCart(cartItem: Cart) {
+    return this.http.post<Cart>(`/shop/cart`, cartItem);
   }
 }
