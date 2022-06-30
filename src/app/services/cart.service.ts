@@ -48,6 +48,7 @@ export class CartService {
     let itemInCartIndex = this.findIndexToUpdate(item);
 
     this.cartItemsList.splice(itemInCartIndex, 1);
+    this.cartItemsTotal.next(this.calculateTotalSumOfAllItems())
   }
 
   findIndexToUpdate(item: Cart) {
