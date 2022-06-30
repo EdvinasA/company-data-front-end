@@ -10,13 +10,12 @@ import {Subject, Subscription} from "rxjs";
 })
 export class CartComponent implements OnInit, OnDestroy {
 
-  // @ts-ignore
-  cartList: Cart[];
+  cartList: Cart[] = [];
   subscription!: Subscription;
   unsubscribeSignal: Subject<Cart[]> = new Subject();
-  quantity = 1;
 
-  constructor(private cartService:CartService) { }
+  constructor(private cartService: CartService) {
+  }
 
   ngOnInit(): void {
     this.subscription = this.cartService.currentCartList.subscribe(cart => {
@@ -25,18 +24,20 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   increaseQuantity(item: Cart) {
-    item.quantity += 1;
+    this.cartService.updateCartItemQuantity(item, 1, false)
   }
 
   decreaseQuantity(item: Cart) {
-    item.quantity -= 1;
+    this.cartService.updateCartItemQuantity(item, -1, false)
   }
 
-  handleNegativeValue(event: any) {
-    let number = Number(event.target.value);
-    if (isNaN(number)) {
-      this.quantity = 1;
-    }
+  keyPressNumbers(event: any, item: Cart) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      this.cartService.updateCartItemQuantity(item, 1, false)
+    } else
+    this.cartService.updateCartItemQuantity(item, event.target.value, true)
   }
 
   removeItemFromCart(item: Cart) {

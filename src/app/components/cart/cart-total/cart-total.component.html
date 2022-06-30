@@ -1,6 +1,6 @@
 <div class="total-box">
-  <p class="message-under-price" *ngIf="price <= 19.99">Orders lower than 19,99 € is subject to administrative tax which is 1,99 €</p>
-  <p>Items total: <strong>1 199,00 €</strong></p>
+  <p class="message-under-price" *ngIf="totalSumOfAllItemsSubject <= 19.99">Orders lower than 19,99 € is subject to administrative tax which is 1,99 €</p>
+  <p>Items total: <strong>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</strong></p>
   <a href="/"><mat-icon class="back-to-main">keyboard_backspace</mat-icon>Choose more items</a>
   <mat-divider></mat-divider>
   <button mat-button class="buy-button">Start buying <mat-icon>arrow_right_alt</mat-icon></button>

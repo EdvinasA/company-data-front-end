@@ -8,8 +8,11 @@ import {Cart} from "../models/cart";
 })
 export class CartService {
 
+  public cartItemsTotalSum: number = 0;
+  private cartItemsTotal = new BehaviorSubject(this.cartItemsTotalSum);
+  currentTotalSum = this.cartItemsTotal.asObservable();
+
   public cartItemsList: Cart[] = [];
-  public cartItems = new Subject<Cart[]>();
   private itemsList = new BehaviorSubject(this.cartItemsList);
   currentCartList = this.itemsList.asObservable();
 
@@ -25,6 +28,20 @@ export class CartService {
     }
 
     this.itemsList.next(this.cartItemsList);
+    this.cartItemsTotal.next(this.calculateTotalSumOfAllItems())
+  }
+
+  updateCartItemQuantity(item: Cart, quantity: number, isUserInput: boolean) {
+    let itemInCart = this.cartItemsList.find(cartItem => cartItem.id === item.id);
+    if (itemInCart != undefined && !isUserInput) {
+      this.cartItemsList[this.findIndexToUpdate(itemInCart)].quantity += quantity
+    }
+    if (itemInCart != undefined && isUserInput) {
+      this.cartItemsList[this.findIndexToUpdate(itemInCart)].quantity = quantity
+    }
+
+    this.itemsList.next(this.cartItemsList);
+    this.cartItemsTotal.next(this.calculateTotalSumOfAllItems())
   }
 
   removeItemFromCartList(item: Cart) {
@@ -44,5 +61,17 @@ export class CartService {
 
   updateCart(cartItem: Cart) {
     return this.http.post<Cart>(`/shop/cart`, cartItem);
+  }
+
+  calculateTotalSumOfAllItems() {
+    let totalSum = 0;
+    if (this.cartItemsList.length !== 0) {
+      this.cartItemsList.forEach(cart => {
+        totalSum += (cart.price * cart.quantity);
+      })
+      return totalSum;
+    } else {
+      return totalSum;
+    }
   }
 }

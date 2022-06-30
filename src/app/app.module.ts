@@ -38,6 +38,7 @@ import {
   PaginatePipe,
 } from "ngx-pagination";
 import { ProductsListAsCardComponent } from './components/products-list/products-list-as-card/products-list-as-card.component';
+import {CommonModule, DecimalPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -77,9 +78,10 @@ import { ProductsListAsCardComponent } from './components/products-list/products
     MatMenuModule,
     MatTooltipModule,
     MatCheckboxModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CommonModule
   ],
-  providers: [PaginatePipe],
+  providers: [PaginatePipe, DecimalPipe],
   bootstrap: [AppComponent]
 })
 

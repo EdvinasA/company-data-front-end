@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {CartService} from "../../../services/cart.service";
 
 @Component({
   selector: 'app-cart-total',
@@ -7,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartTotalComponent implements OnInit {
 
-  price = 18;
+  totalSumOfAllItemsSubject: number = 0;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.currentTotalSum.subscribe(sum => {
+      this.totalSumOfAllItemsSubject = sum;
+    })
   }
 
 }

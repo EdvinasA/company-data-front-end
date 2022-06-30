@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="price">
-        {{item.price}} €
+        {{item.price | number : '1.2-2'}} €
       </div>
       <div class="quantity">
         <button mat-icon-button (click)="decreaseQuantity(item)" *ngIf="item.quantity >= 2">
@@ -39,10 +39,10 @@
         </button>
         <div class="empty-space" *ngIf="!(item.quantity >= 2)">
         </div>
-        <input
-          matInput
-          (change)="handleNegativeValue($event)"
-          [(ngModel)]="item.quantity">
+          <input
+            type="number"
+            (keypress)="keyPressNumbers($event, item)"
+            [(ngModel)]="item.quantity">
         <button mat-icon-button (click)="increaseQuantity(item)">
           <mat-icon>control_point</mat-icon>
         </button>
