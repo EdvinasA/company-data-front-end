@@ -12,7 +12,7 @@
     <button mat-button>Contacts</button>
   </div>
 </div>
-<div class="bottom-header" *ngIf="shouldDisplayHeader()">
+<div class="bottom-header" *ngIf="shouldDisplayHeader()" #mainToolbar>
   <a routerLink="/" routerLinkActive="active">
   <span class="title">{{title}}</span>
   </a>
@@ -21,14 +21,22 @@
     <mat-icon>search</mat-icon>
   </button>
   <a routerLink="/login" routerLinkActive="active">
-    <button mat-button class="user-form">
+    <button mat-button class="user-form" [mdePopoverTriggerFor]="loginPopover" mdePopoverTriggerOn="hover">
       <mat-icon>person_pin</mat-icon>
       Register/Login
     </button>
   </a>
   <a routerLink="/cart" routerLinkActive="active">
-    <button mat-icon-button>
+    <button mat-icon-button [mdePopoverTriggerFor]="cartPopover" mdePopoverTriggerOn="hover">
       <mat-icon matBadge="{{numberOfCartItems}}" matBadgeColor="warn">shopping_cart</mat-icon>
     </button>
   </a>
 </div>
+
+<mde-popover #cartPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false" [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58" mdePopoverArrowColor="#FFFFFF">
+  <app-cart-popover></app-cart-popover>
+</mde-popover>
+
+<mde-popover #loginPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false" [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58" mdePopoverArrowColor="#FFFFFF">
+  <app-login-popover></app-login-popover>
+</mde-popover>

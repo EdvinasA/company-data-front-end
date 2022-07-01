@@ -40,6 +40,9 @@ import {
 import { ProductsListAsCardComponent } from './components/products-list/products-list-as-card/products-list-as-card.component';
 import { DecimalPipe } from "@angular/common";
 import { MatBadgeModule } from "@angular/material/badge";
+import {MdePopoverModule} from "@material-extended/mde";
+import { LoginPopoverComponent } from './components/login/login-popover/login-popover.component';
+import { CartPopoverComponent } from './components/cart/cart-popover/cart-popover.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,9 @@ import { MatBadgeModule } from "@angular/material/badge";
     ProductsListItemsComponent,
     CartDeliveryComponent,
     CartTotalComponent,
-    ProductsListAsCardComponent
+    ProductsListAsCardComponent,
+    LoginPopoverComponent,
+    CartPopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +85,8 @@ import { MatBadgeModule } from "@angular/material/badge";
     MatTooltipModule,
     MatCheckboxModule,
     NgxPaginationModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MdePopoverModule
   ],
   providers: [PaginatePipe, DecimalPipe],
   bootstrap: [AppComponent]

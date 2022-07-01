@@ -60,7 +60,7 @@ export class CartService {
     return this.http.get<Cart[]>(`/shop/cart/${userId}`);
   }
 
-  updateCart(cartItem: Cart) {
+  createCart(cartItem: Cart) {
     return this.http.post<Cart>(`/shop/cart`, cartItem);
   }
 
