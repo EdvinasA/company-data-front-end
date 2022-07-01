@@ -10,12 +10,16 @@ import {CartService} from "../../../services/cart.service";
 export class CartPopoverComponent implements OnInit {
 
   cartList: Cart[] = [];
+  cartListTotalSum = 0;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartService.currentCartList.subscribe(cart => {
       this.cartList = cart;
+    })
+    this.cartService.currentTotalSum.subscribe(sum => {
+      this.cartListTotalSum = sum;
     })
   }
 }

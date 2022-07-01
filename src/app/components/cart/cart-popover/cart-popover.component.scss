@@ -1,8 +1,44 @@
 .host {
   display: block;
-  max-width: 400px;
-  // width: 240px;
+  max-width: 240px;
   background-color: #FFFFFF;
-  // min-height: 100px;
-  padding: 40px;
+  min-height: 100px;
+  height: 100%;
+  padding: 12px 12px 8px 12px;
+}
+
+.name {
+  float: left;
+  width: 50%;
+}
+
+.name h6 {
+  font-size: 11px;
+}
+
+.picture {
+  float: left;
+  padding: 20px;
+  width: 50%;
+}
+
+.picture img {
+  max-width: 60px;
+  height: auto;
+}
+
+.popover-cart-total {
+  float: left;
+  padding: 0 0 10px 0;
+  width: 60%;
+}
+
+.buy-button {
+  float: left;
+  margin: 0 0 10px 0;
+  width: 40%;
+  color: white;
+  background: #ed1c24;
+  height: 22%;
+  font-size: 18px;
 }

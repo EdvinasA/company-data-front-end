@@ -1,5 +1,29 @@
 <div class="host">
-  <div class="item">
-
+  <div *ngFor="let cart of cartList">
+    <div class="item">
+      <div class="name">
+        <h6>{{cart.productName}}</h6>
+      </div>
+      <div class="picture">
+        <img
+          src="{{cart.picture}}"
+          alt="{{cart.productName}}">
+      </div>
+      <div class="price"><strong>{{cart.price | number : '1.2-2'}} €</strong></div>
+    </div>
+    <mat-divider style="bottom: 0"></mat-divider>
   </div>
+  <div
+    *ngIf="cartList.length != 0">
+    <div>Total:</div>
+    <div class="popover-cart-total">
+      <strong>{{cartListTotalSum | number : '1.2-2'}} €</strong>
+    </div>
+    <div>
+      <a href="/cart">
+        <button class="buy-button" mat-button>Buy</button>
+      </a>
+    </div>
+  </div>
+  <div>Cart is empty</div>
 </div>
