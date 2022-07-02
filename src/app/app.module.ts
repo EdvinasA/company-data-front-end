@@ -45,6 +45,8 @@ import { LoginPopoverComponent } from './components/login/login-popover/login-po
 import { CartPopoverComponent } from './components/cart/cart-popover/cart-popover.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { LoginUserMenuComponent } from './components/login/login-user-menu/login-user-menu.component';
+import { ProductToCartDialogComponent } from './components/products-list/product-to-cart-dialog/product-to-cart-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { LoginUserMenuComponent } from './components/login/login-user-menu/login
     ProductsListAsCardComponent,
     LoginPopoverComponent,
     CartPopoverComponent,
-    LoginUserMenuComponent
+    LoginUserMenuComponent,
+    ProductToCartDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import { LoginUserMenuComponent } from './components/login/login-user-menu/login
     NgxPaginationModule,
     MatBadgeModule,
     MdePopoverModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDialogModule
   ],
   providers: [PaginatePipe, DecimalPipe],
   bootstrap: [AppComponent]
