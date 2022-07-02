@@ -43,6 +43,8 @@ import { MatBadgeModule } from "@angular/material/badge";
 import {MdePopoverModule} from "@material-extended/mde";
 import { LoginPopoverComponent } from './components/login/login-popover/login-popover.component';
 import { CartPopoverComponent } from './components/cart/cart-popover/cart-popover.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { LoginUserMenuComponent } from './components/login/login-user-menu/login-user-menu.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { CartPopoverComponent } from './components/cart/cart-popover/cart-popove
     CartTotalComponent,
     ProductsListAsCardComponent,
     LoginPopoverComponent,
-    CartPopoverComponent
+    CartPopoverComponent,
+    LoginUserMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ import { CartPopoverComponent } from './components/cart/cart-popover/cart-popove
     MatCheckboxModule,
     NgxPaginationModule,
     MatBadgeModule,
-    MdePopoverModule
+    MdePopoverModule,
+    MatProgressBarModule
   ],
   providers: [PaginatePipe, DecimalPipe],
   bootstrap: [AppComponent]
