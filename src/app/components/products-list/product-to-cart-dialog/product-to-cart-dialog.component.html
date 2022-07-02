@@ -1,0 +1,33 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <mat-icon>
+      <mat-icon>check_circle</mat-icon>
+    </mat-icon>
+    <span> Item successfully added to cart!</span>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <div class="dialog-item-picture" *ngIf="item != null">
+      <img src="{{item.picture}}" alt="{{item.productName}}">
+    </div>
+    <div class="dialog-item-name">
+      <span>{{item.productName}}</span>
+    </div>
+    <div class="dialog-item-price">
+      <strong>{{item.price * item.quantity}} €</strong>
+    </div>
+    <div class="warranty">
+      <div class="normal-warranty">
+        <mat-checkbox [(ngModel)]="item.insurance" class="example-margin"><a>Product Insurance</a>
+        </mat-checkbox>
+        <p>Insure new purchase and save up to 80% of product price</p>
+      </div>
+      <div class="extended-warranty">
+        <mat-checkbox [(ngModel)]="item.warranty" class="example-margin"><a>Extended warranty</a>
+        </mat-checkbox>
+        <p>Free item repair</p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+</div>

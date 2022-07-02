@@ -2,6 +2,8 @@ import {Component, EventEmitter, OnDestroy, OnInit} from '@angular/core';
 import { ProductsService } from "../../services/products.service";
 import { Page } from "../../models/page";
 import { Subscription } from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {ProductToCartDialogComponent} from "./product-to-cart-dialog/product-to-cart-dialog.component";
 
 @Component({
   selector: 'app-products-list',

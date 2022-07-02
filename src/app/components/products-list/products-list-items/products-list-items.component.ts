@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Laptop } from "../../../models/laptop";
+import {ProductToCartDialogComponent} from "../product-to-cart-dialog/product-to-cart-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-products-list-items',

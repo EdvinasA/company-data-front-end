@@ -1,0 +1,80 @@
+.dialog-container {
+  padding: 15px;
+  min-width: 600px;
+  font-family: Roboto;
+}
+.dialog-header {
+  padding: 20px;
+  text-align: left;
+}
+
+.dialog-header span{
+  font-size: 24px;
+  font-weight: 800;
+  padding: 10px 0 0 10px;
+  vertical-align: middle;
+}
+
+.dialog-header mat-icon {
+  color: green;
+  transform: scale(1.4);
+  vertical-align: middle;
+}
+
+.dialog-item-picture {
+  padding: 15px 0 0 0;
+  width: 20%;
+}
+
+.dialog-item-picture img {
+  float: left;
+  width: 110px;
+  height: 80px;
+}
+
+.dialog-item-name {
+  float: left;
+  padding: 15px 0 0 20px;
+  width: 60%;
+}
+
+.dialog-item-price {
+  float: left;
+  padding: 15px 0 0 20px;
+  width: 20%;
+}
+
+.warranty {
+  width: 100%;
+  font-family: Roboto;
+  background: white;
+  padding: 100px 0 20px 0;
+  text-align: center;
+}
+
+.normal-warranty {
+  text-align: left;
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  font-size: 10px;
+  padding: 5px;
+  margin: 0 0 5px;
+}
+
+.extended-warranty {
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  font-size: 10px;
+  padding: 5px;
+  text-align: left;
+}
+
+.warranty a {
+  font-size: 14px;
+  color: #39c;
+  text-decoration: underline;
+}
+
+.warranty p {
+  color: #666;
+}

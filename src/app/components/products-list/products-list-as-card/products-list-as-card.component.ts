@@ -3,6 +3,8 @@ import {Laptop} from "../../../models/laptop";
 import {CartService} from "../../../services/cart.service";
 import {Subscription} from "rxjs";
 import {Cart} from "../../../models/cart";
+import {MatDialog} from "@angular/material/dialog";
+import {ProductToCartDialogComponent} from "../product-to-cart-dialog/product-to-cart-dialog.component";
 
 @Component({
   selector: 'app-products-list-as-card',
@@ -16,7 +18,8 @@ export class ProductsListAsCardComponent implements OnInit {
   @Input() currentPage!: number;
   @Input() totalItems!: number;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +37,13 @@ export class ProductsListAsCardComponent implements OnInit {
       purchaseDate: null
     };
     this.cartService.updateCartList(cartItem);
+    this.openAddedItemToCartDialog(cartItem);
+  }
+
+  openAddedItemToCartDialog(cartItem: Cart) {
+    const dialogRef = this.dialog.open(ProductToCartDialogComponent, {
+      data: cartItem
+    });
   }
 
 }
