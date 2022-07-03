@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Cart} from "../../../models/cart";
 
 @Component({
@@ -9,9 +9,13 @@ import {Cart} from "../../../models/cart";
 })
 export class ProductToCartDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public item: Cart) { }
+  constructor(public dialogRef: MatDialogRef<ProductToCartDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public item: Cart) { }
 
   ngOnInit(): void {
   }
 
+  onClickClose() {
+    this.dialogRef.close();
+  }
 }

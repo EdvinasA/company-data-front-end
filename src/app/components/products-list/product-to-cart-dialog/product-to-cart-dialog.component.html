@@ -29,5 +29,11 @@
       </div>
     </div>
     <mat-divider></mat-divider>
+    <div class="button-cart-or-stay">
+      <button (click)="onClickClose()" mat-button class="continue">Continue searching</button>
+      <a routerLink="/cart" routerLinkActive="active">
+        <button (click)="onClickClose()" mat-button class="to-cart">Buy items in cart</button>
+      </a>
+    </div>
   </div>
 </div>
