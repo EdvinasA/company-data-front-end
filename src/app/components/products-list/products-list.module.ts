@@ -19,13 +19,15 @@ import {ProductsListAsCardComponent} from "./products-list-as-card/products-list
 import {ProductsListItemsComponent} from "./products-list-items/products-list-items.component";
 import {ProductsListComponent} from "./products-list.component";
 import {ProductToCartDialogComponent} from "./product-to-cart-dialog/product-to-cart-dialog.component";
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
     ProductsListAsCardComponent,
     ProductsListItemsComponent,
     ProductsListComponent,
-    ProductToCartDialogComponent
+    ProductToCartDialogComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

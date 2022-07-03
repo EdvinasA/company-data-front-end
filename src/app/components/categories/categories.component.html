@@ -1,0 +1,18 @@
+<div class="third-header">
+  <div>
+    <button mat-menu-item [matMenuTriggerFor]="category">Items catalogue</button>
+  </div>
+</div>
+
+<mat-menu #category>
+  <div class="main-category" *ngFor="let mainCategory of categories?.mainCategories">
+    <button mat-menu-item [matMenuTriggerFor]="subcategory"><span>{{mainCategory}}</span></button>
+    <mat-divider></mat-divider>
+  </div>
+</mat-menu>
+
+<mat-menu #subcategory>
+  <div>
+    Laptops
+  </div>
+</mat-menu>

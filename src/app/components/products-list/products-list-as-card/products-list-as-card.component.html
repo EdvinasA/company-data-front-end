@@ -13,7 +13,7 @@
         To cart
       </button>
       <div class="small-details">
-        <a>{{laptop?.name}} "</a>
+        <a [routerLink]="['', laptop.id]">{{laptop?.name}} "</a>
         <span class="description">Screen size: <span><strong>{{laptop?.screenSize}}
           "</strong></span></span>
         <span
