@@ -4,7 +4,7 @@ import {ProductsListItemsComponent} from "./products-list-items/products-list-it
 import {ProductsListComponent} from "./products-list.component";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
-import {NgxPaginationModule} from "ngx-pagination";
+import {NgxPaginationModule, PaginatePipe} from "ngx-pagination";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
@@ -16,6 +16,7 @@ import {ProductToCartDialogComponent} from "./product-to-cart-dialog/product-to-
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
+import {DecimalPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MatButtonModule,
     MatMenuModule,
     MatIconModule
-  ]
+  ],
+  providers: [PaginatePipe, DecimalPipe],
 })
 
 export class ProductsListModule {
