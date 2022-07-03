@@ -1,17 +1,18 @@
 <div class="container">
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile>
-      <div class="details-picture">
-        <img src="{{laptop?.picture}}" alt="{{laptop?.name}}">
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="details-name">
+  <div class="details">
+    <div class="details-picture">
+      <img src="{{laptop?.picture}}" alt="{{laptop?.name}}">
+    </div>
+    <div class="details-name">
+      <div>
         <span>{{laptop?.name}}</span>
       </div>
-      <div>
-        <span>{{laptop?.price}}</span>
+      <div class="code">
+        <span>Product code: {{laptop?.productCode}}</span>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+      <div class="details-price">
+        <span>{{laptop?.price | number : '1.2-2'}} € / vnt.</span>
+      </div>
+    </div>
+  </div>
 </div>
