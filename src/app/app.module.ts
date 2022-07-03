@@ -5,6 +5,11 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {PopoverModule} from "ngx-smart-popover";
+import {
+  NgxPaginationModule,
+  PaginatePipe,
+} from "ngx-pagination";
+import {MdePopoverModule} from "@material-extended/mde";
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
@@ -19,6 +24,10 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatBadgeModule} from "@angular/material/badge";
+import {DecimalPipe} from "@angular/common";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -29,24 +38,13 @@ import {LoginComponent} from "./components/login/login.component";
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {CartComponent} from './components/cart/cart.component';
-import {ProductsListComponent} from './components/products-list/products-list.component';
-import {ProductsListItemsComponent} from './components/products-list/products-list-items/products-list-items.component';
 import {CartDeliveryComponent} from './components/cart/cart-delivery/cart-delivery.component';
 import {CartTotalComponent} from './components/cart/cart-total/cart-total.component';
-import {
-  NgxPaginationModule,
-  PaginatePipe,
-} from "ngx-pagination";
-import { ProductsListAsCardComponent } from './components/products-list/products-list-as-card/products-list-as-card.component';
-import { DecimalPipe } from "@angular/common";
-import { MatBadgeModule } from "@angular/material/badge";
-import {MdePopoverModule} from "@material-extended/mde";
-import { LoginPopoverComponent } from './components/login/login-popover/login-popover.component';
-import { CartPopoverComponent } from './components/cart/cart-popover/cart-popover.component';
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { LoginUserMenuComponent } from './components/login/login-user-menu/login-user-menu.component';
-import { ProductToCartDialogComponent } from './components/products-list/product-to-cart-dialog/product-to-cart-dialog.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {LoginPopoverComponent} from './components/login/login-popover/login-popover.component';
+import {CartPopoverComponent} from './components/cart/cart-popover/cart-popover.component';
+import {LoginUserMenuComponent} from './components/login/login-user-menu/login-user-menu.component';
+import {ProductsListModule} from "./components/products-list/products-list.module";
+
 
 @NgModule({
   declarations: [
@@ -57,17 +55,14 @@ import {MatDialogModule} from "@angular/material/dialog";
     HeaderComponent,
     FooterComponent,
     CartComponent,
-    ProductsListComponent,
-    ProductsListItemsComponent,
     CartDeliveryComponent,
     CartTotalComponent,
-    ProductsListAsCardComponent,
     LoginPopoverComponent,
     CartPopoverComponent,
-    LoginUserMenuComponent,
-    ProductToCartDialogComponent
+    LoginUserMenuComponent
   ],
   imports: [
+    ProductsListModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -81,20 +76,10 @@ import {MatDialogModule} from "@angular/material/dialog";
     CompanyDataModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatSnackBarModule,
     MatDividerModule,
-    MatButtonToggleModule,
-    PopoverModule,
-    MatMenuModule,
     MatTooltipModule,
-    MatCheckboxModule,
-    NgxPaginationModule,
     MatBadgeModule,
-    MdePopoverModule,
-    MatProgressBarModule,
-    MatDialogModule
+    MdePopoverModule
   ],
   providers: [PaginatePipe, DecimalPipe],
   bootstrap: [AppComponent]
