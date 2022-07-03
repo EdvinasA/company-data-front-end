@@ -15,14 +15,11 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatBadgeModule} from "@angular/material/badge";
 import {DecimalPipe} from "@angular/common";
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {CompanyDataComponent} from './components/company-data/company-data.component';
-import {CompanyDataModule} from "./components/company-data/company-data.module";
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from "./components/login/login.component";
 import {HeaderComponent} from './components/header/header.component';
@@ -37,7 +34,6 @@ import {CartPopoverComponent} from "./components/cart/cart-popover/cart-popover.
 @NgModule({
   declarations: [
     AppComponent,
-    CompanyDataComponent,
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
@@ -59,11 +55,9 @@ import {CartPopoverComponent} from "./components/cart/cart-popover/cart-popover.
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    CompanyDataModule,
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    MatTooltipModule,
     MatBadgeModule,
     MdePopoverModule
   ],
