@@ -20,6 +20,8 @@ import {ProductsListItemsComponent} from "./products-list-items/products-list-it
 import {ProductsListComponent} from "./products-list.component";
 import {ProductToCartDialogComponent} from "./product-to-cart-dialog/product-to-cart-dialog.component";
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     MatDialogModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [PaginatePipe, DecimalPipe],
 })

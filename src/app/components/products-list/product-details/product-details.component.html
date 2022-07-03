@@ -1,8 +1,17 @@
 <div class="container">
-  <div class="details-picture">
-    <img src="{{laptop.picture}}" alt="{{laptop.name}}">
-  </div>
-  <div class="details-name">
-    <span>{{laptop.name}}</span>
-  </div>
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <div class="details-picture">
+        <img src="{{laptop?.picture}}" alt="{{laptop?.name}}">
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="details-name">
+        <span>{{laptop?.name}}</span>
+      </div>
+      <div>
+        <span>{{laptop?.price}}</span>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
