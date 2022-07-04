@@ -13,6 +13,38 @@
       <div class="details-price">
         <span>{{laptop?.price | number : '1.2-2'}} € / vnt.</span>
       </div>
+      <div class="details-insurance">
+        <div>
+          <mat-checkbox>Item insurance</mat-checkbox>
+          <span>Insurance new item and save up to 80% of it's price</span>
+        </div>
+      </div>
+      <div class="details-insurance">
+        <div>
+          <mat-checkbox>Item warranty</mat-checkbox>
+          <span>Free item repair</span>
+        </div>
+      </div>
+      <div class="checkout-box">
+        <div class="checkout">
+          <button mat-icon-button>
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <div class="empty-space">
+          </div>
+          <input
+            type="number"
+            value="1">
+          <button mat-icon-button>
+            <mat-icon>control_point</mat-icon>
+          </button>
+        </div>
+        <div class="to-cart">
+          <button mat-raised-button color="warn">
+            To cart
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
