@@ -48,7 +48,7 @@
         </button>
       </div>
       <div class="total">
-        <p><strong>{{item.quantity * item.price}} €</strong></p>
+        <p><strong>{{item.quantity * item.price | number : '1.2-2'}} €</strong></p>
       </div>
     </div>
     <div class="warranty">

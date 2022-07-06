@@ -1,7 +1,6 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Laptop} from "../../../models/laptop";
 import {CartService} from "../../../services/cart.service";
-import {Subscription} from "rxjs";
 import {Cart} from "../../../models/cart";
 import {MatDialog} from "@angular/material/dialog";
 import {ProductToCartDialogComponent} from "../product-to-cart-dialog/product-to-cart-dialog.component";

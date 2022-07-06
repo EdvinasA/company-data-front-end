@@ -8,11 +8,10 @@ import {Subject, Subscription} from "rxjs";
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit, OnDestroy {
+export class CartComponent implements OnInit {
 
   cartList: Cart[] = [];
   subscription!: Subscription;
-  unsubscribeSignal: Subject<Cart[]> = new Subject();
 
   constructor(private cartService: CartService) {
   }
@@ -42,10 +41,6 @@ export class CartComponent implements OnInit, OnDestroy {
 
   removeItemFromCart(item: Cart) {
     this.cartService.removeItemFromCartList(item);
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribeSignal.next();
   }
 
 }
