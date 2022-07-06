@@ -30,6 +30,7 @@ import {ProductsListModule} from "./components/products-list/products-list.modul
 import {CartModule} from "./components/cart/cart.module";
 import {CartPopoverComponent} from "./components/cart/cart-popover/cart-popover.component";
 import {CategoriesComponent} from './components/categories/categories.component';
+import {ProfileModule} from "./components/profile/profile.module";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {CategoriesComponent} from './components/categories/categories.component'
   imports: [
     ProductsListModule,
     CartModule,
+    ProfileModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

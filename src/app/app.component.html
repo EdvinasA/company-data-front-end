@@ -1,6 +1,7 @@
 <div class="display-container">
   <app-header [title]="title"></app-header>
   <app-categories></app-categories>
+  <app-profile-menu *ngIf="isCorrectPath()"></app-profile-menu>
   <router-outlet>
   </router-outlet>
   <app-footer class="main-footer"></app-footer>
