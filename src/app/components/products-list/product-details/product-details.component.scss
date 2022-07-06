@@ -5,13 +5,13 @@
   font-family: Roboto, sans-serif;
   text-align: left;
   margin-top: 15px;
-  padding-bottom: 100px;
 }
 
 .details {
   background: white;
   display: flex;
   height: 100%;
+  padding: 0 0 150px 0;
   width: 100%;
 }
 
@@ -140,4 +140,57 @@
 .delivery-right {
   float: left;
   width: 80%;
+}
+
+.title-box {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.description-title {
+  background: #e7e7e7;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.information-box {
+  display: flex;
+  font-size: 13px;
+  font-family: Roboto;
+  justify-content: space-between;
+}
+
+.type {
+  display: inline;
+  width: 50%;
+}
+
+.value {
+  display: inline;
+  width: 50%;
+}
+
+.description-type-box {
+  float: left;
+  padding: 0 0 20px 30px;
+  width: 31%;
+}
+
+.general-information {
+  display: table;
+  padding: 10px 0 10px 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .description-type-box  {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .description-type-box  {
+    width: 90%;
+  }
 }
