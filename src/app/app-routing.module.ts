@@ -5,17 +5,17 @@ import {RegisterComponent} from "./components/register/register.component";
 import {CartComponent} from "./components/cart/cart.component";
 import {ProductsListComponent} from "./components/products-list/products-list.component";
 import {ProductDetailsComponent} from "./components/products-list/product-details/product-details.component";
-import {ProfileComponent} from "./components/profile/profile.component";
+import {ProfileDisplayComponent} from "./components/profile/profile-display/profile-display.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileDisplayComponent},
   {
-    path: '', component: ProductsListComponent,
-    children: [{ path: ':id', component: ProductDetailsComponent }]
-  }
+    path: '', component: ProductsListComponent
+  },
+  { path: ':id', component: ProductDetailsComponent }
 ];
 
 @NgModule({
