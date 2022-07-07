@@ -6,12 +6,14 @@ import {CartComponent} from "./components/cart/cart.component";
 import {ProductsListComponent} from "./components/products-list/products-list.component";
 import {ProductDetailsComponent} from "./components/products-list/product-details/product-details.component";
 import {ProfileDisplayComponent} from "./components/profile/profile-display/profile-display.component";
+import {ProfileOrderHistoryComponent} from "./components/profile/profile-order-history/profile-order-history.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileDisplayComponent},
+  {path: 'orders', component: ProfileOrderHistoryComponent},
   {
     path: '', component: ProductsListComponent
   },
