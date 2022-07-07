@@ -18,12 +18,14 @@ import {ProfileMenuComponent} from './profile-menu/profile-menu.component';
 import {ProfileComponent} from "./profile.component";
 import {ProfileDisplayComponent} from './profile-display/profile-display.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { ProfileOrderHistoryComponent } from './profile-order-history/profile-order-history.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     ProfileMenuComponent,
-    ProfileDisplayComponent
+    ProfileDisplayComponent,
+    ProfileOrderHistoryComponent,
   ],
   imports: [
     BrowserModule,
