@@ -19,6 +19,9 @@ import {ProfileComponent} from "./profile.component";
 import {ProfileDisplayComponent} from './profile-display/profile-display.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ProfileOrderHistoryComponent } from './profile-order-history/profile-order-history.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ViewedItemsComponent } from './viewed-items/viewed-items.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { ProfileOrderHistoryComponent } from './profile-order-history/profile-or
     ProfileMenuComponent,
     ProfileDisplayComponent,
     ProfileOrderHistoryComponent,
+    WishlistComponent,
+    ViewedItemsComponent,
+    SubscriptionsComponent,
   ],
   imports: [
     BrowserModule,

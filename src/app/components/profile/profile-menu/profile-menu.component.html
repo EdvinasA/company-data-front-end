@@ -1,7 +1,7 @@
 <div class="profile-menu">
-  <button mat-button>Profile</button>
-  <button mat-button>Shopping history</button>
-  <button mat-button>Wishlist</button>
-  <button mat-button>Reviewed products</button>
-  <button mat-button>Subscriptions</button>
+  <button mat-button (click)="changePage('/profile')">Profile</button>
+  <button mat-button (click)="changePage('/orders')">Orders history</button>
+  <button mat-button (click)="changePage('/wishlist')">Wishlist</button>
+  <button mat-button (click)="changePage('/viewed-items')">Reviewed products</button>
+  <button mat-button (click)="changePage('/subscriptions')">Subscriptions</button>
 </div>

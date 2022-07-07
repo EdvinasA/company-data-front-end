@@ -19,6 +19,15 @@ export class AppComponent {
     if (this.router.url === "/orders") {
       return true;
     }
+    if (this.router.url === "/wishlist") {
+      return true;
+    }
+    if (this.router.url === "/viewed-items") {
+      return true;
+    }
+    if (this.router.url === "/subscriptions") {
+      return true;
+    }
     return false;
   }
 }

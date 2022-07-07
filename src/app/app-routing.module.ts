@@ -7,6 +7,9 @@ import {ProductsListComponent} from "./components/products-list/products-list.co
 import {ProductDetailsComponent} from "./components/products-list/product-details/product-details.component";
 import {ProfileDisplayComponent} from "./components/profile/profile-display/profile-display.component";
 import {ProfileOrderHistoryComponent} from "./components/profile/profile-order-history/profile-order-history.component";
+import {WishlistComponent} from "./components/profile/wishlist/wishlist.component";
+import {SubscriptionsComponent} from "./components/profile/subscriptions/subscriptions.component";
+import {ViewedItemsComponent} from "./components/profile/viewed-items/viewed-items.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,6 +17,9 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileDisplayComponent},
   {path: 'orders', component: ProfileOrderHistoryComponent},
+  {path: 'wishlist', component: WishlistComponent},
+  {path: 'subscriptions', component: SubscriptionsComponent},
+  {path: 'viewed-items', component: ViewedItemsComponent},
   {
     path: '', component: ProductsListComponent
   },
