@@ -1,17 +1,16 @@
-.display-container {
-  height: 100%;
-  display:flex;
-  flex-direction:column;
-}
-
-.main-footer {
-  margin-top: auto;
-  min-height: 35px;
+.footer {
   text-align: center;
-  padding-top: 40px;
+  margin: 40px 0 0 0;
+  position: absolute;
+  bottom: 0;
+  min-width: 1140px;
+  width: 100%;
+  padding: 0 380px 0 381px;
 }
 
-.container {
+.main {
+  width: 90vw;
+  margin: 0 auto;
   padding: 20px 0 0 0;
 }
 
