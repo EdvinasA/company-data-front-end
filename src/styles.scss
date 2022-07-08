@@ -5,9 +5,9 @@
 @include mat.core();
 
 HTML, body {
-  text-align: center;
-  background-color: #f3f3f3;
-
+  background-image: url("assets/cool-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 // Theming colors

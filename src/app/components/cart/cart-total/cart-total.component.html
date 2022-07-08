@@ -2,7 +2,7 @@
   <p class="message-under-price" *ngIf="totalSumOfAllItemsSubject <= 19.99">Orders lower than 19,99
     € is subject to administrative tax which is 1,99 €</p>
   <p>Items total: <strong>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</strong></p>
-  <a href="/">
+  <a routerLink="/" routerlinkactive="true">
     <mat-icon class="back-to-main">keyboard_backspace</mat-icon>
     Choose more items</a>
   <mat-divider></mat-divider>

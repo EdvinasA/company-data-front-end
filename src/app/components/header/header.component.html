@@ -31,6 +31,9 @@
       <mat-icon matBadge="{{listOfItems.length}}" matBadgeColor="warn">shopping_cart</mat-icon>
     </button>
   </a>
+  <a routerLink="/wishlist" routerLinkActive="active">
+    <button mat-button>Wishlist</button>
+  </a>
 </div>
 
 <mde-popover #cartPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false" [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58" mdePopoverArrowColor="#FFFFFF">
