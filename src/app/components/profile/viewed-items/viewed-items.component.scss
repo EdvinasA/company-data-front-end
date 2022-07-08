@@ -1,13 +1,13 @@
 @import "src/mixin";
 
-.wishlist-display {
+.viewed-display {
   @include profile-page-container;
 }
 
-.wishlist-header {
+.viewed-header {
   @include profile-page-header;
 }
 
-.wishlist-details {
+.viewed-details {
   @include profile-page-details;
 }

@@ -1,8 +1,13 @@
-.orders-display {
-  float: left;
-  font-family: Roboto, sans-serif;
-  padding: 0 0 0 30px;
-  width: 82%;
-  vertical-align: middle;
+@import "src/mixin";
 
+.orders-display {
+  @include profile-page-container;
+}
+
+.orders-header {
+  @include profile-page-header;
+}
+
+.orders-details {
+  @include profile-page-details;
 }

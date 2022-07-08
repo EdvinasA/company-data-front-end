@@ -1,0 +1,29 @@
+@mixin profile-page-header {
+  align-items: center;
+  background: white;
+  border: 1px solid #e1e1e1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  height: 50px;
+  padding: 0 0 0 50px;
+}
+
+@mixin profile-page-container {
+  font-family: Roboto, sans-serif;
+  margin: 0 0 0 206px;
+  padding: 0 0 20px 40px;
+  width: 82%;
+}
+
+@mixin profile-page-details {
+  background: white;
+  border-right: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 30px;
+}
