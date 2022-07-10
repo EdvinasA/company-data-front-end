@@ -1,41 +1,33 @@
 import {NgModule} from "@angular/core";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {DecimalPipe} from "@angular/common";
+import {NgxPaginationModule, PaginatePipe} from "ngx-pagination";
+import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatDividerModule} from "@angular/material/divider";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import {MatDividerModule} from "@angular/material/divider";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import {MatDialogModule} from "@angular/material/dialog";
-import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
-import {DecimalPipe} from "@angular/common";
-
-import {NgxPaginationModule, PaginatePipe} from "ngx-pagination";
-
-import {ProductsListItemsComponent} from "./products-list-items/products-list-items.component";
-import {ProductsListComponent} from "./products-list.component";
-import {ProductToCartDialogComponent} from "./product-to-cart-dialog/product-to-cart-dialog.component";
-import { ProductDetailsComponent } from './product-details/product-details.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
-import {SharedModule} from "../shared/shared.module";
+import {ProductLaptopComponent} from "./product-laptop/product-laptop.component";
 
 @NgModule({
   declarations: [
-    ProductsListItemsComponent,
-    ProductsListComponent,
-    ProductToCartDialogComponent,
-    ProductDetailsComponent
+    ProductLaptopComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     FormsModule,
     MatButtonToggleModule,
-    NgxPaginationModule,
     MatDividerModule,
     MatCheckboxModule,
     MatSelectModule,
@@ -46,10 +38,18 @@ import {SharedModule} from "../shared/shared.module";
     MatIconModule,
     MatCardModule,
     MatGridListModule,
-    SharedModule
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule,
+    NgxPaginationModule
+  ],
+  exports: [
+    ProductLaptopComponent
   ],
   providers: [PaginatePipe, DecimalPipe]
 })
 
-export class ProductsListModule {
+export class ProductTypesModule {
 }

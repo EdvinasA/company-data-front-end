@@ -18,12 +18,14 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {ProductTypesModule} from "../product-types/product-types.module";
 
 @NgModule({
   declarations: [
     ProductAsCardBaseComponent
   ],
   imports: [
+    ProductTypesModule,
     BrowserModule,
     RouterModule,
     FormsModule,
