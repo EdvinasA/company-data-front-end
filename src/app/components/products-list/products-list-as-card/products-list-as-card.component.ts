@@ -13,28 +13,13 @@ import {Router} from "@angular/router";
 })
 export class ProductsListAsCardComponent extends ProductAsCardBaseComponent<Laptop> implements OnInit {
 
-  constructor(private cartService: CartService,
+  constructor(public cartService: CartService,
               public dialog: MatDialog,
               public router: Router) {
-    super(dialog, router);
+    super(dialog, router, cartService);
   }
 
   ngOnInit(): void {
   }
 
-  addItemToCart(item: Laptop) {
-    let cartItem: Cart = {
-      id: item.id,
-      picture: item.picture,
-      productName: item.name,
-      productCode: item.productCode,
-      quantity: 1,
-      price: item.price,
-      insurance: false,
-      warranty: false,
-      purchaseDate: null
-    };
-    this.cartService.updateCartList(cartItem);
-    this.openAddedItemToCartDialog(cartItem);
-  }
 }

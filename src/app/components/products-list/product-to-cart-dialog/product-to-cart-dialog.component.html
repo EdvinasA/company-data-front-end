@@ -8,10 +8,10 @@
   <mat-divider></mat-divider>
   <div>
     <div class="dialog-item-picture" *ngIf="item != null">
-      <img src="{{item.picture}}" alt="{{item.productName}}">
+      <img src="{{item.picture}}" alt="{{item.name}}">
     </div>
     <div class="dialog-item-name">
-      <span>{{item.productName}}</span>
+      <span>{{item.name}}</span>
     </div>
     <div class="dialog-item-price">
       <strong>{{item.price * item.quantity}} €</strong>

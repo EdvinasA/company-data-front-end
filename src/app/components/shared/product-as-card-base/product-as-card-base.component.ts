@@ -4,6 +4,7 @@ import {ProductToCartDialogComponent} from "../../products-list/product-to-cart-
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {BaseItem} from "../../../models/base-item";
+import {CartService} from "../../../services/cart.service";
 
 @Component({
   selector: 'app-product-as-card-base',
@@ -18,13 +19,27 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   @Input() public totalItems!: number;
 
   constructor(public dialog: MatDialog,
-              public router: Router) {
+              public router: Router,
+              public cartService: CartService) {
   }
 
   ngOnInit(): void {
   }
 
   addItemToCart(item: T) {
+    let cartItem: Cart = {
+      id: item.id,
+      picture: item.picture,
+      name: item.name,
+      productCode: item.productCode,
+      quantity: 1,
+      price: item.price,
+      insurance: false,
+      warranty: false,
+      purchaseDate: null
+    };
+    this.cartService.updateCartList(cartItem);
+    this.openAddedItemToCartDialog(cartItem);
   }
 
   openAddedItemToCartDialog(cartItem: Cart) {

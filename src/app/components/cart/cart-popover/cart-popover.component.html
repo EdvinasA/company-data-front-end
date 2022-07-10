@@ -2,12 +2,12 @@
   <div *ngFor="let cart of cartList">
     <div class="item">
       <div class="name">
-        <h6>{{cart.productName}}</h6>
+        <h6>{{cart.name}}</h6>
       </div>
       <div class="picture">
         <img
           src="{{cart.picture}}"
-          alt="{{cart.productName}}">
+          alt="{{cart.name}}">
       </div>
       <div class="price"><strong>{{(cart.price * cart.quantity) | number : '1.2-2'}} €</strong></div>
     </div>
