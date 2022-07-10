@@ -1,24 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Laptop} from "../../../models/laptop";
 import {CartService} from "../../../services/cart.service";
 import {Cart} from "../../../models/cart";
+import {ProductAsCardBaseComponent} from "../../shared/product-as-card-base/product-as-card-base.component";
 import {MatDialog} from "@angular/material/dialog";
-import {ProductToCartDialogComponent} from "../product-to-cart-dialog/product-to-cart-dialog.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-products-list-as-card',
   templateUrl: './products-list-as-card.component.html',
   styleUrls: ['./products-list-as-card.component.scss']
 })
-export class ProductsListAsCardComponent implements OnInit {
-
-  @Input() laptops!: Laptop[];
-  @Input() itemsPerPage!: number;
-  @Input() currentPage!: number;
-  @Input() totalItems!: number;
+export class ProductsListAsCardComponent extends ProductAsCardBaseComponent<Laptop> implements OnInit {
 
   constructor(private cartService: CartService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              public router: Router) {
+    super(dialog, router);
+  }
 
   ngOnInit(): void {
   }
@@ -38,11 +37,4 @@ export class ProductsListAsCardComponent implements OnInit {
     this.cartService.updateCartList(cartItem);
     this.openAddedItemToCartDialog(cartItem);
   }
-
-  openAddedItemToCartDialog(cartItem: Cart) {
-    const dialogRef = this.dialog.open(ProductToCartDialogComponent, {
-      data: cartItem
-    });
-  }
-
 }

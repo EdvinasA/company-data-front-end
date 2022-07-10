@@ -23,6 +23,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ViewedItemsComponent } from './viewed-items/viewed-items.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import {ProductsListModule} from "../products-list/products-list.module";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {ProductsListModule} from "../products-list/products-list.module";
     MatMenuModule,
     MatSnackBarModule,
     MatButtonToggleModule,
-    ProductsListModule
+    ProductsListModule,
+    SharedModule
   ],
   providers: [DecimalPipe],
   exports: [

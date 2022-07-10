@@ -42,12 +42,12 @@
                            [currentPage]="page"
                            [totalItems]="pageOfLaptops.totalElements"
   ></app-products-list-items>
-  <app-products-list-as-card *ngIf="group.value === 'blocks'"
-                             [laptops]="pageOfLaptops.content"
-                             [itemsPerPage]="pageOfLaptops.size"
-                             [currentPage]="page"
-                             [totalItems]="pageOfLaptops.totalElements">
-  </app-products-list-as-card>
+  <app-product-as-card-base *ngIf="group.value === 'blocks'"
+                            [items]="pageOfLaptops.content"
+                            [itemsPerPage]="pageOfLaptops.size"
+                            [currentPage]="page"
+                            [totalItems]="pageOfLaptops.totalElements">
+  </app-product-as-card-base>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"
                          previousLabel="Previous"

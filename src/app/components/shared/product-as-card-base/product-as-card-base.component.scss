@@ -1,0 +1,108 @@
+.card-container {
+  background: white;
+  float: left;
+  width: 25%;
+  border: 1px solid #e1e1e1;
+  height: 500px;
+  min-height: auto;
+  transition: height 0.1s;
+}
+
+@media screen and (max-width: 1200px) {
+  .card-container {
+    width: 33.33%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card-container {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    width: 100%;
+  }
+}
+
+.image {
+  padding: 20px;
+}
+
+.image img {
+  width: 85%;
+  height: 130px
+}
+
+.card-display-container {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.small-details {
+  display: grid;
+  font-size: 14px;
+  padding: 5px 25px 10px 25px;
+  text-align: left;
+}
+.small-details a {
+  padding-bottom: 5px;
+  text-align: left;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.small-details span {
+  font-size: 10px;
+  text-align: left;
+  left: 0;
+}
+
+.description {
+  color: #999;
+}
+
+.description:before {
+  content:"• ";
+  color: black;
+}
+
+.description span{
+  color: black;
+}
+
+.availability {
+  padding-top: 6px;
+}
+
+.availability mat-icon {
+  color: orange;
+  vertical-align: middle;
+}
+
+.card-container:hover {
+  transform: scale(1.04);
+}
+
+.card-container:hover .add-comparison {
+  display: inline;
+}
+
+.card-container:hover .price-and-options button {
+  display: inline;
+}
+
+.price-and-options button {
+  display: none;
+  width: 82%;
+  color: white;
+  background: #ed1c24;
+}
+
+.add-comparison {
+  display: none;
+}
