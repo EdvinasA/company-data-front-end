@@ -22,6 +22,7 @@ import { ProfileOrderHistoryComponent } from './profile-order-history/profile-or
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ViewedItemsComponent } from './viewed-items/viewed-items.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import {ProductsListModule} from "../products-list/products-list.module";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SubscriptionsComponent } from './subscriptions/subscriptions.component'
     MatBadgeModule,
     MatMenuModule,
     MatSnackBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    ProductsListModule
   ],
   providers: [DecimalPipe],
   exports: [

@@ -49,6 +49,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatGridListModule
   ],
   providers: [PaginatePipe, DecimalPipe],
+  exports: [
+    ProductsListAsCardComponent
+  ]
 })
 
 export class ProductsListModule {

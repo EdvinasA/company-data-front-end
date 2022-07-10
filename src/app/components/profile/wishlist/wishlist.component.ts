@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Page} from "../../../models/page";
+import {Subscription} from "rxjs";
+import {ProductsService} from "../../../services/products.service";
 
 @Component({
   selector: 'app-wishlist',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor() { }
+  // @ts-ignore
+  pageOfLaptops!: Page = {};
+  subscription!: Subscription;
+
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.subscription = this.productsService
+    .getPagedListOfLaptops("8", 0)
+    .subscribe(page => {
+      this.pageOfLaptops = page;
+    })
   }
 
 }
