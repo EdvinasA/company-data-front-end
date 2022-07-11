@@ -1,9 +1,7 @@
-import {Component, EventEmitter, OnDestroy, OnInit} from '@angular/core';
-import { ProductsService } from "../../services/products.service";
-import { Page } from "../../models/page";
-import { Subscription } from "rxjs";
-import {MatDialog} from "@angular/material/dialog";
-import {ProductToCartDialogComponent} from "./product-to-cart-dialog/product-to-cart-dialog.component";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ProductsService} from "../../services/products.service";
+import {Page} from "../../models/page";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-products-list',
@@ -13,7 +11,7 @@ import {ProductToCartDialogComponent} from "./product-to-cart-dialog/product-to-
 export class ProductsListComponent implements OnInit, OnDestroy {
 
   // @ts-ignore
-  pageOfLaptops: Page = {};
+  itemsPage: Page | null = {};
   subscription!: Subscription;
   selectedOption = "popular";
   defaultProductDisplay = "blocks";
@@ -27,8 +25,8 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.productsService
     .getPagedListOfLaptops(this.selectedPageAmount, this.page)
-    .subscribe(page => {
-      this.pageOfLaptops = page;
+    this.productsService.pageSubject.asObservable().subscribe(page => {
+      this.itemsPage = page;
     })
   }
 
@@ -43,10 +41,10 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   }
 
   request(page: number, size: string) {
-    this.productsService
-    .getPagedListOfLaptops(size, (page - 1))
-    .subscribe(page => {
-      this.pageOfLaptops = page;
+    this.subscription = this.productsService
+    .getPagedListOfLaptops(size, (page - 1));
+    this.productsService.pageSubject.asObservable().subscribe(page => {
+      this.itemsPage = page;
     })
   }
 
@@ -55,17 +53,23 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   }
 
   getSecondAmountOfResultValues() {
-    if (this.pageOfLaptops.last) {
-      return this.pageOfLaptops?.totalElements;
+    if (this.itemsPage != undefined) {
+      if (this.itemsPage?.last) {
+        return this.itemsPage?.totalElements;
+      }
+      return this.itemsPage?.numberOfElements * this.getCurrentPage();
     }
-    return this.pageOfLaptops?.numberOfElements * this.getCurrentPage();
+    return 0;
   }
 
   getFirstAmountOfResultValues() {
-    if (this.pageOfLaptops.last) {
-      return this.pageOfLaptops?.totalElements - this.pageOfLaptops?.numberOfElements + 1;
+    if (this.itemsPage != undefined) {
+      if (this.itemsPage?.last) {
+        return this.itemsPage?.totalElements - this.itemsPage?.numberOfElements + 1;
+      }
+      return ((this.getCurrentPage() * this.itemsPage?.numberOfElements) - (this.itemsPage?.numberOfElements - 1));
     }
-    return ((this.getCurrentPage() * this.pageOfLaptops?.numberOfElements) - (this.pageOfLaptops?.numberOfElements - 1));
+    return 0;
   }
 
   getCurrentPage() {

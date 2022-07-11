@@ -2,7 +2,7 @@
   <div class="header-info">
     <div class="header-pages-filter">
       Showing {{getFirstAmountOfResultValues()}} - {{getSecondAmountOfResultValues()}} out
-      of {{pageOfLaptops?.totalElements}}
+      of {{itemsPage?.totalElements}}
     </div>
     <div class="filter">
       <mat-icon>compare_arrows</mat-icon>
@@ -37,16 +37,16 @@
     </div>
   </div>
   <app-products-list-items *ngIf="group.value === 'list'"
-                           [laptops]="pageOfLaptops.content"
-                           [itemsPerPage]="pageOfLaptops.size"
+                           [laptops]="itemsPage.content"
+                           [itemsPerPage]="itemsPage.size"
                            [currentPage]="page"
-                           [totalItems]="pageOfLaptops.totalElements"
+                           [totalItems]="itemsPage.totalElements"
   ></app-products-list-items>
   <app-product-as-card-base *ngIf="group.value === 'blocks'"
-                            [items]="pageOfLaptops.content"
-                            [itemsPerPage]="pageOfLaptops.size"
+                            [items]="itemsPage.content"
+                            [itemsPerPage]="itemsPage.size"
                             [currentPage]="page"
-                            [totalItems]="pageOfLaptops.totalElements">
+                            [totalItems]="itemsPage.totalElements">
   </app-product-as-card-base>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"
