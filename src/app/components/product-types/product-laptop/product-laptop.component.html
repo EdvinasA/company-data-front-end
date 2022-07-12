@@ -1,14 +1,14 @@
 <div class="small-details">
-  <a [routerLink]="['', item.id]">{{item?.name}} "</a>
-  <span class="description">Screen size: <span><strong>{{item?.screenSize}}
+  <a [routerLink]="['', product.id]">{{product?.name}} "</a>
+  <span class="description">Screen size: <span><strong>{{product?.screenSize}}
     "</strong></span></span>
   <span
-    class="description">Installed operational system: <span><strong>{{item?.operationalSystem}}</strong></span></span>
+    class="description">Installed operational system: <span><strong>{{product?.operationalSystem}}</strong></span></span>
   <span
-    class="description">Amount of RAM: <span><strong>{{item?.amountOfRam}}</strong></span></span>
+    class="description">Amount of RAM: <span><strong>{{product?.amountOfRam}}</strong></span></span>
   <span class="description">Hard drive space (HDD): <span> <strong>–</strong></span></span>
   <span
-    class="description">SSD space: <span> <strong>{{item?.dataStorageSize}}</strong></span></span>
+    class="description">SSD space: <span> <strong>{{product?.dataStorageSize}}</strong></span></span>
   <span class="availability"><mat-icon>brightness_1</mat-icon>Delivery</span>
   <span class="availability"><mat-icon>brightness_1</mat-icon>Collect</span>
 </div>

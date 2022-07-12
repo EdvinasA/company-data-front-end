@@ -10,7 +10,7 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class ProductsListItemsComponent implements OnInit {
 
-  @Input() laptops!: Laptop[];
+  @Input() laptops!: Laptop[]
   @Input() itemsPerPage!: number;
   @Input() currentPage!: number;
   @Input() totalItems!: number;

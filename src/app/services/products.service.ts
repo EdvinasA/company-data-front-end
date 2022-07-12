@@ -17,10 +17,6 @@ export class ProductsService {
               private router: Router) {
   }
 
-  // getPagedListOfLaptops(size: string, page: number): Observable<Page> {
-  //   return this.http.get<Page>(`/shop/laptop?page=${page}&size=${size}`);
-  // }
-
   getPagedListOfLaptops(size: string, page: number): Subscription {
     return this.http
     .get<Page>(`/shop/laptop?page=${page}&size=${size}`)

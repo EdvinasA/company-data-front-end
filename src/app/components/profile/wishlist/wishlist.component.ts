@@ -18,10 +18,7 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.productsService
-    .getPagedListOfLaptops("8", 0)
-    .subscribe(page => {
-      this.pageOfLaptops = page;
-    })
+    .getPagedListOfLaptops("8", 0);
   }
 
 }
