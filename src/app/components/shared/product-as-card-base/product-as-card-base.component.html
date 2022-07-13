@@ -12,10 +12,13 @@
         <mat-icon>shopping_cart</mat-icon>
         To cart
       </button>
-      <!--      // Pass input as ID, find in the list of items the needed one and display the rest of the information-->
       <div>
-        <app-product-laptop [itemId]="item.id"></app-product-laptop>
+        <a [routerLink]="['', item.id]">{{item.name}} "</a>
       </div>
+      <!--      // Pass input as ID, find in the list of items the needed one and display the rest of the information-->
+      <!--      <div>-->
+      <!--        <app-product-laptop [itemId]="item.id"></app-product-laptop>-->
+      <!--      </div>-->
     </div>
   </div>
 </div>

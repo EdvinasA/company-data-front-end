@@ -13,7 +13,6 @@ import {ProductsService} from "../../../services/products.service";
 })
 export class ProductLaptopComponent extends ProductAsCardBaseComponent<Laptop> implements OnInit {
 
-  // Pass input as ID, find in the list of items the needed one and display the rest of the information
   @Input() itemId!: string;
   product!: Laptop;
 
