@@ -9,6 +9,7 @@ import {ThemePalette} from "@angular/material/core";
 export class SubscriptionsComponent implements OnInit {
 
   color: ThemePalette = 'primary';
+  checked = true;
 
   constructor() { }
 
