@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Page} from "../../../models/page";
+import {Subscription} from "rxjs";
+import {ProductsService} from "../../../services/products.service";
 
 @Component({
   selector: 'app-viewed-items',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewedItemsComponent implements OnInit {
 
-  constructor() { }
+  itemsPage!: Page | null;
+  subscription!: Subscription;
+  selectedPageAmount = "8";
+  page = 0;
+
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.subscription = this.productsService
+    .getPagedListOfLaptops(this.selectedPageAmount, this.page)
+    this.productsService.pageSubject.asObservable().subscribe(page => {
+      this.itemsPage = page;
+    })
   }
 
 }

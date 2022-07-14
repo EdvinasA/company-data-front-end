@@ -10,7 +10,6 @@ import {Subscription} from "rxjs";
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
 
-  // @ts-ignore
   itemsPage!: Page | null;
   subscription!: Subscription;
   selectedOption = "popular";
