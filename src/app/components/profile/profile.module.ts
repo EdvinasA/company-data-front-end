@@ -24,6 +24,8 @@ import { ViewedItemsComponent } from './viewed-items/viewed-items.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import {ProductsListModule} from "../products-list/products-list.module";
 import {SharedModule} from "../shared/shared.module";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import {SharedModule} from "../shared/shared.module";
     MatSnackBarModule,
     MatButtonToggleModule,
     ProductsListModule,
-    SharedModule
+    SharedModule,
+    MatSliderModule,
+    MatSlideToggleModule
   ],
   providers: [DecimalPipe],
   exports: [

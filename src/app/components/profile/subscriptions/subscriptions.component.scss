@@ -11,3 +11,16 @@
 .subscriptions-details {
   @include profile-page-details;
 }
+
+.subscription {
+  padding: 20px;
+  text-wrap: normal;
+}
+
+.subscription {
+  ::ng-deep {
+    span {
+      white-space: break-spaces;
+    }
+  }
+}
