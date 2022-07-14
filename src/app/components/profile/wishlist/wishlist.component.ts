@@ -17,8 +17,8 @@ export class WishlistComponent implements OnInit {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.subscription = this.productsService
-    .getPagedListOfLaptops("8", 0);
+    // this.subscription = this.productsService
+    // .getPagedListOfLaptops("8", 0);
   }
 
 }

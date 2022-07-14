@@ -4,6 +4,13 @@
   padding: 20px 0 0 0;
 }
 
+.card-display-container {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
 .header-info {
   display: flex;
   height: 60px;

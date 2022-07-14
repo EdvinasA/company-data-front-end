@@ -36,18 +36,20 @@
       </mat-button-toggle-group>
     </div>
   </div>
-<!--  <app-products-list-items *ngIf="group.value === 'list'"-->
-<!--                           [laptops]="itemsPage.content"-->
-<!--                           [itemsPerPage]="itemsPage.size"-->
-<!--                           [currentPage]="page"-->
-<!--                           [totalItems]="itemsPage.totalElements"-->
-<!--  ></app-products-list-items>-->
-  <app-product-as-card-base *ngIf="group.value === 'blocks'"
-                            [items]="itemsPage.content"
-                            [itemsPerPage]="itemsPage.size"
-                            [currentPage]="page"
-                            [totalItems]="itemsPage.totalElements">
-  </app-product-as-card-base>
+  <!--  <app-products-list-items *ngIf="group.value === 'list'"-->
+  <!--                           [laptops]="itemsPage.content"-->
+  <!--                           [itemsPerPage]="itemsPage.size"-->
+  <!--                           [currentPage]="page"-->
+  <!--                           [totalItems]="itemsPage.totalElements"-->
+  <!--  ></app-products-list-items>-->
+  <div class="card-display-container">
+    <app-product-as-card-base *ngIf="group.value === 'blocks'"
+                              [items]="itemsPage.content"
+                              [itemsPerPage]="itemsPage.size"
+                              [currentPage]="page"
+                              [totalItems]="itemsPage.totalElements">
+    </app-product-as-card-base>
+  </div>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"
                          previousLabel="Previous"
