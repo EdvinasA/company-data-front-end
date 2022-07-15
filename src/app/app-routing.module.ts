@@ -15,10 +15,10 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'viewed-items', component: ViewedItemsComponent},
   {path: 'profile', component: ProfileDisplayComponent},
   {path: 'orders', component: ProfileOrderHistoryComponent},
   {path: 'wishlist', component: WishlistComponent},
-  {path: 'viewed-items', component: ViewedItemsComponent},
   {path: 'subscriptions', component: SubscriptionsComponent},
   {
     path: '', component: ProductsListComponent

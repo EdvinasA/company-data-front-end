@@ -10,15 +10,14 @@ import {ProductsService} from "../../../services/products.service";
 })
 export class WishlistComponent implements OnInit {
 
-  // @ts-ignore
-  pageOfLaptops!: Page = {};
-  subscription!: Subscription;
+  page: {} = {};
+  // subscription!: Subscription;
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
-    // this.subscription = this.productsService
-    // .getPagedListOfLaptops("8", 0);
+    this.page = this.productsService
+    .pageSubject;
   }
 
 }
