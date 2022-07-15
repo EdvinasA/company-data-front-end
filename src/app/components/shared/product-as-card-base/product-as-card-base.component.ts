@@ -13,10 +13,7 @@ import {CartService} from "../../../services/cart.service";
 })
 export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
 
-  @Input() public items!: T[];
-  @Input() public itemsPerPage!: number;
-  @Input() public currentPage!: number;
-  @Input() public totalItems!: number;
+  @Input() public item!: T;
 
   constructor(public dialog: MatDialog,
               public router: Router,

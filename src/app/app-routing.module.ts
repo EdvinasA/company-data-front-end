@@ -18,8 +18,8 @@ const routes: Routes = [
   {path: 'profile', component: ProfileDisplayComponent},
   {path: 'orders', component: ProfileOrderHistoryComponent},
   {path: 'wishlist', component: WishlistComponent},
-  {path: 'subscriptions', component: SubscriptionsComponent},
   {path: 'viewed-items', component: ViewedItemsComponent},
+  {path: 'subscriptions', component: SubscriptionsComponent},
   {
     path: '', component: ProductsListComponent
   },
