@@ -8,7 +8,7 @@
           <div class="wishlist-profile-length">Items: {{profile.items.length}}</div>
         </div>
         <div class="wishlist-items">
-          <div *ngFor="let item of profile.items">
+          <div class="pictures-container" *ngFor="let item of items(profile.items)">
             <div><img class="wishlist-image" src="{{item.itemPicture}}" alt="{{item.itemName}}"></div>
           </div>
         </div>
@@ -16,7 +16,7 @@
         <mat-divider></mat-divider>
       </div>
       <div class="create-wishlist">
-        <button mat-button>Create new liked items list +</button>
+        <button mat-raised-button>Create new liked items list +</button>
       </div>
       <mat-divider></mat-divider>
     </div>

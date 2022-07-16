@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject, Subscription} from "rxjs";
 import {WishlistService} from "../../../services/wishlist.service";
-import {WishlistProfiles} from "../../../models/wishlist";
+import {WishlistItem, WishlistProfiles} from "../../../models/wishlist";
 
 @Component({
   selector: 'app-wishlist',
@@ -20,6 +20,13 @@ export class WishlistComponent implements OnInit, OnDestroy {
     this.wishlistService.wishlistSubject.subscribe(data => {
       this.wishlistProfiles = data;
     });
+  }
+
+  items(items: WishlistItem[]) {
+    if (items.length > 5) {
+      return items.slice(0, 5)
+    }
+    return items;
   }
 
   ngOnDestroy(): void {
