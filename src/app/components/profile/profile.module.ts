@@ -26,6 +26,7 @@ import {ProductsListModule} from "../products-list/products-list.module";
 import {SharedModule} from "../shared/shared.module";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { CreateWishlistDialogComponent } from './wishlist/create-wishlist-dialog/create-wishlist-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     WishlistComponent,
     ViewedItemsComponent,
     SubscriptionsComponent,
+    CreateWishlistDialogComponent,
   ],
   imports: [
     BrowserModule,

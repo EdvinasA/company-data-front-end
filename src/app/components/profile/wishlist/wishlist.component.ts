@@ -1,7 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {WishlistService} from "../../../services/wishlist.service";
 import {WishlistItem, WishlistProfiles} from "../../../models/wishlist";
+import {MatDialog} from "@angular/material/dialog";
+import {CreateWishlistDialogComponent} from "./create-wishlist-dialog/create-wishlist-dialog.component";
 
 @Component({
   selector: 'app-wishlist',
@@ -13,7 +15,8 @@ export class WishlistComponent implements OnInit, OnDestroy {
   wishlistProfiles!: WishlistProfiles[] | null;
   subscription!: Subscription;
 
-  constructor(private wishlistService: WishlistService) { }
+  constructor(private wishlistService: WishlistService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.subscription = this.wishlistService.getWishlist("860eb71b-310e-4463-a9ed-7c224dea7eec");
@@ -33,4 +36,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(CreateWishlistDialogComponent)
+  }
 }
