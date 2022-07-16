@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {Register} from "../models/register";
 import {Login} from "../models/login";
+import {WishlistCreate} from "../models/wishlist";
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,13 @@ export class ConverterService {
     };
 
     return loginBody;
+  }
+
+  public convertToWishlistBody(name: FormControl) {
+    let body: WishlistCreate = {
+      name: name.value
+    };
+
+    return body;
   }
 }

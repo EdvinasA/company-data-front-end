@@ -1,9 +1,14 @@
 <div>
   <div>
-    <input matInput placeholder="Wishlist name">
+    <input matInput placeholder="Wishlist name" [formControl]="name">
+    <div *ngIf="name.touched">
+      <div *ngIf="name.errors?.['required']">
+          Name required.
+      </div>
+    </div>
   </div>
   <div class="dialog-buttons">
-    <button mat-raised-button color="primary">Create</button>
+    <button mat-raised-button [disabled]="!name.valid" (click)="onClickCreateAndClose()" color="primary">Create</button>
     <button mat-raised-button (click)="onClickClose()">Close</button>
   </div>
 </div>

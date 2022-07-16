@@ -12,3 +12,6 @@ export type WishlistItem = {
   itemPrice: number;
 }
 
+export type WishlistCreate = {
+  name: string;
+}

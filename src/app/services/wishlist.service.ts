@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiGatewayService} from "./api-gateway.service";
 import {ReplaySubject, Subject, Subscription} from "rxjs";
-import {WishlistProfiles} from "../models/wishlist";
+import {WishlistCreate, WishlistProfiles} from "../models/wishlist";
 import {catchError, finalize} from "rxjs/operators";
 
 @Injectable({
@@ -14,6 +14,10 @@ export class WishlistService {
 
   private cachedWishlist: WishlistProfiles[] | null = null;
   public wishlistSubject: Subject<WishlistProfiles[] | null> = new ReplaySubject<WishlistProfiles[] | null>();
+
+  createWishlist(userId: string, input: WishlistCreate) {
+    return this.http.post(`/wishlist/${userId}`, input);
+  }
 
   getWishlist(userId: string): Subscription {
     return this.http
