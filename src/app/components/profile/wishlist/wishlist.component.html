@@ -1,10 +1,24 @@
 <div class="wishlist-display">
   <div class="wishlist-header">Wishlist</div>
   <div class="wishlist-details">
+    <div class="wishlist-profile-container" *ngFor="let profile of wishlistProfiles">
+      <div class="wishlist-profile">
+        <div class="wishlist-box">
+          <div class="wishlist-profile-name">{{profile.name}}</div>
+          <div class="wishlist-profile-length">Items: {{profile.items.length}}</div>
+        </div>
+        <div class="wishlist-items">
+          <div *ngFor="let item of profile.items">
+            <div><img class="wishlist-image" src="{{item.itemPicture}}" alt="{{item.itemName}}"></div>
+          </div>
+        </div>
+        <div class="wishlist-button"><button mat-icon-button><mat-icon>keyboard_arrow_right</mat-icon></button></div>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="create-wishlist">
+        <button mat-button>Create new liked items list +</button>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
   </div>
-<!--  <app-products-list-as-card [laptops]="pageOfLaptops.content"-->
-<!--                             [itemsPerPage]="pageOfLaptops.size"-->
-<!--                             [currentPage]="1"-->
-<!--                             [totalItems]="pageOfLaptops.totalElements">-->
-<!--  </app-products-list-as-card>-->
 </div>
