@@ -3,6 +3,10 @@ import {WishlistItem} from "../../../../models/wishlist";
 import {WishlistService} from "../../../../services/wishlist.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Cart} from "../../../../models/cart";
+import {CartService} from "../../../../services/cart.service";
+import {ProductToCartDialogComponent} from "../../../products-list/product-to-cart-dialog/product-to-cart-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-wishlist-details',
@@ -16,6 +20,8 @@ export class WishlistDetailsComponent implements OnInit {
   wishlistProfileId: string = '';
 
   constructor(private wishlistService: WishlistService,
+              private cartService: CartService,
+              private dialog: MatDialog,
               private route: ActivatedRoute,
               private router: Router) {
   }
@@ -53,5 +59,27 @@ export class WishlistDetailsComponent implements OnInit {
   onClickDeleteProfile(profileId: string) {
     this.wishlistService.deleteWishlistProfile('860eb71b-310e-4463-a9ed-7c224dea7eec', profileId);
     this.router.navigateByUrl('/wishlist')
+  }
+
+  addItemToCart(item: WishlistItem) {
+    let cartItem: Cart = {
+      id: item.itemId,
+      picture: item.itemPicture,
+      name: item.itemName,
+      productCode: '569825',
+      quantity: 1,
+      price: item.itemPrice,
+      insurance: false,
+      warranty: false,
+      purchaseDate: null
+    };
+    this.cartService.updateCartList(cartItem);
+    this.openAddedItemToCartDialog(cartItem);
+  }
+
+  openAddedItemToCartDialog(cartItem: Cart) {
+    this.dialog.open(ProductToCartDialogComponent, {
+      data: cartItem
+    });
   }
 }
