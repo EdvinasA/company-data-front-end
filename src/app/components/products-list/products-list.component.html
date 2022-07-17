@@ -43,7 +43,7 @@
   <!--                           [totalItems]="itemsPage.totalElements"-->
   <!--  ></app-products-list-items>-->
   <div class="card-display-container" *ngIf="group.value === 'blocks'">
-    <div class="card-container"
+    <div class="product-card-container"
          *ngFor="let item of itemsPage?.content | paginate: { itemsPerPage: itemsPage?.size, currentPage: page, totalItems: itemsPage?.totalElements }">
       <app-product-as-card-base [item]="item">
       </app-product-as-card-base>

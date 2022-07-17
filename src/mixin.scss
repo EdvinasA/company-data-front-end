@@ -68,8 +68,16 @@
 }
 
 @mixin buying-button {
-  display: none;
   width: 82%;
   color: white;
   background: #ed1c24;
+}
+
+
+
+@mixin small-details {
+  display: grid;
+  font-size: 14px;
+  padding: 5px 25px 10px 25px;
+  text-align: left;
 }
