@@ -1,0 +1,28 @@
+<div class="wishlist-details">
+  <div class="wishlist-profile-container" *ngFor="let profile of wishlistProfiles">
+    <div class="wishlist-profile">
+      <a class="link" [routerLink]="[profile.id, profile.name]">
+        <div class="wishlist-box">
+          <div class="wishlist-profile-name">{{profile.name}}</div>
+          <div class="wishlist-profile-length">Items: {{profile.items.length}}</div>
+        </div>
+        <div class="wishlist-items">
+          <div class="pictures-container" *ngFor="let item of items(profile.items)">
+            <div><img class="wishlist-image" src="{{item.itemPicture}}" alt="{{item.itemName}}">
+            </div>
+          </div>
+        </div>
+        <div class="wishlist-button">
+          <button mat-icon-button>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
+      </a>
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+  <div class="create-wishlist">
+    <button mat-raised-button (click)="openDialog()">Create new liked items list +</button>
+  </div>
+  <mat-divider></mat-divider>
+</div>

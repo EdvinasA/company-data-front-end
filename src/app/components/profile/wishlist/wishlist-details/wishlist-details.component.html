@@ -1,23 +1,32 @@
-<div class="card-display-container">
-  <div class="card-container" *ngFor="let item of items">
-    <div class="image">
+<div class="wishlist-details-header">
+  <span>{{wishlistProfileName}}</span>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="onClickDeleteProfile(wishlistProfileId)">Remove wishlist</button>
+</div>
+<div class="wishlist-card-display-container">
+  <div class="wishlist-card-container" *ngFor="let item of items">
+    <div class="wishlist-image">
       <a [routerLink]="['', item.itemId]">
         <img src="{{item.itemPicture}}">
       </a>
     </div>
-    <div>
+    <div class="wishlist-item-price">
       <span>{{item.itemPrice | number : '1.2-2'}} € / vnt.</span>
     </div>
-    <div class="price-and-options">
-      <button mat-button>
-        <mat-icon>shopping_cart</mat-icon>
-        To cart
-      </button>
-      <div class="product-link-box">
-        <a class="product-link" [routerLink]="['', item.itemId]">{{item.itemName}} "</a>
+    <div class="wishlist-price-and-options">
+      <div class="wishlist-product-link-box">
+        <a class="wishlist-product-link" [routerLink]="['', item.itemId]">{{item.itemName}} "</a>
       </div>
-      <div>
-        <!--      <app-product-laptop [itemId]="item.id"></app-product-laptop>-->
+    </div>
+    <div class="wishlist-button-box">
+      <div class="add-to-cart-button">
+        <button mat-button class="wishlist-to-cart-button">
+          <mat-icon>shopping_cart</mat-icon>
+          To cart
+        </button>
+      </div>
+      <div class="wishlist-delete-button">
+        <button mat-raised-button (click)="onClickDeleteItem(item.id)"><mat-icon>delete_forever</mat-icon></button>
       </div>
     </div>
   </div>

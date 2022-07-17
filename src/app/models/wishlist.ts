@@ -6,6 +6,7 @@ export type WishlistProfiles = {
 }
 
 export type WishlistItem = {
+  id: string,
   itemId: string,
   itemName: string;
   itemPicture: string;

@@ -27,3 +27,49 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 30px;
 }
+
+@mixin card-container-3 {
+  width: 33.33%;
+}
+
+@mixin card-container-2 {
+  width: 50%;
+}
+
+@mixin card-container-1 {
+  width: 100%;
+}
+
+@mixin card-container {
+  background: white;
+  float: left;
+  width: 25%;
+  border: 1px solid #e1e1e1;
+  min-height: auto;
+  transition: height 0.1s;
+}
+
+@mixin card-display-container {
+  width: 82%;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 0 10px 40px;
+}
+
+@mixin item-link {
+  text-underline: none;
+  color: #302d2d;
+  font-size: 14px;
+}
+
+@mixin item-image-in-card {
+  width: 85%;
+  height: 130px
+}
+
+@mixin buying-button {
+  display: none;
+  width: 82%;
+  color: white;
+  background: #ed1c24;
+}

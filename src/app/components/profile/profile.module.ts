@@ -29,6 +29,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { CreateWishlistDialogComponent } from './wishlist/create-wishlist-dialog/create-wishlist-dialog.component';
 import { WishlistDetailsComponent } from './wishlist/wishlist-details/wishlist-details.component';
 import {RouterModule} from "@angular/router";
+import {WishlistListComponent} from "./wishlist/wishlist-list/wishlist-list.component";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {RouterModule} from "@angular/router";
     SubscriptionsComponent,
     CreateWishlistDialogComponent,
     WishlistDetailsComponent,
+    WishlistListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,62 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WishlistItem} from "../../../../models/wishlist";
 import {WishlistService} from "../../../../services/wishlist.service";
 import {Subscription} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-wishlist-details',
   templateUrl: './wishlist-details.component.html',
   styleUrls: ['./wishlist-details.component.scss']
 })
-export class WishlistDetailsComponent implements OnInit {
+export class WishlistDetailsComponent implements OnInit, OnDestroy {
 
   items: WishlistItem[] = [];
+  subscription!: Subscription;
+  wishlistProfileName: string = '';
+  wishlistProfileId: string = '';
 
-  constructor(private wishlistService: WishlistService) { }
-
-  ngOnInit(): void {
-    this.wishlistService
-    .getWishlistItems('860eb71b-310e-4463-a9ed-7c224dea7eec', '27d41fea-9296-4555-a8a1-e0aace3432cb')
-    .subscribe(data => {
-      this.items = data;
-    });
+  constructor(private wishlistService: WishlistService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
+  ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
+
+  ngOnInit(): void {
+    this.getWishlistProfileDetails(this.route.snapshot.paramMap.get('id'));
+    this.setProfileName(this.route.snapshot.paramMap.get('wishlistProfileName'));
+  }
+
+  setProfileName(name: string | null) {
+    if (name != null) {
+      this.wishlistProfileName = name;
+    }
+  }
+
+  getWishlistProfileDetails(id: string | null) {
+    if (id != null) {
+      this.wishlistProfileId = id;
+
+      this.wishlistService
+      .getWishlistItems('860eb71b-310e-4463-a9ed-7c224dea7eec', id)
+      .subscribe(data => {
+        this.items = data;
+      });
+    }
+  }
+
+  onClickDeleteItem(itemId: string) {
+    this.items = this.items.filter(item => {
+      return item.id !== itemId;
+    })
+    this.wishlistService.deleteWishlistItem('860eb71b-310e-4463-a9ed-7c224dea7eec', itemId).subscribe();
+  }
+
+  onClickDeleteProfile(profileId: string) {
+    this.wishlistService.deleteWishlistProfile('860eb71b-310e-4463-a9ed-7c224dea7eec', profileId).subscribe();
+    this.router.navigateByUrl('/wishlist')
+  }
 }

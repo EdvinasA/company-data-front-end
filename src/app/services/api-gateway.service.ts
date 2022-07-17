@@ -65,7 +65,7 @@ export class ApiGatewayService {
     url: string,
     options: RequestOptions = this.defaultOptions,
   ): Observable<T> {
-    return this.request<T>('PATCH', url,null, null, options);
+    return this.request<T>('DELETE', url,null, null, options);
   }
 
   request<T>(

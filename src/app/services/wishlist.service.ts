@@ -15,7 +15,6 @@ export class WishlistService {
 
   private cachedWishlist: WishlistProfiles[] | null = null;
   public wishlistSubject: Subject<WishlistProfiles[] | null> = new ReplaySubject<WishlistProfiles[] | null>();
-  wishlistProfileItems: WishlistProfiles | undefined;
 
   createWishlist(userId: string, input: WishlistCreate) {
     return this.http.post(`/wishlist/${userId}`, input);
@@ -38,6 +37,14 @@ export class WishlistService {
 
   getWishlistItems(userId: string, wishlistProfileId: string): Observable<WishlistItem[]> {
     return this.http.get<WishlistItem[]>(`/wishlist/${userId}/item/${wishlistProfileId}`);
+  }
+
+  deleteWishlistItem(userId: string, wishlistItemId: string) {
+    return this.http.delete(`/wishlist/${userId}/item/${wishlistItemId}`);
+  }
+
+  deleteWishlistProfile(userId: string, wishlistProfileId:string) {
+    return this.http.delete(`/wishlist/${userId}/${wishlistProfileId}`);
   }
 
 }
