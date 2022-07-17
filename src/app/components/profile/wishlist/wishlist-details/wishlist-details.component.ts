@@ -9,10 +9,9 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './wishlist-details.component.html',
   styleUrls: ['./wishlist-details.component.scss']
 })
-export class WishlistDetailsComponent implements OnInit, OnDestroy {
+export class WishlistDetailsComponent implements OnInit {
 
   items: WishlistItem[] = [];
-  subscription!: Subscription;
   wishlistProfileName: string = '';
   wishlistProfileId: string = '';
 
@@ -20,10 +19,6 @@ export class WishlistDetailsComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private router: Router) {
   }
-
-  ngOnDestroy(): void {
-        this.subscription.unsubscribe();
-    }
 
   ngOnInit(): void {
     this.getWishlistProfileDetails(this.route.snapshot.paramMap.get('id'));
@@ -56,7 +51,7 @@ export class WishlistDetailsComponent implements OnInit, OnDestroy {
   }
 
   onClickDeleteProfile(profileId: string) {
-    this.wishlistService.deleteWishlistProfile('860eb71b-310e-4463-a9ed-7c224dea7eec', profileId).subscribe();
+    this.wishlistService.deleteWishlistProfile('860eb71b-310e-4463-a9ed-7c224dea7eec', profileId);
     this.router.navigateByUrl('/wishlist')
   }
 }

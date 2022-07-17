@@ -21,7 +21,7 @@ export class WishlistService {
   createWishlist(userId: string, input: WishlistCreate) {
     this.http.post(`/wishlist/${userId}`, input).subscribe(id => {
       if (id != undefined) {
-        this.updateCurrentPortfoliosList(id, input.name, userId);
+        this.addPortfolioToList(id, input.name, userId);
       }
     });
   }
@@ -49,20 +49,28 @@ export class WishlistService {
     return this.http.delete(`/wishlist/${userId}/item/${wishlistItemId}`);
   }
 
-  deleteWishlistProfile(userId: string, wishlistProfileId:string) {
-    return this.http.delete(`/wishlist/${userId}/${wishlistProfileId}`);
+  deleteWishlistProfile(userId: string, wishlistProfileId: string) {
+    return this.http.delete(`/wishlist/${userId}/${wishlistProfileId}`).subscribe(() => {
+      this.deletePortfolioFromList(wishlistProfileId);
+    });
   }
 
-  private updateCurrentPortfoliosList(id: string | unknown, name: string, userId: string) {
+  private addPortfolioToList(id: string | unknown, name: string, userId: string) {
     let profile: WishlistProfiles = {
       id: id,
       name: name,
       items: [],
       userId: userId
     }
-      this.wishlistProfilesList.push(profile);
-      console.log(this.wishlistProfilesList);
-      this.profilesList.next(this.wishlistProfilesList);
-    }
+    this.wishlistProfilesList.push(profile);
+    this.profilesList.next(this.wishlistProfilesList);
+  }
+
+  private deletePortfolioFromList(id: string) {
+    this.wishlistProfilesList = this.wishlistProfilesList.filter(profile => {
+      return profile.id !== id;
+    })
+    this.profilesList.next(this.wishlistProfilesList);
+  }
 
 }
