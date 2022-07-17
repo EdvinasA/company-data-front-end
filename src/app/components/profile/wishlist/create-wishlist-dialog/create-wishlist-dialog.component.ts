@@ -22,7 +22,7 @@ export class CreateWishlistDialogComponent implements OnInit {
 
   onClickCreateAndClose() {
     this.wishlistService.createWishlist("860eb71b-310e-4463-a9ed-7c224dea7eec",
-      this.converterService.convertToWishlistBody(this.name)).subscribe(data => {});
+      this.converterService.convertToWishlistBody(this.name));
     this.dialogRef.close();
   }
 

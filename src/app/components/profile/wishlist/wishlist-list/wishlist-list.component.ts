@@ -21,7 +21,7 @@ export class WishlistListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.wishlistService.getWishlist("860eb71b-310e-4463-a9ed-7c224dea7eec");
-    this.wishlistService.wishlistSubject.subscribe(data => {
+    this.wishlistService.currentProfilesList.subscribe(data => {
       this.wishlistProfiles = data;
     });
   }
@@ -38,7 +38,7 @@ export class WishlistListComponent implements OnInit, OnDestroy {
   }
 
   openDialog() {
-    this.dialog.open(CreateWishlistDialogComponent);
+    const dialogReference = this.dialog.open(CreateWishlistDialogComponent);
   }
 
 }

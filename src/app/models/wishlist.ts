@@ -1,5 +1,5 @@
 export type WishlistProfiles = {
-  id:string;
+  id:string | unknown;
   name:string;
   items: WishlistItem[];
   userId: string;
