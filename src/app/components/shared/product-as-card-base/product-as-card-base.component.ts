@@ -40,7 +40,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   }
 
   openAddedItemToCartDialog(cartItem: Cart) {
-    const dialogRef = this.dialog.open(ProductToCartDialogComponent, {
+   this.dialog.open(ProductToCartDialogComponent, {
       data: cartItem
     });
   }

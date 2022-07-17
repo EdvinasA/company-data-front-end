@@ -10,6 +10,7 @@ import {ProfileOrderHistoryComponent} from "./components/profile/profile-order-h
 import {WishlistComponent} from "./components/profile/wishlist/wishlist.component";
 import {SubscriptionsComponent} from "./components/profile/subscriptions/subscriptions.component";
 import {ViewedItemsComponent} from "./components/profile/viewed-items/viewed-items.component";
+import {WishlistDetailsComponent} from "./components/profile/wishlist/wishlist-details/wishlist-details.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileDisplayComponent},
   {path: 'orders', component: ProfileOrderHistoryComponent},
   {path: 'wishlist', component: WishlistComponent},
+  {path: 'wishlist/:id', component: WishlistDetailsComponent},
   {path: 'subscriptions', component: SubscriptionsComponent},
   {
     path: '', component: ProductsListComponent

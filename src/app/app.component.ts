@@ -19,7 +19,7 @@ export class AppComponent {
     if (this.router.url === "/orders") {
       return true;
     }
-    if (this.router.url === "/wishlist") {
+    if (this.router.url.includes("/wishlist")) {
       return true;
     }
     if (this.router.url === "/viewed-items") {

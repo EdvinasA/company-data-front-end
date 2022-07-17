@@ -3,16 +3,23 @@
   <div class="wishlist-details">
     <div class="wishlist-profile-container" *ngFor="let profile of wishlistProfiles">
       <div class="wishlist-profile">
-        <div class="wishlist-box">
-          <div class="wishlist-profile-name">{{profile.name}}</div>
-          <div class="wishlist-profile-length">Items: {{profile.items.length}}</div>
-        </div>
-        <div class="wishlist-items">
-          <div class="pictures-container" *ngFor="let item of items(profile.items)">
-            <div><img class="wishlist-image" src="{{item.itemPicture}}" alt="{{item.itemName}}"></div>
+        <a class="link" [routerLink]="[profile.id]">
+          <div class="wishlist-box">
+            <div class="wishlist-profile-name">{{profile.name}}</div>
+            <div class="wishlist-profile-length">Items: {{profile.items.length}}</div>
           </div>
-        </div>
-        <div class="wishlist-button"><button mat-icon-button><mat-icon>keyboard_arrow_right</mat-icon></button></div>
+          <div class="wishlist-items">
+            <div class="pictures-container" *ngFor="let item of items(profile.items)">
+              <div><img class="wishlist-image" src="{{item.itemPicture}}" alt="{{item.itemName}}">
+              </div>
+            </div>
+          </div>
+          <div class="wishlist-button">
+            <button mat-icon-button>
+              <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+          </div>
+        </a>
         <mat-divider></mat-divider>
       </div>
     </div>

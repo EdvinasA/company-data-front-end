@@ -27,6 +27,8 @@ import {SharedModule} from "../shared/shared.module";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { CreateWishlistDialogComponent } from './wishlist/create-wishlist-dialog/create-wishlist-dialog.component';
+import { WishlistDetailsComponent } from './wishlist/wishlist-details/wishlist-details.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { CreateWishlistDialogComponent } from './wishlist/create-wishlist-dialog
     ViewedItemsComponent,
     SubscriptionsComponent,
     CreateWishlistDialogComponent,
+    WishlistDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { CreateWishlistDialogComponent } from './wishlist/create-wishlist-dialog
     ProductsListModule,
     SharedModule,
     MatSliderModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    RouterModule
   ],
   providers: [DecimalPipe],
   exports: [
