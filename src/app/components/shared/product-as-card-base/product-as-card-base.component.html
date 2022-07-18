@@ -1,20 +1,22 @@
-<div class="image">
-  <a [routerLink]="['', item.id]">
-    <img src="{{item.picture}}">
-  </a>
-</div>
-<div>
-  <span>{{item.price | number : '1.2-2'}} € / vnt.</span>
-</div>
-<div class="product-price-and-options">
-  <button mat-button (click)="addItemToCart(item)">
-    <mat-icon>shopping_cart</mat-icon>
-    To cart
-  </button>
-  <div class="product-link-box">
-    <a class="product-link" [routerLink]="['', item.id]">{{item.name}} "</a>
+<div class="product-card">
+  <div class="image">
+    <a [routerLink]="['', item.id]">
+      <img src="{{item.picture}}">
+    </a>
   </div>
   <div>
-    <!--      <app-product-laptop [itemId]="item.id"></app-product-laptop>-->
+    <span>{{item.price | number : '1.2-2'}} € / vnt.</span>
+  </div>
+  <div class="product-price-and-options">
+    <button mat-button (click)="addItemToCart(item)">
+      <mat-icon>shopping_cart</mat-icon>
+      To cart
+    </button>
+    <div class="product-link-box">
+      <a class="product-link" [routerLink]="['', item.id]">{{item.name}} "</a>
+    </div>
+    <div>
+      <!--      <app-product-laptop [itemId]="item.id"></app-product-laptop>-->
+    </div>
   </div>
 </div>

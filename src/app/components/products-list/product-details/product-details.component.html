@@ -40,11 +40,16 @@
           </button>
         </div>
         <div class="to-cart">
-          <button mat-raised-button color="warn">
+          <button mat-raised-button color="warn" (click)="addItemToCart(laptop)">
             To cart
           </button>
           <div class="details-not-important-buttons">
-            <span>Like</span>
+            <button mat-button
+                    [matMenuTriggerFor]="clickMenu"
+                    #clickMenuTrigger="matMenuTrigger"
+                    (click)="openMenuOnClick()">
+              Like
+            </button>
           </div>
           <div class="details-not-important-buttons">
             <span>Add for comparison</span>
@@ -176,3 +181,9 @@
     </div>
   </div>
 </div>
+
+<mat-menu #clickMenu="matMenu">
+  <ng-container *ngFor="let profile of wishlistProfiles">
+    <button mat-menu-item (click)="addItemToWishlist(laptop, profile.id)">{{profile.name}}</button>
+  </ng-container>
+</mat-menu>

@@ -11,16 +11,14 @@ import {CreateWishlistDialogComponent} from "../create-wishlist-dialog/create-wi
   templateUrl: './wishlist-list.component.html',
   styleUrls: ['./wishlist-list.component.scss']
 })
-export class WishlistListComponent implements OnInit, OnDestroy {
-  wishlistProfiles!: WishlistProfiles[] | null;
-  subscription!: Subscription;
+export class WishlistListComponent implements OnInit {
+  wishlistProfiles: WishlistProfiles[] = [];
 
   constructor(private wishlistService: WishlistService,
               public dialog: MatDialog,
               public router: Router) { }
 
   ngOnInit(): void {
-    this.subscription = this.wishlistService.getWishlist("860eb71b-310e-4463-a9ed-7c224dea7eec");
     this.wishlistService.currentProfilesList.subscribe(data => {
       this.wishlistProfiles = data;
     });
@@ -33,12 +31,8 @@ export class WishlistListComponent implements OnInit, OnDestroy {
     return items;
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   openDialog() {
-    const dialogReference = this.dialog.open(CreateWishlistDialogComponent);
+    this.dialog.open(CreateWishlistDialogComponent);
   }
 
 }

@@ -54,32 +54,14 @@
   color: black;
 }
 
-.availability {
-  padding-top: 6px;
+.product-card:hover {
 }
 
-.availability mat-icon {
-  color: orange;
-  vertical-align: middle;
-}
-
-.product-card-container:hover {
-  transform: scale(1.04);
-}
-
-.product-card-container:hover .add-comparison {
-  display: inline;
-}
-
-.product-price-and-options button:hover {
+.product-card:hover button {
   display: inline;
 }
 
 .product-price-and-options button {
   @include buying-button;
-  display: none;
-}
-
-.add-comparison {
   display: none;
 }

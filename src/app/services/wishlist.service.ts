@@ -26,6 +26,10 @@ export class WishlistService {
     });
   }
 
+  addItemToWishlist(userId: string, item: WishlistItem) {
+    return this.http.post(`/wishlist/${userId}/item`, item);
+  }
+
   getWishlist(userId: string): Subscription {
     return this.http
     .get<WishlistProfiles[]>(`/wishlist/${userId}`)
