@@ -20,6 +20,9 @@ export class ProductDetailsComponent implements OnInit {
   wishlistProfiles: WishlistProfiles[] = [];
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   laptop!: Laptop;
+  itemQuantity: number = 1;
+  itemInsurance: boolean = false;
+  itemWarranty: boolean = false;
 
   constructor(private productService: ProductsService,
               private cartService: CartService,
@@ -47,10 +50,10 @@ export class ProductDetailsComponent implements OnInit {
       picture: item.picture,
       name: item.name,
       productCode: item.productCode,
-      quantity: 1,
+      quantity: this.itemQuantity,
       price: item.price,
-      insurance: false,
-      warranty: false,
+      insurance: this.itemInsurance,
+      warranty: this.itemWarranty,
       purchaseDate: null
     };
     this.cartService.updateCartList(cartItem);
@@ -80,6 +83,23 @@ export class ProductDetailsComponent implements OnInit {
       wishListProfileId: portfolioId,
     }
     this.wishlistService.addItemToWishlist('60eb71b-310e-4463-a9ed-7c224dea7eec', wishlistItem).subscribe();
+  }
+
+  increaseQuantity() {
+   this.itemQuantity += 1;
+  }
+
+  decreaseQuantity() {
+    this.itemQuantity -= 1;
+  }
+
+  keyPressNumbers(event: any) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      this.itemQuantity = 1;
+    } else
+      this.itemQuantity = event.target.value;
   }
 
 }

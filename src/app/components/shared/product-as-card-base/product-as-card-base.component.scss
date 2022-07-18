@@ -1,11 +1,5 @@
 @import "src/mixin";
 
-.product-card-container {
-  @include card-container;
-  height: 650px;
-  transition: height 0.1s;
-}
-
 .product-link {
   @include item-link;
 }
@@ -13,24 +7,6 @@
 .product-link-box {
   text-align: left;
   padding: 0 20px 0 20px;
-}
-
-@media screen and (max-width: 1200px) {
-  .card-container {
-    @include card-container-3
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .card-container {
-    @include card-container-2
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .card-container {
-    @include card-container-1
-  }
 }
 
 .image {
@@ -64,4 +40,12 @@
 .product-price-and-options button {
   @include buying-button;
   display: none;
+}
+
+.product-price-and-options {
+
+}
+
+.details-to-cart-button {
+  height: 56px;
 }

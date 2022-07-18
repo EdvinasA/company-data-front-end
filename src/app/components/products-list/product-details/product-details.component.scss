@@ -96,20 +96,19 @@
 }
 
 .to-cart {
-  display: inline-flex;
-  padding: 20px 0 0 40px;
-  position: relative;
-  width: 100%;
+  display: inline-block;
+  padding: 20px 0 0 10px;
 }
 
 .details-not-important-buttons{
   font-size: 14px;
   font-weight: 200;
   padding: 12px;
+  display: inline-block;
 }
 
 .details-delivery {
-  padding: 20px 0 0 40px;
+  padding: 20px 0 0 10px;
   font-size: 14px;
 }
 
@@ -193,4 +192,9 @@
   .description-type-box  {
     width: 90%;
   }
+}
+
+.details-empty-space {
+  display: inline;
+  padding: 0 40px 0 0;
 }

@@ -15,7 +15,7 @@
 
 .product-card-container {
   @include card-container;
-  height: 650px;
+  height: 350px;
   transition: height 0.1s;
 }
 
