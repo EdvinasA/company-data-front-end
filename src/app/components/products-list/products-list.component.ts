@@ -78,3 +78,4 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     return this.page;
   }
 }
+

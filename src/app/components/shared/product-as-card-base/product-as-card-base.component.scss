@@ -1,5 +1,18 @@
 @import "src/mixin";
 
+.card-display-container {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.product-card-container {
+  @include card-container;
+  height: 350px;
+  transition: height 0.1s;
+}
+
 .product-link {
   @include item-link;
 }

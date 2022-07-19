@@ -6,19 +6,6 @@
   padding: 20px 0 0 0;
 }
 
-.card-display-container {
-  width: 100%;
-  display: inline-block;
-  overflow: hidden;
-  padding-bottom: 40px;
-}
-
-.product-card-container {
-  @include card-container;
-  height: 350px;
-  transition: height 0.1s;
-}
-
 .header-info {
   display: flex;
   height: 60px;
@@ -125,7 +112,11 @@
 }
 
 .product-card-container:hover {
-  transform: scale(1.04);
+  transform: scale(1.15);
+}
+
+.product-card-container:hover * {
+  transform: scale(.80);
 }
 
 .product-card-container:hover .add-comparison {

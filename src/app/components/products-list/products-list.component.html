@@ -42,13 +42,12 @@
   <!--                           [currentPage]="page"-->
   <!--                           [totalItems]="itemsPage.totalElements"-->
   <!--  ></app-products-list-items>-->
-  <div class="card-display-container" *ngIf="group.value === 'blocks'">
-    <div class="product-card-container"
-         *ngFor="let item of itemsPage?.content | paginate: { itemsPerPage: itemsPage?.size, currentPage: page, totalItems: itemsPage?.totalElements }">
-      <app-product-as-card-base [item]="item">
+      <app-product-as-card-base *ngIf="group.value === 'blocks'"
+                                [items]="itemsPage.content"
+                                [itemsPerPage]="selectedPageAmount"
+                                [currentPage]="page"
+                                [totalElements]="itemsPage.totalElements">
       </app-product-as-card-base>
-    </div>
-  </div>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"
                          previousLabel="Previous"
