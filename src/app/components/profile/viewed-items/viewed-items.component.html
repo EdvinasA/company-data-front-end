@@ -25,6 +25,28 @@
             </button>
           </div>
         </div>
+        <div>
+          <div>
+            <span
+              [ngClass]="{
+            'color-wishlist-false': !item.delivery,
+            'color-wishlist-true': item.delivery
+            }">
+            <mat-icon>stars</mat-icon>
+            </span>
+            Delivery
+          </div>
+          <div>
+            <span
+              [ngClass]="{
+            'color-wishlist-false': !item.withdrawal,
+            'color-wishlist-true': item.withdrawal
+            }">
+            <mat-icon>stars</mat-icon>
+            </span>
+            Withdrawal
+          </div>
+        </div>
       </div>
     </div>
   </div>

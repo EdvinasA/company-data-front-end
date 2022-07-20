@@ -12,12 +12,12 @@
   width: 100%;
   display: inline-block;
   overflow: hidden;
-  padding-bottom: 40px;
 }
 
 .viewed-card-container {
   @include card-container;
   height: 350px;
+  padding: 20px;
 }
 
 .viewed-item-link {
@@ -28,7 +28,6 @@
 
 .viewed-item-link-box {
   text-align: left;
-  padding: 0 20px 0 20px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -50,9 +49,23 @@
 }
 
 .viewed-image {
-  padding: 20px;
 }
 
 .viewed-image img {
   @include item-image-in-card;
+}
+
+.viewed-card-display-container:hover {
+}
+
+.wishlist-to-cart-button {
+  @include buying-button;
+}
+
+.color-wishlist-false {
+  color: gray;
+}
+
+.color-wishlist-true {
+  color: green;
 }

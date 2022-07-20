@@ -31,7 +31,7 @@ export class ViewedItemsComponent implements OnInit {
       id: item.id,
       picture: item.itemPicture,
       name: item.itemName,
-      productCode: '123456',
+      productCode: item.itemCode,
       quantity: 1,
       price: item.itemPrice,
       insurance: false,

@@ -57,6 +57,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
       itemId: item.id,
       itemName: item.name,
       itemPicture: item.picture,
+      itemCode: item.productCode,
       itemPrice: item.price,
       delivery: true,
       withdrawal: true,

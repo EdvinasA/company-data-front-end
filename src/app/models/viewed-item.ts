@@ -3,6 +3,7 @@ export type ViewedItem = {
   itemId: string;
   itemPicture: string;
   itemName: string;
+  itemCode: string;
   itemPrice: number;
   delivery: boolean;
   withdrawal:boolean;
