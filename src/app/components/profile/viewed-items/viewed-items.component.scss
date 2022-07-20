@@ -8,6 +8,51 @@
   @include profile-page-header;
 }
 
-.viewed-details {
-  @include profile-page-details;
+.viewed-card-display-container {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.viewed-card-container {
+  @include card-container;
+  height: 350px;
+}
+
+.viewed-item-link {
+  @include item-link;
+  font-size: 12px;
+  font-family: Roboto;
+}
+
+.viewed-item-link-box {
+  text-align: left;
+  padding: 0 20px 0 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .card-container {
+    @include card-container-3;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card-container {
+    @include card-container-2;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    @include card-container-1;
+  }
+}
+
+.viewed-image {
+  padding: 20px;
+}
+
+.viewed-image img {
+  @include item-image-in-card;
 }

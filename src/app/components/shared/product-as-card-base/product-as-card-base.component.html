@@ -3,7 +3,7 @@
        *ngFor="let item of items | paginate: { itemsPerPage: getSelectedAmountOfItemsInPage(), currentPage: currentPage, totalItems: totalElements }">
     <div class="product-card">
       <div class="image">
-        <a [routerLink]="['', item.id]">
+        <a [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">
           <img src="{{item.picture}}">
         </a>
       </div>
@@ -16,7 +16,7 @@
           To cart
         </button>
         <div class="product-link-box">
-          <a class="product-link" [routerLink]="['', item.id]">{{item.name}} "</a>
+          <a class="product-link" [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {BaseItem} from "../../../models/base-item";
 import {CartService} from "../../../services/cart.service";
+import {ViewedItemsService} from "../../../services/viewed-items.service";
+import {ViewedItem} from "../../../models/viewed-item";
 
 @Component({
   selector: 'app-product-as-card-base',
@@ -20,7 +22,8 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
 
   constructor(public dialog: MatDialog,
               public router: Router,
-              public cartService: CartService) {
+              public cartService: CartService,
+              public viewedItemService: ViewedItemsService) {
   }
 
   ngOnInit(): void {
@@ -46,6 +49,20 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
    this.dialog.open(ProductToCartDialogComponent, {
       data: cartItem
     });
+  }
+
+  addItemToViewedItems(item: T) {
+    let viewedItem: ViewedItem = {
+      id: '',
+      itemId: item.id,
+      itemName: item.name,
+      itemPicture: item.picture,
+      itemPrice: item.price,
+      delivery: true,
+      withdrawal: true,
+      userId: '860eb71b-310e-4463-a9ed-7c224dea7eec'
+    }
+    this.viewedItemService.createViewedItem(viewedItem, '860eb71b-310e-4463-a9ed-7c224dea7eec').subscribe();
   }
 
   getSelectedAmountOfItemsInPage() {

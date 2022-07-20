@@ -43,10 +43,10 @@
   <!--                           [totalItems]="itemsPage.totalElements"-->
   <!--  ></app-products-list-items>-->
       <app-product-as-card-base *ngIf="group.value === 'blocks'"
-                                [items]="itemsPage.content"
+                                [items]="itemsPage?.content"
                                 [itemsPerPage]="selectedPageAmount"
                                 [currentPage]="page"
-                                [totalElements]="itemsPage.totalElements">
+                                [totalElements]="itemsPage?.totalElements">
       </app-product-as-card-base>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"

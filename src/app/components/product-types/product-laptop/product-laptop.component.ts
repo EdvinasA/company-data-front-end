@@ -5,6 +5,7 @@ import {CartService} from "../../../services/cart.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {ProductsService} from "../../../services/products.service";
+import {ViewedItemsService} from "../../../services/viewed-items.service";
 
 @Component({
   selector: 'app-product-laptop',
@@ -19,8 +20,9 @@ export class ProductLaptopComponent extends ProductAsCardBaseComponent<Laptop> i
   constructor(public cartService: CartService,
               public dialog: MatDialog,
               public router: Router,
-              private productsService: ProductsService) {
-    super(dialog, router, cartService);
+              private productsService: ProductsService,
+              public viewedItemService: ViewedItemsService) {
+    super(dialog, router, cartService, viewedItemService)
   }
 
   ngOnInit(): void {

@@ -2,29 +2,30 @@
   <div class="viewed-header">Viewed items</div>
   <div class="viewed-details">
     <div class="viewed-card-display-container">
-      <!--      <div class="wishlist-card-container" *ngFor="let item of items">-->
-      <div class="viewed-image">
-        <!--          <a [routerLink]="['', item.itemId]">-->
-        <!--            <img src="{{item.itemPicture}}">-->
-        <!--          </a>-->
-      </div>
-      <div class="viewed-item-price">
-        <!--          <span>{{item.itemPrice | number : '1.2-2'}} € / vnt.</span>-->
-      </div>
-      <div class="viewed-price-and-options">
-        <div class="viewed-product-link-box">
-          <!--            <a class="wishlist-product-link" [routerLink]="['', item.itemId]">{{item.itemName}} "</a>-->
+      <div class="viewed-card-container" *ngFor="let item of viewedItems">
+        <div class="viewed-image">
+          <a [routerLink]="['', item.itemId]">
+            <img src="{{item.itemPicture}}">
+          </a>
+        </div>
+        <div class="viewed-item-price">
+          <span>{{item.itemPrice | number : '1.2-2'}} € / vnt.</span>
+        </div>
+        <div class="viewed-price-and-options">
+          <div class="viewed-item-link-box">
+            <a class="viewed-item-link" [routerLink]="['', item.itemId]">{{item.itemName}}
+              "</a>
+          </div>
+        </div>
+        <div class="viewed-button-box">
+          <div class="add-to-cart-button">
+            <button mat-button class="wishlist-to-cart-button" (click)="addItemToCart(item)">
+              <mat-icon>shopping_cart</mat-icon>
+              To cart
+            </button>
+          </div>
         </div>
       </div>
-      <div class="viewed-button-box">
-        <div class="add-to-cart-button">
-          <!--            <button mat-button class="wishlist-to-cart-button" (click)="addItemToCart(item)">-->
-          <!--              <mat-icon>shopping_cart</mat-icon>-->
-          <!--              To cart-->
-          <!--            </button>-->
-        </div>
-      </div>
-      <!--      </div>-->
     </div>
   </div>
 </div>
