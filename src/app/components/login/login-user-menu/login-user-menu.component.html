@@ -1,1 +1,13 @@
-<p>login-user-menu works!</p>
+<div class="host">
+  <div class="item">
+    <button mat-raised-button (click)="changePage('/profile')">My profile</button>
+    <button mat-raised-button (click)="changePage('/orders')">Orders (0)</button>
+    <button mat-raised-button (click)="changePage('/wishlist')">Wishlist</button>
+    <button mat-raised-button (click)="changePage('/viewed-items')">Viewed items</button>
+    <button mat-raised-button (click)="changePage('/subscriptions')">Subscriptions</button>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="item">
+    <button mat-raised-button>Sign out</button>
+  </div>
+</div>
