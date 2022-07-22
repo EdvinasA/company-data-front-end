@@ -7,6 +7,8 @@ import {Cart} from "../../../../models/cart";
 import {CartService} from "../../../../services/cart.service";
 import {ProductToCartDialogComponent} from "../../../products-list/product-to-cart-dialog/product-to-cart-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {UserService} from "../../../../services/user.service";
+import {User} from "../../../../models/user";
 
 @Component({
   selector: 'app-wishlist-details',
@@ -18,9 +20,11 @@ export class WishlistDetailsComponent implements OnInit {
   items: WishlistItem[] = [];
   wishlistProfileName: string = '';
   wishlistProfileId: string = '';
+  user!: User | null;
 
   constructor(private wishlistService: WishlistService,
               private cartService: CartService,
+              private userService: UserService,
               private dialog: MatDialog,
               private route: ActivatedRoute,
               private router: Router) {
@@ -29,6 +33,9 @@ export class WishlistDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getWishlistProfileDetails(this.route.snapshot.paramMap.get('id'));
     this.setProfileName(this.route.snapshot.paramMap.get('wishlistProfileName'));
+    this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
+    })
   }
 
   setProfileName(name: string | null) {
@@ -42,7 +49,7 @@ export class WishlistDetailsComponent implements OnInit {
       this.wishlistProfileId = id;
 
       this.wishlistService
-      .getWishlistItems('860eb71b-310e-4463-a9ed-7c224dea7eec', id)
+      .getWishlistItems(this.user?.id, id)
       .subscribe(data => {
         this.items = data;
       });
@@ -53,11 +60,11 @@ export class WishlistDetailsComponent implements OnInit {
     this.items = this.items.filter(item => {
       return item.id !== itemId;
     })
-    this.wishlistService.deleteWishlistItem('860eb71b-310e-4463-a9ed-7c224dea7eec', itemId).subscribe();
+    this.wishlistService.deleteWishlistItem(this.user?.id, itemId).subscribe();
   }
 
   onClickDeleteProfile(profileId: string) {
-    this.wishlistService.deleteWishlistProfile('860eb71b-310e-4463-a9ed-7c224dea7eec', profileId);
+    this.wishlistService.deleteWishlistProfile(this.user?.id, profileId);
     this.router.navigateByUrl('/wishlist')
   }
 

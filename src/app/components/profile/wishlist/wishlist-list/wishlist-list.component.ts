@@ -5,6 +5,8 @@ import {WishlistService} from "../../../../services/wishlist.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {CreateWishlistDialogComponent} from "../create-wishlist-dialog/create-wishlist-dialog.component";
+import {UserService} from "../../../../services/user.service";
+import {User} from "../../../../models/user";
 
 @Component({
   selector: 'app-wishlist-list',
@@ -13,8 +15,10 @@ import {CreateWishlistDialogComponent} from "../create-wishlist-dialog/create-wi
 })
 export class WishlistListComponent implements OnInit {
   wishlistProfiles: WishlistProfiles[] = [];
+  user!: User | null;
 
   constructor(private wishlistService: WishlistService,
+              private userService: UserService,
               public dialog: MatDialog,
               public router: Router) { }
 
@@ -22,6 +26,9 @@ export class WishlistListComponent implements OnInit {
     this.wishlistService.currentProfilesList.subscribe(data => {
       this.wishlistProfiles = data;
     });
+    this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
+    })
   }
 
   items(items: WishlistItem[]) {
@@ -32,7 +39,9 @@ export class WishlistListComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(CreateWishlistDialogComponent);
+    this.dialog.open(CreateWishlistDialogComponent, {
+      data: this.user
+    });
   }
 
 }

@@ -1,15 +1,35 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {UserService} from "./services/user.service";
+import {Subscription} from "rxjs";
+import {User} from "./models/user";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Shop';
+  isUserLoggedIn: boolean = false;
+  user!: User | null;
+  token: string | undefined | null = localStorage.getItem('token');
+  subscription!: Subscription;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private userService: UserService) {
+  }
+
+  ngOnInit(): void {
+    if (this.token != null || this.token != undefined) {
+      this.subscription = this.userService.validate(this.token);
+      this.userService.userWasLoaded.asObservable().subscribe(data => {
+        this.isUserLoggedIn = data;
+      });
+      this.userService.userSubject.asObservable().subscribe(user => {
+        this.user = user;
+      })
+    }
   }
 
   isCorrectPath() {

@@ -13,8 +13,7 @@ import {UserService} from "../services/user.service";
 })
 export class AuthenticationGuard implements CanActivate {
 
-  constructor(private router: Router,
-              private userService: UserService) {
+  constructor(private router: Router) {
   }
 
   canActivate(
@@ -22,7 +21,7 @@ export class AuthenticationGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const token = localStorage.getItem('token');
 
-    if (token !== null && token !== 'undefined' && this.userService.validate(token) !== null) {
+    if (token !== null && token !== 'undefined') {
       return true;
     }
     this.router.navigate(['/login']);

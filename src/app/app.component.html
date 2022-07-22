@@ -1,5 +1,9 @@
 <div class="header">
-  <app-header [title]="title"></app-header>
+  <app-header [title]="title"
+              [isUserLoggedIn]="isUserLoggedIn"
+              [userFirstName]="user.name"
+  >
+  </app-header>
 </div>
 <app-categories></app-categories>
 <div class="container main">

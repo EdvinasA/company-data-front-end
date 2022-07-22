@@ -2,7 +2,7 @@ export type WishlistProfiles = {
   id:string | unknown;
   name:string;
   items: WishlistItem[];
-  userId: string;
+  userId: string | undefined;
 }
 
 export type WishlistItem = {

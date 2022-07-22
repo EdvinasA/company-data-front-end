@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ApiGatewayService} from "./api-gateway.service";
-import {BehaviorSubject, Observable, ReplaySubject, Subject, Subscription} from "rxjs";
+import {BehaviorSubject, Observable, Subscription} from "rxjs";
 import {WishlistCreate, WishlistItem, WishlistProfiles} from "../models/wishlist";
 import {catchError, finalize} from "rxjs/operators";
-import {Cart} from "../models/cart";
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +10,13 @@ import {Cart} from "../models/cart";
 export class WishlistService {
 
   constructor(private http: ApiGatewayService) {
-    this.getWishlist("860eb71b-310e-4463-a9ed-7c224dea7eec");
   }
 
   public wishlistProfilesList: WishlistProfiles[] = [];
   private profilesList = new BehaviorSubject(this.wishlistProfilesList);
   currentProfilesList = this.profilesList.asObservable();
 
-  createWishlist(userId: string, input: WishlistCreate) {
+  createWishlist(userId: string | undefined, input: WishlistCreate) {
     this.http.post(`/wishlist/${userId}`, input).subscribe(id => {
       if (id != undefined) {
         this.addPortfolioToList(id, input.name, userId);
@@ -45,21 +43,21 @@ export class WishlistService {
     });
   }
 
-  getWishlistItems(userId: string, wishlistProfileId: string): Observable<WishlistItem[]> {
+  getWishlistItems(userId: string | undefined, wishlistProfileId: string): Observable<WishlistItem[]> {
     return this.http.get<WishlistItem[]>(`/wishlist/${userId}/item/${wishlistProfileId}`);
   }
 
-  deleteWishlistItem(userId: string, wishlistItemId: string) {
+  deleteWishlistItem(userId: string | undefined, wishlistItemId: string) {
     return this.http.delete(`/wishlist/${userId}/item/${wishlistItemId}`);
   }
 
-  deleteWishlistProfile(userId: string, wishlistProfileId: string) {
+  deleteWishlistProfile(userId: string | undefined, wishlistProfileId: string) {
     return this.http.delete(`/wishlist/${userId}/${wishlistProfileId}`).subscribe(() => {
       this.deletePortfolioFromList(wishlistProfileId);
     });
   }
 
-  private addPortfolioToList(id: string | unknown, name: string, userId: string) {
+  private addPortfolioToList(id: unknown, name: string, userId: string | undefined) {
     let profile: WishlistProfiles = {
       id: id,
       name: name,

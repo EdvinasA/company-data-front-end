@@ -1,6 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from "../../services/cart.service";
-import {Subject, Subscription} from "rxjs";
 import {Cart} from "../../models/cart";
 
 @Component({
@@ -11,6 +10,8 @@ import {Cart} from "../../models/cart";
 export class HeaderComponent implements OnInit {
 
   @Input() title!: string;
+  @Input() isUserLoggedIn: boolean = false;
+  @Input() userFirstName!: string
   listOfItems: Cart[] = [];
 
   constructor(private cartService: CartService) { }
@@ -19,10 +20,6 @@ export class HeaderComponent implements OnInit {
     this.cartService.currentCartList.subscribe(cart => {
       this.listOfItems = cart;
     })
-  }
-
-  shouldDisplayHeader() {
-    return true;
   }
 
 }

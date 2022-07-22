@@ -14,20 +14,24 @@
 </div>
 <div class="bottom-header">
   <a routerLink="/" routerLinkActive="active">
-  <span class="title">{{title}}</span>
+    <span class="title">{{title}}</span>
   </a>
   <input matInput placeholder="Enter what you're searching">
   <button mat-button style="color: black; background-color: green">
     <mat-icon>search</mat-icon>
   </button>
-  <a routerLink="/login" routerLinkActive="active">
-    <button mat-button class="user-form" [mdePopoverTriggerFor]="loginPopover" mdePopoverTriggerOn="hover" *ngIf="false">
+  <a routerLink="/login" routerLinkActive="active" *ngIf="!isUserLoggedIn">
+    <button mat-button class="user-form" [mdePopoverTriggerFor]="loginPopover"
+            mdePopoverTriggerOn="hover">
       <mat-icon>person_pin</mat-icon>
       Register/Login
     </button>
-    <button mat-button class="user-form" [mdePopoverTriggerFor]="userPopover" mdePopoverTriggerOn="hover" *ngIf="true">
+  </a>
+  <a routerLink="/profile" routerLinkActive="active" *ngIf="isUserLoggedIn">
+    <button mat-button class="user-form" [mdePopoverTriggerFor]="userPopover"
+            mdePopoverTriggerOn="hover">
       <mat-icon>assignment_ind</mat-icon>
-      Hi, Edvinas!
+      Hi, {{userFirstName}}!
     </button>
   </a>
   <a routerLink="/cart" routerLinkActive="active">
@@ -40,14 +44,20 @@
   </a>
 </div>
 
-<mde-popover #cartPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false" [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58" mdePopoverArrowColor="#FFFFFF">
+<mde-popover #cartPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false"
+             [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58"
+             mdePopoverArrowColor="#FFFFFF">
   <app-cart-popover></app-cart-popover>
 </mde-popover>
 
-<mde-popover #loginPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false" [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58" mdePopoverArrowColor="#FFFFFF">
+<mde-popover #loginPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false"
+             [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58"
+             mdePopoverArrowColor="#FFFFFF">
   <app-login-popover></app-login-popover>
 </mde-popover>
 
-<mde-popover #userPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false" [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58" mdePopoverArrowColor="#FFFFFF">
+<mde-popover #userPopover [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false"
+             [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58"
+             mdePopoverArrowColor="#FFFFFF">
   <app-login-user-menu></app-login-user-menu>
 </mde-popover>

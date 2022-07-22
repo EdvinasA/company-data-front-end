@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ReplaySubject, Subject, Subscription} from "rxjs";
+import {BehaviorSubject, ReplaySubject, Subject, Subscription} from "rxjs";
 import {Register} from "../models/register";
 import {Login} from "../models/login";
 import {ApiGatewayService} from "./api-gateway.service";
@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 })
 export class UserService {
   private cachedUser: User | null = null;
-  public userWasLoaded: boolean = false;
+  public userWasLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public userSubject: Subject<User | null> = new ReplaySubject<User | null>();
 
   constructor(private http: ApiGatewayService,
@@ -29,7 +29,7 @@ export class UserService {
         throw err.message();
       }),
       finalize(() => {
-        this.userWasLoaded = true;
+        this.userWasLoaded.next(true);
         this.userSubject.next(this.cachedUser);
       }),
     ).subscribe((response) => {
@@ -51,7 +51,7 @@ export class UserService {
         throw err;
       }),
       finalize(() => {
-        this.userWasLoaded = true;
+        this.userWasLoaded.next(true);
         this.userSubject.next(this.cachedUser);
       }),
     ).subscribe(
@@ -74,7 +74,7 @@ export class UserService {
         throw err;
       }),
       finalize(() => {
-        this.userWasLoaded = true;
+        this.userWasLoaded.next(true);
         this.userSubject.next(this.cachedUser);
       }),
     ).subscribe((response) => {
