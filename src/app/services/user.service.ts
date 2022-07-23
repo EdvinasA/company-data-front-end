@@ -31,6 +31,7 @@ export class UserService {
       finalize(() => {
         this.userWasLoaded.next(true);
         this.userSubject.next(this.cachedUser);
+        window.location.reload();
       }),
     ).subscribe((response) => {
       if (response.email === null) {
