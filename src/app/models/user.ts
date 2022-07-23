@@ -9,5 +9,5 @@ export interface User {
   receiveEmailsAboutGivingFeedback: boolean,
   receiveEmailsAboutServiceQuality: boolean,
   registeredDate: Date,
-  role: string;
+  role: string[];
 }

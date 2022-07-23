@@ -17,4 +17,9 @@ export class LoginUserMenuComponent implements OnInit {
     this.router.navigateByUrl(route)
   }
 
+  signOut() {
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ThemePalette} from "@angular/material/core";
+import {User} from "../../../models/user";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-subscriptions',
@@ -9,11 +11,14 @@ import {ThemePalette} from "@angular/material/core";
 export class SubscriptionsComponent implements OnInit {
 
   color: ThemePalette = 'primary';
-  checked = true;
+  user!: User | null;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
+    })
   }
 
 }

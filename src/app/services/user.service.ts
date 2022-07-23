@@ -74,11 +74,13 @@ export class UserService {
         throw err;
       }),
       finalize(() => {
-        this.userWasLoaded.next(true);
         this.userSubject.next(this.cachedUser);
       }),
     ).subscribe((response) => {
       this.cachedUser = response;
+      if (response.token != null || response.token != undefined) {
+        this.userWasLoaded.next(true);
+      }
       this.router.navigate(['/']);
     });
   }
