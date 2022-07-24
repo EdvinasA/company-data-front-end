@@ -13,18 +13,18 @@ import {UserService} from "../services/user.service";
 })
 export class AuthenticationGuard implements CanActivate {
 
-  constructor(private router: Router) {
+  constructor(private _router: Router) {
   }
 
   canActivate(
-    childRoute: ActivatedRouteSnapshot,
+    route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const token = localStorage.getItem('token');
 
     if (token !== null && token !== 'undefined') {
       return true;
     }
-    this.router.navigate(['/login']);
+    this._router.navigate(['/login']);
     return false;
   }
 

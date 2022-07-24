@@ -31,6 +31,7 @@ import {CartModule} from "./components/cart/cart.module";
 import {CartPopoverComponent} from "./components/cart/cart-popover/cart-popover.component";
 import {CategoriesComponent} from './components/categories/categories.component';
 import {ProfileModule} from "./components/profile/profile.module";
+import {AuthenticationGuard} from "./guards/authentication.guard";
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import {ProfileModule} from "./components/profile/profile.module";
     MatSnackBarModule,
     NgxPaginationModule
   ],
-  providers: [PaginatePipe, DecimalPipe],
+  providers: [PaginatePipe, DecimalPipe, AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 

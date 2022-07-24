@@ -12,12 +12,13 @@ import {SubscriptionsComponent} from "./components/profile/subscriptions/subscri
 import {ViewedItemsComponent} from "./components/profile/viewed-items/viewed-items.component";
 import {WishlistDetailsComponent} from "./components/profile/wishlist/wishlist-details/wishlist-details.component";
 import {WishlistListComponent} from "./components/profile/wishlist/wishlist-list/wishlist-list.component";
+import {AuthenticationGuard} from "./guards/authentication.guard";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'viewed-items', component: ViewedItemsComponent},
+  {path: 'viewed-items', component: ViewedItemsComponent, canActivate: [AuthenticationGuard]},
   {path: 'profile', component: ProfileDisplayComponent},
   {path: 'orders', component: ProfileOrderHistoryComponent},
   {
