@@ -20,9 +20,12 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const token = localStorage.getItem('token');
+    let user = null;
+      this.userService.userSubject.asObservable().subscribe(data => {
+      user = data;
+    })
 
-    if (token !== null && token !== 'undefined' && this.userService.validate(token)) {
+    if (user != null) {
       return true;
     }
     this._router.navigate(['/login']);

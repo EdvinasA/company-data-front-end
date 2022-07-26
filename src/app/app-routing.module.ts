@@ -19,15 +19,15 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'viewed-items', component: ViewedItemsComponent, canActivate: [AuthenticationGuard]},
-  {path: 'profile', component: ProfileDisplayComponent},
-  {path: 'orders', component: ProfileOrderHistoryComponent},
+  {path: 'profile', component: ProfileDisplayComponent, canActivate: [AuthenticationGuard]},
+  {path: 'orders', component: ProfileOrderHistoryComponent, canActivate: [AuthenticationGuard]},
   {
-     path: 'wishlist', component: WishlistComponent, children: [
+     path: 'wishlist', component: WishlistComponent, canActivate: [AuthenticationGuard], children: [
     {path: '', component: WishlistListComponent},
     {path: ':id/:wishlistProfileName', component: WishlistDetailsComponent}
     ]
   },
-  {path: 'subscriptions', component: SubscriptionsComponent},
+  {path: 'subscriptions', component: SubscriptionsComponent, canActivate: [AuthenticationGuard]},
   {
     path: '', component: ProductsListComponent
   },
