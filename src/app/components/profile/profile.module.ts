@@ -30,6 +30,7 @@ import { CreateWishlistDialogComponent } from './wishlist/create-wishlist-dialog
 import { WishlistDetailsComponent } from './wishlist/wishlist-details/wishlist-details.component';
 import {RouterModule} from "@angular/router";
 import {WishlistListComponent} from "./wishlist/wishlist-list/wishlist-list.component";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {WishlistListComponent} from "./wishlist/wishlist-list/wishlist-list.comp
     SharedModule,
     MatSliderModule,
     MatSlideToggleModule,
-    RouterModule
+    RouterModule,
+    MatExpansionModule
   ],
   providers: [DecimalPipe],
   exports: [
