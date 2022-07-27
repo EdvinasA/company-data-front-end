@@ -18,20 +18,20 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'viewed-items', component: ViewedItemsComponent, canActivate: [AuthenticationGuard]},
-  {path: 'profile', component: ProfileDisplayComponent, canActivate: [AuthenticationGuard]},
-  {path: 'orders', component: ProfileOrderHistoryComponent, canActivate: [AuthenticationGuard]},
+  {path: 'viewed-items', component: ViewedItemsComponent},
+  {path: 'profile', component: ProfileDisplayComponent},
+  {path: '', component: ProfileOrderHistoryComponent},
   {
-     path: 'wishlist', component: WishlistComponent, canActivate: [AuthenticationGuard], children: [
+     path: 'wishlist', component: WishlistComponent, children: [
     {path: '', component: WishlistListComponent},
     {path: ':id/:wishlistProfileName', component: WishlistDetailsComponent}
     ]
   },
-  {path: 'subscriptions', component: SubscriptionsComponent, canActivate: [AuthenticationGuard]},
-  {
-    path: '', component: ProductsListComponent
-  },
-  { path: ':id', component: ProductDetailsComponent }
+  {path: 'subscriptions', component: SubscriptionsComponent},
+  // {
+  //   path: '', component: ProductsListComponent
+  // },
+  // { path: ':id', component: ProductDetailsComponent }
 ];
 
 @NgModule({
