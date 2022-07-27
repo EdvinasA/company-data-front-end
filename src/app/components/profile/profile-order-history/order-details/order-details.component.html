@@ -12,23 +12,50 @@
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <div>
-            <span>Delivery Nr.</span>
-            <span>FBGHDDNN</span>
+          <div class="order-information-container">
+            <div class="order-information">
+              <div class="order-information-header">Delivery Nr.</div>
+              <div class="order-information-description">FBGHDDNN</div>
+            </div>
+            <div class="order-information">
+              <div class="order-information-header">Withdrawal date</div>
+              <div class="order-information-description">2021-12-29</div>
+            </div>
+            <div class="order-information">
+              <div class="order-information-header">Total</div>
+              <div class="order-information-description">263,39 €</div>
+            </div>
           </div>
           <div>
-            <span>Withdrawal date</span>
-            <span>2021-12-29</span>
-          </div>
-          <div>
-            <span>Total</span>
-            <span>263,39 €</span>
-          </div>
-          <div>
-            Delivered
+            <mat-chip-list>
+              <mat-chip color="primary">
+                Delivered
+              </mat-chip>
+            </mat-chip-list>
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
+      <mat-panel-description>
+        <div class="order-description-container">
+          <div class="order-description">
+            <div>
+              Items: 2
+            </div>
+            <div class="order-description-table">
+              <div>
+                <div>Mobilusis telefonas Xiaomi Redmi Note 10 5G, pilkas, 4GB/128GB</div>
+                <div>Prekės kodas: 960728</div>
+              </div>
+              <div>
+                1 vnt.
+              </div>
+              <div>
+                244,25 €
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-panel-description>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

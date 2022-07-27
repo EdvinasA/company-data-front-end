@@ -33,6 +33,7 @@ import {WishlistListComponent} from "./wishlist/wishlist-list/wishlist-list.comp
 import {MatExpansionModule} from "@angular/material/expansion";
 import { OrderDetailsComponent } from './profile-order-history/order-details/order-details.component';
 import { OrderListComponent } from './profile-order-history/order-list/order-list.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { OrderListComponent } from './profile-order-history/order-list/order-lis
     MatSliderModule,
     MatSlideToggleModule,
     RouterModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatChipsModule
   ],
   providers: [DecimalPipe],
   exports: [

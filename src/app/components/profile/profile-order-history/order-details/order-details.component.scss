@@ -9,3 +9,31 @@
 .mat-expansion-panel-header {
   padding: 0 50px;
 }
+
+.order-information {
+  width: 100%;
+  padding: 0 100px 0 0;
+}
+
+.order-information-container {
+  display: inline-flex;
+}
+
+.order-information-header {
+  font-size: 10px;
+  color: #999999;
+}
+
+.order-information-description {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.order-description-container {
+  width: 100%;
+}
+
+.order-description-table {
+  display: inline-flex;
+  width: 100%;
+}
