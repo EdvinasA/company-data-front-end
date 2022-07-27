@@ -31,6 +31,8 @@ import { WishlistDetailsComponent } from './wishlist/wishlist-details/wishlist-d
 import {RouterModule} from "@angular/router";
 import {WishlistListComponent} from "./wishlist/wishlist-list/wishlist-list.component";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { OrderDetailsComponent } from './profile-order-history/order-details/order-details.component';
+import { OrderListComponent } from './profile-order-history/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     CreateWishlistDialogComponent,
     WishlistDetailsComponent,
     WishlistListComponent,
+    OrderDetailsComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,
