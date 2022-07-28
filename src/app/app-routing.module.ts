@@ -13,6 +13,8 @@ import {ViewedItemsComponent} from "./components/profile/viewed-items/viewed-ite
 import {WishlistDetailsComponent} from "./components/profile/wishlist/wishlist-details/wishlist-details.component";
 import {WishlistListComponent} from "./components/profile/wishlist/wishlist-list/wishlist-list.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
+import {OrderDetailsComponent} from "./components/profile/profile-order-history/order-details/order-details.component";
+import {OrderListComponent} from "./components/profile/profile-order-history/order-list/order-list.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,7 +22,10 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'viewed-items', component: ViewedItemsComponent},
   {path: 'profile', component: ProfileDisplayComponent},
-  {path: '', component: ProfileOrderHistoryComponent},
+  {path: 'orders', component: ProfileOrderHistoryComponent, children: [
+    { path: '', component: OrderListComponent },
+    { path: ':id', component: OrderDetailsComponent }
+    ]},
   {
      path: 'wishlist', component: WishlistComponent, children: [
     {path: '', component: WishlistListComponent},
@@ -28,10 +33,10 @@ const routes: Routes = [
     ]
   },
   {path: 'subscriptions', component: SubscriptionsComponent},
-  // {
-  //   path: '', component: ProductsListComponent
-  // },
-  // { path: ':id', component: ProductDetailsComponent }
+  {
+    path: '', component: ProductsListComponent
+  },
+  { path: ':id', component: ProductDetailsComponent }
 ];
 
 @NgModule({
