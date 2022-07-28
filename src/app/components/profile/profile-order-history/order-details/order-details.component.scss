@@ -76,6 +76,7 @@
 }
 
 .order-other {
+  border: 1px solid #e1e1e1;
   background: white;
   display: inline-flex;
   justify-content: space-between;
@@ -125,6 +126,37 @@
   width: 15%;
 }
 
+.ordered-items-list-content {
+  background: white;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 30px 50px 10px 50px;
+  width: 100%;
+}
+
+.ordered-items-list-content-column {
+  font-size: 12px;
+  width: 15%;
+}
+
 .item {
   width: 55%;
+}
+
+.ordered-item-image {
+  padding: 0 10px 0 0;
+}
+
+.ordered-item-image img {
+  height: 120px;
+  width: 80px;
+}
+
+.inline-divs {
+  display: inline-flex;
+}
+
+.ordered-items-total {
+  text-align: right;
+  padding: 10px 50px 10px 50px;
 }
