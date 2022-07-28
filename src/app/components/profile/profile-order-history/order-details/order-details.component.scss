@@ -98,3 +98,33 @@
 .order-other-description {
   padding-top: 5px;
 }
+
+.ordered-items-list-container {
+  background: white;
+  margin-top: 10px;
+}
+
+.ordered-items-list-header {
+  padding: 10px 50px 10px 50px;
+  width: 100%;
+}
+
+.ordered-items-list-table-header {
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  background: #fafafa;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 10px 50px 10px 50px;
+  width: 100%;
+}
+
+.ordered-items-list-table-header-column {
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 15%;
+}
+
+.item {
+  width: 55%;
+}
