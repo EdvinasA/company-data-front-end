@@ -1,10 +1,26 @@
 <div class="orders-list-container">
   <div class="orders-list-header">
-    <div class="orders-list-header-column">A</div>
-    <div class="orders-list-header-column">A</div>
-    <div class="orders-list-header-column">A</div>
-    <div class="orders-list-header-column">A</div>
-    <div class="orders-list-header-column">A</div>
+    <div class="orders-list-header-column">Order number</div>
+    <div class="orders-list-header-column">Order date</div>
+    <div class="orders-list-header-column total-bigger">Total and payment method</div>
+    <div class="orders-list-header-column">Status</div>
+    <div class="orders-list-header-column status">Status updated</div>
   </div>
-  <div class="orders-list-content"></div>
+  <a class="ordered-item-link" [routerLink]="['/orders', 'asd']">
+    <div class="orders-list-content">
+      <div class="orders-list-content-column"><strong>A000251723</strong></div>
+      <div class="orders-list-content-column">2022-07-29</div>
+      <div class="orders-list-content-column total-bigger"><strong>244,25 €</strong> Swedbank el.
+        bank
+      </div>
+      <div class="orders-list-content-column">
+        <mat-chip-list>
+          <mat-chip color="primary">
+            Delivered
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="orders-list-content-column status">2021-12-23 / 17:11</div>
+    </div>
+  </a>
 </div>

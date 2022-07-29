@@ -41,7 +41,7 @@ export class AppComponent implements OnInit{
     if (this.router.url === "/profile") {
       return true;
     }
-    if (this.router.url === "/orders") {
+    if (this.router.url.includes("/orders")) {
       return true;
     }
     if (this.router.url.includes("/wishlist")) {

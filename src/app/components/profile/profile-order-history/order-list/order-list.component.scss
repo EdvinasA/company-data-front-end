@@ -11,3 +11,43 @@
   font-size: 12px;
   width: 15%;
 }
+
+.orders-list-content {
+  border-bottom: 1px solid #e1e1e1;
+  background: white;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 10px 50px 10px 50px;
+  width: 100%;
+}
+
+.orders-list-content-column {
+  font-size: 12px;
+  width: 15%;
+}
+
+.total-bigger {
+  width: 30%;
+}
+
+.status {
+  width: 25%;
+}
+
+.orders-list-content-column {
+  ::ng-deep {
+    .mat-standard-chip {
+      background: green;
+      color: white;
+      min-height: 1px;
+    }
+    .mat-chip-list-wrapper {
+      padding-top: 2px;
+    }
+  }
+}
+
+.ordered-item-link {
+  text-decoration: none;
+  color: black;
+}

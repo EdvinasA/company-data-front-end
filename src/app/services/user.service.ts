@@ -37,7 +37,6 @@ export class UserService {
         this.openSnackBar('Failed to get user!', 'Close');
       }
       localStorage.setItem('token', response.token)
-      this.router.navigate(['/']);
       this.cachedUser = response;
     });
   }
@@ -58,7 +57,6 @@ export class UserService {
       (response) => {
         localStorage.setItem('token', response.token)
         this.cachedUser = response;
-        this.router.navigate(['/']);
     },
       (error) => {
         this.openSnackBar('Failed to register the user! Email already occupied!', 'Close');
@@ -81,7 +79,6 @@ export class UserService {
       if (response.token != null || response.token != undefined) {
         this.userWasLoaded.next(true);
       }
-      this.router.navigate(['/']);
     });
   }
 
