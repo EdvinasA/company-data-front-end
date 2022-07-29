@@ -4,22 +4,36 @@
     <div class="subscription">
       <mat-slide-toggle
         [checked]="user?.receiveEmails"
-        [color]="color">I agree receive emails spofrom Edvinas Alimas.</mat-slide-toggle>
+        [color]="color">I agree receive emails spofrom Edvinas Alimas.
+      </mat-slide-toggle>
+      <div class="subscription-information" *ngIf="!user?.receiveEmails">(Disabled on 2022-07-20)</div>
+      <div class="subscription-information" *ngIf="user?.receiveEmails">(Activated on 2022-07-29)</div>
     </div>
     <div class="subscription">
       <mat-slide-toggle
         [checked]="user?.receiveEmailsAboutLookedItems"
-        [color]="color">I agree receive emails from Edvinas Alimas, dependent into looked items, orders and buying information also given information.</mat-slide-toggle>
+        [color]="color">I agree receive emails from Edvinas Alimas, dependent into looked items,
+        orders and buying information also given information.
+      </mat-slide-toggle>
+      <div class="subscription-information extended-text" *ngIf="!user?.receiveEmailsAboutLookedItems">(Disabled on 2022-07-20)</div>
+      <div class="subscription-information extended-text" *ngIf="user?.receiveEmailsAboutLookedItems">(Activated on 2022-07-29)</div>
     </div>
     <div class="subscription">
       <mat-slide-toggle
         [checked]="user?.receiveEmailsAboutGivingFeedback"
-        [color]="color">I agree receive emails from Edvinas Alimas about giving feedback about bought products.</mat-slide-toggle>
+        [color]="color">I agree receive emails from Edvinas Alimas about giving feedback about
+        bought products.
+      </mat-slide-toggle>
+      <div class="subscription-information" *ngIf="!user?.receiveEmailsAboutGivingFeedback">(Disabled on 2022-07-20)</div>
+      <div class="subscription-information" *ngIf="user?.receiveEmailsAboutGivingFeedback">(Activated on 2022-07-29)</div>
     </div>
     <div class="subscription">
       <mat-slide-toggle
         [checked]="user?.receiveEmailsAboutServiceQuality"
-        [color]="color">I agree receive emails from Edvinas Alimas about service quality feedback.</mat-slide-toggle>
+        [color]="color">I agree receive emails from Edvinas Alimas about service quality feedback.
+      </mat-slide-toggle>
+      <div class="subscription-information" *ngIf="!user?.receiveEmailsAboutServiceQuality">(Disabled on 2022-07-20)</div>
+      <div class="subscription-information" *ngIf="user?.receiveEmailsAboutServiceQuality">(Activated on 2022-07-29)</div>
     </div>
   </div>
 </div>
