@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, ReplaySubject, Subject, Subscription} from "rxjs";
+import {BehaviorSubject, Observable, ReplaySubject, Subject, Subscription} from "rxjs";
 import {Register} from "../models/register";
 import {Login} from "../models/login";
 import {ApiGatewayService} from "./api-gateway.service";
-import {User} from "../models/user";
+import {User, UserUpdateInput} from "../models/user";
 import {catchError, finalize} from "rxjs/operators";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
@@ -80,6 +80,10 @@ export class UserService {
         this.userWasLoaded.next(true);
       }
     });
+  }
+
+  updateUser(input: UserUpdateInput): Observable<User> {
+    return this.http.put<User>('/user', input);
   }
 
   openSnackBar(message: string, action: string) {

@@ -3,6 +3,7 @@
   <div class="subscriptions-details">
     <div class="subscription">
       <mat-slide-toggle
+        (change)="updateSubscriptionReceiveEmails($event)"
         [checked]="user?.subscriptionDetails?.receiveEmails"
         [color]="color">I agree receive emails spofrom Edvinas Alimas.
       </mat-slide-toggle>
@@ -13,6 +14,7 @@
     </div>
     <div class="subscription">
       <mat-slide-toggle
+        (change)="updateSubscriptionReceiveEmailsAboutLookedItems($event)"
         [checked]="user?.subscriptionDetails?.receiveEmailsAboutLookedItems"
         [color]="color">I agree receive emails from Edvinas Alimas, dependent into looked items,
         orders and buying information also given information.
@@ -26,6 +28,7 @@
     </div>
     <div class="subscription">
       <mat-slide-toggle
+        (change)="updateSubscriptionReceiveEmailsAboutGivingFeedback($event)"
         [checked]="user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback"
         [color]="color">I agree receive emails from Edvinas Alimas about giving feedback about
         bought products.
@@ -39,6 +42,7 @@
     </div>
     <div class="subscription">
       <mat-slide-toggle
+        (change)="updateSubscriptionReceiveEmailsAboutServiceQuality($event)"
         [checked]="user?.subscriptionDetails?.receiveEmailsAboutServiceQuality"
         [color]="color">I agree receive emails from Edvinas Alimas about service quality feedback.
       </mat-slide-toggle>

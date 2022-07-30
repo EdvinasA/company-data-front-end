@@ -3,6 +3,7 @@ export interface User {
   email: string,
   name: string,
   lastName: string,
+  password: string,
   token: string,
   subscriptionDetails: SubscriptionDetails,
   registeredDate: Date,
@@ -10,12 +11,22 @@ export interface User {
 }
 
 export type SubscriptionDetails = {
+  id: number,
   receiveEmails: boolean,
-  receiveEmailsDate: Date,
+  receiveEmailsDate: string,
   receiveEmailsAboutLookedItems: boolean,
-  receiveEmailsAboutLookedItemsDate: Date,
+  receiveEmailsAboutLookedItemsDate: string,
   receiveEmailsAboutGivingFeedback: boolean,
-  receiveEmailsAboutGivingFeedbackDate: Date,
+  receiveEmailsAboutGivingFeedbackDate: string,
   receiveEmailsAboutServiceQuality: boolean,
-  receiveEmailsAboutServiceQualityDate: Date,
+  receiveEmailsAboutServiceQualityDate: string,
+}
+
+export type UserUpdateInput = {
+  id: string,
+  name: string,
+  lastName: string,
+  password: string,
+  subscriptionDetails: SubscriptionDetails,
+  role: string[],
 }

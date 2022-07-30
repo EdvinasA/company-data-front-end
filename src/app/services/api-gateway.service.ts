@@ -45,7 +45,7 @@ export class ApiGatewayService {
 
   put<T>(
     url: string,
-    body: KeyValuePairObject,
+    body: any,
     params: KeyValuePairObject | null = null,
     options: RequestOptions = this.defaultOptions,
   ): Observable<T> {

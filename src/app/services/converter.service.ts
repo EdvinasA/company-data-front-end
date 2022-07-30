@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Register} from "../models/register";
 import {Login} from "../models/login";
 import {WishlistCreate} from "../models/wishlist";
+import {SubscriptionDetails, User, UserUpdateInput} from "../models/user";
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,18 @@ export class ConverterService {
     };
 
     return body;
+  }
+
+  public convertToUpdateUserInput(user: User) {
+    let input: UserUpdateInput = {
+      id: user.id,
+      name: user.name,
+      lastName: user.lastName,
+      password: user.password,
+      subscriptionDetails: user.subscriptionDetails,
+      role: user.role
+    };
+
+    return input;
   }
 }
