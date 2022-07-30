@@ -4,10 +4,18 @@ export interface User {
   name: string,
   lastName: string,
   token: string,
-  receiveEmails: boolean,
-  receiveEmailsAboutLookedItems: boolean,
-  receiveEmailsAboutGivingFeedback: boolean,
-  receiveEmailsAboutServiceQuality: boolean,
+  subscriptionDetails: SubscriptionDetails,
   registeredDate: Date,
   role: string[];
+}
+
+export type SubscriptionDetails = {
+  receiveEmails: boolean,
+  receiveEmailsDate: Date,
+  receiveEmailsAboutLookedItems: boolean,
+  receiveEmailsAboutLookedItemsDate: Date,
+  receiveEmailsAboutGivingFeedback: boolean,
+  receiveEmailsAboutGivingFeedbackDate: Date,
+  receiveEmailsAboutServiceQuality: boolean,
+  receiveEmailsAboutServiceQualityDate: Date,
 }

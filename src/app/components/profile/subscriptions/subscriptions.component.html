@@ -3,37 +3,51 @@
   <div class="subscriptions-details">
     <div class="subscription">
       <mat-slide-toggle
-        [checked]="user?.receiveEmails"
+        [checked]="user?.subscriptionDetails?.receiveEmails"
         [color]="color">I agree receive emails spofrom Edvinas Alimas.
       </mat-slide-toggle>
-      <div class="subscription-information" *ngIf="!user?.receiveEmails">(Disabled on 2022-07-20)</div>
-      <div class="subscription-information" *ngIf="user?.receiveEmails">(Activated on 2022-07-29)</div>
+      <div class="subscription-information" *ngIf="!user?.subscriptionDetails?.receiveEmails">(Disabled on {{user?.subscriptionDetails?.receiveEmailsDate}})
+      </div>
+      <div class="subscription-information" *ngIf="user?.subscriptionDetails?.receiveEmails">(Activated on {{user?.subscriptionDetails?.receiveEmailsDate}})
+      </div>
     </div>
     <div class="subscription">
       <mat-slide-toggle
-        [checked]="user?.receiveEmailsAboutLookedItems"
+        [checked]="user?.subscriptionDetails?.receiveEmailsAboutLookedItems"
         [color]="color">I agree receive emails from Edvinas Alimas, dependent into looked items,
         orders and buying information also given information.
       </mat-slide-toggle>
-      <div class="subscription-information extended-text" *ngIf="!user?.receiveEmailsAboutLookedItems">(Disabled on 2022-07-20)</div>
-      <div class="subscription-information extended-text" *ngIf="user?.receiveEmailsAboutLookedItems">(Activated on 2022-07-29)</div>
+      <div class="subscription-information extended-text"
+           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutLookedItems">(Disabled on {{user?.subscriptionDetails?.receiveEmailsAboutLookedItemsDate}})
+      </div>
+      <div class="subscription-information extended-text"
+           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutLookedItems">(Activated on {{user?.subscriptionDetails?.receiveEmailsAboutLookedItemsDate}})
+      </div>
     </div>
     <div class="subscription">
       <mat-slide-toggle
-        [checked]="user?.receiveEmailsAboutGivingFeedback"
+        [checked]="user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback"
         [color]="color">I agree receive emails from Edvinas Alimas about giving feedback about
         bought products.
       </mat-slide-toggle>
-      <div class="subscription-information" *ngIf="!user?.receiveEmailsAboutGivingFeedback">(Disabled on 2022-07-20)</div>
-      <div class="subscription-information" *ngIf="user?.receiveEmailsAboutGivingFeedback">(Activated on 2022-07-29)</div>
+      <div class="subscription-information"
+           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback">(Disabled on {{user?.subscriptionDetails?.receiveEmailsAboutGivingFeedbackDate}})
+      </div>
+      <div class="subscription-information"
+           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback">(Activated on {{user?.subscriptionDetails?.receiveEmailsAboutGivingFeedbackDate}})
+      </div>
     </div>
     <div class="subscription">
       <mat-slide-toggle
-        [checked]="user?.receiveEmailsAboutServiceQuality"
+        [checked]="user?.subscriptionDetails?.receiveEmailsAboutServiceQuality"
         [color]="color">I agree receive emails from Edvinas Alimas about service quality feedback.
       </mat-slide-toggle>
-      <div class="subscription-information" *ngIf="!user?.receiveEmailsAboutServiceQuality">(Disabled on 2022-07-20)</div>
-      <div class="subscription-information" *ngIf="user?.receiveEmailsAboutServiceQuality">(Activated on 2022-07-29)</div>
+      <div class="subscription-information"
+           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutServiceQuality">(Disabled on {{user?.subscriptionDetails?.receiveEmailsAboutServiceQualityDate}})
+      </div>
+      <div class="subscription-information"
+           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutServiceQuality">(Activated on {{user?.subscriptionDetails?.receiveEmailsAboutServiceQualityDate}})
+      </div>
     </div>
   </div>
 </div>
