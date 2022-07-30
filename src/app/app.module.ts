@@ -32,6 +32,7 @@ import {CartPopoverComponent} from "./components/cart/cart-popover/cart-popover.
 import {CategoriesComponent} from './components/categories/categories.component';
 import {ProfileModule} from "./components/profile/profile.module";
 import {AuthenticationGuard} from "./guards/authentication.guard";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {AuthenticationGuard} from "./guards/authentication.guard";
     MdePopoverModule,
     MatMenuModule,
     MatSnackBarModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatProgressSpinnerModule
   ],
   providers: [PaginatePipe, DecimalPipe, AuthenticationGuard],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isLoading">
   <div class="details">
     <div class="details-picture">
       <img src="{{laptop?.picture}}" alt="{{laptop?.name}}">
@@ -68,7 +68,7 @@
     </div>
   </div>
 </div>
-<div class="container general-information">
+<div class="container general-information" *ngIf="!isLoading">
   <div class="title-box">
     <span>Product information</span>
   </div>
@@ -177,6 +177,10 @@
       <div class="value">{{laptop?.graphicsCardMemorySize}}</div>
     </div>
   </div>
+</div>
+
+<div class="spinner" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
 </div>
 
 <mat-menu #clickMenu="matMenu">

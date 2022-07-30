@@ -23,6 +23,7 @@ export class ProductDetailsComponent implements OnInit {
   itemQuantity: number = 1;
   itemInsurance: boolean = false;
   itemWarranty: boolean = false;
+  isLoading: boolean = true;
 
   constructor(private productService: ProductsService,
               private cartService: CartService,
@@ -37,6 +38,7 @@ export class ProductDetailsComponent implements OnInit {
     if (param) {
       this.productService.getLaptopById(param).subscribe(laptop => {
         this.laptop = laptop;
+        this.isLoading = false;
       })
     }
     this.wishlistService.currentProfilesList.subscribe(data => {

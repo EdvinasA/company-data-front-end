@@ -22,6 +22,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {SharedModule} from "../shared/shared.module";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {SharedModule} from "../shared/shared.module";
     MatIconModule,
     MatCardModule,
     MatGridListModule,
-    SharedModule
+    SharedModule,
+    MatProgressSpinnerModule
   ],
   providers: [PaginatePipe, DecimalPipe]
 })

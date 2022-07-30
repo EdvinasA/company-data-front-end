@@ -1,6 +1,6 @@
 <div class="viewed-display">
   <div class="viewed-header">Viewed items</div>
-  <div class="viewed-details">
+  <div class="viewed-details" *ngIf="!isLoading">
     <div class="viewed-card-display-container">
       <div class="viewed-card-container" *ngFor="let item of viewedItems">
         <div class="viewed-image">
@@ -49,5 +49,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div *ngIf="isLoading" class="spinner">
+    <mat-spinner></mat-spinner>
   </div>
 </div>

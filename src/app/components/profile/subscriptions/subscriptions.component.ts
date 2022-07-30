@@ -13,9 +13,9 @@ import {formatDate} from "@angular/common";
 })
 export class SubscriptionsComponent implements OnInit {
 
+  isLoading: boolean = true;
   color: ThemePalette = 'primary';
-  user!: User | null;
-  myDate: Date = new Date();
+  user!: User;
 
   constructor(private userService: UserService,
               private converterService: ConverterService) {
@@ -23,7 +23,10 @@ export class SubscriptionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
-      this.user = user;
+      if (user != null) {
+        this.user = user;
+        this.isLoading = false;
+      }
     })
   }
 

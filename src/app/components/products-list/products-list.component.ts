@@ -17,6 +17,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   selectedPageAmount = "8";
   selectedView = false;
   page = 0;
+  isLoading: boolean = true;
 
   constructor(private productsService: ProductsService) {
   }
@@ -26,6 +27,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     .getPagedListOfLaptops(this.selectedPageAmount, this.page)
     this.productsService.pageSubject.asObservable().subscribe(page => {
       this.itemsPage = page;
+      this.isLoading = false;
     })
   }
 

@@ -34,6 +34,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import { OrderDetailsComponent } from './profile-order-history/order-details/order-details.component';
 import { OrderListComponent } from './profile-order-history/order-list/order-list.component';
 import {MatChipsModule} from "@angular/material/chips";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import {MatChipsModule} from "@angular/material/chips";
     MatSlideToggleModule,
     RouterModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule
   ],
   providers: [DecimalPipe],
   exports: [

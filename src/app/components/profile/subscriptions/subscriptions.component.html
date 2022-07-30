@@ -1,15 +1,17 @@
 <div class="subscriptions-display">
   <div class="subscriptions-header">Subscriptions</div>
-  <div class="subscriptions-details">
+  <div class="subscriptions-details" *ngIf="!isLoading">
     <div class="subscription">
       <mat-slide-toggle
         (change)="updateSubscriptionReceiveEmails($event)"
         [checked]="user?.subscriptionDetails?.receiveEmails"
-        [color]="color">I agree receive emails spofrom Edvinas Alimas.
+        [color]="color">I agree receive emails from Edvinas Alimas.
       </mat-slide-toggle>
-      <div class="subscription-information" *ngIf="!user?.subscriptionDetails?.receiveEmails">(Disabled on {{user?.subscriptionDetails?.receiveEmailsDate}})
+      <div class="subscription-information" *ngIf="!user?.subscriptionDetails?.receiveEmails">
+        (Disabled on {{user?.subscriptionDetails?.receiveEmailsDate}})
       </div>
-      <div class="subscription-information" *ngIf="user?.subscriptionDetails?.receiveEmails">(Activated on {{user?.subscriptionDetails?.receiveEmailsDate}})
+      <div class="subscription-information" *ngIf="user?.subscriptionDetails?.receiveEmails">
+        (Activated on {{user?.subscriptionDetails?.receiveEmailsDate}})
       </div>
     </div>
     <div class="subscription">
@@ -20,10 +22,12 @@
         orders and buying information also given information.
       </mat-slide-toggle>
       <div class="subscription-information extended-text"
-           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutLookedItems">(Disabled on {{user?.subscriptionDetails?.receiveEmailsAboutLookedItemsDate}})
+           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutLookedItems">(Disabled
+        on {{user?.subscriptionDetails?.receiveEmailsAboutLookedItemsDate}})
       </div>
       <div class="subscription-information extended-text"
-           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutLookedItems">(Activated on {{user?.subscriptionDetails?.receiveEmailsAboutLookedItemsDate}})
+           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutLookedItems">(Activated
+        on {{user?.subscriptionDetails?.receiveEmailsAboutLookedItemsDate}})
       </div>
     </div>
     <div class="subscription">
@@ -34,10 +38,12 @@
         bought products.
       </mat-slide-toggle>
       <div class="subscription-information"
-           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback">(Disabled on {{user?.subscriptionDetails?.receiveEmailsAboutGivingFeedbackDate}})
+           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback">(Disabled
+        on {{user?.subscriptionDetails?.receiveEmailsAboutGivingFeedbackDate}})
       </div>
       <div class="subscription-information"
-           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback">(Activated on {{user?.subscriptionDetails?.receiveEmailsAboutGivingFeedbackDate}})
+           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutGivingFeedback">(Activated
+        on {{user?.subscriptionDetails?.receiveEmailsAboutGivingFeedbackDate}})
       </div>
     </div>
     <div class="subscription">
@@ -47,11 +53,16 @@
         [color]="color">I agree receive emails from Edvinas Alimas about service quality feedback.
       </mat-slide-toggle>
       <div class="subscription-information"
-           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutServiceQuality">(Disabled on {{user?.subscriptionDetails?.receiveEmailsAboutServiceQualityDate}})
+           *ngIf="!user?.subscriptionDetails?.receiveEmailsAboutServiceQuality">(Disabled
+        on {{user?.subscriptionDetails?.receiveEmailsAboutServiceQualityDate}})
       </div>
       <div class="subscription-information"
-           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutServiceQuality">(Activated on {{user?.subscriptionDetails?.receiveEmailsAboutServiceQualityDate}})
+           *ngIf="user?.subscriptionDetails?.receiveEmailsAboutServiceQuality">(Activated
+        on {{user?.subscriptionDetails?.receiveEmailsAboutServiceQualityDate}})
       </div>
     </div>
+  </div>
+  <div class="spinner">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
   </div>
 </div>

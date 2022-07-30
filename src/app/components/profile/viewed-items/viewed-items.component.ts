@@ -14,6 +14,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class ViewedItemsComponent implements OnInit {
 
   viewedItems: ViewedItem[] = [];
+  isLoading: boolean = true;
 
   constructor(private viewedItemService: ViewedItemsService,
               private cartService: CartService,
@@ -23,6 +24,7 @@ export class ViewedItemsComponent implements OnInit {
   ngOnInit(): void {
     this.viewedItemService.getViewedItemsByUserId('860eb71b-310e-4463-a9ed-7c224dea7eec').subscribe(data => {
       this.viewedItems = data;
+      this.isLoading = false;
     })
   }
 

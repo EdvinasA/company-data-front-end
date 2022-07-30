@@ -20,20 +20,27 @@
   <button mat-button style="color: black; background-color: green">
     <mat-icon>search</mat-icon>
   </button>
-  <a routerLink="/login" routerLinkActive="active" *ngIf="!isUserLoggedIn">
-    <button mat-button class="user-form" [mdePopoverTriggerFor]="loginPopover"
-            mdePopoverTriggerOn="hover">
-      <mat-icon>person_pin</mat-icon>
-      Register/Login
-    </button>
-  </a>
-  <a routerLink="/profile" routerLinkActive="active" *ngIf="isUserLoggedIn">
-    <button mat-button class="user-form" [mdePopoverTriggerFor]="userPopover"
-            mdePopoverTriggerOn="hover">
-      <mat-icon>assignment_ind</mat-icon>
-      Hi, {{userFirstName}}!
-    </button>
-  </a>
+  <div class="header-login-block">
+    <a routerLink="/login" routerLinkActive="active" *ngIf="!isUserLoggedIn && !isLoading">
+      <button mat-button class="user-form" [mdePopoverTriggerFor]="loginPopover"
+              mdePopoverTriggerOn="hover">
+        <mat-icon>person_pin</mat-icon>
+        Register/Login
+      </button>
+    </a>
+    <a routerLink="/profile" routerLinkActive="active" *ngIf="isUserLoggedIn && !isLoading">
+      <button mat-button class="user-form" [mdePopoverTriggerFor]="userPopover"
+              mdePopoverTriggerOn="hover">
+        <mat-icon>assignment_ind</mat-icon>
+        Hi, {{userFirstName}}!
+      </button>
+    </a>
+    <div class="spinner" *ngIf="isLoading">
+      <mat-spinner
+        [diameter]="20"
+      ></mat-spinner>
+    </div>
+  </div>
   <a routerLink="/cart" routerLinkActive="active">
     <button mat-icon-button [mdePopoverTriggerFor]="cartPopover" mdePopoverTriggerOn="hover">
       <mat-icon matBadge="{{listOfItems.length}}" matBadgeColor="warn">shopping_cart</mat-icon>
