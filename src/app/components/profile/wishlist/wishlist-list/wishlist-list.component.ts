@@ -14,8 +14,10 @@ import {User} from "../../../../models/user";
   styleUrls: ['./wishlist-list.component.scss']
 })
 export class WishlistListComponent implements OnInit {
+
   wishlistProfiles: WishlistProfiles[] = [];
   user!: User | null;
+  isLoading: boolean = true;
 
   constructor(private wishlistService: WishlistService,
               private userService: UserService,
@@ -23,8 +25,9 @@ export class WishlistListComponent implements OnInit {
               public router: Router) { }
 
   ngOnInit(): void {
-    this.wishlistService.currentProfilesList.subscribe(data => {
+    this.wishlistService.currentProfilesList.asObservable().subscribe(data => {
       this.wishlistProfiles = data;
+      this.isLoading = false;
     });
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;

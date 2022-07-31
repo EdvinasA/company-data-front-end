@@ -50,7 +50,5 @@
       </div>
     </div>
   </div>
-  <div *ngIf="isLoading" class="spinner">
-    <mat-spinner></mat-spinner>
-  </div>
+  <app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
 </div>

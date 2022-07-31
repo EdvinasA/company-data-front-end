@@ -1,4 +1,4 @@
-<div class="wishlist-details">
+<div class="wishlist-details" *ngIf="!isLoading">
   <div class="wishlist-profile-container" *ngFor="let profile of wishlistProfiles">
     <div class="wishlist-profile">
       <a class="link" [routerLink]="[profile.id, profile.name]">
@@ -26,3 +26,5 @@
   </div>
   <mat-divider></mat-divider>
 </div>
+
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>

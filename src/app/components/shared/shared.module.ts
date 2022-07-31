@@ -19,10 +19,13 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {ProductTypesModule} from "../product-types/product-types.module";
+import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
-    ProductAsCardBaseComponent
+    ProductAsCardBaseComponent,
+    ProgressSpinnerComponent
   ],
   imports: [
     ProductTypesModule,
@@ -46,11 +49,13 @@ import {ProductTypesModule} from "../product-types/product-types.module";
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatProgressSpinnerModule
   ],
   providers: [PaginatePipe, DecimalPipe],
   exports: [
-    ProductAsCardBaseComponent
+    ProductAsCardBaseComponent,
+    ProgressSpinnerComponent
   ],
   bootstrap: [ProductAsCardBaseComponent]
 })

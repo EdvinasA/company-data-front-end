@@ -8,13 +8,16 @@ import {User} from "../../../models/user";
   styleUrls: ['./profile-display.component.scss']
 })
 export class ProfileDisplayComponent implements OnInit {
+
   user!: User | null;
+  isLoading: boolean = true;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
+      this.isLoading = false;
     })
   }
 

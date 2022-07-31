@@ -14,7 +14,7 @@ export class WishlistService {
 
   public wishlistProfilesList: WishlistProfiles[] = [];
   private profilesList = new BehaviorSubject(this.wishlistProfilesList);
-  currentProfilesList = this.profilesList.asObservable();
+  currentProfilesList = this.profilesList;
 
   createWishlist(userId: string | undefined, input: WishlistCreate) {
     this.http.post(`/wishlist/${userId}`, input).subscribe(id => {

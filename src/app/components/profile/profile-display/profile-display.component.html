@@ -2,7 +2,7 @@
   <div class="profile-header">
     <span>My profile</span>
   </div>
-  <div class="profile-details">
+  <div class="profile-details" *ngIf="!isLoading">
     <div class="details-fields">
       <div class="field">Email</div>
       <div class="field-value">{{user?.email}}</div>
@@ -41,3 +41,5 @@
     </div>
   </div>
 </div>
+
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>

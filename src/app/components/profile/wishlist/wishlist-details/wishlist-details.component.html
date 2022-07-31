@@ -3,7 +3,7 @@
   <span class="spacer"></span>
   <button mat-raised-button (click)="onClickDeleteProfile(wishlistProfileId)">Remove wishlist</button>
 </div>
-<div class="wishlist-card-display-container">
+<div class="wishlist-card-display-container" *ngIf="!isLoading">
   <div class="wishlist-card-container" *ngFor="let item of items">
     <div class="wishlist-image">
       <a [routerLink]="['', item.itemId]">
@@ -31,3 +31,5 @@
     </div>
   </div>
 </div>
+
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>

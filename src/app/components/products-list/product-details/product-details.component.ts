@@ -41,7 +41,7 @@ export class ProductDetailsComponent implements OnInit {
         this.isLoading = false;
       })
     }
-    this.wishlistService.currentProfilesList.subscribe(data => {
+    this.wishlistService.currentProfilesList.asObservable().subscribe(data => {
       this.wishlistProfiles = data;
     })
   }

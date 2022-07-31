@@ -21,6 +21,7 @@ export class WishlistDetailsComponent implements OnInit {
   wishlistProfileName: string = '';
   wishlistProfileId: string = '';
   user!: User | null;
+  isLoading: boolean = true;
 
   constructor(private wishlistService: WishlistService,
               private cartService: CartService,
@@ -35,6 +36,7 @@ export class WishlistDetailsComponent implements OnInit {
     this.setProfileName(this.route.snapshot.paramMap.get('wishlistProfileName'));
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
+      this.isLoading = false;
     })
   }
 
