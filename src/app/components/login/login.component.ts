@@ -11,7 +11,6 @@ import {ConverterService} from "../../services/converter.service";
 })
 export class LoginComponent implements OnInit {
   public hide = true;
-  public token!: string | null;
   public loginForm = new FormGroup({
     email: new FormControl('asda@gmail.com', [Validators.required, Validators.email]),
     password: new FormControl('asd', [Validators.required]),
@@ -26,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   submitLoginForm(loginForm: FormGroup) {
     this.userService.login(this.converter.convertLoginFormToBody(loginForm));
+    this.router.navigateByUrl('').then();
   }
 
   get email() {

@@ -32,7 +32,7 @@
       <button mat-button class="user-form" [mdePopoverTriggerFor]="userPopover"
               mdePopoverTriggerOn="hover">
         <mat-icon>assignment_ind</mat-icon>
-        Hi, {{userFirstName}}!
+        Hi, {{user.name}}!
       </button>
     </a>
     <div class="spinner-for-header" *ngIf="isLoading">

@@ -15,24 +15,25 @@ import {WishlistListComponent} from "./components/profile/wishlist/wishlist-list
 import {AuthenticationGuard} from "./guards/authentication.guard";
 import {OrderDetailsComponent} from "./components/profile/profile-order-history/order-details/order-details.component";
 import {OrderListComponent} from "./components/profile/profile-order-history/order-list/order-list.component";
+import {LoginGuard} from "./guards/login.guard";
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   {path: 'cart', component: CartComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'viewed-items', component: ViewedItemsComponent},
-  {path: 'profile', component: ProfileDisplayComponent},
-  {path: 'orders', component: ProfileOrderHistoryComponent, children: [
+  {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]} ,
+  {path: 'viewed-items', component: ViewedItemsComponent, canActivate: [AuthenticationGuard]},
+  {path: 'profile', component: ProfileDisplayComponent, canActivate: [AuthenticationGuard]},
+  {path: 'orders', component: ProfileOrderHistoryComponent, canActivate: [AuthenticationGuard], children: [
     { path: '', component: OrderListComponent },
     { path: ':id', component: OrderDetailsComponent }
     ]},
   {
-     path: 'wishlist', component: WishlistComponent, children: [
+     path: 'wishlist', component: WishlistComponent, canActivate: [AuthenticationGuard], children: [
     {path: '', component: WishlistListComponent},
     {path: ':id/:wishlistProfileName', component: WishlistDetailsComponent}
     ]
   },
-  {path: 'subscriptions', component: SubscriptionsComponent},
+  {path: 'subscriptions', component: SubscriptionsComponent, canActivate: [AuthenticationGuard]},
   {
     path: '', component: ProductsListComponent
   },
