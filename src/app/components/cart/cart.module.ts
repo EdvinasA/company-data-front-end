@@ -15,13 +15,15 @@ import {PaginatePipe} from "ngx-pagination";
 import {CartDeliveryComponent} from "./cart-delivery/cart-delivery.component";
 import {CartTotalComponent} from "./cart-total/cart-total.component";
 import {CartComponent} from "./cart.component";
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     CartDeliveryComponent,
     CartTotalComponent,
-    CartComponent
-  ] ,
+    CartComponent,
+    CheckoutComponent
+  ],
   imports: [
     BrowserModule,
     RouterModule,
@@ -33,6 +35,9 @@ import {CartComponent} from "./cart.component";
     MatCheckboxModule,
     MatDividerModule,
     MatTooltipModule
+  ],
+  exports: [
+    CheckoutComponent
   ],
   providers: [PaginatePipe, DecimalPipe]
 })

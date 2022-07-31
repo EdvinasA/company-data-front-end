@@ -16,6 +16,7 @@ import {AuthenticationGuard} from "./guards/authentication.guard";
 import {OrderDetailsComponent} from "./components/profile/profile-order-history/order-details/order-details.component";
 import {OrderListComponent} from "./components/profile/profile-order-history/order-list/order-list.component";
 import {LoginGuard} from "./guards/login.guard";
+import {CheckoutComponent} from "./components/cart/checkout/checkout.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
@@ -37,7 +38,8 @@ const routes: Routes = [
   {
     path: '', component: ProductsListComponent
   },
-  { path: ':id', component: ProductDetailsComponent }
+  { path: ':id', component: ProductDetailsComponent },
+  { path: 'checkout', component: CheckoutComponent}
 ];
 
 @NgModule({
