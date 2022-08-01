@@ -21,6 +21,7 @@ import {CheckoutComponent} from "./components/cart/checkout/checkout.component";
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   {path: 'cart', component: CartComponent},
+  {path: 'checkout', component: CheckoutComponent},
   {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]} ,
   {path: 'viewed-items', component: ViewedItemsComponent, canActivate: [AuthenticationGuard]},
   {path: 'profile', component: ProfileDisplayComponent, canActivate: [AuthenticationGuard]},
@@ -39,7 +40,6 @@ const routes: Routes = [
     path: '', component: ProductsListComponent
   },
   { path: ':id', component: ProductDetailsComponent },
-  { path: 'checkout', component: CheckoutComponent}
 ];
 
 @NgModule({

@@ -16,6 +16,8 @@ import {CartDeliveryComponent} from "./cart-delivery/cart-delivery.component";
 import {CartTotalComponent} from "./cart-total/cart-total.component";
 import {CartComponent} from "./cart.component";
 import { CheckoutComponent } from './checkout/checkout.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatIconModule,
     MatCheckboxModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   exports: [
     CheckoutComponent
