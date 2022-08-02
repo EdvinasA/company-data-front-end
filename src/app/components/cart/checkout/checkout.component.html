@@ -1,42 +1,54 @@
 <div class="checkout-container">
   <div class="checkout-details">
-    <div class="checkout-payment-options">
-      <div class="payment-option">
-        <button mat-button>Card</button>
+    <div class="checkout-details-wrapper">
+      <div class="checkout-payment-options">
+        <div class="payment-option">
+          <button mat-button>Card</button>
+        </div>
+        <div class="payment-option">
+          <button mat-button>iDEAL</button>
+        </div>
+        <div class="payment-option">
+          <button mat-button>SEPA Debit</button>
+        </div>
+        <div class="payment-option">
+          <button mat-button>A</button>
+        </div>
       </div>
-      <div class="payment-option">
-        <button mat-button>iDEAL</button>
+      <div class="checkout-card-number-input">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Card number</mat-label>
+          <input matInput placeholder="1234 1234 1234 1234">
+          <mat-icon matSuffix>
+            <img
+              src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg"
+              alt="visa">
+            <img
+              src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg"
+              alt="mastercard">
+          </mat-icon>
+        </mat-form-field>
       </div>
-      <div class="payment-option">
-        <button mat-button>SEPA Debit</button>
+      <div class="checkout-card-number-input">
+        <mat-form-field class="expiration" appearance="fill">
+          <mat-label>Expiration</mat-label>
+          <input matInput placeholder="MM / YY">
+        </mat-form-field>
+        <mat-form-field class="cvc-number" appearance="fill">
+          <mat-label>CVC</mat-label>
+          <input matInput placeholder="CVC">
+        </mat-form-field>
       </div>
-      <div class="payment-option">
-        <button mat-button>A</button>
+      <div class="checkout-card-number-input">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Country</mat-label>
+          <mat-select>
+            <mat-option>
+              A
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-    </div>
-    <div class="checkout-card-number-input">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Card number</mat-label>
-        <input matInput placeholder="1234 1234 1234 1234">
-        <img src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg" alt="visa">
-        <img src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg" alt="mastercard">
-      </mat-form-field>
-    </div>
-    <div class="checkout-card-number-input">
-      <mat-form-field class="expiration" appearance="fill">
-        <mat-label>Expiration</mat-label>
-        <input matInput placeholder="MM / YY">
-      </mat-form-field>
-      <mat-form-field class="expiration" appearance="fill">
-        <mat-label>CVC</mat-label>
-        <input matInput placeholder="CVC">
-      </mat-form-field>
-    </div>
-    <div class="checkout-card-number-input">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Country</mat-label>
-        <input matInput placeholder="SELECT">
-      </mat-form-field>
     </div>
   </div>
 </div>

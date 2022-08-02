@@ -18,6 +18,7 @@ import {CartComponent} from "./cart.component";
 import { CheckoutComponent } from './checkout/checkout.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -32,13 +33,13 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     FormsModule,
     MatButtonModule,
     MdePopoverModule,
-    MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
     MatDividerModule,
     MatTooltipModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   exports: [
     CheckoutComponent
