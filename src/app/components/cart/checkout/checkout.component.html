@@ -29,12 +29,14 @@
           </mat-icon>
         </mat-form-field>
       </div>
-      <div class="checkout-card-number-input">
-        <mat-form-field class="expiration" appearance="fill">
+      <div class="expiration">
+        <mat-form-field appearance="fill">
           <mat-label>Expiration</mat-label>
           <input matInput placeholder="MM / YY">
         </mat-form-field>
-        <mat-form-field class="cvc-number" appearance="fill">
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
           <mat-label>CVC</mat-label>
           <input matInput placeholder="CVC">
         </mat-form-field>
@@ -42,12 +44,15 @@
       <div class="checkout-card-number-input">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Country</mat-label>
-          <mat-select>
-            <mat-option>
-              A
+          <mat-select [(ngModel)]="selectCountry" name="country">
+            <mat-option *ngFor="let country of countries" [value]="country.common">
+              {{country.common}}
             </mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button color="primary">Pay now</button>
       </div>
     </div>
   </div>
