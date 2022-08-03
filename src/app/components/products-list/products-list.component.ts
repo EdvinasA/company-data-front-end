@@ -2,6 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductsService} from "../../services/products.service";
 import {Page} from "../../models/page";
 import {Subscription} from "rxjs";
+import {User} from "../../models/user";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-products-list',
@@ -10,6 +12,7 @@ import {Subscription} from "rxjs";
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
 
+  user!: User | null;
   itemsPage!: Page | null;
   subscription!: Subscription;
   selectedOption = "popular";
@@ -19,10 +22,14 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   page = 0;
   isLoading: boolean = true;
 
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: ProductsService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.userService.userSubject.asObservable().subscribe(data => {
+      this.user = data;
+    })
     this.subscription = this.productsService
     .getPagedListOfLaptops(this.selectedPageAmount, this.page)
     this.productsService.pageSubject.asObservable().subscribe(page => {

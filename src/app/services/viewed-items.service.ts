@@ -10,11 +10,11 @@ export class ViewedItemsService {
   constructor(private http: ApiGatewayService) {
   }
 
-  createViewedItem(body: ViewedItem, userId: string) {
+  createViewedItem(body: ViewedItem, userId: string | undefined) {
     return this.http.post<ViewedItem>(`/viewed-item/${userId}`, body);
   }
 
-  getViewedItemsByUserId(userId: string) {
+  getViewedItemsByUserId(userId: string | undefined) {
     return this.http.get<ViewedItem[]>(`/viewed-item/${userId}`)
   }
 }

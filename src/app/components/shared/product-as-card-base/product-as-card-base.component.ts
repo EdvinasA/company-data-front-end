@@ -7,6 +7,8 @@ import {BaseItem} from "../../../models/base-item";
 import {CartService} from "../../../services/cart.service";
 import {ViewedItemsService} from "../../../services/viewed-items.service";
 import {ViewedItem} from "../../../models/viewed-item";
+import {UserService} from "../../../services/user.service";
+import {User} from "../../../models/user";
 
 @Component({
   selector: 'app-product-as-card-base',
@@ -19,6 +21,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   @Input() public itemsPerPage!: string;
   @Input() public totalElements: number = 0;
   @Input() public currentPage: number = 0;
+  @Input() public user!: User | null;
 
   constructor(public dialog: MatDialog,
               public router: Router,
@@ -61,9 +64,9 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
       itemPrice: item.price,
       delivery: true,
       withdrawal: true,
-      userId: '860eb71b-310e-4463-a9ed-7c224dea7eec'
+      userId: this.user?.id
     }
-    this.viewedItemService.createViewedItem(viewedItem, '860eb71b-310e-4463-a9ed-7c224dea7eec').subscribe();
+    this.viewedItemService.createViewedItem(viewedItem, this.user?.id).subscribe();
   }
 
   getSelectedAmountOfItemsInPage() {

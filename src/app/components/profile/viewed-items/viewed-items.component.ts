@@ -5,6 +5,8 @@ import {Cart} from "../../../models/cart";
 import {ProductToCartDialogComponent} from "../../products-list/product-to-cart-dialog/product-to-cart-dialog.component";
 import {CartService} from "../../../services/cart.service";
 import {MatDialog} from "@angular/material/dialog";
+import {UserService} from "../../../services/user.service";
+import {User} from "../../../models/user";
 
 @Component({
   selector: 'app-viewed-items',
@@ -13,18 +15,23 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class ViewedItemsComponent implements OnInit {
 
+  user!: User | null;
   viewedItems: ViewedItem[] = [];
   isLoading: boolean = true;
 
   constructor(private viewedItemService: ViewedItemsService,
+              private userService: UserService,
               private cartService: CartService,
               private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-    this.viewedItemService.getViewedItemsByUserId('860eb71b-310e-4463-a9ed-7c224dea7eec').subscribe(data => {
-      this.viewedItems = data;
-      this.isLoading = false;
+    this.userService.userSubject.asObservable().subscribe(data => {
+      this.user = data;
+      this.viewedItemService.getViewedItemsByUserId(this.user?.id).subscribe(data => {
+        this.viewedItems = data;
+        this.isLoading = false;
+      })
     })
   }
 

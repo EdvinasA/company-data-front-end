@@ -46,7 +46,8 @@
                                 [items]="itemsPage?.content"
                                 [itemsPerPage]="selectedPageAmount"
                                 [currentPage]="page"
-                                [totalElements]="itemsPage?.totalElements">
+                                [totalElements]="itemsPage?.totalElements"
+                                [user]="user">
       </app-product-as-card-base>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"

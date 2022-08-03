@@ -7,5 +7,5 @@ export type ViewedItem = {
   itemPrice: number;
   delivery: boolean;
   withdrawal:boolean;
-  userId: string;
+  userId: string | undefined;
 }
