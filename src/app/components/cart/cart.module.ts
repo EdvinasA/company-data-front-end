@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DecimalPipe} from "@angular/common";
 import {MdePopoverModule} from "@material-extended/mde";
 import {MatDividerModule} from "@angular/material/divider";
@@ -28,6 +28,7 @@ import {MatSelectModule} from "@angular/material/select";
     CheckoutComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     RouterModule,
     FormsModule,
