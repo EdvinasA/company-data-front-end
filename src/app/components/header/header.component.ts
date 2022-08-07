@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from "../../services/cart.service";
-import {Cart} from "../../models/cart";
+import {Cart, CartItem} from "../../models/cart";
 import {UserService} from "../../services/user.service";
 import {User} from "../../models/user";
 
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   user!: User;
   isLoading: boolean = true;
-  listOfItems: Cart[] = [];
+  listOfItems: CartItem[] = [];
   token: string | null = localStorage.getItem('token');
 
   constructor(private cartService: CartService,
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.currentCartList.subscribe(cart => {
-      this.listOfItems = cart;
+      this.listOfItems = cart.cartItems;
     })
     this.userService.userSubject.asObservable().subscribe(user => {
       if (user != null || user != undefined) {

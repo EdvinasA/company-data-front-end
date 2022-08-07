@@ -1,11 +1,11 @@
 <div class="container">
   <div [ngClass]="{
   'button-and-header' : true,
-  'disabled-checkout-button' : cartList.length == 0
+  'disabled-checkout-button' : cart.cartItems.length == 0
   }">
     <h2>Cart</h2>
     <button
-      [disabled]="cartList.length == 0" mat-button>Continue
+      [disabled]="cart.cartItems.length == 0" mat-button>Continue
       <mat-icon>arrow_right_alt</mat-icon>
     </button>
   </div>
@@ -15,17 +15,17 @@
     <span class="quantity-column">Quantity</span>
     <span class="total-column">Total</span>
   </div>
-  <div *ngFor="let item of cartList">
+  <div *ngFor="let item of cart.cartItems">
     <div class="item-container">
       <div class="picture">
         <img
           src="{{item.picture}}"
-          alt="{{item.name}}">
+          alt="{{item.itemName}}">
       </div>
       <div class="name">
         <div>
-          <a>{{item.name}}</a>
-          <p class="code-color">Product code: {{item.productCode}}</p>
+          <a>{{item.itemName}}</a>
+          <p class="code-color">Product code: {{item.itemCode}}</p>
         </div>
         <div class="delivery-icon">
           <mat-icon
@@ -35,33 +35,33 @@
         </div>
       </div>
       <div class="price">
-        {{item.price | number : '1.2-2'}} €
+        {{item.itemPrice | number : '1.2-2'}} €
       </div>
       <div class="quantity">
-        <button mat-icon-button (click)="decreaseQuantity(item)" *ngIf="item.quantity >= 2">
+        <button mat-icon-button (click)="decreaseQuantity(item)" *ngIf="item.itemQuantity >= 2">
           <mat-icon>remove_circle_outline</mat-icon>
         </button>
-        <div class="empty-space" *ngIf="!(item.quantity >= 2)">
+        <div class="empty-space" *ngIf="!(item.itemQuantity >= 2)">
         </div>
           <input
             type="number"
             (keypress)="keyPressNumbers($event, item)"
-            [(ngModel)]="item.quantity">
+            [(ngModel)]="item.itemQuantity">
         <button mat-icon-button (click)="increaseQuantity(item)">
           <mat-icon>control_point</mat-icon>
         </button>
       </div>
       <div class="total">
-        <p><strong>{{item.quantity * item.price | number : '1.2-2'}} €</strong></p>
+        <p><strong>{{item.itemQuantity * item.itemPrice | number : '1.2-2'}} €</strong></p>
       </div>
     </div>
     <div class="warranty">
       <div class="normal-warranty">
-        <mat-checkbox [(ngModel)]="item.insurance" class="example-margin"><a>Product Insurance</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="item.itemInsurance" class="example-margin"><a>Product Insurance</a></mat-checkbox>
         <p>Insure new purchase and save up to 80% of product price</p>
       </div>
       <div class="extended-warranty">
-        <mat-checkbox [(ngModel)]="item.warranty" class="example-margin"><a>Extended warranty</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="item.itemWarranty" class="example-margin"><a>Extended warranty</a></mat-checkbox>
         <p>Free item repair</p>
       </div>
       <div class="remove-item">

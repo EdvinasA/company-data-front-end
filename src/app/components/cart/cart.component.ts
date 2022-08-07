@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../services/cart.service";
-import {Cart} from "../../models/cart";
+import {Cart, CartItem} from "../../models/cart";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -10,7 +10,7 @@ import {Subscription} from "rxjs";
 })
 export class CartComponent implements OnInit {
 
-  cartList: Cart[] = [];
+  cart!: Cart;
   subscription!: Subscription;
 
   constructor(private cartService: CartService) {
@@ -18,19 +18,19 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.cartService.currentCartList.subscribe(cart => {
-      this.cartList = cart;
+      this.cart = cart;
     })
   }
 
-  increaseQuantity(item: Cart) {
+  increaseQuantity(item: CartItem) {
     this.cartService.updateCartItemQuantity(item, 1, false)
   }
 
-  decreaseQuantity(item: Cart) {
+  decreaseQuantity(item: CartItem) {
     this.cartService.updateCartItemQuantity(item, -1, false)
   }
 
-  keyPressNumbers(event: any, item: Cart) {
+  keyPressNumbers(event: any, item: CartItem) {
     var charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode < 48 || charCode > 57)) {
       event.preventDefault();
@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
     this.cartService.updateCartItemQuantity(item, event.target.value, true)
   }
 
-  removeItemFromCart(item: Cart) {
+  removeItemFromCart(item: CartItem) {
     this.cartService.removeItemFromCartList(item);
   }
 

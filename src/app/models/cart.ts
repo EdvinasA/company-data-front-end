@@ -1,11 +1,18 @@
-export interface Cart {
+export type Cart = {
   id: string;
-  picture: string;
-  name: string;
-  productCode: string;
-  quantity: number;
-  price: number;
-  insurance: boolean;
-  warranty: boolean;
+  cartItems: CartItem[],
   purchaseDate: Date | null;
+  userId: string,
+  status: string,
+}
+
+export type CartItem = {
+  itemId: string,
+  picture: string,
+  itemName: string,
+  itemCode: string,
+  itemQuantity: number,
+  itemPrice: number,
+  itemInsurance: boolean,
+  itemWarranty: boolean
 }

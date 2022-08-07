@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Cart} from "../../../models/cart";
+import {Cart, CartItem} from "../../../models/cart";
 import {ProductToCartDialogComponent} from "../../products-list/product-to-cart-dialog/product-to-cart-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -33,22 +33,21 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   }
 
   addItemToCart(item: T) {
-    let cartItem: Cart = {
-      id: item.id,
+    let cartItem: CartItem = {
+      itemId: item.id,
       picture: item.picture,
-      name: item.name,
-      productCode: item.productCode,
-      quantity: 1,
-      price: item.price,
-      insurance: false,
-      warranty: false,
-      purchaseDate: null
+      itemName: item.name,
+      itemCode: item.productCode,
+      itemQuantity: 1,
+      itemPrice: item.price,
+      itemInsurance: false,
+      itemWarranty: false
     };
     this.cartService.updateCartList(cartItem);
     this.openAddedItemToCartDialog(cartItem);
   }
 
-  openAddedItemToCartDialog(cartItem: Cart) {
+  openAddedItemToCartDialog(cartItem: CartItem) {
    this.dialog.open(ProductToCartDialogComponent, {
       data: cartItem
     });

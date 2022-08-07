@@ -8,22 +8,22 @@
   <mat-divider></mat-divider>
   <div>
     <div class="dialog-item-picture" *ngIf="item != null">
-      <img src="{{item.picture}}" alt="{{item.name}}">
+      <img src="{{item.picture}}" alt="{{item.itemName}}">
     </div>
     <div class="dialog-item-name">
-      <span>{{item.name}}</span>
+      <span>{{item.itemName}}</span>
     </div>
     <div class="dialog-item-price">
-      <strong>{{item.price}} €</strong>
+      <strong>{{item.itemPrice}} €</strong>
     </div>
     <div class="warranty">
       <div class="normal-warranty">
-        <mat-checkbox [(ngModel)]="item.insurance" class="example-margin"><a>Product Insurance</a>
+        <mat-checkbox [(ngModel)]="item.itemInsurance" class="example-margin"><a>Product Insurance</a>
         </mat-checkbox>
         <p>Insure new purchase and save up to 80% of product price</p>
       </div>
       <div class="extended-warranty">
-        <mat-checkbox [(ngModel)]="item.warranty" class="example-margin"><a>Extended warranty</a>
+        <mat-checkbox [(ngModel)]="item.itemWarranty" class="example-margin"><a>Extended warranty</a>
         </mat-checkbox>
         <p>Free item repair</p>
       </div>

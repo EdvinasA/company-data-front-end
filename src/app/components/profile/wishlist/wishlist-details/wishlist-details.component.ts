@@ -1,9 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WishlistItem} from "../../../../models/wishlist";
 import {WishlistService} from "../../../../services/wishlist.service";
-import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Cart} from "../../../../models/cart";
+import {CartItem} from "../../../../models/cart";
 import {CartService} from "../../../../services/cart.service";
 import {ProductToCartDialogComponent} from "../../../products-list/product-to-cart-dialog/product-to-cart-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -71,22 +70,21 @@ export class WishlistDetailsComponent implements OnInit {
   }
 
   addItemToCart(item: WishlistItem) {
-    let cartItem: Cart = {
-      id: item.itemId,
+    let cartItem: CartItem = {
+      itemId: item.itemId,
       picture: item.itemPicture,
-      name: item.itemName,
-      productCode: '569825',
-      quantity: 1,
-      price: item.itemPrice,
-      insurance: false,
-      warranty: false,
-      purchaseDate: null
+      itemName: item.itemName,
+      itemCode: '569825',
+      itemQuantity: 1,
+      itemPrice: item.itemPrice,
+      itemInsurance: false,
+      itemWarranty: false
     };
     this.cartService.updateCartList(cartItem);
     this.openAddedItemToCartDialog(cartItem);
   }
 
-  openAddedItemToCartDialog(cartItem: Cart) {
+  openAddedItemToCartDialog(cartItem: CartItem) {
     this.dialog.open(ProductToCartDialogComponent, {
       data: cartItem
     });

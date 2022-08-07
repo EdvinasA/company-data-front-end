@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Laptop} from "../../../models/laptop";
 import {ProductsService} from "../../../services/products.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Cart} from "../../../models/cart";
+import {CartItem} from "../../../models/cart";
 import {ProductToCartDialogComponent} from "../product-to-cart-dialog/product-to-cart-dialog.component";
 import {CartService} from "../../../services/cart.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -47,22 +47,21 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addItemToCart(item: Laptop) {
-    let cartItem: Cart = {
-      id: item.id,
+    let cartItem: CartItem = {
+      itemId: item.id,
       picture: item.picture,
-      name: item.name,
-      productCode: item.productCode,
-      quantity: this.itemQuantity,
-      price: item.price,
-      insurance: this.itemInsurance,
-      warranty: this.itemWarranty,
-      purchaseDate: null
+      itemName: item.name,
+      itemCode: item.productCode,
+      itemQuantity: this.itemQuantity,
+      itemPrice: item.price,
+      itemInsurance: this.itemInsurance,
+      itemWarranty: this.itemWarranty
     };
     this.cartService.updateCartList(cartItem);
     this.openAddedItemToCartDialog(cartItem);
   }
 
-  openAddedItemToCartDialog(cartItem: Cart) {
+  openAddedItemToCartDialog(cartItem: CartItem) {
     this.dialog.open(ProductToCartDialogComponent, {
       data: cartItem
     });
