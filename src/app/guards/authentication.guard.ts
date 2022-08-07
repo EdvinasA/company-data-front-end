@@ -29,7 +29,7 @@ export class AuthenticationGuard implements CanActivate {
       this.isUserLoggedIn = this.user != null;
     })
 
-    if (localStorage.getItem('token') === null || localStorage.getItem('token') === undefined) {
+    if (localStorage.getItem('token') === null) {
       this._router.navigate(['/login']);
       return true;
     }
