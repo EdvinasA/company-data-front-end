@@ -6,19 +6,23 @@ import {ApiGatewayService} from "./api-gateway.service";
 import {User, UserUpdateInput} from "../models/user";
 import {catchError, finalize} from "rxjs/operators";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  private token: string | null = localStorage.getItem('token');
   private cachedUser: User | null = {};
   public userWasLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public userSubject: Subject<User | null> = new ReplaySubject<User | null>();
 
+
   constructor(private http: ApiGatewayService,
               private _snackBar: MatSnackBar) {
-    this.validate(localStorage.getItem('token'));
+    if (this.token != null) {
+      this.validate(this.token);
+    }
   }
 
   login(loginBody: Login): Subscription {
