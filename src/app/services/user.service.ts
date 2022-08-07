@@ -17,8 +17,8 @@ export class UserService {
   public userSubject: Subject<User | null> = new ReplaySubject<User | null>();
 
   constructor(private http: ApiGatewayService,
-              private _snackBar: MatSnackBar,
-              private router: Router) {
+              private _snackBar: MatSnackBar) {
+    this.validate(localStorage.getItem('token'));
   }
 
   login(loginBody: Login): Subscription {
@@ -63,7 +63,7 @@ export class UserService {
       });
   }
 
-  validate(token: string | null): Subscription {
+  async validate(token: string | null): Promise<Subscription> {
     return this.http
     .get<User>(`/user/${token}`)
     .pipe(

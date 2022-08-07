@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "./services/user.service";
-import {Subscription} from "rxjs";
 import {User} from "./models/user";
 import {WishlistService} from "./services/wishlist.service";
 
@@ -15,7 +14,6 @@ export class AppComponent implements OnInit{
   isUserLoggedIn: boolean = false;
   user!: User | null;
   token: string | undefined | null = localStorage.getItem('token');
-  subscription!: Subscription;
 
   constructor(private router: Router,
               private userService: UserService,
@@ -24,7 +22,6 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     if (this.token != null || this.token != undefined) {
-      this.subscription = this.userService.validate(this.token);
       this.userService.userWasLoaded.asObservable().subscribe(data => {
         this.isUserLoggedIn = data;
       });

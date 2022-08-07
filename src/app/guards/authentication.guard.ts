@@ -5,13 +5,17 @@ import {
   RouterStateSnapshot,
   UrlTree
 } from '@angular/router';
-import {Observable} from 'rxjs';
+import {async, Observable} from 'rxjs';
 import {UserService} from "../services/user.service";
+import {User} from "../models/user";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationGuard implements CanActivate {
+
+  private isUserLoggedIn: boolean = true;
+  private user!: User | null;
 
   constructor(private _router: Router,
               private userService: UserService) {
@@ -20,16 +24,15 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    let user = null;
       this.userService.userSubject.asObservable().subscribe(data => {
-      user = data;
+      this.user = data;
+      this.isUserLoggedIn = this.user != null;
     })
 
-    if (user != null) {
-      return true;
+    if (localStorage.getItem('token') === null || localStorage.getItem('token') === undefined) {
+      this._router.navigate(['/login']);
     }
-    this._router.navigate(['/login']);
-    return false;
+      return this.isUserLoggedIn;
   }
 
 }
