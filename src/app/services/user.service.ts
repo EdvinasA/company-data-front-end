@@ -58,6 +58,7 @@ export class UserService {
     ).subscribe(
       (response) => {
         if (response.token != undefined) {
+          console.log(response.token)
           localStorage.setItem('token', response.token)
         }
         this.cachedUser = response;
@@ -67,7 +68,7 @@ export class UserService {
       });
   }
 
-  async validate(token: string | null): Promise<Subscription> {
+  validate(token: string | null): Subscription {
     return this.http
     .get<User>(`/user/${token}`)
     .pipe(

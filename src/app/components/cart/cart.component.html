@@ -4,8 +4,9 @@
   'disabled-checkout-button' : getCartAmountOfItems() === 0
   }">
     <h2>Cart</h2>
-    <button
-      [disabled]="getCartAmountOfItems() === 0" mat-button>Continue
+    <button mat-button
+      [disabled]="getCartAmountOfItems() === 0"
+      (click)="createOrder(cart?.cartItems)">Continue
       <mat-icon>arrow_right_alt</mat-icon>
     </button>
   </div>

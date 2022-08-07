@@ -2,22 +2,35 @@ import {Injectable} from '@angular/core';
 import {ApiGatewayService} from "./api-gateway.service";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Cart, CartItem} from "../models/cart";
+import {UserService} from "./user.service";
+import {User} from "../models/user";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  public cartItemsTotalSum: number = 0;
+  private cartItemsTotalSum: number = 0;
   private cartItemsTotal = new BehaviorSubject(this.cartItemsTotalSum);
-  currentTotalSum = this.cartItemsTotal.asObservable();
+  public currentTotalSum = this.cartItemsTotal.asObservable();
 
-  public cartItemsList: Cart = new Cart();
+  private cartItemsList: Cart = new Cart();
   private itemsList = new BehaviorSubject(this.cartItemsList);
-  currentCartList = this.itemsList.asObservable();
+  public currentCartList = this.itemsList.asObservable();
 
-  constructor(private http: ApiGatewayService) {
+  private user: User | null = {};
+
+  constructor(private http: ApiGatewayService,
+              private userService: UserService) {
     this.cartItemsList.cartItems = [];
+    this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
+    })
+    if (this.user?.id != undefined) {
+      this.getCart(this.user.id).subscribe(cart => {
+        this.itemsList.next(cart);
+      });
+    }
   }
 
   updateCartList(item: CartItem) {
@@ -56,12 +69,12 @@ export class CartService {
     return this.cartItemsList.cartItems.findIndex(cartItem => cartItem.itemId === item.itemId)
   }
 
-  getCart(userId: string): Observable<Cart[]> {
-    return this.http.get<Cart[]>(`/cart/${userId}`);
+  getCart(userId: string): Observable<Cart> {
+    return this.http.get<Cart>(`/cart/${userId}`);
   }
 
-  updateCart(cartItem: Cart) {
-    return this.http.put<Cart>(`/cart`, cartItem);
+  updateCart(cart: Cart) {
+    return this.http.put<Cart>(`/cart`, cart);
   }
 
   calculateTotalSumOfAllItems() {
