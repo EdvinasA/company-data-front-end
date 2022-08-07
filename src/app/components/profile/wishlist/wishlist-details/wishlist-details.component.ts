@@ -8,6 +8,7 @@ import {ProductToCartDialogComponent} from "../../../products-list/product-to-ca
 import {MatDialog} from "@angular/material/dialog";
 import {UserService} from "../../../../services/user.service";
 import {User} from "../../../../models/user";
+import {ConverterService} from "../../../../services/converter.service";
 
 @Component({
   selector: 'app-wishlist-details',
@@ -25,6 +26,7 @@ export class WishlistDetailsComponent implements OnInit {
   constructor(private wishlistService: WishlistService,
               private cartService: CartService,
               private userService: UserService,
+              private converterService: ConverterService,
               private dialog: MatDialog,
               private route: ActivatedRoute,
               private router: Router) {
@@ -70,16 +72,7 @@ export class WishlistDetailsComponent implements OnInit {
   }
 
   addItemToCart(item: WishlistItem) {
-    let cartItem: CartItem = {
-      itemId: item.itemId,
-      picture: item.itemPicture,
-      itemName: item.itemName,
-      itemCode: '569825',
-      itemQuantity: 1,
-      itemPrice: item.itemPrice,
-      itemInsurance: false,
-      itemWarranty: false
-    };
+    let cartItem: CartItem = this.converterService.convertToCartItemFromWishlist(item);
     this.cartService.updateCartList(cartItem);
     this.openAddedItemToCartDialog(cartItem);
   }

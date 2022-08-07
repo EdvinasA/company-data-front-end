@@ -2,8 +2,11 @@ import {Injectable} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Register} from "../models/register";
 import {Login} from "../models/login";
-import {WishlistCreate} from "../models/wishlist";
+import {WishlistCreate, WishlistItem} from "../models/wishlist";
 import {SubscriptionDetails, User, UserUpdateInput} from "../models/user";
+import {CartItem} from "../models/cart";
+import {Laptop} from "../models/laptop";
+import {ViewedItem} from "../models/viewed-item";
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +54,64 @@ export class ConverterService {
     };
 
     return input;
+  }
+
+  public convertToCartItemFromWishlist(item: WishlistItem) {
+    let cartItem: CartItem = {
+      itemId: item.itemId,
+      picture: item.itemPicture,
+      itemName: item.itemName,
+      itemCode: item.itemCode,
+      itemQuantity: 1,
+      itemPrice: item.itemPrice,
+      itemInsurance: false,
+      itemWarranty: false
+    };
+
+    return cartItem;
+  }
+
+  public convertToCartItemFromProduct(item: Laptop, quantity: number, insurance: boolean, warranty: boolean) {
+    let cartItem: CartItem = {
+      itemId: item.id,
+      picture: item.picture,
+      itemName: item.name,
+      itemCode: item.productCode,
+      itemQuantity: quantity,
+      itemPrice: item.price,
+      itemInsurance: insurance,
+      itemWarranty: warranty
+    };
+
+    return cartItem;
+  }
+
+  public convertToWishlistItemFromProduct(item: Laptop, portfolioId: string | unknown) {
+    let wishlistItem: WishlistItem = {
+      id: '',
+      itemId: item.id,
+      itemPicture: item.picture,
+      itemCode: item.productCode,
+      itemPrice: item.price,
+      itemName: item.name,
+      wishListProfileId: portfolioId,
+    }
+
+    return wishlistItem;
+  }
+
+  public convertToCartItemFromViewedItem(item: ViewedItem) {
+    let cartItem: CartItem = {
+      itemId: item.id,
+      picture: item.itemPicture,
+      itemName: item.itemName,
+      itemCode: item.itemCode,
+      itemQuantity: 1,
+      itemPrice: item.itemPrice,
+      itemInsurance: false,
+      itemWarranty: false
+    };
+
+    return cartItem;
   }
 }

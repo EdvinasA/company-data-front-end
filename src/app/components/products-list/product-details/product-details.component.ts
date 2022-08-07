@@ -9,6 +9,9 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatMenuTrigger} from "@angular/material/menu";
 import {WishlistItem, WishlistProfiles} from "../../../models/wishlist";
 import {WishlistService} from "../../../services/wishlist.service";
+import {ConverterService} from "../../../services/converter.service";
+import {User} from "../../../models/user";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-product-details',
@@ -20,6 +23,7 @@ export class ProductDetailsComponent implements OnInit {
   wishlistProfiles: WishlistProfiles[] = [];
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   laptop!: Laptop;
+  private user: User | null = {};
   itemQuantity: number = 1;
   itemInsurance: boolean = false;
   itemWarranty: boolean = false;
@@ -28,6 +32,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private productService: ProductsService,
               private cartService: CartService,
               private wishlistService: WishlistService,
+              private converterService: ConverterService,
+              private userService: UserService,
               private dialog: MatDialog,
               private router: Router,
               private route: ActivatedRoute) {
@@ -44,19 +50,13 @@ export class ProductDetailsComponent implements OnInit {
     this.wishlistService.currentProfilesList.asObservable().subscribe(data => {
       this.wishlistProfiles = data;
     })
+    this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
+    })
   }
 
   addItemToCart(item: Laptop) {
-    let cartItem: CartItem = {
-      itemId: item.id,
-      picture: item.picture,
-      itemName: item.name,
-      itemCode: item.productCode,
-      itemQuantity: this.itemQuantity,
-      itemPrice: item.price,
-      itemInsurance: this.itemInsurance,
-      itemWarranty: this.itemWarranty
-    };
+    let cartItem: CartItem = this.converterService.convertToCartItemFromProduct(item, this.itemQuantity, this.itemInsurance, this.itemWarranty)
     this.cartService.updateCartList(cartItem);
     this.openAddedItemToCartDialog(cartItem);
   }
@@ -75,15 +75,10 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addItemToWishlist(item: Laptop, portfolioId: string | unknown) {
-    let wishlistItem: WishlistItem = {
-      id: '',
-      itemId: item.id,
-      itemPicture: item.picture,
-      itemPrice: item.price,
-      itemName: item.name,
-      wishListProfileId: portfolioId,
+    let wishlistItem: WishlistItem = this.converterService.convertToWishlistItemFromProduct(item, portfolioId)
+    if (this.user?.id != undefined) {
+      this.wishlistService.addItemToWishlist(this.user?.id, wishlistItem).subscribe();
     }
-    this.wishlistService.addItemToWishlist('60eb71b-310e-4463-a9ed-7c224dea7eec', wishlistItem).subscribe();
   }
 
   increaseQuantity() {

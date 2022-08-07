@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
   }
 
   createOrder(item: CartItem[]) {
-    console.log(item);
+
   }
 
 }

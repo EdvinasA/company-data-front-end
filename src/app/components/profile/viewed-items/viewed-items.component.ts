@@ -7,6 +7,7 @@ import {CartService} from "../../../services/cart.service";
 import {MatDialog} from "@angular/material/dialog";
 import {UserService} from "../../../services/user.service";
 import {User} from "../../../models/user";
+import {ConverterService} from "../../../services/converter.service";
 
 @Component({
   selector: 'app-viewed-items',
@@ -22,6 +23,7 @@ export class ViewedItemsComponent implements OnInit {
   constructor(private viewedItemService: ViewedItemsService,
               private userService: UserService,
               private cartService: CartService,
+              private convertService: ConverterService,
               private dialog: MatDialog) {
   }
 
@@ -36,16 +38,7 @@ export class ViewedItemsComponent implements OnInit {
   }
 
   addItemToCart(item: ViewedItem) {
-    let cartItem: CartItem = {
-      itemId: item.id,
-      picture: item.itemPicture,
-      itemName: item.itemName,
-      itemCode: item.itemCode,
-      itemQuantity: 1,
-      itemPrice: item.itemPrice,
-      itemInsurance: false,
-      itemWarranty: false
-    };
+    let cartItem: CartItem = this.convertService.convertToCartItemFromViewedItem(item);
     this.cartService.updateCartList(cartItem);
     this.openAddedItemToCartDialog(cartItem);
   }
