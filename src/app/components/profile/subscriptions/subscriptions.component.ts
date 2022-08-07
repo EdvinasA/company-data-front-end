@@ -15,7 +15,7 @@ export class SubscriptionsComponent implements OnInit {
 
   isLoading: boolean = true;
   color: ThemePalette = 'primary';
-  user!: User;
+  user: User | null = {};
 
   constructor(private userService: UserService,
               private converterService: ConverterService) {
@@ -32,28 +32,28 @@ export class SubscriptionsComponent implements OnInit {
 
   updateSubscriptionReceiveEmails(event: MatSlideToggleChange) {
     this.user!.subscriptionDetails!.receiveEmails = event.checked;
-    this.user!.subscriptionDetails.receiveEmailsDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.user!.subscriptionDetails!.receiveEmailsDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
     this.updateRequest();
   }
 
   updateSubscriptionReceiveEmailsAboutLookedItems(event: MatSlideToggleChange) {
     this.user!.subscriptionDetails!.receiveEmailsAboutLookedItems = event.checked;
-    this.user!.subscriptionDetails.receiveEmailsAboutLookedItemsDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.user!.subscriptionDetails!.receiveEmailsAboutLookedItemsDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
     this.updateRequest();
   }
 
   updateSubscriptionReceiveEmailsAboutServiceQuality(event: MatSlideToggleChange) {
     this.user!.subscriptionDetails!.receiveEmailsAboutServiceQuality = event.checked;
-    this.user!.subscriptionDetails.receiveEmailsAboutServiceQualityDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.user!.subscriptionDetails!.receiveEmailsAboutServiceQualityDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
     this.updateRequest();
   }
 
   updateSubscriptionReceiveEmailsAboutGivingFeedback(event: MatSlideToggleChange) {
     this.user!.subscriptionDetails!.receiveEmailsAboutGivingFeedback = event.checked;
-    this.user!.subscriptionDetails.receiveEmailsAboutGivingFeedbackDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.user!.subscriptionDetails!.receiveEmailsAboutGivingFeedbackDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
     this.updateRequest();
   }

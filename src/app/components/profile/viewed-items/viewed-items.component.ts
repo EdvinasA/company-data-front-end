@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ViewedItem} from "../../../models/viewed-item";
 import {ViewedItemsService} from "../../../services/viewed-items.service";
-import {Cart, CartItem} from "../../../models/cart";
+import {CartItem} from "../../../models/cart";
 import {ProductToCartDialogComponent} from "../../products-list/product-to-cart-dialog/product-to-cart-dialog.component";
 import {CartService} from "../../../services/cart.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -15,7 +15,7 @@ import {User} from "../../../models/user";
 })
 export class ViewedItemsComponent implements OnInit {
 
-  user!: User | null;
+  user: User | null = {};
   viewedItems: ViewedItem[] = [];
   isLoading: boolean = true;
 

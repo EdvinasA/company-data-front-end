@@ -16,7 +16,7 @@ export class CartPopoverComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.currentCartList.subscribe(cart => {
-      this.cartList = cart.cartItems;
+      this.cartList = cart?.cartItems;
     })
     this.cartService.currentTotalSum.subscribe(sum => {
       this.cartListTotalSum = sum;

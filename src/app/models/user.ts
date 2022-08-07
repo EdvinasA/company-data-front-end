@@ -1,13 +1,13 @@
 export interface User {
-  id: string,
-  email: string,
-  name: string,
-  lastName: string,
-  password: string,
-  token: string,
-  subscriptionDetails: SubscriptionDetails,
-  registeredDate: Date,
-  role: string[];
+  id?: string,
+  email?: string,
+  name?: string,
+  lastName?: string,
+  password?: string,
+  token?: string,
+  subscriptionDetails?: SubscriptionDetails,
+  registeredDate?: Date,
+  role?: string[];
 }
 
 export type SubscriptionDetails = {
@@ -23,10 +23,10 @@ export type SubscriptionDetails = {
 }
 
 export type UserUpdateInput = {
-  id: string,
-  name: string,
-  lastName: string,
-  password: string,
-  subscriptionDetails: SubscriptionDetails,
-  role: string[],
+  id: string | undefined,
+  name: string | undefined,
+  lastName: string | undefined,
+  password: string | undefined,
+  subscriptionDetails: SubscriptionDetails | undefined,
+  role: string[] | undefined,
 }

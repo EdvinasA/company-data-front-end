@@ -1,11 +1,11 @@
 <div class="container">
   <div [ngClass]="{
   'button-and-header' : true,
-  'disabled-checkout-button' : cart.cartItems.length == 0
+  'disabled-checkout-button' : getCartAmountOfItems() === 0
   }">
     <h2>Cart</h2>
     <button
-      [disabled]="cart.cartItems.length == 0" mat-button>Continue
+      [disabled]="getCartAmountOfItems() === 0" mat-button>Continue
       <mat-icon>arrow_right_alt</mat-icon>
     </button>
   </div>
@@ -15,7 +15,7 @@
     <span class="quantity-column">Quantity</span>
     <span class="total-column">Total</span>
   </div>
-  <div *ngFor="let item of cart.cartItems">
+  <div *ngFor="let item of cart?.cartItems">
     <div class="item-container">
       <div class="picture">
         <img

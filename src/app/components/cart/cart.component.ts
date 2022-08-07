@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = this.cartService.currentCartList.subscribe(cart => {
       this.cart = cart;
+      console.log(this.cart);
     })
   }
 
@@ -41,6 +42,10 @@ export class CartComponent implements OnInit {
 
   removeItemFromCart(item: CartItem) {
     this.cartService.removeItemFromCartList(item);
+  }
+
+  getCartAmountOfItems() {
+    return this.cart?.cartItems?.length;
   }
 
 }

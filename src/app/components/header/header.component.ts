@@ -11,9 +11,9 @@ import {User} from "../../models/user";
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() title!: string;
+  @Input() title: string = '';
   isUserLoggedIn: boolean = false;
-  user!: User;
+  user: User = {};
   isLoading: boolean = true;
   listOfItems: CartItem[] = [];
   token: string | null = localStorage.getItem('token');
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.currentCartList.subscribe(cart => {
-      this.listOfItems = cart.cartItems;
+      this.listOfItems = cart?.cartItems;
     })
     this.userService.userSubject.asObservable().subscribe(user => {
       if (user != null || user != undefined) {

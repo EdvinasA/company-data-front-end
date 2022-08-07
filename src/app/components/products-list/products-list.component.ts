@@ -12,7 +12,7 @@ import {UserService} from "../../services/user.service";
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
 
-  user!: User | null;
+  user: User | null = {};
   itemsPage!: Page | null;
   subscription!: Subscription;
   selectedOption = "popular";

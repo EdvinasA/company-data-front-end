@@ -19,7 +19,7 @@ export class WishlistDetailsComponent implements OnInit {
   items: WishlistItem[] = [];
   wishlistProfileName: string = '';
   wishlistProfileId: string = '';
-  user!: User | null;
+  user: User | null = {};
   isLoading: boolean = true;
 
   constructor(private wishlistService: WishlistService,

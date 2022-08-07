@@ -12,15 +12,16 @@ export class CartService {
   private cartItemsTotal = new BehaviorSubject(this.cartItemsTotalSum);
   currentTotalSum = this.cartItemsTotal.asObservable();
 
-  public cartItemsList!: Cart;
+  public cartItemsList: Cart = new Cart();
   private itemsList = new BehaviorSubject(this.cartItemsList);
   currentCartList = this.itemsList.asObservable();
 
   constructor(private http: ApiGatewayService) {
+    this.cartItemsList.cartItems = [];
   }
 
   updateCartList(item: CartItem) {
-    let itemInCart = this.cartItemsList.cartItems.find(cartItem => cartItem.itemId === item.itemId);
+    let itemInCart = this.cartItemsList?.cartItems?.find(cartItem => cartItem.itemId === item.itemId);
     if (itemInCart != undefined) {
       this.cartItemsList.cartItems[this.findIndexToUpdate(itemInCart)].itemQuantity += 1;
     } else {
@@ -52,8 +53,7 @@ export class CartService {
   }
 
   findIndexToUpdate(item: CartItem) {
-    // @ts-ignore
-    return this.cartItemsList.findIndex(cartItem => cartItem.id === item.id)
+    return this.cartItemsList.cartItems.findIndex(cartItem => cartItem.itemId === item.itemId)
   }
 
   getCart(userId: string): Observable<Cart[]> {
