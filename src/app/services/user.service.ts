@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class UserService {
-  private cachedUser: User | null = null;
+  private cachedUser: User | null = {};
   public userWasLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public userSubject: Subject<User | null> = new ReplaySubject<User | null>();
 
@@ -36,7 +36,9 @@ export class UserService {
       if (response.email === null) {
         this.openSnackBar('Failed to get user!', 'Close');
       }
-      localStorage.setItem('token', response.token)
+      if (response.token != undefined) {
+        localStorage.setItem('token', response.token)
+      }
       this.cachedUser = response;
     });
   }
@@ -55,7 +57,9 @@ export class UserService {
       }),
     ).subscribe(
       (response) => {
-        localStorage.setItem('token', response.token)
+        if (response.token != undefined) {
+          localStorage.setItem('token', response.token)
+        }
         this.cachedUser = response;
     },
       (error) => {
