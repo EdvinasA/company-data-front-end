@@ -8,6 +8,7 @@ import {CartService} from "../../../services/cart.service";
 })
 export class CartTotalComponent implements OnInit {
 
+  @Input()
   totalSumOfAllItemsSubject: number = 0;
 
   constructor(private cartService: CartService) { }

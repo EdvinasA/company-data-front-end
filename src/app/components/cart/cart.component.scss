@@ -18,6 +18,10 @@
   width: 15%;
 }
 
+.disabled-checkout-button button {
+  background: gray;
+}
+
 .header-info {
   display: flex;
   height: 45px;

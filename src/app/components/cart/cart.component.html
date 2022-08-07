@@ -1,7 +1,11 @@
 <div class="container">
-  <div class="button-and-header">
+  <div [ngClass]="{
+  'button-and-header' : true,
+  'disabled-checkout-button' : cartList.length == 0
+  }">
     <h2>Cart</h2>
-    <button mat-button>Continue
+    <button
+      [disabled]="cartList.length == 0" mat-button>Continue
       <mat-icon>arrow_right_alt</mat-icon>
     </button>
   </div>
