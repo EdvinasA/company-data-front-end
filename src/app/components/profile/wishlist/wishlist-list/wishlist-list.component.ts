@@ -1,6 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WishlistItem, WishlistProfiles} from "../../../../models/wishlist";
-import {Subscription} from "rxjs";
 import {WishlistService} from "../../../../services/wishlist.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -25,13 +24,16 @@ export class WishlistListComponent implements OnInit {
               public router: Router) { }
 
   ngOnInit(): void {
+    this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
+      if (this.user?.id != undefined) {
+        this.wishlistService.getWishlist(this.user?.id)
+      }
+    })
     this.wishlistService.currentProfilesList.asObservable().subscribe(data => {
       this.wishlistProfiles = data;
       this.isLoading = false;
     });
-    this.userService.userSubject.asObservable().subscribe(user => {
-      this.user = user;
-    })
   }
 
   items(items: WishlistItem[]) {

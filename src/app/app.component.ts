@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "./services/user.service";
 import {User} from "./models/user";
-import {WishlistService} from "./services/wishlist.service";
 
 @Component({
   selector: 'app-root',
@@ -16,8 +15,7 @@ export class AppComponent implements OnInit{
   token: string | undefined | null = localStorage.getItem('token');
 
   constructor(private router: Router,
-              private userService: UserService,
-              private wishlistService: WishlistService) {
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -27,9 +25,6 @@ export class AppComponent implements OnInit{
       });
       this.userService.userSubject.asObservable().subscribe(user => {
         this.user = user;
-        if (user?.id != undefined) {
-          this.wishlistService.getWishlist(user?.id);
-        }
       })
     }
   }
