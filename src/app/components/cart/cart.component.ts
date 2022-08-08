@@ -13,6 +13,7 @@ import {User} from "../../models/user";
 export class CartComponent implements OnInit, OnDestroy {
 
   cart!: Cart;
+  user: User | null = {};
   subscription!: Subscription;
 
   constructor(private cartService: CartService,
@@ -25,6 +26,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
       if (user?.id != undefined) {
         this.subscription = this.cartService.getCart(user?.id);
       }
@@ -35,24 +37,24 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   increaseQuantity(item: CartItem) {
-    this.cartService.updateCartItemQuantity(item, 1, false)
+    this.cartService.updateCartItemQuantity(item, 1, false, this.user?.id)
   }
 
   decreaseQuantity(item: CartItem) {
-    this.cartService.updateCartItemQuantity(item, -1, false)
+    this.cartService.updateCartItemQuantity(item, -1, false, this.user?.id)
   }
 
   keyPressNumbers(event: any, item: CartItem) {
     var charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode < 48 || charCode > 57)) {
       event.preventDefault();
-      this.cartService.updateCartItemQuantity(item, 1, false)
+      this.cartService.updateCartItemQuantity(item, 1, false, this.user?.id)
     } else
-      this.cartService.updateCartItemQuantity(item, event.target.value, true)
+      this.cartService.updateCartItemQuantity(item, event.target.value, true, this.user?.id)
   }
 
   removeItemFromCart(item: CartItem) {
-    this.cartService.removeItemFromCartList(item);
+    this.cartService.removeItemFromCartList(item, this.user?.id);
   }
 
   getCartAmountOfItems() {

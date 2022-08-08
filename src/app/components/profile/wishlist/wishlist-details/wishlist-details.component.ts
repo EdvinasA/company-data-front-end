@@ -73,7 +73,7 @@ export class WishlistDetailsComponent implements OnInit {
 
   addItemToCart(item: WishlistItem) {
     let cartItem: CartItem = this.converterService.convertToCartItemFromWishlist(item);
-    this.cartService.updateCartList(cartItem);
+    this.cartService.updateCartList(cartItem, this.user?.id);
     this.openAddedItemToCartDialog(cartItem);
   }
 

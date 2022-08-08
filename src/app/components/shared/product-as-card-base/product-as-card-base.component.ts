@@ -43,7 +43,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
       itemInsurance: false,
       itemWarranty: false
     };
-    this.cartService.updateCartList(cartItem);
+    this.cartService.updateCartList(cartItem, this.user?.id);
     this.openAddedItemToCartDialog(cartItem);
   }
 

@@ -57,7 +57,7 @@ export class ProductDetailsComponent implements OnInit {
 
   addItemToCart(item: Laptop) {
     let cartItem: CartItem = this.converterService.convertToCartItemFromProduct(item, this.itemQuantity, this.itemInsurance, this.itemWarranty)
-    this.cartService.updateCartList(cartItem);
+    this.cartService.updateCartList(cartItem, this.user?.id);
     this.openAddedItemToCartDialog(cartItem);
   }
 

@@ -39,7 +39,7 @@ export class ViewedItemsComponent implements OnInit {
 
   addItemToCart(item: ViewedItem) {
     let cartItem: CartItem = this.convertService.convertToCartItemFromViewedItem(item);
-    this.cartService.updateCartList(cartItem);
+    this.cartService.updateCartList(cartItem, this.user?.id);
     this.openAddedItemToCartDialog(cartItem);
   }
 
