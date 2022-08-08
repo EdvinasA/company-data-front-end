@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiGatewayService} from "./api-gateway.service";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Subscription} from "rxjs";
 import {Cart, CartItem} from "../models/cart";
-import {UserService} from "./user.service";
-import {User} from "../models/user";
 
 @Injectable({
   providedIn: 'root'
@@ -18,19 +16,8 @@ export class CartService {
   private itemsList = new BehaviorSubject(this.cartItemsList);
   public currentCartList = this.itemsList.asObservable();
 
-  private user: User | null = {};
-
-  constructor(private http: ApiGatewayService,
-              private userService: UserService) {
+  constructor(private http: ApiGatewayService) {
     this.cartItemsList.cartItems = [];
-    this.userService.userSubject.asObservable().subscribe(user => {
-      this.user = user;
-    })
-    if (this.user?.id != undefined) {
-      this.getCart(this.user.id).subscribe(cart => {
-        this.itemsList.next(cart);
-      });
-    }
   }
 
   updateCartList(item: CartItem) {
@@ -69,8 +56,12 @@ export class CartService {
     return this.cartItemsList.cartItems.findIndex(cartItem => cartItem.itemId === item.itemId)
   }
 
-  getCart(userId: string): Observable<Cart> {
-    return this.http.get<Cart>(`/cart/${userId}`);
+  getCart(userId: string | undefined): Subscription {
+    return this.http.get<Cart>(`/cart/${userId}`)
+      .pipe()
+      .subscribe((cart) => {
+        this.itemsList.next(cart);
+      });
   }
 
   updateCart(cart: Cart) {
