@@ -13,7 +13,6 @@ import {MatButtonModule} from "@angular/material/button";
 import {PaginatePipe} from "ngx-pagination";
 
 import {CartDeliveryComponent} from "./cart-delivery/cart-delivery.component";
-import {CartTotalComponent} from "./cart-total/cart-total.component";
 import {CartComponent} from "./cart.component";
 import { CheckoutComponent } from './checkout/checkout.component';
 import {MatInputModule} from "@angular/material/input";
@@ -23,7 +22,6 @@ import {MatSelectModule} from "@angular/material/select";
 @NgModule({
   declarations: [
     CartDeliveryComponent,
-    CartTotalComponent,
     CartComponent,
     CheckoutComponent
   ],

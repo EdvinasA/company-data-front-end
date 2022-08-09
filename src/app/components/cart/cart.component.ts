@@ -16,6 +16,7 @@ export class CartComponent implements OnInit, OnDestroy {
   cart!: Cart;
   user: User | null = {};
   subscription!: Subscription;
+  totalSumOfAllItemsSubject: number = 0;
 
   constructor(private cartService: CartService,
               private userService: UserService,
@@ -35,6 +36,9 @@ export class CartComponent implements OnInit, OnDestroy {
     })
     this.subscription = this.cartService.currentCartList.subscribe(cart => {
       this.cart = cart;
+    })
+    this.cartService.currentTotalSum.subscribe(sum => {
+      this.totalSumOfAllItemsSubject = sum;
     })
   }
 

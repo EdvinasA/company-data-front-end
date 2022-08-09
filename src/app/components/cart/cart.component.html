@@ -5,8 +5,8 @@
   }">
     <h2>Cart</h2>
     <button mat-button
-      [disabled]="getCartAmountOfItems() === 0"
-      (click)="createOrder(cart?.cartItems)">Continue
+            [disabled]="getCartAmountOfItems() === 0"
+            (click)="createOrder(cart?.cartItems)">Continue
       <mat-icon>arrow_right_alt</mat-icon>
     </button>
   </div>
@@ -20,9 +20,9 @@
     <div class="item-container">
       <div class="picture">
         <a [routerLink]="['', item.itemId]">
-        <img
-          src="{{item.picture}}"
-          alt="{{item.itemName}}">
+          <img
+            src="{{item.picture}}"
+            alt="{{item.itemName}}">
         </a>
       </div>
       <div class="name">
@@ -48,10 +48,10 @@
         </button>
         <div class="empty-space" *ngIf="!(item.itemQuantity >= 2)">
         </div>
-          <input
-            type="number"
-            (keypress)="keyPressNumbers($event, item)"
-            [(ngModel)]="item.itemQuantity">
+        <input
+          type="number"
+          (keypress)="keyPressNumbers($event, item)"
+          [(ngModel)]="item.itemQuantity">
         <button mat-icon-button (click)="increaseQuantity(item)">
           <mat-icon>control_point</mat-icon>
         </button>
@@ -62,11 +62,13 @@
     </div>
     <div class="warranty">
       <div class="normal-warranty">
-        <mat-checkbox [(ngModel)]="item.itemInsurance" class="example-margin"><a>Product Insurance</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="item.itemInsurance" class="example-margin"><a>Product
+          Insurance</a></mat-checkbox>
         <p>Insure new purchase and save up to 80% of product price</p>
       </div>
       <div class="extended-warranty">
-        <mat-checkbox [(ngModel)]="item.itemWarranty" class="example-margin"><a>Extended warranty</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="item.itemWarranty" class="example-margin"><a>Extended
+          warranty</a></mat-checkbox>
         <p>Free item repair</p>
       </div>
       <div class="remove-item">
@@ -82,7 +84,26 @@
       <app-cart-delivery></app-cart-delivery>
     </div>
     <div class="total-price">
-      <app-cart-total></app-cart-total>
+      <div class="total-box">
+        <p class="message-under-price" *ngIf="totalSumOfAllItemsSubject <= 19.99">Orders lower than
+          19,99
+          € is subject to administrative tax which is 1,99 €</p>
+        <p>Items total: <strong>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</strong></p>
+        <a routerLink="/" routerlinkactive="true">
+          <mat-icon class="back-to-main">keyboard_backspace</mat-icon>
+          Choose more items</a>
+        <mat-divider></mat-divider>
+        <button mat-button
+                [ngClass]="{
+                  'buy-button': true,
+                  'disabled-checkout-button' : totalSumOfAllItemsSubject === 0
+                }"
+                [disabled]="totalSumOfAllItemsSubject === 0"
+                (click)="createOrder(cart?.cartItems)">Start buying
+          <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+        <p class="code-color">In next page you will able to select delivery method</p>
+      </div>
     </div>
   </div>
 </div>
