@@ -19,13 +19,17 @@
   <div *ngFor="let item of cart?.cartItems">
     <div class="item-container">
       <div class="picture">
+        <a [routerLink]="['', item.itemId]">
         <img
           src="{{item.picture}}"
           alt="{{item.itemName}}">
+        </a>
       </div>
       <div class="name">
         <div>
-          <a>{{item.itemName}}</a>
+          <a [routerLink]="['', item.itemId]">
+            {{item.itemName}}
+          </a>
           <p class="code-color">Product code: {{item.itemCode}}</p>
         </div>
         <div class="delivery-icon">
