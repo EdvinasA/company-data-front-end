@@ -1,13 +1,3 @@
-export type OrderInput = {
-  userId: string,
-  orderNumber: string,
-  collectOption: string,
-  paymentMethod: string,
-  totalPrice: number,
-  orderedItems: OrderedItems[],
-  status: string;
-}
-
 export type OrderedItems = {
   itemId: string,
   orderId: string,

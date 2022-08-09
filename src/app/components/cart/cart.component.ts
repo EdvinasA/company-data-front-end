@@ -4,6 +4,7 @@ import {Cart, CartItem} from "../../models/cart";
 import {Subscription} from "rxjs";
 import {UserService} from "../../services/user.service";
 import {User} from "../../models/user";
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,8 @@ export class CartComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
 
   constructor(private cartService: CartService,
-              private userService: UserService) {
+              private userService: UserService,
+              private orderService: OrderService) {
   }
 
   ngOnDestroy(): void {
@@ -62,7 +64,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   createOrder(item: CartItem[]) {
-
+    this.orderService.createOrder(item, this.user?.id).subscribe();
   }
 
 }
