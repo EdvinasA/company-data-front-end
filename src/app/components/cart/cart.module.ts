@@ -20,6 +20,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { CartCheckoutInformationComponent } from './cart-checkout-information/cart-checkout-information.component';
 import { CartListComponent } from './cart-list/cart-list.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CartListComponent } from './cart-list/cart-list.component';
     MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   exports: [
     CheckoutComponent

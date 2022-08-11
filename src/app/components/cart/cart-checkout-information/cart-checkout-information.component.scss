@@ -1,5 +1,36 @@
 .shipping-wrapper {
   width: 100%;
-  background: white;
+  display: inline-flex;
+}
+
+.shipping-options {
+  border-right: 1px solid #e6e6e6;
+  width: 35%
+}
+
+.shipping-main {
+  width: 50%;
+}
+
+.shipping-order-information {
+  width: 20%;
+}
+
+.shipping-content {
   border: solid 1px #e6e6e6;
+  display: inline-flex;
+  padding: 0 20px 0 0;
+  width: 85%;
+}
+
+.option-row {
+  text-align: left;
+  text-wrap: normal;
+  padding: 30px;
+}
+
+::ng-deep .mat-radio-label {
+  label {
+    white-space: break-spaces;
+  }
 }
