@@ -18,12 +18,16 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
+import { CartCheckoutInformationComponent } from './cart-checkout-information/cart-checkout-information.component';
+import { CartListComponent } from './cart-list/cart-list.component';
 
 @NgModule({
   declarations: [
     CartDeliveryComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CartCheckoutInformationComponent,
+    CartListComponent
   ],
   imports: [
     ReactiveFormsModule,

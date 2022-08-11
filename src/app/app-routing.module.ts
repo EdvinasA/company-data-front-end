@@ -17,10 +17,15 @@ import {OrderDetailsComponent} from "./components/profile/profile-order-history/
 import {OrderListComponent} from "./components/profile/profile-order-history/order-list/order-list.component";
 import {LoginGuard} from "./guards/login.guard";
 import {CheckoutComponent} from "./components/cart/checkout/checkout.component";
+import {CartCheckoutInformationComponent} from "./components/cart/cart-checkout-information/cart-checkout-information.component";
+import {CartListComponent} from "./components/cart/cart-list/cart-list.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
-  {path: 'cart', component: CartComponent},
+  {path: 'cart', component: CartComponent, children: [
+      {path: '', component: CartListComponent},
+      {path: 'shipping', component: CartCheckoutInformationComponent}
+    ]},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'register', component: RegisterComponent, canActivate: [LoginGuard]} ,
   {path: 'viewed-items', component: ViewedItemsComponent, canActivate: [AuthenticationGuard]},
