@@ -81,6 +81,10 @@
   width: 100%;
 }
 
+.shipping-main-first-row ::ng-deep .mat-form-field {
+  padding: 0 10px 0 0;
+  width: 50%;
+}
 .shipping-main-form {
   padding: 20px 0 0 0;
   text-align: left;
@@ -97,4 +101,23 @@
   font-size: 11px;
   font-weight: 500;
   padding-bottom: 5px;
+}
+
+.shipping-main-second-row {
+  width: 100%;
+}
+
+.shipping-main-second-row ::ng-deep .mat-form-field {
+  padding: 0 10px 0 0;
+  width: 100%;
+}
+
+.shipping-main-third-row button {
+  width: 30%;
+  color: white;
+  background: red;
+}
+
+.shipping-main-third-row {
+  padding-bottom: 20px;
 }

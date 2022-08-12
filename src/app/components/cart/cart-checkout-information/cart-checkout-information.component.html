@@ -29,14 +29,16 @@
         <mat-divider></mat-divider>
         <div class="shipping-main-form">
           <p class="shipping-main-title">Delivery address</p>
-          <p class="shipping-main-information">Enter the persons information who is going to take order and correct address.
+          <p class="shipping-main-information">Enter the persons information who is going to take
+            order and correct address.
             If you buy as a company, companies information will be able to enter in next step.</p>
           <form [formGroup]="shippingDeliveryForm">
 
             <div class="shipping-main-first-row">
               <mat-form-field appearance="fill">
                 <mat-label>First name</mat-label>
-                <input matInput formcontrolname="firstName" required>
+                <input matInput formcontrolname="firstName" required
+                       value="{{formControl('firstName').value}}">
                 <mat-error
                   *ngIf="formControl('firstName').touched && formControl('firstName').invalid">
                   First name is <strong>required!</strong>
@@ -45,7 +47,8 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Last name</mat-label>
-                <input matInput formcontrolname="lastName" required>
+                <input matInput formcontrolname="lastName" required
+                       value="{{formControl('lastName').value}}">
                 <mat-error
                   *ngIf="formControl('lastName').touched && formControl('lastName').invalid">
                   First name is <strong>required!</strong>
@@ -53,41 +56,56 @@
               </mat-form-field>
             </div>
 
-            <mat-form-field appearance="fill">
-              <mat-label>Phone number</mat-label>
-              <input matInput formcontrolname="phoneNumber" required>
-              <mat-error *ngIf="formControl('phoneNumber') && formControl('phoneNumber').invalid">
-                Phone number is <strong>required!</strong>
-              </mat-error>
-            </mat-form-field>
+            <div class="shipping-main-second-row">
+              <mat-form-field appearance="fill">
+                <mat-label>Phone number</mat-label>
+                <input matInput formcontrolname="phoneNumber" required
+                       value="{{formControl('phoneNumber').value}}">
+                <mat-error *ngIf="formControl('phoneNumber') && formControl('phoneNumber').invalid">
+                  Phone number is <strong>required!</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
 
-            <mat-form-field appearance="fill">
-              <mat-label>Address</mat-label>
-              <input matInput formcontrolname="address" required>
-              <mat-error *ngIf="formControl('address') && formControl('address').invalid">
-                Address is <strong>required!</strong>
-              </mat-error>
-            </mat-form-field>
+            <div class="shipping-main-second-row">
+              <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput formcontrolname="address" required
+                       value="{{formControl('address').value}}">
+                <mat-error *ngIf="formControl('address') && formControl('address').invalid">
+                  Address is <strong>required!</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
 
-            <mat-form-field appearance="fill">
-              <mat-label>City</mat-label>
-              <input matInput formcontrolname="city" required>
-              <mat-error *ngIf="formControl('city') && formControl('city').invalid">
-                City is <strong>required!</strong>
-              </mat-error>
-            </mat-form-field>
+            <div class="shipping-main-first-row">
+              <mat-form-field appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput formcontrolname="city" required
+                       value="{{formControl('city').value}}">
+                <mat-error *ngIf="formControl('city') && formControl('city').invalid">
+                  City is <strong>required!</strong>
+                </mat-error>
+              </mat-form-field>
 
-            <mat-form-field appearance="fill">
-              <mat-label>Postal code</mat-label>
-              <input matInput formcontrolname="postalCode" required>
-              <mat-error *ngIf="formControl('postalCode') && formControl('postalCode').invalid">
-                Postal code is <strong>required!</strong>
-              </mat-error>
-            </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Postal code</mat-label>
+                <input matInput formcontrolname="postalCode" required
+                       value="{{formControl('postalCode').value}}">
+                <mat-error *ngIf="formControl('postalCode') && formControl('postalCode').invalid">
+                  Postal code is <strong>required!</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="shipping-main-third-row">
+              <button mat-raised-button>Save</button>
+            </div>
 
             <mat-form-field appearance="fill">
               <mat-label>Additional information</mat-label>
-              <input matInput formcontrolname="additionalInformation">
+              <input matInput formcontrolname="additionalInformation"
+                     value="{{formControl('additionalInformation').value}}">
             </mat-form-field>
           </form>
         </div>
