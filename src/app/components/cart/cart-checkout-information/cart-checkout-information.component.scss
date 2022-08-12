@@ -29,8 +29,6 @@
   padding: 30px;
 }
 
-::ng-deep .mat-radio-label {
-  label {
-    white-space: break-spaces;
-  }
+.option-row ::ng-deep .mat-radio-label {
+  white-space: break-spaces;
 }
