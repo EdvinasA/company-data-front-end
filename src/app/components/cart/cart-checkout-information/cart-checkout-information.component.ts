@@ -26,6 +26,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public totalSumOfAllItemsSubject: number = 0;
   public shippingOptions: string = 'toHome';
   public user: User | null = new User();
+  public isLoading: boolean = true;
 
   constructor(private cartService: CartService,
               private userService: UserService,
@@ -41,6 +42,7 @@ export class CartCheckoutInformationComponent implements OnInit {
     })
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
+      this.isLoading = false;
     })
   }
 

@@ -22,6 +22,7 @@ import {CartCheckoutInformationComponent} from './cart-checkout-information/cart
 import {CartListComponent} from './cart-list/cart-list.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
-    MatExpansionModule
+    MatExpansionModule,
+    SharedModule
   ],
   exports: [
     CheckoutComponent

@@ -1,4 +1,4 @@
-<div class="shipping-wrapper" xmlns="http://www.w3.org/1999/html">
+<div class="shipping-wrapper" *ngIf="!isLoading">
   <div class="shipping-content">
     <div class="shipping-options">
       <mat-radio-group [(ngModel)]="shippingOptions">
@@ -180,3 +180,5 @@
     </mat-accordion>
   </div>
 </div>
+<app-progress-spinner *ngIf="isLoading">
+</app-progress-spinner>
