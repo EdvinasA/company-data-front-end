@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CartService} from "../../../services/cart.service";
+import {Cart} from "../../../models/cart";
 
 @Component({
   selector: 'app-cart-checkout-information',
@@ -8,7 +10,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class CartCheckoutInformationComponent implements OnInit {
 
-  shippingDeliveryForm = new FormGroup({
+  public shippingDeliveryForm = new FormGroup({
     firstName: new FormControl('Edvinas', [Validators.required]),
     lastName: new FormControl('Alimas', [Validators.required]),
     phoneNumber: new FormControl('+37067964887', [Validators.required]),
@@ -17,12 +19,19 @@ export class CartCheckoutInformationComponent implements OnInit {
     postalCode: new FormControl('LT-99696', [Validators.required]),
     additionalInformation: new FormControl('', ),
   });
+  public orderInformationPanelOpenState = true;
+  public cart!: Cart;
+  public totalSumOfAllItemsSubject: number = 0;
 
-  orderInformationPanelOpenState = true;
-
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.currentCartList.subscribe(cart => {
+      this.cart = cart;
+    })
+    this.cartService.currentTotalSum.subscribe(sum => {
+      this.totalSumOfAllItemsSubject = sum;
+    })
   }
 
   formControl(input: string) {

@@ -150,8 +150,8 @@
             </div>
           </div>
           <div class="order-information-row">
-            <div>1 item</div>
-            <div>99,99 €</div>
+            <div>{{cart.cartItems.length}} item</div>
+            <div>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</div>
           </div>
           <div class="order-information-row last-row">
             <div>Delivery</div>
@@ -171,7 +171,7 @@
           <mat-divider></mat-divider>
           <div class="order-total-sum">
             <div>Total</div>
-            <div>103,48 €</div>
+            <div>{{totalSumOfAllItemsSubject + 3.49 | number : '1.2-2'}} €</div>
           </div>
         </div>
       </mat-expansion-panel>

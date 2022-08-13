@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 import {CartService} from "../../../services/cart.service";
 import {UserService} from "../../../services/user.service";
 import {OrderService} from "../../../services/order.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart-list',
@@ -20,7 +21,8 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   constructor(private cartService: CartService,
               private userService: UserService,
-              private orderService: OrderService) {
+              private orderService: OrderService,
+              private router: Router) {
   }
 
   ngOnDestroy(): void {
@@ -68,7 +70,8 @@ export class CartListComponent implements OnInit, OnDestroy {
   }
 
   createOrder(item: CartItem[]) {
-    this.orderService.createOrder(item, this.user?.id).subscribe();
+    this.router.navigateByUrl("/cart/shipping").then();
+    // this.orderService.createOrder(item, this.user?.id).subscribe();
   }
 
 }
