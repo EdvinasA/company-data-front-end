@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CartService} from "../../../services/cart.service";
 import {Cart} from "../../../models/cart";
@@ -13,6 +13,11 @@ import {ConverterService} from "../../../services/converter.service";
 })
 export class CartCheckoutInformationComponent implements OnInit {
 
+  public selectedAddressForm = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
+    additionalInformation: new FormControl(''),
+  })
   public shippingDeliveryForm = new FormGroup({
     firstName: new FormControl('Edvinas', [Validators.required]),
     lastName: new FormControl('Alimas', [Validators.required]),
@@ -28,6 +33,8 @@ export class CartCheckoutInformationComponent implements OnInit {
   public user: User | null = new User();
   public isLoading: boolean = true;
   public defaultAddressValue: number = 0;
+  public selectedTime: number = 1;
+  public foundDeliveryInformationByIndex: DeliveryInformation | undefined | null = null;
 
   constructor(private cartService: CartService,
               private userService: UserService,
@@ -43,12 +50,21 @@ export class CartCheckoutInformationComponent implements OnInit {
     })
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
+      this.selectedAddressForm.setValue({
+        address: this.user?.deliveryInformation[this.defaultAddressValue],
+        time: 1,
+        additionalInformation: ''
+      })
       this.isLoading = false;
     })
   }
 
-  formControl(input: string) {
+  getShippingDeliveryFormField(input: string) {
     return this.shippingDeliveryForm.get(input);
+  }
+
+  getSelectedAddressFormField(input: string) {
+    return this.selectedAddressForm.get(input);
   }
 
   submitForm() {
@@ -65,10 +81,5 @@ export class CartCheckoutInformationComponent implements OnInit {
         this.user = user;
       });
     }
-  }
-
-  updateValue(index: number) {
-    console.log(index);
-    return index;
   }
 }

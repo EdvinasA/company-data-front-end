@@ -133,6 +133,11 @@
   width: 30%;
 }
 
+.shipping-additional-information {
+  padding-top: 25px;
+  padding-bottom: 5px;
+}
+
 .shipping-additional-information .mat-form-field {
   width: 100%;
 }
@@ -191,4 +196,13 @@
 .shipping-address-selection .mat-form-field {
   padding: 20px 0 0 0;
   width: 100%;
+}
+
+.address-row1 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.address-row2 {
+  font-size: 10px;
 }
