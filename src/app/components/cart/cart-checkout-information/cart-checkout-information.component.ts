@@ -22,6 +22,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
+  public shippingOptions: string = 'toHome';
 
   constructor(private cartService: CartService) { }
 
