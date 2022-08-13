@@ -19,8 +19,28 @@
       <div class="field">Gender</div>
       <div class="field-value">Male</div>
     </div>
-    <div class="additional-information">
-      <div>Contact information</div>
+    <div>
+      <div class="additional-information"><strong>Contact information</strong></div>
+      <div *ngFor="let info of user?.deliveryInformation">
+        <div class="group-fields highlighted">
+          <div class="additional-information-field first">{{info.firstName}}</div>
+          <div class="additional-information-field">{{info.lastName}}</div>
+        </div>
+        <div class="additional-information-field">{{info.phoneNumber}}</div>
+        <div class="group-fields">
+          <div class="additional-information-field">{{info.address}}</div>
+          <div class="additional-information-field">, {{info.city}}</div>
+          <div class="additional-information-field">, {{info.postalCode}}</div>
+        </div>
+        <div class="additional-information-field">{{info.companyCode}}</div>
+        <div class="additional-information-field">{{info.companyName}}</div>
+        <div class="additional-information-field">{{info.companyPVMCode}}</div>
+        <div class="additional-information-field">{{info.companyAddress}}</div>
+        <div class="additional-information-field">
+          <a href="/profile" class="first">Change</a>
+          <a href="/profile">Delete</a>
+        </div>
+      </div>
       <span>Add new contact information +</span>
     </div>
     <div class="additional-information">
