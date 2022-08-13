@@ -27,6 +27,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public shippingOptions: string = 'toHome';
   public user: User | null = new User();
   public isLoading: boolean = true;
+  public defaultAddressValue: number = 0;
 
   constructor(private cartService: CartService,
               private userService: UserService,
@@ -66,4 +67,8 @@ export class CartCheckoutInformationComponent implements OnInit {
     }
   }
 
+  updateValue(index: number) {
+    console.log(index);
+    return index;
+  }
 }

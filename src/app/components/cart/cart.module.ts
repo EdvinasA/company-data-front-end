@@ -48,6 +48,7 @@ import {SharedModule} from "../shared/shared.module";
     MatSelectModule,
     MatRadioModule,
     MatExpansionModule,
+    MatSelectModule,
     SharedModule
   ],
   exports: [

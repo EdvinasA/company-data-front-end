@@ -31,11 +31,25 @@
         <mat-divider></mat-divider>
         <div class="shipping-main-form">
           <p class="shipping-main-title">Delivery address</p>
-          <p class="shipping-main-information">Enter the persons information who is going to take
+          <div>
+            <div></div>
+            <mat-divider></mat-divider>
+            <div class="shipping-address-selection">
+              <mat-form-field appearance="fill">
+                <mat-select [(value)]="defaultAddressValue">
+                  <mat-option *ngFor="let info of this.user.deliveryInformation; let i = index" [value]="updateValue(i)">
+                    {{info.firstName}} {{info.lastName}} {{info.address}} {{info.postalCode}} {{info.city}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-divider></mat-divider>
+            <div>Wanted delivery time</div>
+          </div>
+          <p class="shipping-main-information" *ngIf="this.user.deliveryInformation.length === 0">Enter the persons information who is going to take
             order and correct address.
             If you buy as a company, companies information will be able to enter in next step.</p>
-          <form [formGroup]="shippingDeliveryForm" (ngSubmit)="submitForm()">
-
+          <form [formGroup]="shippingDeliveryForm" (ngSubmit)="submitForm()" *ngIf="this.user.deliveryInformation.length === 0">
             <div class="first-row-wrapper">
               <div class="shipping-main-first-row-column">
                 <mat-form-field appearance="fill">
