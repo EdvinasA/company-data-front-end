@@ -21,7 +21,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   @Input() public itemsPerPage!: string;
   @Input() public totalElements: number = 0;
   @Input() public currentPage: number = 0;
-  @Input() public user: User | null = {};
+  @Input() public user!: User
 
   constructor(public dialog: MatDialog,
               public router: Router,

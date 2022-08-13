@@ -15,7 +15,7 @@ import {Router} from "@angular/router";
 export class CartListComponent implements OnInit, OnDestroy {
 
   cart!: Cart;
-  user: User | null = {};
+  user!: User | null;
   subscription!: Subscription;
   totalSumOfAllItemsSubject: number = 0;
 

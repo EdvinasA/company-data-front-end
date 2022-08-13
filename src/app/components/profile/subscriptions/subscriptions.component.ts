@@ -15,7 +15,7 @@ export class SubscriptionsComponent implements OnInit {
 
   isLoading: boolean = true;
   color: ThemePalette = 'primary';
-  user: User | null = {};
+  user!: User;
 
   constructor(private userService: UserService,
               private converterService: ConverterService) {
@@ -60,6 +60,7 @@ export class SubscriptionsComponent implements OnInit {
 
   updateRequest() {
     if (this.user != null) {
+      console.log(this.user.deliveryInformation);
       this.userService.updateUser(this.converterService.convertToUpdateUserInput(this.user)).subscribe(user => {
         this.user = user;
       });

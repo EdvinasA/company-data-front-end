@@ -1,14 +1,14 @@
-export interface User {
-  id?: string,
-  email?: string,
-  name?: string,
-  lastName?: string,
-  password?: string,
-  token?: string,
-  subscriptionDetails?: SubscriptionDetails,
-  registeredDate?: Date,
-  role?: string[],
-  deliveryInformation?: DeliveryInformation[];
+export class User {
+  id!: string;
+  email!: string;
+  name!: string;
+  lastName!: string;
+  password!: string;
+  token!: string;
+  subscriptionDetails!: SubscriptionDetails;
+  registeredDate!: Date;
+  role!: string[];
+  deliveryInformation!: DeliveryInformation[];
 }
 
 export type SubscriptionDetails = {
@@ -30,6 +30,7 @@ export type UserUpdateInput = {
   password: string | undefined,
   subscriptionDetails: SubscriptionDetails | undefined,
   role: string[] | undefined,
+  deliveryInformation: DeliveryInformation[] | undefined,
 }
 
 export type DeliveryInformation = {

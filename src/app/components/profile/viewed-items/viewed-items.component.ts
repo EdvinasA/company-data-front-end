@@ -16,7 +16,7 @@ import {ConverterService} from "../../../services/converter.service";
 })
 export class ViewedItemsComponent implements OnInit {
 
-  user: User | null = {};
+  user!: User | null;
   viewedItems: ViewedItem[] = [];
   isLoading: boolean = true;
 

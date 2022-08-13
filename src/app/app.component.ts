@@ -11,7 +11,7 @@ import {User} from "./models/user";
 export class AppComponent implements OnInit{
   title = 'Shop';
   isUserLoggedIn: boolean = false;
-  user: User | null = {};
+  user!: User | null;
   token: string | undefined | null = localStorage.getItem('token');
 
   constructor(private router: Router,

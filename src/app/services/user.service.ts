@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable, ReplaySubject, Subject, Subscription} from 
 import {Register} from "../models/register";
 import {Login} from "../models/login";
 import {ApiGatewayService} from "./api-gateway.service";
-import {User, UserUpdateInput} from "../models/user";
+import {DeliveryInformation, User, UserUpdateInput} from "../models/user";
 import {catchError, finalize} from "rxjs/operators";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
@@ -13,10 +13,9 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class UserService {
 
   private token: string | null = localStorage.getItem('token');
-  private cachedUser: User | null = {};
+  private cachedUser!: User;
   public userWasLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public userSubject: Subject<User | null> = new ReplaySubject<User | null>();
-
 
   constructor(private http: ApiGatewayService,
               private _snackBar: MatSnackBar) {

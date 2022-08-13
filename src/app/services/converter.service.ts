@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Register} from "../models/register";
 import {Login} from "../models/login";
 import {WishlistCreate, WishlistItem} from "../models/wishlist";
-import {SubscriptionDetails, User, UserUpdateInput} from "../models/user";
+import {DeliveryInformation, SubscriptionDetails, User, UserUpdateInput} from "../models/user";
 import {CartItem} from "../models/cart";
 import {Laptop} from "../models/laptop";
 import {ViewedItem} from "../models/viewed-item";
@@ -50,7 +50,8 @@ export class ConverterService {
       lastName: user.lastName,
       password: user.password,
       subscriptionDetails: user.subscriptionDetails,
-      role: user.role
+      role: user.role,
+      deliveryInformation: user.deliveryInformation
     };
 
     return input;
@@ -113,5 +114,11 @@ export class ConverterService {
     };
 
     return cartItem;
+  }
+
+  public convertToDeliveryInformation(info: DeliveryInformation) {
+    let infoUpdated: DeliveryInformation = info;
+
+    return infoUpdated;
   }
 }

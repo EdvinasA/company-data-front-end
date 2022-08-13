@@ -15,7 +15,7 @@ import {User} from "../models/user";
 export class AuthenticationGuard implements CanActivate {
 
   private isUserLoggedIn: boolean = true;
-  private user: User | null = {};
+  private user!: User | null;
 
   constructor(private _router: Router,
               private userService: UserService) {

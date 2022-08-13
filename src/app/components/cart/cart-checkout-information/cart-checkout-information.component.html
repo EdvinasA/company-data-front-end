@@ -34,7 +34,7 @@
           <p class="shipping-main-information">Enter the persons information who is going to take
             order and correct address.
             If you buy as a company, companies information will be able to enter in next step.</p>
-          <form [formGroup]="shippingDeliveryForm">
+          <form [formGroup]="shippingDeliveryForm" (ngSubmit)="submitForm()">
 
             <div class="first-row-wrapper">
               <div class="shipping-main-first-row-column">
@@ -105,16 +105,16 @@
             </div>
 
             <div class="shipping-main-third-row">
-              <button mat-raised-button>Save</button>
+              <button mat-raised-button type="submit" [disabled]="!shippingDeliveryForm.valid">Save</button>
             </div>
 
-            <div class="shipping-additional-information">
-              <mat-form-field appearance="fill">
-                <mat-label>Additional information</mat-label>
-                <textarea matInput formcontrolname="additionalInformation"
-                          value="{{formControl('additionalInformation').value}}"></textarea>
-              </mat-form-field>
-            </div>
+<!--            <div class="shipping-additional-information">-->
+<!--              <mat-form-field appearance="fill">-->
+<!--                <mat-label>Additional information</mat-label>-->
+<!--                <textarea matInput-->
+<!--                          value="{{formControl('additionalInformation').value}}"></textarea>-->
+<!--              </mat-form-field>-->
+<!--            </div>-->
             <mat-divider></mat-divider>
             <div class="shipping-main-fourth-row position">
               <div class="shipping-main-fourth-row">

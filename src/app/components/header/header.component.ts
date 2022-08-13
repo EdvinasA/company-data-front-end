@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   private subscription!: Subscription;
   @Input() title: string = '';
   isUserLoggedIn: boolean = false;
-  user: User = {};
+  user!: User | null;
   isLoading: boolean = true;
   listOfItems: CartItem[] = [];
   token: string | null = localStorage.getItem('token');

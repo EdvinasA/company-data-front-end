@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
   wishlistProfiles: WishlistProfiles[] = [];
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   laptop!: Laptop;
-  private user: User | null = {};
+  private user!: User | null;
   itemQuantity: number = 1;
   itemInsurance: boolean = false;
   itemWarranty: boolean = false;
