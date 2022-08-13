@@ -14,13 +14,14 @@ import {PaginatePipe} from "ngx-pagination";
 
 import {CartDeliveryComponent} from "./cart-delivery/cart-delivery.component";
 import {CartComponent} from "./cart.component";
-import { CheckoutComponent } from './checkout/checkout.component';
+import {CheckoutComponent} from './checkout/checkout.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
-import { CartCheckoutInformationComponent } from './cart-checkout-information/cart-checkout-information.component';
-import { CartListComponent } from './cart-list/cart-list.component';
+import {CartCheckoutInformationComponent} from './cart-checkout-information/cart-checkout-information.component';
+import {CartListComponent} from './cart-list/cart-list.component';
 import {MatRadioModule} from "@angular/material/radio";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatRadioModule} from "@angular/material/radio";
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatExpansionModule
   ],
   exports: [
     CheckoutComponent

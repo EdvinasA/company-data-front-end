@@ -16,7 +16,8 @@
 }
 
 .shipping-order-information {
-  width: 10%;
+  padding-left: 20px;
+  width: 25%;
 }
 
 .shipping-content {
@@ -146,4 +147,43 @@
 .shipping-next-step-information span {
   width: 40%;
   text-align: left;
+}
+
+.position {
+  padding-top: 10px;
+}
+
+.order-information-row {
+  display: inline-flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.order-information-row-two-items {
+  display: inline-flex;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.last-row {
+  padding-bottom: 10px;
+}
+
+.discount-button button {
+  @include buying-button;
+  width: 92%;
+}
+
+.discount-wrapper {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.order-total-sum {
+  padding-top: 15px;
+  display: inline-flex;
+  font-weight: 600;
+  justify-content: space-between;
+  width: 100%;
 }

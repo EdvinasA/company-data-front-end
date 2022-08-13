@@ -18,6 +18,8 @@ export class CartCheckoutInformationComponent implements OnInit {
     additionalInformation: new FormControl('', ),
   });
 
+  orderInformationPanelOpenState = true;
+
   constructor() { }
 
   ngOnInit(): void {
