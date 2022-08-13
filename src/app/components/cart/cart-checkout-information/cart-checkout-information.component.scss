@@ -12,7 +12,7 @@
 
 .shipping-main {
   width: 100%;
-  padding: 0 0 0 30px;
+  padding: 30px;
 }
 
 .shipping-order-information {
@@ -22,14 +22,13 @@
 .shipping-content {
   border: solid 1px #e6e6e6;
   display: inline-flex;
-  padding: 0 20px 0 0;
   width: 75%;
 }
 
 .option-row {
   text-align: left;
   text-wrap: normal;
-  padding: 30px;
+  padding: 20px;
 }
 
 .option-row div {
@@ -37,29 +36,23 @@
 }
 
 .option-row ::ng-deep .mat-radio-label {
-  white-space: break-spaces;
+  @include override-radio-button-label-to-break-words;
 }
 
 .option-row ::ng-deep .mat-radio-container{
-  height: 10px;
-  width: 10px;
+  @include update-angular-material-radio-container;
 }
 
 .option-row ::ng-deep .mat-radio-outer-circle{
-  height: 10px;
-  width: 10px;
+  @include update-angular-material-radio-outer-circle;
 }
 
 .option-row ::ng-deep .mat-radio-inner-circle{
-  height: 10px;
-  width: 10px;
+  @include update-angular-material-radio-inner-circle;
 }
 
 .option-row ::ng-deep .mat-radio-button .mat-radio-ripple{
-  height: 20px; /*double of your required circle radius*/
-  width: 20px;  /*double of your required circle radius*/
-  left: calc(50% - 10px); /*'10px'-same as your required circle radius*/
-  top: calc(50% - 10px); /*'10px'-same as your required circle radius*/
+  @include update-angular-material-radio-button-and-ripple;
 }
 
 .option-text {
@@ -75,34 +68,40 @@
 .shipping-main-header {
   font-size: 1.6em;
   font-weight: 500;
-  padding: 30px 30px 20px 0;
   text-align: left;
+  padding-bottom: 10px;
 }
 
-.shipping-main-first-row {
-  width: 100%;
-}
-
-.shipping-main-first-row ::ng-deep .mat-form-field {
-  padding: 0 10px 0 0;
-  width: 50%;
-}
 .shipping-main-form {
-  padding: 20px 0 0 0;
   text-align: left;
 }
 
 .shipping-main-title {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
+  @include title-style;
+  padding-top: 10px;
 }
 
 .shipping-main-information {
-  color: #555;
-  font-size: 11px;
-  font-weight: 500;
-  padding-bottom: 5px;
+  @include information-text-style;
+}
+
+.first-row-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shipping-main-first-row-column {
+  width: 100%;
+}
+
+.shipping-main-first-row-column ::ng-deep .mat-form-field {
+  padding: 0 10px 0 0;
+  width: 100%;
+}
+
+.shipping-main-first-row-object {
+  width: 100%;
 }
 
 .shipping-main-second-row {
@@ -110,7 +109,6 @@
 }
 
 .shipping-main-second-row ::ng-deep .mat-form-field {
-  padding: 0 10px 0 0;
   width: 100%;
 }
 
@@ -123,15 +121,9 @@
   padding-bottom: 20px;
 }
 
-.shipping-additional-information .mat-form-field {
-  padding: 0 10px 0 0;
-  width: 100%;
-}
-
 .shipping-main-fourth-row {
   display: inline-block;
   text-align: right;
-  padding: 20px 10px 20px 10px;
   width: 100%;
 }
 
@@ -140,12 +132,13 @@
   width: 30%;
 }
 
+.shipping-additional-information .mat-form-field {
+  width: 100%;
+}
+
 .shipping-next-step-information {
-  color: #555;
-  font-size: 11px;
-  font-weight: 500;
+  @include information-text-style;
   display: flex;
-  padding-bottom: 5px;
   justify-content: right;
   width: 100%;
 }
