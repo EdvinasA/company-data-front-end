@@ -7,7 +7,8 @@ export interface User {
   token?: string,
   subscriptionDetails?: SubscriptionDetails,
   registeredDate?: Date,
-  role?: string[];
+  role?: string[],
+  deliveryInformation?: DeliveryInformation[];
 }
 
 export type SubscriptionDetails = {
@@ -29,4 +30,17 @@ export type UserUpdateInput = {
   password: string | undefined,
   subscriptionDetails: SubscriptionDetails | undefined,
   role: string[] | undefined,
+}
+
+export type DeliveryInformation = {
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  address: string,
+  city: string,
+  postalCode: string,
+  companyCode: string,
+  companyName: string,
+  companyPVMCode: string,
+  companyAddress: string
 }
