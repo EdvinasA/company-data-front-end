@@ -102,11 +102,24 @@
               <button mat-raised-button>Save</button>
             </div>
 
-            <mat-form-field appearance="fill">
-              <mat-label>Additional information</mat-label>
-              <input matInput formcontrolname="additionalInformation"
-                     value="{{formControl('additionalInformation').value}}">
-            </mat-form-field>
+            <div class="shipping-additional-information">
+              <mat-form-field appearance="fill">
+                <mat-label>Additional information</mat-label>
+                <textarea matInput formcontrolname="additionalInformation"
+                          value="{{formControl('additionalInformation').value}}"></textarea>
+              </mat-form-field>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="shipping-main-fourth-row">
+              <div class="shipping-main-fourth-row">
+                <button mat-raised-button>Continue ></button>
+              </div>
+              <div class="shipping-next-step-information">
+              <span>
+                In next step you can select payment method and make order as company.
+              </span>
+              </div>
+            </div>
           </form>
         </div>
       </div>

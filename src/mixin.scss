@@ -79,3 +79,8 @@
   padding: 5px 25px 10px 25px;
   text-align: left;
 }
+
+@mixin orange-button {
+  color: white;
+  background: #ed1c24;
+}

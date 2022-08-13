@@ -1,3 +1,5 @@
+@import "src/mixin";
+
 .shipping-wrapper {
   width: 100%;
   display: inline-flex;
@@ -113,11 +115,42 @@
 }
 
 .shipping-main-third-row button {
+  @include orange-button;
   width: 30%;
-  color: white;
-  background: red;
 }
 
 .shipping-main-third-row {
   padding-bottom: 20px;
+}
+
+.shipping-additional-information .mat-form-field {
+  padding: 0 10px 0 0;
+  width: 100%;
+}
+
+.shipping-main-fourth-row {
+  display: inline-block;
+  text-align: right;
+  padding: 20px 10px 20px 10px;
+  width: 100%;
+}
+
+.shipping-main-fourth-row button {
+  @include orange-button;
+  width: 30%;
+}
+
+.shipping-next-step-information {
+  color: #555;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  padding-bottom: 5px;
+  justify-content: right;
+  width: 100%;
+}
+
+.shipping-next-step-information span {
+  width: 40%;
+  text-align: left;
 }
