@@ -13,20 +13,6 @@ export class ProfileDisplayComponent implements OnInit {
 
   public user!: User | null;
   public isLoading: boolean = true;
-  public isFormActivated: boolean = false;
-
-  public deliveryInformationForm = new FormGroup({
-    firstName: new FormControl('Edvinas', [Validators.required]),
-    lastName: new FormControl('Alimas', [Validators.required]),
-    phoneNumber: new FormControl('+37067964887', [Validators.required]),
-    address: new FormControl('Geležinio vilko g. 22-29', [Validators.required]),
-    city: new FormControl('Kaunas', [Validators.required]),
-    postalCode: new FormControl('LT-99696', [Validators.required]),
-    companyCode: new FormControl(''),
-    companyName: new FormControl(''),
-    companyPVMCode: new FormControl(''),
-    companyAddress: new FormControl('')
-  });
 
   constructor(private userService: UserService,
               private converterService: ConverterService) {
