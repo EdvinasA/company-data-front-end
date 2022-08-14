@@ -21,11 +21,14 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {ProductTypesModule} from "../product-types/product-types.module";
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { OptionsOnSideDisplayComponent } from './options-on-side-display/options-on-side-display.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
     ProductAsCardBaseComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    OptionsOnSideDisplayComponent
   ],
   imports: [
     ProductTypesModule,
@@ -50,12 +53,14 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatInputModule,
     MatDividerModule,
     NgxPaginationModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatRadioModule
   ],
   providers: [PaginatePipe, DecimalPipe],
   exports: [
     ProductAsCardBaseComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    OptionsOnSideDisplayComponent
   ],
   bootstrap: [ProductAsCardBaseComponent]
 })

@@ -1,0 +1,8 @@
+<mat-radio-group [(ngModel)]="selectedOption" class="maximum-width">
+  <div class="option-row">
+    <mat-radio-button *ngFor="let option of options" [value]="option.optionValue" class="option-button-size">
+      <div>{{option.optionName}}</div>
+      <span class="option-text">{{option.description}}</span>
+    </mat-radio-button>
+  </div>
+</mat-radio-group>

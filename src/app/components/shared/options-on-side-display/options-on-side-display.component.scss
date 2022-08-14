@@ -1,0 +1,41 @@
+@import "src/mixin";
+
+.option-row {
+  text-align: left;
+  text-wrap: normal;
+}
+
+.option-row div {
+  font-size: 12px;
+}
+
+.option-row ::ng-deep .mat-radio-label {
+  @include override-radio-button-label-to-break-words;
+}
+
+.option-row ::ng-deep .mat-radio-container{
+  @include update-angular-material-radio-container;
+}
+
+.option-row ::ng-deep .mat-radio-outer-circle{
+  @include update-angular-material-radio-outer-circle;
+}
+
+.option-row ::ng-deep .mat-radio-inner-circle{
+  @include update-angular-material-radio-inner-circle;
+}
+
+.option-row ::ng-deep .mat-radio-button .mat-radio-ripple{
+  @include update-angular-material-radio-button-and-ripple;
+}
+
+.option-text {
+  font-size: 9px;
+  color: #999;
+  display: block;
+}
+
+.option-button-size {
+  border-bottom: solid 1px #e6e6e6;
+  padding: 20px;
+}

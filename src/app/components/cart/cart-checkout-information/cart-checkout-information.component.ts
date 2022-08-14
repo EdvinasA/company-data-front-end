@@ -16,7 +16,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public selectedAddressForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
     time: new FormControl('', [Validators.required]),
-    additionalInformation: new FormControl(''),
+    additionalInformation: new FormControl('asdasdasd'),
   })
   public shippingDeliveryForm = new FormGroup({
     firstName: new FormControl('Edvinas', [Validators.required]),
@@ -26,15 +26,18 @@ export class CartCheckoutInformationComponent implements OnInit {
     city: new FormControl('Kaunas', [Validators.required]),
     postalCode: new FormControl('LT-99696', [Validators.required])
   });
+  public deliveryOptions = [
+    {optionName: 'Order to set address', description: 'Delivery cost 3,99 €. Deliver in 2 work days.', optionValue: 'toHome'},
+    {optionName: 'Withdrawal at client center', description: 'Items for withdrawal will prepare in 1 work day.', optionValue: 'withdrawal'},
+    {optionName: 'Withdrawal from selected box locations', description: 'Items can be withdraw in two days', optionValue: 'withdrawalFromLocation'}
+    ];
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
-  public shippingOptions: string = 'toHome';
+  public shippingOption: string = 'toHome';
   public user: User | null = new User();
   public isLoading: boolean = true;
   public defaultAddressValue: number = 0;
-  public selectedTime: number = 1;
-  public foundDeliveryInformationByIndex: DeliveryInformation | undefined | null = null;
 
   constructor(private cartService: CartService,
               private userService: UserService,
@@ -52,8 +55,8 @@ export class CartCheckoutInformationComponent implements OnInit {
       this.user = user;
       this.selectedAddressForm.setValue({
         address: this.user?.deliveryInformation[this.defaultAddressValue],
-        time: 1,
-        additionalInformation: ''
+        time: '1',
+        additionalInformation: 'asdasdas'
       })
       this.isLoading = false;
     })

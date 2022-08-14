@@ -1,27 +1,10 @@
 <div class="shipping-wrapper" *ngIf="!isLoading">
   <div class="shipping-content">
     <div class="shipping-options">
-      <mat-radio-group [(ngModel)]="shippingOptions">
-        <div class="option-row option-bottom-border">
-          <mat-radio-button value="toHome">
-            <div>Order to set address</div>
-            <span class="option-text">Delivery cost 3,99 €.</span>
-            <span class="option-text">Deliver in 2 work days.</span>
-          </mat-radio-button>
-        </div>
-        <div class="option-row option-bottom-border">
-          <mat-radio-button value="withdrawal">
-            <div>Withdrawal at client center</div>
-            <span class="option-text">Items for withdrawal will prepare in 1 work day.</span>
-          </mat-radio-button>
-        </div>
-        <div class="option-row option-bottom-border">
-          <mat-radio-button value="withdrawalFromLocation">
-            <div>Withdrawal from selected box locations</div>
-            <span class="option-text">Items can be withdraw in two days</span>
-          </mat-radio-button>
-        </div>
-      </mat-radio-group>
+      <app-options-on-side-display class="maximum-width"
+        [selectedOption]="shippingOption"
+        [options]="deliveryOptions">
+      </app-options-on-side-display>
     </div>
     <div class="shipping-main">
       <div>
@@ -63,7 +46,7 @@
                 <div>
                   <strong>Wanted delivery time</strong>
                 </div>
-                <mat-radio-group [(ngModel)]="selectedTime">
+                <mat-radio-group formControlName="time">
                   <div>
                     <mat-radio-button value="1">08:00 - 18:00</mat-radio-button>
                   </div>
@@ -76,8 +59,7 @@
               <div class="shipping-additional-information">
                 <mat-form-field appearance="fill">
                   <mat-label>Additional information</mat-label>
-                  <textarea matInput
-                            value="{{getSelectedAddressFormField('additionalInformation').value}}"></textarea>
+                  <textarea matInput formControlName="additionalInformation"></textarea>
                 </mat-form-field>
               </div>
               <mat-divider></mat-divider>
