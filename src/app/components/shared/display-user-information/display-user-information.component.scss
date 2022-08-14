@@ -38,7 +38,7 @@
 
 .shipping-main-third-row button {
   @include orange-button;
-  width: 30%;
+  width: 50%;
 }
 
 .shipping-main-third-row {
@@ -55,3 +55,12 @@
   width: 100%;
 }
 
+.cancel-form span {
+  color: #3399cc;
+  cursor: pointer;
+}
+
+.form-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) ;
+}

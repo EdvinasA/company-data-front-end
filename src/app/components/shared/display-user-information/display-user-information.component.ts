@@ -23,7 +23,7 @@ export class DisplayUserInformationComponent implements OnInit {
     address: new FormControl('Geležinio vilko g. 22-29', [Validators.required]),
     city: new FormControl('Kaunas', [Validators.required]),
     postalCode: new FormControl('LT-99696', [Validators.required]),
-    companyCode: new FormControl('', ),
+    companyCode: new FormControl(''),
     companyName: new FormControl(''),
     companyPVMCode: new FormControl(''),
     companyAddress: new FormControl('')
@@ -62,6 +62,11 @@ export class DisplayUserInformationComponent implements OnInit {
 
   onClickActivateSelectProfileForm() {
     this.isSelectDeliveryProfileActivated = !this.isSelectDeliveryProfileActivated;
+  }
+
+  onClickCloseAllForms() {
+    this.isFormActivated = false;
+    this.isSelectDeliveryProfileActivated = false;
   }
 
 }

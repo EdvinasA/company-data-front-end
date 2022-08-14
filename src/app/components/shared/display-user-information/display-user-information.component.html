@@ -124,10 +124,15 @@
              value="{{getShippingDeliveryFormField('companyAddress').value}}">
     </mat-form-field>
 
-    <div class="shipping-main-third-row">
-      <button mat-raised-button type="submit" [disabled]="!shippingDeliveryForm.valid">
-        Save
-      </button>
+    <div class="form-buttons">
+      <div class="shipping-main-third-row">
+        <button mat-raised-button type="submit" [disabled]="!shippingDeliveryForm.valid">
+          Save
+        </button>
+      </div>
+      <div class="cancel-form">
+        <span (click)="onClickCloseAllForms()">Cancel</span>
+      </div>
     </div>
   </form>
 </div>
