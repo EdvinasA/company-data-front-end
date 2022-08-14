@@ -25,6 +25,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {SharedModule} from "../shared/shared.module";
 import { DeliveryToHomeComponent } from './cart-checkout-information/shipping-options/delivery-to-home/delivery-to-home.component';
 import { WithdrawalAtClientCenterComponent } from './cart-checkout-information/shipping-options/withdrawal-at-client-center/withdrawal-at-client-center.component';
+import { WithdrawalFromLocationComponent } from './cart-checkout-information/shipping-options/withdrawal-from-location/withdrawal-from-location.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { WithdrawalAtClientCenterComponent } from './cart-checkout-information/s
     CartCheckoutInformationComponent,
     CartListComponent,
     DeliveryToHomeComponent,
-    WithdrawalAtClientCenterComponent
+    WithdrawalAtClientCenterComponent,
+    WithdrawalFromLocationComponent
   ],
   imports: [
     ReactiveFormsModule,

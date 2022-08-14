@@ -1,0 +1,38 @@
+.delivery-provider-options {
+  display: grid;
+  padding: 20px 0 20px 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.delivery-provider {
+  width: 90%;
+  height: 50%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.delivery-provider img {
+  padding: 5px 12px 0 0;
+  width: 90%;
+  height: 70%;
+}
+
+.delivery-provider-text {
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 500;
+  justify-content: space-between;
+  padding: 0 5px;
+  width: 100%;
+}
+
+.radio-for-selection {
+  visibility: hidden;
+}
+
+.delivery-provider:hover {
+  border: 3px solid #5bb01c;
+}
+
+.delivery-provider-selected {
+  border: 3px solid #5bb01c;
+}

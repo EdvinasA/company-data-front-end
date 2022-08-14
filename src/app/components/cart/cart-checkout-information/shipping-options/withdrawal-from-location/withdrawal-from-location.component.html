@@ -1,0 +1,37 @@
+<div>
+  <div class="delivery-provider-options">
+    <div (click)="selectOption('dpd')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'dpd'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/dpd-pickup.png">
+      <div class="delivery-provider-text">
+        <span>Delivery</span>
+        <span>2,79 €</span>
+      </div>
+    </div>
+    <div (click)="selectOption('omniva')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'omniva'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/omniva.png">
+      <div class="delivery-provider-text">
+        <span>Delivery</span>
+        <span>3,19 €</span>
+      </div>
+    </div>
+    <div (click)="selectOption('express')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'express'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/lp-express.png">
+      <div class="delivery-provider-text">
+        <span>Delivery</span>
+        <span>2,49 €</span>
+      </div>
+    </div>
+  </div>
+</div>

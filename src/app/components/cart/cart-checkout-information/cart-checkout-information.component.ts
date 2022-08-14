@@ -21,7 +21,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
-  public shippingOption: string = 'withdrawal';
+  public shippingOption: string = 'withdrawalFromLocation';
   public user: User | null = new User();
   public isLoading: boolean = true;
 
