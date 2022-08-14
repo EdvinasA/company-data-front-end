@@ -24,6 +24,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {SharedModule} from "../shared/shared.module";
 import { DeliveryToHomeComponent } from './cart-checkout-information/shipping-options/delivery-to-home/delivery-to-home.component';
+import { WithdrawalAtClientCenterComponent } from './cart-checkout-information/shipping-options/withdrawal-at-client-center/withdrawal-at-client-center.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DeliveryToHomeComponent } from './cart-checkout-information/shipping-op
     CheckoutComponent,
     CartCheckoutInformationComponent,
     CartListComponent,
-    DeliveryToHomeComponent
+    DeliveryToHomeComponent,
+    WithdrawalAtClientCenterComponent
   ],
   imports: [
     ReactiveFormsModule,
