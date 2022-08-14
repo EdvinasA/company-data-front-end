@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../../../../../models/user";
+import {UserService} from "../../../../../services/user.service";
 
 @Component({
   selector: 'app-withdrawal-at-client-center',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WithdrawalAtClientCenterComponent implements OnInit {
 
-  constructor() { }
+  public user!: User | null;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.userSubject.asObservable().subscribe(user => {
+      this.user = user;
+    })
   }
 
 }

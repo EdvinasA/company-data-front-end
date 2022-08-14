@@ -11,15 +11,12 @@ export class WithdrawalFromLocationComponent implements OnInit {
 
   public selectedOption: string = 'dpd';
   public user!: User | null;
-  private selectedDeliveryInformationIndex: number = 0;
-  public deliveryInformation!: DeliveryInformation | undefined;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
-      this.deliveryInformation = this.user?.deliveryInformation[this.selectedDeliveryInformationIndex];
     })
   }
 

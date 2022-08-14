@@ -64,13 +64,7 @@
   <mat-divider></mat-divider>
   <div class="user-information-style">
     <app-display-user-information
-      [firstName]="this.deliveryInformation.firstName"
-      [lastName]="this.deliveryInformation.lastName"
-      [phoneNumber]="this.deliveryInformation.phoneNumber"
-      [address]="this.deliveryInformation.address"
-      [city]="this.deliveryInformation.city"
-      [postalCode]="this.deliveryInformation.postalCode"
-    >
+    [deliveryInformation]="this.user.deliveryInformation[0]">
     </app-display-user-information>
   </div>
   <mat-divider></mat-divider>

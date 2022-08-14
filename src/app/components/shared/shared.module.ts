@@ -9,7 +9,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDividerModule} from "@angular/material/divider";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
@@ -37,6 +37,7 @@ import { DisplayUserInformationComponent } from './display-user-information/disp
     BrowserModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonToggleModule,
     NgxPaginationModule,
     MatDividerModule,

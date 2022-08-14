@@ -30,7 +30,9 @@
   <mat-divider></mat-divider>
   <div class="user-information">
     <div>Information of person who is taking the order</div>
-    <app-display-user-information></app-display-user-information>
+    <app-display-user-information
+      [deliveryInformation]="user.deliveryInformation[0]"
+    ></app-display-user-information>
   </div>
   <mat-divider></mat-divider>
   <div class="pointers">
