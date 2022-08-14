@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DeliveryInformation, User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
 
@@ -9,6 +9,7 @@ import {UserService} from "../../../../../services/user.service";
 })
 export class WithdrawalFromLocationComponent implements OnInit {
 
+  @Output() option = new EventEmitter<string>();
   public selectedOption: string = 'dpd';
   public user!: User | null;
 
@@ -22,6 +23,7 @@ export class WithdrawalFromLocationComponent implements OnInit {
 
   selectOption(input: string) {
     this.selectedOption = input;
+    this.option.emit(input);
   }
 
 }

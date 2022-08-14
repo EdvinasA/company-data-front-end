@@ -17,7 +17,6 @@ export class OptionsOnSideDisplayComponent implements OnInit {
   }
 
   changeOption(value: string) {
-    console.log(value)
     this.newSelectedOption.emit(value);
   }
 

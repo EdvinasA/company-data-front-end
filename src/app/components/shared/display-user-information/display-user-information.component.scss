@@ -11,6 +11,7 @@
 
 .first-row-wrapper {
   display: flex;
+  padding-top: 20px;
   justify-content: space-between;
   width: 100%;
 }
@@ -48,6 +49,10 @@
 .activate-select-form-style {
   cursor: pointer;
   color: #3399cc;
+}
+
+.shipping-address-selection {
+  padding: 20px 0 0 0 ;
 }
 
 .shipping-address-selection .mat-form-field {

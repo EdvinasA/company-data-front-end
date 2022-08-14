@@ -11,11 +11,6 @@ import {ConverterService} from "../../../../../services/converter.service";
 })
 export class DeliveryToHomeComponent implements OnInit {
 
-  public selectedAddressForm = new FormGroup({
-    address: new FormControl('', [Validators.required]),
-    time: new FormControl('', [Validators.required]),
-    additionalInformation: new FormControl('asdasdasd'),
-  })
   public user: User | null = new User();
   public defaultAddressValue: number = 0;
 
@@ -25,15 +20,6 @@ export class DeliveryToHomeComponent implements OnInit {
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
-      this.selectedAddressForm.setValue({
-        address: this.user?.deliveryInformation[this.defaultAddressValue],
-        time: '1',
-        additionalInformation: 'asdasdas'
-      })
     })
-  }
-
-  getSelectedAddressFormField(input: string) {
-    return this.selectedAddressForm.get(input);
   }
 }

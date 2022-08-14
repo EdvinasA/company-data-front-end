@@ -28,6 +28,7 @@
   </div>
   <form [formGroup]="shippingDeliveryForm" (ngSubmit)="submitForm()"
         *ngIf="isFormActivated || user.deliveryInformation.length === 0">
+    <mat-divider></mat-divider>
     <div class="first-row-wrapper">
       <div class="shipping-main-first-row-column">
         <mat-form-field appearance="fill">

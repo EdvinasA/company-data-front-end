@@ -2,9 +2,9 @@
   <div class="shipping-content">
     <div class="shipping-options">
       <app-options-on-side-display class="maximum-width"
-        [selectedOption]="shippingOption"
-        [options]="deliveryOptions"
-        (newSelectedOption)="updateSelectedOption($event)">
+                                   [selectedOption]="shippingOption"
+                                   [options]="deliveryOptions"
+                                   (newSelectedOption)="updateSelectedOption($event)">
       </app-options-on-side-display>
     </div>
     <div class="shipping-main">
@@ -15,9 +15,15 @@
           <span *ngIf="shippingOption === 'withdrawalFromLocation'">Withdrawal from selected box locations</span>
         </div>
         <mat-divider></mat-divider>
-        <app-delivery-to-home *ngIf="shippingOption === 'toHome'"></app-delivery-to-home>
-        <app-withdrawal-at-client-center *ngIf="shippingOption === 'withdrawal'"></app-withdrawal-at-client-center>
-        <app-withdrawal-from-location  *ngIf="shippingOption === 'withdrawalFromLocation'"></app-withdrawal-from-location>
+        <app-delivery-to-home
+          *ngIf="shippingOption === 'toHome'">
+        </app-delivery-to-home>
+        <app-withdrawal-at-client-center *ngIf="shippingOption === 'withdrawal'">
+        </app-withdrawal-at-client-center>
+        <app-withdrawal-from-location
+          (option)="updateSelectedPickupOption($event)"
+          *ngIf="shippingOption === 'withdrawalFromLocation'">
+        </app-withdrawal-from-location>
         <div class="shipping-main-fourth-row position">
           <div class="shipping-main-fourth-row">
             <button mat-raised-button>Continue ></button>
@@ -55,9 +61,9 @@
             <div>{{cart.cartItems.length}} item</div>
             <div>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</div>
           </div>
-          <div class="order-information-row last-row">
+          <div class="order-information-row last-row" *ngIf="shippingOption !== 'withdrawal'">
             <div>Delivery</div>
-            <div>3,49 €</div>
+            <div>{{deliveryCost()}} €</div>
           </div>
           <mat-divider></mat-divider>
           <div class="discount-wrapper">
@@ -73,7 +79,7 @@
           <mat-divider></mat-divider>
           <div class="order-total-sum">
             <div>Total</div>
-            <div>{{totalSumOfAllItemsSubject + 3.49 | number : '1.2-2'}} €</div>
+            <div>{{totalSumOfAllItemsSubject + deliveryCost() | number : '1.2-2'}} €</div>
           </div>
         </div>
       </mat-expansion-panel>

@@ -13,6 +13,11 @@ import {ConverterService} from "../../../services/converter.service";
 })
 export class CartCheckoutInformationComponent implements OnInit {
 
+  // public selectedAddressForm = new FormGroup({
+  //   address: new FormControl('', [Validators.required]),
+  //   time: new FormControl('', [Validators.required]),
+  //   additionalInformation: new FormControl('asdasdasd'),
+  // })
   public deliveryOptions = [
     {optionName: 'Order to set address', description: 'Delivery cost 3,99 €. Deliver in 2 work days.', optionValue: 'toHome'},
     {optionName: 'Withdrawal at client center', description: 'Items for withdrawal will prepare in 1 work day.', optionValue: 'withdrawal'},
@@ -21,7 +26,8 @@ export class CartCheckoutInformationComponent implements OnInit {
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
-  public shippingOption: string = 'withdrawalFromLocation';
+  public shippingOption: string = 'toHome';
+  public pickupOption: string = 'dpd';
   public user: User | null = new User();
   public isLoading: boolean = true;
 
@@ -40,6 +46,28 @@ export class CartCheckoutInformationComponent implements OnInit {
       this.user = user;
       this.isLoading = false;
     })
+  }
+
+  deliveryCost() {
+    if (this.shippingOption === 'toHome') {
+      return 3.99
+    }
+    if (this.shippingOption === 'withdrawalFromLocation') {
+      if (this.pickupOption === 'dpd') {
+        return 2.79;
+      }
+      if (this.pickupOption === 'omniva') {
+        return 3.19;
+      }
+      if (this.pickupOption === 'express') {
+        return 2.49;
+      }
+    }
+    return 0;
+  }
+
+  updateSelectedPickupOption(option: string) {
+    this.pickupOption = option;
   }
 
   updateSelectedOption(option: string) {
