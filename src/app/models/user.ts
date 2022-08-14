@@ -44,5 +44,6 @@ export type DeliveryInformation = {
   companyCode: string,
   companyName: string,
   companyPVMCode: string,
-  companyAddress: string
+  companyAddress: string,
+  isBeingEdited: boolean,
 }

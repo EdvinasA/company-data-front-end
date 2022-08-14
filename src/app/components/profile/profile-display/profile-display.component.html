@@ -38,13 +38,13 @@
         <div class="additional-information-field">{{info.companyAddress}}</div>
         <div class="additional-information-field">
           <span class="activate-select-form-style"
-                (click)="activateForm()">Update</span>
+                (click)="activateForm(info)">Update</span>
           <span class="activate-select-form-style"
                (click)="deleteDeliveryInformation(info)">Delete</span>
         </div>
         <app-delivery-information-form
-          [isFormActivated]="isUpdateFormActivated"
-          (formClosed)="activateForm()"
+          [isFormActivated]="info.isBeingEdited"
+          (formClosed)="activateForm(info)"
           [deliveryInformation]="info"
           [isBeingEdited]="true">
         </app-delivery-information-form>

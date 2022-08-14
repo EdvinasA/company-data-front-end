@@ -22,6 +22,10 @@ export class ProfileDisplayComponent implements OnInit {
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
+      this.user?.deliveryInformation.map((info) => {
+        info.isBeingEdited = false;
+        return info;
+      })
       this.isLoading = false;
     })
   }
@@ -34,8 +38,8 @@ export class ProfileDisplayComponent implements OnInit {
     }
   }
 
-  activateForm() {
-    this.isUpdateFormActivated = !this.isUpdateFormActivated;
+  activateForm(info: DeliveryInformation) {
+    info.isBeingEdited = !info.isBeingEdited;
   }
 
   activateCreateForm() {
