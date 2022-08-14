@@ -61,6 +61,30 @@ export class CartListComponent implements OnInit, OnDestroy {
       this.cartService.updateCartItemQuantity(item, event.target.value, true, this.user?.id)
   }
 
+  updateWarranty(item: CartItem) {
+    this.cartService.updateCartListWarrantyValue(item, this.user?.id);
+    item.itemWarranty = !item.itemWarranty;
+  }
+
+  updateInsurance(item: CartItem) {
+    this.cartService.updateCartListInsuranceValue(item, this.user?.id);
+    item.itemInsurance = !item.itemInsurance;
+  }
+
+  totalOfItemWithInsurance(item: CartItem) {
+    if (item.itemInsurance) {
+      return 39.99;
+    }
+    return 0;
+  }
+
+  totalOfItemWithWarranty(item: CartItem) {
+    if (item.itemWarranty) {
+      return 39.99;
+    }
+    return 0;
+  }
+
   removeItemFromCart(item: CartItem) {
     this.cartService.removeItemFromCartList(item, this.user?.id);
   }

@@ -56,17 +56,17 @@
       </button>
     </div>
     <div class="total">
-      <p><strong>{{item.itemQuantity * item.itemPrice | number : '1.2-2'}} €</strong></p>
+      <p><strong>{{item.itemQuantity * item.itemPrice + totalOfItemWithInsurance(item) + totalOfItemWithWarranty(item) | number : '1.2-2'}} €</strong></p>
     </div>
   </div>
   <div class="warranty">
     <div class="normal-warranty">
-      <mat-checkbox [(ngModel)]="item.itemInsurance" class="example-margin"><a>Product
+      <mat-checkbox [(ngModel)]="item.itemInsurance" (click)="updateInsurance(item)"><a>Product
         Insurance</a></mat-checkbox>
       <p>Insure new purchase and save up to 80% of product price</p>
     </div>
     <div class="extended-warranty">
-      <mat-checkbox [(ngModel)]="item.itemWarranty" class="example-margin"><a>Extended
+      <mat-checkbox [(ngModel)]="item.itemWarranty" (click)="updateWarranty(item)"><a>Extended
         warranty</a></mat-checkbox>
       <p>Free item repair</p>
     </div>

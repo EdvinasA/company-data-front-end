@@ -28,6 +28,36 @@ export class CartService {
     })
   }
 
+  updateCartListInsuranceValue(item: CartItem, userId: string | undefined) {
+    let itemInCart = this.getItemInCart(item);
+    if (itemInCart != undefined) {
+      this.cartItemsList.cartItems[this.findIndexToUpdate(itemInCart)].itemInsurance = !this.cartItemsList.cartItems[this.findIndexToUpdate(itemInCart)].itemInsurance;
+    }
+
+    this.itemsList.next(this.cartItemsList);
+    this.cartItemsTotal.next(this.calculateTotalSumOfAllItems())
+    if (this.userIsLoaded) {
+      this.updateCart(this.itemsList.getValue(), userId).subscribe();
+    }
+  }
+
+  updateCartListWarrantyValue(item: CartItem, userId: string | undefined) {
+    let itemInCart = this.getItemInCart(item);
+    if (itemInCart != undefined) {
+      this.cartItemsList.cartItems[this.findIndexToUpdate(itemInCart)].itemWarranty = !this.cartItemsList.cartItems[this.findIndexToUpdate(itemInCart)].itemWarranty;
+    }
+
+    this.itemsList.next(this.cartItemsList);
+    this.cartItemsTotal.next(this.calculateTotalSumOfAllItems())
+    if (this.userIsLoaded) {
+      this.updateCart(this.itemsList.getValue(), userId).subscribe();
+    }
+  }
+
+  private getItemInCart(item: CartItem) {
+    return this.cartItemsList?.cartItems?.find(cartItem => cartItem.itemId === item.itemId);
+  }
+
   updateCartList(item: CartItem, userId: string | undefined) {
     let itemInCart = this.cartItemsList?.cartItems?.find(cartItem => cartItem.itemId === item.itemId);
     if (itemInCart != undefined) {
@@ -93,10 +123,26 @@ export class CartService {
     if (this.cartItemsList.cartItems.length !== 0) {
       this.cartItemsList.cartItems.forEach(cart => {
         totalSum += (cart.itemPrice * cart.itemQuantity);
+        totalSum += this.checkCartIfWarrantyValueIsTrue(cart);
+        totalSum += this.checkCartIfInsuranceValueIsTrue(cart);
       })
       return totalSum;
     } else {
       return totalSum;
     }
+  }
+
+  checkCartIfWarrantyValueIsTrue(cartItem: CartItem) {
+    if (cartItem.itemWarranty) {
+      return 39.99;
+    }
+    return 0;
+  }
+
+  checkCartIfInsuranceValueIsTrue(cartItem: CartItem) {
+    if (cartItem.itemInsurance) {
+      return 39.99;
+    }
+    return 0;
   }
 }
