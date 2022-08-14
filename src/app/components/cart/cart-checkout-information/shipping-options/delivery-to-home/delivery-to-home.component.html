@@ -3,19 +3,14 @@
   <form [formGroup]="selectedAddressForm">
     <div>
       <div>
-        <div class="address-row1">
-          {{getSelectedAddressFormField('address').value.firstName}}
-          {{getSelectedAddressFormField('address').value.lastName}}
-        </div>
-        <div class="address-row2">
-          {{getSelectedAddressFormField('address').value.address}}
-          {{getSelectedAddressFormField('address').value.postalCode}}
-          {{getSelectedAddressFormField('address').value.city}}
-        </div>
-        <div class="address-row2">
-          {{getSelectedAddressFormField('address').value.phoneNumber}}
-          <a href="/">Update</a>
-        </div>
+        <app-display-user-information
+        [firstName]="getSelectedAddressFormField('address').value.firstName"
+        [lastName]="getSelectedAddressFormField('address').value.lastName"
+        [address]="getSelectedAddressFormField('address').value.address"
+        [postalCode]="getSelectedAddressFormField('address').value.postalCode"
+        [city]="getSelectedAddressFormField('address').value.city"
+        [phoneNumber]="getSelectedAddressFormField('address').value.phoneNumber">
+        </app-display-user-information>
       </div>
       <mat-divider></mat-divider>
       <div class="shipping-address-selection">

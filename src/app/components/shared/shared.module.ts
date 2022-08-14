@@ -23,12 +23,14 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { OptionsOnSideDisplayComponent } from './options-on-side-display/options-on-side-display.component';
 import {MatRadioModule} from "@angular/material/radio";
+import { DisplayUserInformationComponent } from './display-user-information/display-user-information.component';
 
 @NgModule({
   declarations: [
     ProductAsCardBaseComponent,
     ProgressSpinnerComponent,
-    OptionsOnSideDisplayComponent
+    OptionsOnSideDisplayComponent,
+    DisplayUserInformationComponent
   ],
   imports: [
     ProductTypesModule,
@@ -60,7 +62,8 @@ import {MatRadioModule} from "@angular/material/radio";
   exports: [
     ProductAsCardBaseComponent,
     ProgressSpinnerComponent,
-    OptionsOnSideDisplayComponent
+    OptionsOnSideDisplayComponent,
+    DisplayUserInformationComponent
   ],
   bootstrap: [ProductAsCardBaseComponent]
 })
