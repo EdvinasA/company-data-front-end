@@ -1,12 +1,13 @@
 .delivery-provider-options {
   display: grid;
   padding: 20px 0 20px 20px;
+  height: 120px;
   grid-template-columns: repeat(3, 1fr);
 }
 
 .delivery-provider {
   width: 90%;
-  height: 50%;
+  height: 45%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
@@ -35,4 +36,18 @@
 
 .delivery-provider-selected {
   border: 3px solid #5bb01c;
+}
+
+.select-location {
+  width: 100%;
+  padding: 20px 0 0 0;
+}
+
+.select-location .mat-form-field {
+  width: 100%;
+}
+
+.user-information-style {
+  text-align: left;
+  padding: 15px 0;
 }
