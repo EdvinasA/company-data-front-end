@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {DeliveryInformation, User} from "../../../models/user";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ConverterService} from "../../../services/converter.service";
 
 @Component({
@@ -13,6 +12,7 @@ export class ProfileDisplayComponent implements OnInit {
 
   public user!: User | null;
   public isLoading: boolean = true;
+  public isUpdateFormActivated: boolean = false;
 
   constructor(private userService: UserService,
               private converterService: ConverterService) {
@@ -31,6 +31,10 @@ export class ProfileDisplayComponent implements OnInit {
       this.user.deliveryInformation.splice(index, 1)
       this.userService.updateUser(this.converterService.convertToUpdateUserInput(this.user)).subscribe();
     }
+  }
+
+  activateForm() {
+    this.isUpdateFormActivated = !this.isUpdateFormActivated;
   }
 
 }
