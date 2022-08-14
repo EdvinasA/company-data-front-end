@@ -33,91 +33,6 @@
   padding-bottom: 10px;
 }
 
-.shipping-main-form {
-  text-align: left;
-}
-
-.shipping-main-title {
-  @include title-style;
-  padding-top: 10px;
-}
-
-.shipping-main-information {
-  @include information-text-style;
-}
-
-.first-row-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.shipping-main-first-row-column {
-  width: 100%;
-}
-
-.shipping-main-first-row-column ::ng-deep .mat-form-field {
-  padding: 0 10px 0 0;
-  width: 100%;
-}
-
-.shipping-main-first-row-object {
-  width: 100%;
-}
-
-.shipping-main-second-row {
-  width: 100%;
-}
-
-.shipping-main-second-row ::ng-deep .mat-form-field {
-  width: 100%;
-}
-
-.shipping-main-third-row button {
-  @include orange-button;
-  width: 30%;
-}
-
-.shipping-main-third-row {
-  padding-bottom: 20px;
-}
-
-.shipping-main-fourth-row {
-  display: inline-block;
-  text-align: right;
-  width: 100%;
-}
-
-.shipping-main-fourth-row button {
-  @include orange-button;
-  width: 30%;
-}
-
-.shipping-additional-information {
-  padding-top: 25px;
-  padding-bottom: 5px;
-}
-
-.shipping-additional-information .mat-form-field {
-  width: 100%;
-}
-
-.shipping-next-step-information {
-  @include information-text-style;
-  display: flex;
-  justify-content: right;
-  width: 100%;
-}
-
-.shipping-next-step-information span {
-  width: 40%;
-  text-align: left;
-}
-
-.position {
-  padding-top: 10px;
-}
-
 .order-information-row {
   display: inline-flex;
   justify-content: space-between;
@@ -153,11 +68,6 @@
   width: 100%;
 }
 
-.shipping-address-selection .mat-form-field {
-  padding: 20px 0 0 0;
-  width: 100%;
-}
-
 .address-row1 {
   font-size: 16px;
   font-weight: 400;
@@ -165,4 +75,31 @@
 
 .address-row2 {
   font-size: 10px;
+}
+
+.shipping-main-fourth-row {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+
+.shipping-main-fourth-row button {
+  @include orange-button;
+  width: 30%;
+}
+
+.position {
+  padding-top: 10px;
+}
+
+.shipping-next-step-information {
+  @include information-text-style;
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.shipping-next-step-information span {
+  width: 40%;
+  text-align: left;
 }

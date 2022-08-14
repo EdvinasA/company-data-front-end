@@ -23,6 +23,7 @@ import {CartListComponent} from './cart-list/cart-list.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {SharedModule} from "../shared/shared.module";
+import { DeliveryToHomeComponent } from './cart-checkout-information/shipping-options/delivery-to-home/delivery-to-home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {SharedModule} from "../shared/shared.module";
     CartComponent,
     CheckoutComponent,
     CartCheckoutInformationComponent,
-    CartListComponent
+    CartListComponent,
+    DeliveryToHomeComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -13,19 +13,6 @@ import {ConverterService} from "../../../services/converter.service";
 })
 export class CartCheckoutInformationComponent implements OnInit {
 
-  public selectedAddressForm = new FormGroup({
-    address: new FormControl('', [Validators.required]),
-    time: new FormControl('', [Validators.required]),
-    additionalInformation: new FormControl('asdasdasd'),
-  })
-  public shippingDeliveryForm = new FormGroup({
-    firstName: new FormControl('Edvinas', [Validators.required]),
-    lastName: new FormControl('Alimas', [Validators.required]),
-    phoneNumber: new FormControl('+37067964887', [Validators.required]),
-    address: new FormControl('Geležinio vilko g. 22-29', [Validators.required]),
-    city: new FormControl('Kaunas', [Validators.required]),
-    postalCode: new FormControl('LT-99696', [Validators.required])
-  });
   public deliveryOptions = [
     {optionName: 'Order to set address', description: 'Delivery cost 3,99 €. Deliver in 2 work days.', optionValue: 'toHome'},
     {optionName: 'Withdrawal at client center', description: 'Items for withdrawal will prepare in 1 work day.', optionValue: 'withdrawal'},
@@ -37,11 +24,9 @@ export class CartCheckoutInformationComponent implements OnInit {
   public shippingOption: string = 'toHome';
   public user: User | null = new User();
   public isLoading: boolean = true;
-  public defaultAddressValue: number = 0;
 
   constructor(private cartService: CartService,
-              private userService: UserService,
-              private converterService: ConverterService) {
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -53,36 +38,8 @@ export class CartCheckoutInformationComponent implements OnInit {
     })
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
-      this.selectedAddressForm.setValue({
-        address: this.user?.deliveryInformation[this.defaultAddressValue],
-        time: '1',
-        additionalInformation: 'asdasdas'
-      })
       this.isLoading = false;
     })
   }
 
-  getShippingDeliveryFormField(input: string) {
-    return this.shippingDeliveryForm.get(input);
-  }
-
-  getSelectedAddressFormField(input: string) {
-    return this.selectedAddressForm.get(input);
-  }
-
-  submitForm() {
-    let info = this.converterService.convertToDeliveryInformation(this.shippingDeliveryForm.value);
-    if (this.user?.deliveryInformation != null) {
-      this.user?.deliveryInformation.push(info);
-    }
-    this.updateRequest();
-  }
-
-  updateRequest() {
-    if (this.user != null) {
-      this.userService.updateUser(this.converterService.convertToUpdateUserInput(this.user)).subscribe(user => {
-        this.user = user;
-      });
-    }
-  }
 }
