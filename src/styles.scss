@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use "~@angular/material" as mat;
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "mixin";
 
 @include mat.core();
 
@@ -65,4 +66,13 @@ body {
 .maximum-width {
   display: inline-block;
   width: 100%;
+}
+
+.shipping-main-form {
+  text-align: left;
+}
+
+.shipping-main-title {
+  @include title-style;
+  padding-top: 10px;
 }

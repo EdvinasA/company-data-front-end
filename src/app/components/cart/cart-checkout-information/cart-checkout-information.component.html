@@ -16,6 +16,7 @@
         </div>
         <mat-divider></mat-divider>
         <app-delivery-to-home *ngIf="shippingOption === 'toHome'"></app-delivery-to-home>
+        <app-withdrawal-at-client-center *ngIf="shippingOption === 'withdrawal'"></app-withdrawal-at-client-center>
         <div class="shipping-main-fourth-row position">
           <div class="shipping-main-fourth-row">
             <button mat-raised-button>Continue ></button>

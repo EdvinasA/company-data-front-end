@@ -1,14 +1,5 @@
 @import "src/mixin";
 
-.shipping-main-form {
-  text-align: left;
-}
-
-.shipping-main-title {
-  @include title-style;
-  padding-top: 10px;
-}
-
 .shipping-main-information {
   @include information-text-style;
 }
