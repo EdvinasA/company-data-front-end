@@ -45,15 +45,15 @@
         <app-delivery-information-form
           [isFormActivated]="isUpdateFormActivated"
           [deliveryInformation]="info"
-          [isInProfileComponent]="true">
+          [isBeingEdited]="true">
         </app-delivery-information-form>
       </div>
       <div>
         <app-delivery-information-form
-        [isFormActivated]="false">
+        [isFormActivated]="isAddFormActivated">
         </app-delivery-information-form>
       </div>
-      <span>Add new contact information +</span>
+      <span class="activate-select-form-style" (click)="activateCreateForm()">Add new contact information +</span>
     </div>
     <div class="additional-information">
       <div>Cookie settings</div>

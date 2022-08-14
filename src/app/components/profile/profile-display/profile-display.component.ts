@@ -13,6 +13,7 @@ export class ProfileDisplayComponent implements OnInit {
   public user!: User | null;
   public isLoading: boolean = true;
   public isUpdateFormActivated: boolean = false;
+  public isAddFormActivated: boolean = false;
 
   constructor(private userService: UserService,
               private converterService: ConverterService) {
@@ -35,6 +36,10 @@ export class ProfileDisplayComponent implements OnInit {
 
   activateForm() {
     this.isUpdateFormActivated = !this.isUpdateFormActivated;
+  }
+
+  activateCreateForm() {
+    this.isAddFormActivated = !this.isUpdateFormActivated;
   }
 
 }

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DeliveryInformation, User} from "../../../models/user";
 import {UserService} from "../../../services/user.service";
 import {ConverterService} from "../../../services/converter.service";
+import {CartItem} from "../../../models/cart";
 
 @Component({
   selector: 'app-delivery-information-form',
@@ -13,7 +14,7 @@ export class DeliveryInformationFormComponent implements OnInit {
 
   @Input() public deliveryInformation!: DeliveryInformation | null;
   @Input() public isFormActivated: boolean = false;
-  @Input() public isInProfileComponent: boolean = false;
+  @Input() public isBeingEdited: boolean = false;
   public isSelectDeliveryProfileActivated: boolean = false;
   public user!: User | null;
 
@@ -60,10 +61,17 @@ export class DeliveryInformationFormComponent implements OnInit {
   }
   submitForm() {
     let info = this.converterService.convertToDeliveryInformation(this.shippingDeliveryForm.value);
-    if (this.user?.deliveryInformation != null) {
+    if (this.user?.deliveryInformation != null && !this.isBeingEdited) {
       this.user?.deliveryInformation.push(info);
     }
+    // @ts-ignore
+    this.user?.deliveryInformation[this.findIndexToUpdate(info)] = info;
     this.updateRequest();
+    this.onClickCloseAllForms();
+  }
+
+  findIndexToUpdate(information: DeliveryInformation) {
+    return this.user?.deliveryInformation.findIndex(info => info.id === information.id);
   }
 
   updateRequest() {
