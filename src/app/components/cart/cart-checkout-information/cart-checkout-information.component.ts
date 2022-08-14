@@ -42,4 +42,8 @@ export class CartCheckoutInformationComponent implements OnInit {
     })
   }
 
+  updateSelectedOption(option: string) {
+    this.shippingOption = option;
+  }
+
 }

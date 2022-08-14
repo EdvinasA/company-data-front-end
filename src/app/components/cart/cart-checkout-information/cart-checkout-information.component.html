@@ -3,16 +3,19 @@
     <div class="shipping-options">
       <app-options-on-side-display class="maximum-width"
         [selectedOption]="shippingOption"
-        [options]="deliveryOptions">
+        [options]="deliveryOptions"
+        (newSelectedOption)="updateSelectedOption($event)">
       </app-options-on-side-display>
     </div>
     <div class="shipping-main">
       <div>
         <div class="shipping-main-header">
-          Deliver to given address
+          <span *ngIf="shippingOption === 'toHome'">Deliver to given address</span>
+          <span *ngIf="shippingOption === 'withdrawal'">Withdrawal at client center</span>
+          <span *ngIf="shippingOption === 'withdrawalFromLocation'">Withdrawal from selected box locations</span>
         </div>
         <mat-divider></mat-divider>
-        <app-delivery-to-home></app-delivery-to-home>
+        <app-delivery-to-home *ngIf="shippingOption === 'toHome'"></app-delivery-to-home>
         <div class="shipping-main-fourth-row position">
           <div class="shipping-main-fourth-row">
             <button mat-raised-button>Continue ></button>
