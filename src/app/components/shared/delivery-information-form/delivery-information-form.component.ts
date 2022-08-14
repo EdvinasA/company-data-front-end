@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DeliveryInformation, User} from "../../../models/user";
 import {UserService} from "../../../services/user.service";
@@ -15,6 +15,7 @@ export class DeliveryInformationFormComponent implements OnInit {
   @Input() public deliveryInformation!: DeliveryInformation | null;
   @Input() public isFormActivated: boolean = false;
   @Input() public isBeingEdited: boolean = false;
+  @Output() public formClosed = new EventEmitter<boolean>();
   public isSelectDeliveryProfileActivated: boolean = false;
   public user!: User | null;
 
@@ -67,6 +68,7 @@ export class DeliveryInformationFormComponent implements OnInit {
     // @ts-ignore
     this.user?.deliveryInformation[this.findIndexToUpdate(info)] = info;
     this.updateRequest();
+    this.formClosed.emit(true);
     this.onClickCloseAllForms();
   }
 

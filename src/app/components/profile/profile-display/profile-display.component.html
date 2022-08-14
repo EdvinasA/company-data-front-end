@@ -44,13 +44,15 @@
         </div>
         <app-delivery-information-form
           [isFormActivated]="isUpdateFormActivated"
+          (formClosed)="activateForm()"
           [deliveryInformation]="info"
           [isBeingEdited]="true">
         </app-delivery-information-form>
       </div>
       <div>
         <app-delivery-information-form
-        [isFormActivated]="isAddFormActivated">
+        [isFormActivated]="isAddFormActivated"
+        (formClosed)="activateCreateForm()">
         </app-delivery-information-form>
       </div>
       <span class="activate-select-form-style" (click)="activateCreateForm()">Add new contact information +</span>
