@@ -34,6 +34,7 @@ export type UserUpdateInput = {
 }
 
 export type DeliveryInformation = {
+  id: number,
   firstName: string,
   lastName: string,
   phoneNumber: string,

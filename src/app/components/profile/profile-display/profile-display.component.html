@@ -37,8 +37,10 @@
         <div class="additional-information-field">{{info.companyPVMCode}}</div>
         <div class="additional-information-field">{{info.companyAddress}}</div>
         <div class="additional-information-field">
-          <a href="/profile" class="first">Change</a>
-          <a href="/profile">Delete</a>
+          <span class="activate-select-form-style"
+                >Update</span>
+          <span class="activate-select-form-style"
+               (click)="deleteDeliveryInformation(info)">Delete</span>
         </div>
       </div>
       <span>Add new contact information +</span>
