@@ -27,6 +27,7 @@ import { DeliveryToHomeComponent } from './cart-checkout-information/shipping-op
 import { WithdrawalAtClientCenterComponent } from './cart-checkout-information/shipping-options/withdrawal-at-client-center/withdrawal-at-client-center.component';
 import { WithdrawalFromLocationComponent } from './cart-checkout-information/shipping-options/withdrawal-from-location/withdrawal-from-location.component';
 import { CartCheckoutAcceptFormComponent } from './cart-checkout-information/cart-checkout-accept-form/cart-checkout-accept-form.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CartCheckoutAcceptFormComponent } from './cart-checkout-information/car
     MatRadioModule,
     MatExpansionModule,
     MatSelectModule,
+    MatStepperModule,
     SharedModule
   ],
   exports: [

@@ -30,10 +30,33 @@ export class CartCheckoutInformationComponent implements OnInit {
       optionValue: 'withdrawalFromLocation'
     }
   ];
+  public paymentOptions = [
+    {
+      optionName: 'Bank',
+      description: 'Simply connect to your bank account system and confirm automatically formed payment for the items.',
+      optionValue: 'bank'
+    },
+    {
+      optionName: 'Payment card (Klix)',
+      description: 'Correct amount will be deducted from the given card. Only confirmation of payment is needed.',
+      optionValue: 'klix'
+    },
+    {
+      optionName: 'Pay 3',
+      description: 'Fill out documents needed to make payments with Pay 3 in 3 months.',
+      optionValue: 'pay3'
+    },
+    {
+      optionName: 'Pay on withdrawal',
+      description: 'When you withdraw items from courier you can make payment with credit card if amount does not exceed 1000 Eur.',
+      optionValue: 'withdrawalPayment'
+    }
+  ];
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
   public shippingOption: string = 'toHome';
+  public paymentOption: string = 'bank';
   public pickupOption: string = 'dpd';
   public user: User | null = new User();
   public isLoading: boolean = true;
@@ -79,6 +102,10 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   updateSelectedOption(option: string) {
     this.shippingOption = option;
+  }
+
+  updateSelectedOptionOfPayment(option: string) {
+    this.paymentOption = option;
   }
 
 }
