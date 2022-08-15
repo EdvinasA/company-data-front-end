@@ -16,6 +16,7 @@ export class DeliveryInformationFormComponent implements OnInit {
   @Input() public isFormActivated: boolean = false;
   @Input() public isBeingEdited: boolean = false;
   @Output() public formClosed = new EventEmitter<boolean>();
+  @Output() public createdDeliveryInformation = new EventEmitter<DeliveryInformation>()
   public isSelectDeliveryProfileActivated: boolean = false;
   public user!: User | null;
 
@@ -69,6 +70,7 @@ export class DeliveryInformationFormComponent implements OnInit {
     this.user?.deliveryInformation[this.findIndexToUpdate(info)] = info;
     this.updateRequest();
     this.formClosed.emit(true);
+    this.createdDeliveryInformation.emit(info);
     this.onClickCloseAllForms();
   }
 

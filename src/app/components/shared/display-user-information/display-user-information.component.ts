@@ -9,24 +9,33 @@ import {DeliveryInformation, User} from "../../../models/user";
 })
 export class DisplayUserInformationComponent implements OnInit {
 
-  @Input() deliveryInformation!: DeliveryInformation;
+  @Input() deliveryInformation!: DeliveryInformation | undefined;
   public isFormActivated: boolean = false;
   public isSelectDeliveryProfileActivated: boolean = false;
   public user!: User | null;
 
-  public currentAddress!: DeliveryInformation | undefined;
-
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
-      this.currentAddress = this.user?.deliveryInformation[0];
     })
   }
 
   onClickActivateSelectProfileForm() {
     this.isSelectDeliveryProfileActivated = !this.isSelectDeliveryProfileActivated;
+  }
+
+  handleCreatedForm(input: DeliveryInformation) {
+    if (input.firstName != null) {
+      this.deliveryInformation = input;
+    }
+  }
+
+  handleForm() {
+    this.isFormActivated = !this.isFormActivated;
+    this.deliveryInformation = this.user?.deliveryInformation[0];
   }
 
 }

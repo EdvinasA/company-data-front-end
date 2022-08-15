@@ -1,16 +1,16 @@
 <div>
   <div>
     <div class="address-row1">
-      {{deliveryInformation.firstName}}
-      {{deliveryInformation.lastName}}
+      {{deliveryInformation?.firstName}}
+      {{deliveryInformation?.lastName}}
     </div>
     <div class="address-row2">
-      {{deliveryInformation.address}}
-      {{deliveryInformation.postalCode}}
-      {{deliveryInformation.city}}
+      {{deliveryInformation?.address}}
+      {{deliveryInformation?.postalCode}}
+      {{deliveryInformation?.city}}
     </div>
     <div class="address-row2">
-      {{deliveryInformation.phoneNumber}}
+      {{deliveryInformation?.phoneNumber}}
       <span class="activate-select-form-style"
             (click)="onClickActivateSelectProfileForm()">Update</span>
     </div>
@@ -18,122 +18,17 @@
   <div class="shipping-address-selection" *ngIf="isSelectDeliveryProfileActivated">
     <mat-divider></mat-divider>
     <mat-form-field appearance="fill">
-      <mat-select [(ngModel)]="currentAddress">
+      <mat-select [(ngModel)]="deliveryInformation">
         <mat-option *ngFor="let info of this.user.deliveryInformation" [value]="info">
           {{info.firstName}} {{info.lastName}} {{info.address}} {{info.postalCode}} {{info.city}}
         </mat-option>
-        <mat-option (click)="isFormActivated = true">Enter new information</mat-option>
+        <mat-option (click)="handleForm()">Enter new information</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
-<!--  <form [formGroup]="shippingDeliveryForm" (ngSubmit)="submitForm()"-->
-<!--        *ngIf="isFormActivated || user.deliveryInformation.length === 0">-->
-<!--    <mat-divider></mat-divider>-->
-<!--    <div class="first-row-wrapper">-->
-<!--      <div class="shipping-main-first-row-column">-->
-<!--        <mat-form-field appearance="fill">-->
-<!--          <mat-label>First name</mat-label>-->
-<!--          <input matInput formControlName="firstName" required-->
-<!--                 value="{{getShippingDeliveryFormField('firstName').value}}">-->
-<!--          <mat-error-->
-<!--            *ngIf="getShippingDeliveryFormField('firstName').touched && getShippingDeliveryFormField('firstName').invalid">-->
-<!--            First name is <strong>required!</strong>-->
-<!--          </mat-error>-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
-
-<!--      <mat-form-field appearance="fill" class="shipping-main-first-row-object">-->
-<!--        <mat-label>Last name</mat-label>-->
-<!--        <input matInput formControlName="lastName" required-->
-<!--               value="{{getShippingDeliveryFormField('lastName').value}}">-->
-<!--        <mat-error-->
-<!--          *ngIf="getShippingDeliveryFormField('lastName').touched && getShippingDeliveryFormField('lastName').invalid">-->
-<!--          First name is <strong>required!</strong>-->
-<!--        </mat-error>-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
-
-<!--    <div class="shipping-main-second-row">-->
-<!--      <mat-form-field appearance="fill">-->
-<!--        <mat-label>Phone number</mat-label>-->
-<!--        <input matInput formControlName="phoneNumber" required-->
-<!--               value="{{getShippingDeliveryFormField('phoneNumber').value}}">-->
-<!--        <mat-error-->
-<!--          *ngIf="getShippingDeliveryFormField('phoneNumber') && getShippingDeliveryFormField('phoneNumber').invalid">-->
-<!--          Phone number is <strong>required!</strong>-->
-<!--        </mat-error>-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
-
-<!--    <div class="shipping-main-second-row">-->
-<!--      <mat-form-field appearance="fill">-->
-<!--        <mat-label>Address</mat-label>-->
-<!--        <input matInput formControlName="address" required-->
-<!--               value="{{getShippingDeliveryFormField('address').value}}">-->
-<!--        <mat-error-->
-<!--          *ngIf="getShippingDeliveryFormField('address') && getShippingDeliveryFormField('address').invalid">-->
-<!--          Address is <strong>required!</strong>-->
-<!--        </mat-error>-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
-
-<!--    <div class="first-row-wrapper">-->
-<!--      <div class="shipping-main-first-row-column">-->
-<!--        <mat-form-field appearance="fill">-->
-<!--          <mat-label>City</mat-label>-->
-<!--          <input matInput formControlName="city" required-->
-<!--                 value="{{getShippingDeliveryFormField('city').value}}">-->
-<!--          <mat-error-->
-<!--            *ngIf="getShippingDeliveryFormField('city') && getShippingDeliveryFormField('city').invalid">-->
-<!--            City is <strong>required!</strong>-->
-<!--          </mat-error>-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
-
-<!--      <mat-form-field appearance="fill" class="shipping-main-first-row-object">-->
-<!--        <mat-label>Postal code</mat-label>-->
-<!--        <input matInput formControlName="postalCode" required-->
-<!--               value="{{getShippingDeliveryFormField('postalCode').value}}">-->
-<!--        <mat-error-->
-<!--          *ngIf="getShippingDeliveryFormField('postalCode') && getShippingDeliveryFormField('postalCode').invalid">-->
-<!--          Postal code is <strong>required!</strong>-->
-<!--        </mat-error>-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
-
-<!--    <mat-form-field appearance="fill" class="shipping-main-second-row">-->
-<!--      <mat-label>Company code</mat-label>-->
-<!--      <input matInput formControlName="companyCode"-->
-<!--             value="{{getShippingDeliveryFormField('companyCode').value}}">-->
-<!--    </mat-form-field>-->
-
-<!--    <mat-form-field appearance="fill" class="shipping-main-second-row">-->
-<!--      <mat-label>Company name</mat-label>-->
-<!--      <input matInput formControlName="companyName"-->
-<!--             value="{{getShippingDeliveryFormField('companyName').value}}">-->
-<!--    </mat-form-field>-->
-
-<!--    <mat-form-field appearance="fill" class="shipping-main-second-row">-->
-<!--      <mat-label>Company VAT code</mat-label>-->
-<!--      <input matInput formControlName="companyPVMCode"-->
-<!--             value="{{getShippingDeliveryFormField('companyPVMCode').value}}">-->
-<!--    </mat-form-field>-->
-
-<!--    <mat-form-field appearance="fill" class="shipping-main-second-row">-->
-<!--      <mat-label>Company address</mat-label>-->
-<!--      <input matInput formControlName="companyAddress"-->
-<!--             value="{{getShippingDeliveryFormField('companyAddress').value}}">-->
-<!--    </mat-form-field>-->
-
-<!--    <div class="form-buttons">-->
-<!--      <div class="shipping-main-third-row">-->
-<!--        <button mat-raised-button type="submit" [disabled]="!shippingDeliveryForm.valid">-->
-<!--          Save-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="cancel-form">-->
-<!--        <span (click)="onClickCloseAllForms()">Cancel</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </form>-->
+  <app-delivery-information-form
+    [isFormActivated]="isFormActivated"
+    (formClosed)="handleForm()"
+    (createdDeliveryInformation)="handleCreatedForm($event)"
+  ></app-delivery-information-form>
 </div>
