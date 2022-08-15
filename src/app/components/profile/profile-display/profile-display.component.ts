@@ -43,7 +43,7 @@ export class ProfileDisplayComponent implements OnInit {
   }
 
   activateCreateForm() {
-    this.isAddFormActivated = !this.isUpdateFormActivated;
+    this.isAddFormActivated = !this.isAddFormActivated;
   }
 
 }
