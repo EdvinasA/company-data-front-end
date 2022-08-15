@@ -28,6 +28,7 @@ import { WithdrawalAtClientCenterComponent } from './cart-checkout-information/s
 import { WithdrawalFromLocationComponent } from './cart-checkout-information/shipping-options/withdrawal-from-location/withdrawal-from-location.component';
 import { CartCheckoutAcceptFormComponent } from './cart-checkout-information/cart-checkout-accept-form/cart-checkout-accept-form.component';
 import {MatStepperModule} from "@angular/material/stepper";
+import { BankComponent } from './cart-checkout-information/payment-options/bank/bank.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     DeliveryToHomeComponent,
     WithdrawalAtClientCenterComponent,
     WithdrawalFromLocationComponent,
-    CartCheckoutAcceptFormComponent
+    CartCheckoutAcceptFormComponent,
+    BankComponent
   ],
   imports: [
     ReactiveFormsModule,

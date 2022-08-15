@@ -1,0 +1,49 @@
+<div>
+  <div class="delivery-provider-options">
+    <div (click)="selectOption('swedbank')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'swedbank'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/swedbank.jpg">
+    </div>
+    <div (click)="selectOption('seb')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'seb'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/Seb.png">
+    </div>
+    <div (click)="selectOption('luminor')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'luminor'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/luminor.png">
+    </div>
+    <div (click)="selectOption('revolut')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'revolut'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/revolut.png">
+    </div>
+    <div (click)="selectOption('citadele')" [ngClass]="{
+                  'delivery-provider': true,
+                  'delivery-provider-selected' : selectedOption === 'citadele'
+                }">
+      <input type="radio" class="radio-for-selection">
+      <img src="/assets/citadele.jpg">
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="user-information-style">
+    <app-display-user-information
+      [deliveryInformation]="this.user.deliveryInformation[0]">
+    </app-display-user-information>
+  </div>
+  <mat-divider></mat-divider>
+  <app-cart-checkout-accept-form
+    [formGroup]="selectedDeliveryForm"
+  ></app-cart-checkout-accept-form>
+</div>

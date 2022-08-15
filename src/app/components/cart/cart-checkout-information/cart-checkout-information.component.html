@@ -1,85 +1,85 @@
 <mat-stepper [linear]="false" #stepper>
-  <mat-step>
-    <ng-template matStepLabel>Delivery</ng-template>
-    <div class="shipping-wrapper" *ngIf="!isLoading">
-      <div class="shipping-content">
-        <div class="shipping-options">
-          <app-options-on-side-display class="maximum-width"
-                                       [selectedOption]="shippingOption"
-                                       [options]="deliveryOptions"
-                                       (newSelectedOption)="updateSelectedOption($event)">
-          </app-options-on-side-display>
-        </div>
-        <div class="shipping-main">
-          <div>
-            <div class="shipping-main-header">
-              <span *ngIf="shippingOption === 'toHome'">Deliver to given address</span>
-              <span *ngIf="shippingOption === 'withdrawal'">Withdrawal at client center</span>
-              <span *ngIf="shippingOption === 'withdrawalFromLocation'">Withdrawal from selected box locations</span>
-            </div>
-            <mat-divider></mat-divider>
-            <app-delivery-to-home
-              *ngIf="shippingOption === 'toHome'">
-            </app-delivery-to-home>
-            <app-withdrawal-at-client-center *ngIf="shippingOption === 'withdrawal'">
-            </app-withdrawal-at-client-center>
-            <app-withdrawal-from-location
-              (option)="updateSelectedPickupOption($event)"
-              *ngIf="shippingOption === 'withdrawalFromLocation'">
-            </app-withdrawal-from-location>
-          </div>
-        </div>
-      </div>
-      <div class="shipping-order-information">
-        <mat-accordion>
-          <mat-expansion-panel hideToggle [expanded]="orderInformationPanelOpenState">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Order information
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div>
-              <div class="order-information-row">
-                <div><strong>Cart</strong></div>
-                <div>
-                  <div class="order-information-row-two-items">
-                    <a [routerLink]="['/cart']" class="order-information-row-two-items">
-                      <mat-icon>remove_red_eye</mat-icon>
-                      <div>Review</div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="order-information-row">
-                <div>{{cart.cartItems.length}} item</div>
-                <div>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</div>
-              </div>
-              <div class="order-information-row last-row" *ngIf="shippingOption !== 'withdrawal'">
-                <div>Delivery</div>
-                <div>{{deliveryCost()}} €</div>
-              </div>
-              <mat-divider></mat-divider>
-              <div class="discount-wrapper">
-                <div>
-                  <mat-form-field appearance="fill">
-                    <input matInput placeholder="Discount code">
-                  </mat-form-field>
-                </div>
-                <div class="discount-button">
-                  <button mat-raised-button>Check</button>
-                </div>
-              </div>
-              <mat-divider></mat-divider>
-              <div class="order-total-sum">
-                <div>Total</div>
-                <div>{{totalSumOfAllItemsSubject + deliveryCost() | number : '1.2-2'}} €</div>
-              </div>
-            </div>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </div>
-    </div>
-  </mat-step>
+<!--  <mat-step>-->
+<!--    <ng-template matStepLabel>Delivery</ng-template>-->
+<!--    <div class="shipping-wrapper" *ngIf="!isLoading">-->
+<!--      <div class="shipping-content">-->
+<!--        <div class="shipping-options">-->
+<!--          <app-options-on-side-display class="maximum-width"-->
+<!--                                       [selectedOption]="shippingOption"-->
+<!--                                       [options]="deliveryOptions"-->
+<!--                                       (newSelectedOption)="updateSelectedOption($event)">-->
+<!--          </app-options-on-side-display>-->
+<!--        </div>-->
+<!--        <div class="shipping-main">-->
+<!--          <div>-->
+<!--            <div class="shipping-main-header">-->
+<!--              <span *ngIf="shippingOption === 'toHome'">Deliver to given address</span>-->
+<!--              <span *ngIf="shippingOption === 'withdrawal'">Withdrawal at client center</span>-->
+<!--              <span *ngIf="shippingOption === 'withdrawalFromLocation'">Withdrawal from selected box locations</span>-->
+<!--            </div>-->
+<!--            <mat-divider></mat-divider>-->
+<!--            <app-delivery-to-home-->
+<!--              *ngIf="shippingOption === 'toHome'">-->
+<!--            </app-delivery-to-home>-->
+<!--            <app-withdrawal-at-client-center *ngIf="shippingOption === 'withdrawal'">-->
+<!--            </app-withdrawal-at-client-center>-->
+<!--            <app-withdrawal-from-location-->
+<!--              (option)="updateSelectedPickupOption($event)"-->
+<!--              *ngIf="shippingOption === 'withdrawalFromLocation'">-->
+<!--            </app-withdrawal-from-location>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="shipping-order-information">-->
+<!--        <mat-accordion>-->
+<!--          <mat-expansion-panel hideToggle [expanded]="orderInformationPanelOpenState">-->
+<!--            <mat-expansion-panel-header>-->
+<!--              <mat-panel-title>-->
+<!--                Order information-->
+<!--              </mat-panel-title>-->
+<!--            </mat-expansion-panel-header>-->
+<!--            <div>-->
+<!--              <div class="order-information-row">-->
+<!--                <div><strong>Cart</strong></div>-->
+<!--                <div>-->
+<!--                  <div class="order-information-row-two-items">-->
+<!--                    <a [routerLink]="['/cart']" class="order-information-row-two-items">-->
+<!--                      <mat-icon>remove_red_eye</mat-icon>-->
+<!--                      <div>Review</div>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="order-information-row">-->
+<!--                <div>{{cart.cartItems.length}} item</div>-->
+<!--                <div>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</div>-->
+<!--              </div>-->
+<!--              <div class="order-information-row last-row" *ngIf="shippingOption !== 'withdrawal'">-->
+<!--                <div>Delivery</div>-->
+<!--                <div>{{deliveryCost()}} €</div>-->
+<!--              </div>-->
+<!--              <mat-divider></mat-divider>-->
+<!--              <div class="discount-wrapper">-->
+<!--                <div>-->
+<!--                  <mat-form-field appearance="fill">-->
+<!--                    <input matInput placeholder="Discount code">-->
+<!--                  </mat-form-field>-->
+<!--                </div>-->
+<!--                <div class="discount-button">-->
+<!--                  <button mat-raised-button>Check</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <mat-divider></mat-divider>-->
+<!--              <div class="order-total-sum">-->
+<!--                <div>Total</div>-->
+<!--                <div>{{totalSumOfAllItemsSubject + deliveryCost() | number : '1.2-2'}} €</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </mat-expansion-panel>-->
+<!--        </mat-accordion>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </mat-step>-->
   <mat-step>
     <ng-template matStepLabel>Payment</ng-template>
     <div class="shipping-wrapper" *ngIf="!isLoading">
@@ -100,15 +100,8 @@
               <span *ngIf="paymentOption === 'withdrawalPayment'">Pay when withdrawing</span>
             </div>
             <mat-divider></mat-divider>
-<!--            <app-delivery-to-home-->
-<!--              *ngIf="shippingOption === 'toHome'">-->
-<!--            </app-delivery-to-home>-->
-<!--            <app-withdrawal-at-client-center *ngIf="shippingOption === 'withdrawal'">-->
-<!--            </app-withdrawal-at-client-center>-->
-<!--            <app-withdrawal-from-location-->
-<!--              (option)="updateSelectedPickupOption($event)"-->
-<!--              *ngIf="shippingOption === 'withdrawalFromLocation'">-->
-<!--            </app-withdrawal-from-location>-->
+            <app-bank *ngIf="paymentOption === 'bank'">
+            </app-bank>
           </div>
         </div>
       </div>
