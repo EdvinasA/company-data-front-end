@@ -26,6 +26,7 @@ import {SharedModule} from "../shared/shared.module";
 import { DeliveryToHomeComponent } from './cart-checkout-information/shipping-options/delivery-to-home/delivery-to-home.component';
 import { WithdrawalAtClientCenterComponent } from './cart-checkout-information/shipping-options/withdrawal-at-client-center/withdrawal-at-client-center.component';
 import { WithdrawalFromLocationComponent } from './cart-checkout-information/shipping-options/withdrawal-from-location/withdrawal-from-location.component';
+import { CartCheckoutAcceptFormComponent } from './cart-checkout-information/cart-checkout-accept-form/cart-checkout-accept-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WithdrawalFromLocationComponent } from './cart-checkout-information/shi
     CartListComponent,
     DeliveryToHomeComponent,
     WithdrawalAtClientCenterComponent,
-    WithdrawalFromLocationComponent
+    WithdrawalFromLocationComponent,
+    CartCheckoutAcceptFormComponent
   ],
   imports: [
     ReactiveFormsModule,

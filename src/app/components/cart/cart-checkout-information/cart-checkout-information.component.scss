@@ -67,30 +67,3 @@
   justify-content: space-between;
   width: 100%;
 }
-
-.shipping-main-fourth-row {
-  display: inline-block;
-  text-align: right;
-  width: 100%;
-}
-
-.shipping-main-fourth-row button {
-  @include orange-button;
-  width: 30%;
-}
-
-.position {
-  padding-top: 10px;
-}
-
-.shipping-next-step-information {
-  @include information-text-style;
-  display: flex;
-  justify-content: right;
-  width: 100%;
-}
-
-.shipping-next-step-information span {
-  width: 40%;
-  text-align: left;
-}

@@ -1,0 +1,12 @@
+<div class="shipping-main-fourth-row position">
+  <div class="shipping-main-fourth-row">
+    <form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
+      <button mat-raised-button [disabled]="!formGroup.valid">Continue ></button>
+    </form>
+  </div>
+  <div class="shipping-next-step-information">
+              <span>
+                In next step you can select payment method and make order as company.
+              </span>
+  </div>
+</div>

@@ -13,16 +13,23 @@ import {ConverterService} from "../../../services/converter.service";
 })
 export class CartCheckoutInformationComponent implements OnInit {
 
-  // public selectedAddressForm = new FormGroup({
-  //   address: new FormControl('', [Validators.required]),
-  //   time: new FormControl('', [Validators.required]),
-  //   additionalInformation: new FormControl('asdasdasd'),
-  // })
   public deliveryOptions = [
-    {optionName: 'Order to set address', description: 'Delivery cost 3,99 €. Deliver in 2 work days.', optionValue: 'toHome'},
-    {optionName: 'Withdrawal at client center', description: 'Items for withdrawal will prepare in 1 work day.', optionValue: 'withdrawal'},
-    {optionName: 'Withdrawal from selected box locations', description: 'Items can be withdraw in two days', optionValue: 'withdrawalFromLocation'}
-    ];
+    {
+      optionName: 'Order to set address',
+      description: 'Delivery cost 3,99 €. Deliver in 2 work days.',
+      optionValue: 'toHome'
+    },
+    {
+      optionName: 'Withdrawal at client center',
+      description: 'Items for withdrawal will prepare in 1 work day.',
+      optionValue: 'withdrawal'
+    },
+    {
+      optionName: 'Withdrawal from selected box locations',
+      description: 'Items can be withdraw in two days',
+      optionValue: 'withdrawalFromLocation'
+    }
+  ];
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../../../../services/user.service";
 import {User} from "../../../../../models/user";
-import {ConverterService} from "../../../../../services/converter.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-delivery-to-home',
@@ -11,15 +10,26 @@ import {ConverterService} from "../../../../../services/converter.service";
 })
 export class DeliveryToHomeComponent implements OnInit {
 
+  public selectedDeliveryForm = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
+    shippingOption: new FormControl('', [Validators.required]),
+    additionalInformation: new FormControl('')
+  })
   public user: User | null = new User();
-  public defaultAddressValue: number = 0;
 
-  constructor(private userService: UserService,
-              private converterService: ConverterService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
     })
+    if (this.user?.deliveryInformation != undefined) {
+      this.selectedDeliveryForm.patchValue({
+        address: this.user.deliveryInformation[0],
+        time: '1',
+        shippingOption: 'toHome'
+      })
+    }
   }
 }

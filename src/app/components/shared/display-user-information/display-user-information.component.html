@@ -19,7 +19,7 @@
     <mat-divider></mat-divider>
     <mat-form-field appearance="fill">
       <mat-select [(ngModel)]="deliveryInformation">
-        <mat-option *ngFor="let info of this.user.deliveryInformation" [value]="info">
+        <mat-option *ngFor="let info of this.user?.deliveryInformation" [value]="info">
           {{info.firstName}} {{info.lastName}} {{info.address}} {{info.postalCode}} {{info.city}}
         </mat-option>
         <mat-option (click)="handleForm()">Enter new information</mat-option>
