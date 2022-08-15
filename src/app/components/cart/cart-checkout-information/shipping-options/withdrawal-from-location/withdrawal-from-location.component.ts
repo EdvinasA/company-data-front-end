@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DeliveryInformation, User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-withdrawal-from-location',
@@ -10,6 +11,12 @@ import {UserService} from "../../../../../services/user.service";
 export class WithdrawalFromLocationComponent implements OnInit {
 
   @Output() option = new EventEmitter<string>();
+  public selectedDeliveryForm = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
+    shippingOption: new FormControl('', [Validators.required]),
+    additionalInformation: new FormControl('')
+  })
   public selectedOption: string = 'dpd';
   public user!: User | null;
 

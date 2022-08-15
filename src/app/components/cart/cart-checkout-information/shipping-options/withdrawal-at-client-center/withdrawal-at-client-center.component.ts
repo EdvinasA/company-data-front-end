@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-withdrawal-at-client-center',
@@ -9,6 +10,12 @@ import {UserService} from "../../../../../services/user.service";
 })
 export class WithdrawalAtClientCenterComponent implements OnInit {
 
+  public selectedDeliveryForm = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
+    shippingOption: new FormControl('', [Validators.required]),
+    additionalInformation: new FormControl('')
+  })
   public user!: User | null;
 
   constructor(private userService: UserService) { }
