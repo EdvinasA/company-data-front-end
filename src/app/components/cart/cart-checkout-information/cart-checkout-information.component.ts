@@ -17,7 +17,11 @@ export class CartCheckoutInformationComponent implements OnInit {
     address: new FormControl('', [Validators.required]),
     time: new FormControl('', [Validators.required]),
     shippingOption: new FormControl('', [Validators.required]),
-    additionalInformation: new FormControl('', [Validators.required])
+    additionalInformation: new FormControl('',)
+  })
+  public withdrawalAtClientCenterForm = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    withdrawalLocation: new FormControl('', [Validators.required])
   })
   public deliveryOptions = [
     {
@@ -117,6 +121,9 @@ export class CartCheckoutInformationComponent implements OnInit {
   getCorrectForm() {
     if (this.shippingOption === 'toHome') {
       return this.deliveryToHomeForm;
+    }
+    if (this.shippingOption === 'withdrawal') {
+      return this.withdrawalAtClientCenterForm;
     }
     return null;
   }

@@ -22,7 +22,9 @@
               *ngIf="shippingOption === 'toHome'"
               [deliveryToHomeForm]="deliveryToHomeForm">
             </app-delivery-to-home>
-            <app-withdrawal-at-client-center *ngIf="shippingOption === 'withdrawal'">
+            <app-withdrawal-at-client-center
+              *ngIf="shippingOption === 'withdrawal'"
+              [withdrawalAtClientCenterForm]="withdrawalAtClientCenterForm">
             </app-withdrawal-at-client-center>
             <app-withdrawal-from-location
               (option)="updateSelectedPickupOption($event)"
