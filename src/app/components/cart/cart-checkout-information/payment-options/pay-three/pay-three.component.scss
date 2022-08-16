@@ -2,3 +2,49 @@
   text-align: left;
   padding: 15px 0;
 }
+
+.payment-helper-text {
+  font-size: 12px;
+  color: #666;
+  padding-top: 20px;
+}
+
+.smaller-helper-text {
+  font-size: 10px;
+  padding: 20px 0;
+}
+
+.payments-example {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  display: inline-flex;
+  min-height: 90px;
+  padding: 23px 10px 0 20px;
+  width: 100%;
+}
+
+.payment-amount-wrapper {
+  text-align: center;
+}
+
+.main-amount {
+  padding: 10px 0 0 0;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.secondary-amount {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sign {
+  font-size: 30px;
+  padding: 0 20px;
+  color: #666
+}
+
+.payment-date {
+  font-size: 10px;
+  color: #666;
+}

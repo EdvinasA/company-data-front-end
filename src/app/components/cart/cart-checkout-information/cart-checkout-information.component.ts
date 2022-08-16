@@ -56,7 +56,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
   public shippingOption: string = 'toHome';
-  public paymentOption: string = 'bank';
+  public paymentOption: string = 'pay3';
   public pickupOption: string = 'dpd';
   public user: User | null = new User();
   public isLoading: boolean = true;

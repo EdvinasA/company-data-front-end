@@ -1,4 +1,38 @@
 <div class="user-information-style">
+  <div class="payments-example">
+    <div class="main-amount">{{totalSum + 3.99 | number : '1.2-2'}} €</div>
+    <span class="sign">=</span>
+    <div class="payment-amount-wrapper">
+      <div class="secondary-amount">{{(totalSum + 3.99) / 3 | number : '1.2-2'}} €</div>
+      <div class="payment-date">Pay till 2022-09-30</div>
+    </div>
+    <span class="sign">+</span>
+    <div class="payment-amount-wrapper">
+      <div class="secondary-amount">{{(totalSum + 3.99) / 3 | number : '1.2-2'}} €</div>
+      <div class="payment-date">Pay till 2022-10-31</div>
+    </div>
+    <span class="sign">+</span>
+    <div class="payment-amount-wrapper">
+      <div class="secondary-amount">{{(totalSum + 3.99) / 3 | number : '1.2-2'}} €</div>
+      <div class="payment-date">Pay till 2022-11-30</div>
+    </div>
+  </div>
+  <div class="payment-helper-text">
+    <div>
+      PAY 3 – it's a payment method, which let's pay for items during 3 month period, without
+      increase of price,
+      first payment making later. You cart payments will be divided into 3 equals sums for each
+      month.
+      If you miss or can't pay any more according to 3 month schedule, to you convenience we will
+      changes it to 24 months period.
+    </div>
+    <div class="smaller-helper-text">
+      For example, borrowing 300 Eur, when contract is for the term of 24 months, yearly interest –
+      24,9 %, contract tax – 9,9 %, BVKKMN – 37,19 %, total payable sum – 410,01 Eur, monthly
+      payment – 17,08 Eur.
+    </div>
+  </div>
+  <h6>Payer information</h6>
   <app-display-user-information
     [deliveryInformation]="this.user.deliveryInformation[0]">
   </app-display-user-information>

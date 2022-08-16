@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
@@ -10,6 +10,7 @@ import {UserService} from "../../../../../services/user.service";
 })
 export class PayThreeComponent implements OnInit {
 
+  @Input() totalSum: number = 0;
   @Output() option = new EventEmitter<string>();
   public selectedDeliveryForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
