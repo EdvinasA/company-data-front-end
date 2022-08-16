@@ -69,8 +69,8 @@ export class CartCheckoutInformationComponent implements OnInit {
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
-  public shippingOption: string = 'withdrawalFromLocation';
-  public paymentOption: string = 'pay3';
+  public shippingOption: string = 'toHome';
+  public paymentOption: string = 'bank';
   public pickupOption: string = 'dpd';
   public user: User | null = new User();
   public isLoading: boolean = true;
@@ -122,7 +122,7 @@ export class CartCheckoutInformationComponent implements OnInit {
     this.paymentOption = option;
   }
 
-  getCorrectForm() {
+  getDeliveryForm() {
     if (this.shippingOption === 'toHome') {
       return this.deliveryToHomeForm;
     }

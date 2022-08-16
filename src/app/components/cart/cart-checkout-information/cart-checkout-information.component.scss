@@ -67,3 +67,16 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.order-delivery-information-wrapper {
+  text-align: left;
+}
+
+.order-delivery-information {
+  font-weight: 500;
+  display: inline-flex;
+}
+
+.icon-display {
+  transform: scale(.8);
+}
