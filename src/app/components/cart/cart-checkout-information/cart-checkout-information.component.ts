@@ -16,12 +16,16 @@ export class CartCheckoutInformationComponent implements OnInit {
   public deliveryToHomeForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
     time: new FormControl('', [Validators.required]),
-    shippingOption: new FormControl('', [Validators.required]),
     additionalInformation: new FormControl('',)
-  })
+  });
   public withdrawalAtClientCenterForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
     withdrawalLocation: new FormControl('', [Validators.required])
+  });
+  public withdrawalFromLocationForm = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    selectedWithdrawalProvider: new FormControl('', [Validators.required]),
+    locationOfWithdrawal: new FormControl('', [Validators.required])
   })
   public deliveryOptions = [
     {
@@ -65,7 +69,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
   public totalSumOfAllItemsSubject: number = 0;
-  public shippingOption: string = 'toHome';
+  public shippingOption: string = 'withdrawalFromLocation';
   public paymentOption: string = 'pay3';
   public pickupOption: string = 'dpd';
   public user: User | null = new User();
@@ -124,6 +128,9 @@ export class CartCheckoutInformationComponent implements OnInit {
     }
     if (this.shippingOption === 'withdrawal') {
       return this.withdrawalAtClientCenterForm;
+    }
+    if (this.shippingOption === 'withdrawalFromLocation') {
+      return this.withdrawalFromLocationForm;
     }
     return null;
   }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DeliveryInformation, User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -11,12 +11,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class WithdrawalFromLocationComponent implements OnInit {
 
   @Output() option = new EventEmitter<string>();
-  public selectedDeliveryForm = new FormGroup({
-    address: new FormControl('', [Validators.required]),
-    time: new FormControl('', [Validators.required]),
-    shippingOption: new FormControl('', [Validators.required]),
-    additionalInformation: new FormControl('')
-  })
+  @Input() public withdrawalFromLocationForm!: FormGroup;
   public selectedOption: string = 'dpd';
   public user!: User | null;
 
@@ -26,10 +21,22 @@ export class WithdrawalFromLocationComponent implements OnInit {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
     })
+    if (this.user != null) {
+      this.withdrawalFromLocationForm.patchValue({
+        address: this.user.deliveryInformation[0],
+        selectedWithdrawalProvider: 'dpd',
+      })
+    }
   }
 
   selectOption(input: string) {
     this.selectedOption = input;
+    if (this.user != null) {
+      this.withdrawalFromLocationForm.patchValue({
+        selectedWithdrawalProvider: input,
+        locationOfWithdrawal: ''
+      })
+    }
     this.option.emit(input);
   }
 

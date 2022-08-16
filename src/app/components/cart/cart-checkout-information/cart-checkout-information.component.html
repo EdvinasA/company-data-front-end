@@ -28,7 +28,8 @@
             </app-withdrawal-at-client-center>
             <app-withdrawal-from-location
               (option)="updateSelectedPickupOption($event)"
-              *ngIf="shippingOption === 'withdrawalFromLocation'">
+              *ngIf="shippingOption === 'withdrawalFromLocation'"
+              [withdrawalFromLocationForm]="withdrawalFromLocationForm">
             </app-withdrawal-from-location>
           </div>
         </div>

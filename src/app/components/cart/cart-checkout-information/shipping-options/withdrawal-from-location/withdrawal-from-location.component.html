@@ -1,74 +1,76 @@
 <div>
-  <div class="delivery-provider-options">
-    <div (click)="selectOption('dpd')" [ngClass]="{
+  <form [formGroup]="withdrawalFromLocationForm">
+    <div class="delivery-provider-options">
+      <div (click)="selectOption('dpd')" [ngClass]="{
                   'delivery-provider': true,
                   'delivery-provider-selected' : selectedOption === 'dpd'
                 }">
-      <input type="radio" class="radio-for-selection">
-      <img src="/assets/dpd-pickup.png">
-      <div class="delivery-provider-text">
-        <span>Delivery</span>
-        <span>2,79 €</span>
+        <input type="radio" class="radio-for-selection">
+        <img src="/assets/dpd-pickup.png">
+        <div class="delivery-provider-text">
+          <span>Delivery</span>
+          <span>2,79 €</span>
+        </div>
       </div>
-    </div>
-    <div (click)="selectOption('omniva')" [ngClass]="{
+      <div (click)="selectOption('omniva')" [ngClass]="{
                   'delivery-provider': true,
                   'delivery-provider-selected' : selectedOption === 'omniva'
                 }">
-      <input type="radio" class="radio-for-selection">
-      <img src="/assets/omniva.png">
-      <div class="delivery-provider-text">
-        <span>Delivery</span>
-        <span>3,19 €</span>
+        <input type="radio" class="radio-for-selection">
+        <img src="/assets/omniva.png">
+        <div class="delivery-provider-text">
+          <span>Delivery</span>
+          <span>3,19 €</span>
+        </div>
       </div>
-    </div>
-    <div (click)="selectOption('express')" [ngClass]="{
+      <div (click)="selectOption('express')" [ngClass]="{
                   'delivery-provider': true,
                   'delivery-provider-selected' : selectedOption === 'express'
                 }">
-      <input type="radio" class="radio-for-selection">
-      <img src="/assets/lp-express.png">
-      <div class="delivery-provider-text">
-        <span>Delivery</span>
-        <span>2,49 €</span>
+        <input type="radio" class="radio-for-selection">
+        <img src="/assets/lp-express.png">
+        <div class="delivery-provider-text">
+          <span>Delivery</span>
+          <span>2,49 €</span>
+        </div>
       </div>
     </div>
-  </div>
-  <mat-divider></mat-divider>
-  <div class="select-location">
-    <mat-form-field appearance="fill" *ngIf="selectedOption === 'dpd'">
-      <mat-label>Select location</mat-label>
-      <mat-select>
-        <mat-option>
-          a
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="fill" *ngIf="selectedOption === 'omniva'">
-      <mat-label>Select location</mat-label>
-      <mat-select>
-        <mat-option>
-          b
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="fill" *ngIf="selectedOption === 'express'">
-      <mat-label>Select location</mat-label>
-      <mat-select>
-        <mat-option>
-          c
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <mat-divider></mat-divider>
-  <div class="user-information-style">
-    <app-display-user-information
-    [deliveryInformation]="this.user.deliveryInformation[0]">
-    </app-display-user-information>
-  </div>
-  <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <div class="select-location">
+      <mat-form-field appearance="fill" *ngIf="selectedOption === 'dpd'">
+        <mat-label>Select location</mat-label>
+        <mat-select formControlName="locationOfWithdrawal">
+          <mat-option value="a">
+            a
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" *ngIf="selectedOption === 'omniva'">
+        <mat-label>Select location</mat-label>
+        <mat-select formControlName="locationOfWithdrawal">
+          <mat-option value="b">
+            b
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" *ngIf="selectedOption === 'express'">
+        <mat-label>Select location</mat-label>
+        <mat-select formControlName="locationOfWithdrawal">
+          <mat-option value="c">
+            c
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="user-information-style">
+      <app-display-user-information
+        [deliveryInformation]="this.user.deliveryInformation[0]">
+      </app-display-user-information>
+    </div>
+    <mat-divider></mat-divider>
+  </form>
   <app-cart-checkout-accept-form
-    [formGroup]="selectedDeliveryForm"
+    [formGroup]="withdrawalFromLocationForm"
   ></app-cart-checkout-accept-form>
 </div>
