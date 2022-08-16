@@ -1,14 +1,14 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {User} from "../../../../../models/user";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
 
 @Component({
-  selector: 'app-payment-card-klix',
-  templateUrl: './payment-card-klix.component.html',
-  styleUrls: ['./payment-card-klix.component.scss']
+  selector: 'app-pay-to-courier',
+  templateUrl: './pay-to-courier.component.html',
+  styleUrls: ['./pay-to-courier.component.scss']
 })
-export class PaymentCardKlixComponent implements OnInit {
+export class PayToCourierComponent implements OnInit {
 
   @Output() option = new EventEmitter<string>();
   public selectedDeliveryForm = new FormGroup({

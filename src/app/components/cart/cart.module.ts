@@ -30,6 +30,8 @@ import { CartCheckoutAcceptFormComponent } from './cart-checkout-information/car
 import {MatStepperModule} from "@angular/material/stepper";
 import { BankComponent } from './cart-checkout-information/payment-options/bank/bank.component';
 import { PaymentCardKlixComponent } from './cart-checkout-information/payment-options/payment-card-klix/payment-card-klix.component';
+import { PayThreeComponent } from './cart-checkout-information/payment-options/pay-three/pay-three.component';
+import { PayToCourierComponent } from './cart-checkout-information/payment-options/pay-to-courier/pay-to-courier.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { PaymentCardKlixComponent } from './cart-checkout-information/payment-op
     WithdrawalFromLocationComponent,
     CartCheckoutAcceptFormComponent,
     BankComponent,
-    PaymentCardKlixComponent
+    PaymentCardKlixComponent,
+    PayThreeComponent,
+    PayToCourierComponent
   ],
   imports: [
     ReactiveFormsModule,
