@@ -1,55 +1,77 @@
 <div class="shipping-main-form">
   <p class="shipping-main-title">Select one from the list of client centers</p>
-  <div>
-    <div>Vilnius</div>
-  </div>
-  <div>
-    <div>Kaunas</div>
-  </div>
-  <div>
-    <div>Klaipėda</div>
-  </div>
-  <div>
-    <div>Šiauliai</div>
-  </div>
-  <div>
-    <div>Panevėžys</div>
-  </div>
-  <div>
-    <div>Alytus</div>
-  </div>
-  <div>
-    <div>Biržai</div>
-  </div>
-  <div>
-    <div>Elektrėnai</div>
-  </div>
-  <div>
-    <div>Telšiai</div>
-  </div>
-  <mat-divider></mat-divider>
-  <div class="user-information">
-    <div>Information of person who is taking the order</div>
-    <app-display-user-information
-      [deliveryInformation]="user.deliveryInformation[0]"
-    ></app-display-user-information>
-  </div>
-  <mat-divider></mat-divider>
-  <div class="pointers">
-    <div>
-      <mat-icon>check</mat-icon>
-      Saving your time, once order is done we gonna inform you via given email, that you can come
-      and take the items.
+  <form [formGroup]="withdrawalAtClientCenterForm">
+    <mat-radio-group formControlName="withdrawalLocation" required>
+      <div>
+        <mat-radio-button value="Vilnius">
+          Vilnius
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Kaunas">
+          Kaunas
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Klaipėda">
+          Klaipėda
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Šiauliai">
+          Šiauliai
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Panevėžys">
+          Panevėžys
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Alytus">
+          Alytus
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Biržai">
+          Biržai
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Elektrėnai">
+          Elektrėnai
+        </mat-radio-button>
+      </div>
+      <div>
+        <mat-radio-button value="Telšiai">
+          Telšiai
+        </mat-radio-button>
+      </div>
+    </mat-radio-group>
+    <mat-divider></mat-divider>
+    <div class="user-information">
+      <div>Information of person who is taking the order</div>
+      <app-display-user-information
+        [deliveryInformation]="user.deliveryInformation[0]"
+      ></app-display-user-information>
     </div>
-    <div>
-      <mat-icon>check</mat-icon>
-      Items are given in client centers.
-      Please have personal identification documents to check if you can withdraw the order.
-      Collected order will be kept for 3 days since email that was sent to you informing about
-      items.
-      If you won't be able to collect the order contact us.
+    <mat-divider></mat-divider>
+    <div class="pointers">
+      <div>
+        <mat-icon>check</mat-icon>
+        Saving your time, once order is done we gonna inform you via given email, that you can come
+        and take the items.
+      </div>
+      <div>
+        <mat-icon>check</mat-icon>
+        Items are given in client centers.
+        Please have personal identification documents to check if you can withdraw the order.
+        Collected order will be kept for 3 days since email that was sent to you informing about
+        items.
+        If you won't be able to collect the order contact us.
+      </div>
     </div>
-  </div>
+  </form>
   <mat-divider></mat-divider>
   <app-cart-checkout-accept-form
     [formGroup]="withdrawalAtClientCenterForm"

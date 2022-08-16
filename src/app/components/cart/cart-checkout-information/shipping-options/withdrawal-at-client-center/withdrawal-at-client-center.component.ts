@@ -13,12 +13,18 @@ export class WithdrawalAtClientCenterComponent implements OnInit {
   @Input() public withdrawalAtClientCenterForm!: FormGroup;
   public user!: User | null;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
     })
+    if (this.user != null) {
+      this.withdrawalAtClientCenterForm.patchValue({
+        address: this.user.deliveryInformation[0],
+      })
+    }
   }
 
 }
