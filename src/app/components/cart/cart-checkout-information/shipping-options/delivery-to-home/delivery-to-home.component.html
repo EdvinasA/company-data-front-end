@@ -1,7 +1,7 @@
 <div class="shipping-main-form" xmlns="http://www.w3.org/1999/html">
   <p class="shipping-main-title">Delivery address</p>
   <div>
-    <form [formGroup]="selectedDeliveryForm">
+    <form [formGroup]="deliveryToHomeForm">
       <div>
         <app-display-user-information
           [deliveryInformation]="this.user?.deliveryInformation[0]">
@@ -31,7 +31,7 @@
       <mat-divider></mat-divider>
     </form>
     <app-cart-checkout-accept-form
-      [formGroup]="selectedDeliveryForm"
+      [formGroup]="deliveryToHomeForm"
     ></app-cart-checkout-accept-form>
   </div>
   <p class="shipping-main-information" *ngIf="this.user?.deliveryInformation.length === 0">

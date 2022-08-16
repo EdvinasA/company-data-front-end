@@ -13,6 +13,12 @@ import {ConverterService} from "../../../services/converter.service";
 })
 export class CartCheckoutInformationComponent implements OnInit {
 
+  public deliveryToHomeForm = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
+    shippingOption: new FormControl('', [Validators.required]),
+    additionalInformation: new FormControl('', [Validators.required])
+  })
   public deliveryOptions = [
     {
       optionName: 'Order to set address',
@@ -106,6 +112,13 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   updateSelectedOptionOfPayment(option: string) {
     this.paymentOption = option;
+  }
+
+  getCorrectForm() {
+    if (this.shippingOption === 'toHome') {
+      return this.deliveryToHomeForm;
+    }
+    return null;
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../../../../services/user.service";
 import {User} from "../../../../../models/user";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-delivery-to-home',
@@ -10,12 +10,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class DeliveryToHomeComponent implements OnInit {
 
-  public selectedDeliveryForm = new FormGroup({
-    address: new FormControl('', [Validators.required]),
-    time: new FormControl('', [Validators.required]),
-    shippingOption: new FormControl('', [Validators.required]),
-    additionalInformation: new FormControl('')
-  })
+  @Input() public deliveryToHomeForm!: FormGroup;
   public user: User | null = new User();
 
   constructor(private userService: UserService) { }
@@ -25,7 +20,7 @@ export class DeliveryToHomeComponent implements OnInit {
       this.user = user;
     })
     if (this.user?.deliveryInformation != undefined) {
-      this.selectedDeliveryForm.patchValue({
+      this.deliveryToHomeForm.patchValue({
         address: this.user.deliveryInformation[0],
         time: '1',
         shippingOption: 'toHome'
