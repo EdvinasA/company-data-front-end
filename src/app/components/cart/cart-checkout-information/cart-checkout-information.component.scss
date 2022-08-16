@@ -75,8 +75,15 @@
 .order-delivery-information {
   font-weight: 500;
   display: inline-flex;
+  width: 100%;
 }
 
 .icon-display {
   transform: scale(.8);
+}
+
+.inline-components {
+  display: inline-flex;
+  width: 100%;
+  justify-content: end;
 }
