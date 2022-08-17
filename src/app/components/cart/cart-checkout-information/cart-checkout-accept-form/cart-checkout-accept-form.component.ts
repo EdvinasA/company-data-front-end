@@ -15,8 +15,12 @@ export class CartCheckoutAcceptFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFormSubmit() {
+  onDeliveryFormSubmit() {
     console.log(this.formGroup.value);
-}
+  }
+
+  onPaymentFormSubmit() {
+
+  }
 
 }
