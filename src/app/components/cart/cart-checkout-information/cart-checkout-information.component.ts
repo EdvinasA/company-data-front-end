@@ -28,7 +28,11 @@ export class CartCheckoutInformationComponent implements OnInit {
     locationOfWithdrawal: new FormControl('', [Validators.required])
   });
   public paymentWithBankForm = new FormGroup({
-    bank: new FormControl('', [Validators.required])
+    bank: new FormControl('', [Validators.required]),
+    selectedPayment: new FormControl('', [Validators.required])
+  });
+  public paymentForm = new FormGroup({
+    selectedPayment: new FormControl('', [Validators.required])
   });
   public deliveryOptions = [
     {
@@ -94,9 +98,11 @@ export class CartCheckoutInformationComponent implements OnInit {
       this.user = user;
       if (this.user != null) {
         this.selectedDeliveryInformation = this.user?.deliveryInformation[0];
-        console.log(this.selectedDeliveryInformation);
       }
       this.isLoading = false;
+    })
+    this.getPaymentForm().patchValue({
+      selectedPayment: this.paymentOption
     })
   }
 
@@ -131,6 +137,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   }
 
   getDeliveryForm() {
+    this.updateForm();
     if (this.shippingOption === 'toHome') {
       return this.deliveryToHomeForm;
     }
@@ -145,7 +152,27 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   handleSelectedDeliveryInformation(input: DeliveryInformation) {
     this.selectedDeliveryInformation = input;
+  }
+
+  getPaymentForm() {
+    if (this.paymentOption === 'bank') {
+      return this.paymentWithBankForm;
+    }
+    return this.paymentForm;
+  }
+
+  updateForm() {
+    this.getPaymentForm().patchValue({
+      selectedPayment: this.paymentOption
+    })
+  }
+
+  updatePaymentWithBankForm(input: string) {
     console.log(input);
+    this.paymentWithBankForm.patchValue({
+      bank: input
+    })
+    console.log(this.paymentWithBankForm.value)
   }
 
 }

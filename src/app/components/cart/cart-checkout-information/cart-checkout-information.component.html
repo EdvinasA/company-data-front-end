@@ -90,7 +90,7 @@
       </div>
     </div>
   </mat-step>
-  <mat-step>
+  <mat-step [stepControl]="getPaymentForm()">
     <ng-template matStepLabel>Payment</ng-template>
     <div class="shipping-wrapper" *ngIf="!isLoading">
       <div class="shipping-content">
@@ -112,14 +112,21 @@
             <mat-divider></mat-divider>
             <app-bank
               *ngIf="paymentOption === 'bank'"
-              [paymentWithBankForm]="paymentWithBankForm">
+              [paymentWithBankForm]="paymentWithBankForm"
+              (option)="updatePaymentWithBankForm($event)">
             </app-bank>
-            <app-payment-card-klix *ngIf="paymentOption === 'klix'">
+            <app-payment-card-klix
+              *ngIf="paymentOption === 'klix'"
+              [paymentForm]="paymentForm">
             </app-payment-card-klix>
-            <app-pay-three *ngIf="paymentOption === 'pay3'"
-                           [totalSum]="totalSumOfAllItemsSubject">
+            <app-pay-three
+              *ngIf="paymentOption === 'pay3'"
+              [totalSum]="totalSumOfAllItemsSubject"
+              [paymentForm]="paymentForm">
             </app-pay-three>
-            <app-pay-to-courier *ngIf="paymentOption === 'withdrawalPayment'">
+            <app-pay-to-courier
+              *ngIf="paymentOption === 'withdrawalPayment'"
+              [paymentForm]="paymentForm">
             </app-pay-to-courier>
           </div>
         </div>
