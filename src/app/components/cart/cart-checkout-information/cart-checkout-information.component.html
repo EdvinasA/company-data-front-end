@@ -20,16 +20,22 @@
             <mat-divider></mat-divider>
             <app-delivery-to-home
               *ngIf="shippingOption === 'toHome'"
-              [deliveryToHomeForm]="deliveryToHomeForm">
+              [deliveryToHomeForm]="deliveryToHomeForm"
+              [defaultDeliveryInformation]="selectedDeliveryInformation"
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-delivery-to-home>
             <app-withdrawal-at-client-center
               *ngIf="shippingOption === 'withdrawal'"
-              [withdrawalAtClientCenterForm]="withdrawalAtClientCenterForm">
+              [withdrawalAtClientCenterForm]="withdrawalAtClientCenterForm"
+              [defaultDeliveryInformation]="selectedDeliveryInformation"
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-withdrawal-at-client-center>
             <app-withdrawal-from-location
-              (option)="updateSelectedPickupOption($event)"
               *ngIf="shippingOption === 'withdrawalFromLocation'"
-              [withdrawalFromLocationForm]="withdrawalFromLocationForm">
+              (option)="updateSelectedPickupOption($event)"
+              [withdrawalFromLocationForm]="withdrawalFromLocationForm"
+              [defaultDeliveryInformation]="selectedDeliveryInformation"
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-withdrawal-from-location>
           </div>
         </div>
@@ -111,7 +117,7 @@
             <app-payment-card-klix *ngIf="paymentOption === 'klix'">
             </app-payment-card-klix>
             <app-pay-three *ngIf="paymentOption === 'pay3'"
-            [totalSum]="totalSumOfAllItemsSubject">
+                           [totalSum]="totalSumOfAllItemsSubject">
             </app-pay-three>
             <app-pay-to-courier *ngIf="paymentOption === 'withdrawalPayment'">
             </app-pay-to-courier>

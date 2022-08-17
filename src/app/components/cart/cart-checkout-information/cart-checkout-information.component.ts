@@ -26,11 +26,10 @@ export class CartCheckoutInformationComponent implements OnInit {
     address: new FormControl('', [Validators.required]),
     selectedWithdrawalProvider: new FormControl('', [Validators.required]),
     locationOfWithdrawal: new FormControl('', [Validators.required])
-  })
+  });
   public paymentWithBankForm = new FormGroup({
-    paymentOption: new FormControl('', [Validators.required]),
     bank: new FormControl('', [Validators.required])
-  })
+  });
   public deliveryOptions = [
     {
       optionName: 'Order to set address',
@@ -72,6 +71,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   ];
   public orderInformationPanelOpenState = true;
   public cart!: Cart;
+  public selectedDeliveryInformation!: DeliveryInformation;
   public totalSumOfAllItemsSubject: number = 0;
   public shippingOption: string = 'toHome';
   public paymentOption: string = 'bank';
@@ -92,6 +92,10 @@ export class CartCheckoutInformationComponent implements OnInit {
     })
     this.userService.userSubject.asObservable().subscribe(user => {
       this.user = user;
+      if (this.user != null) {
+        this.selectedDeliveryInformation = this.user?.deliveryInformation[0];
+        console.log(this.selectedDeliveryInformation);
+      }
       this.isLoading = false;
     })
   }
@@ -137,6 +141,11 @@ export class CartCheckoutInformationComponent implements OnInit {
       return this.withdrawalFromLocationForm;
     }
     return null;
+  }
+
+  handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.selectedDeliveryInformation = input;
+    console.log(input);
   }
 
 }

@@ -4,7 +4,8 @@
     <form [formGroup]="deliveryToHomeForm">
       <div>
         <app-display-user-information
-          [deliveryInformation]="this.user?.deliveryInformation[0]">
+          [deliveryInformation]="defaultDeliveryInformation"
+          (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
         </app-display-user-information>
       </div>
       <mat-divider></mat-divider>

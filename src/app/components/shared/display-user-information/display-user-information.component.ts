@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {DeliveryInformation, User} from "../../../models/user";
 
@@ -10,6 +10,7 @@ import {DeliveryInformation, User} from "../../../models/user";
 export class DisplayUserInformationComponent implements OnInit {
 
   @Input() deliveryInformation!: DeliveryInformation | undefined;
+  @Output() selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
   public isFormActivated: boolean = false;
   public isSelectDeliveryProfileActivated: boolean = false;
   public user!: User | null;
@@ -31,6 +32,10 @@ export class DisplayUserInformationComponent implements OnInit {
     if (input.firstName != null) {
       this.deliveryInformation = input;
     }
+  }
+
+  getSelectedForm(input: DeliveryInformation) {
+    this.selectedDeliveryInformation.emit(input);
   }
 
   handleForm() {

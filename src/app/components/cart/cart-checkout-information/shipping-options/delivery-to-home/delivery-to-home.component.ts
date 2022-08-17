@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {UserService} from "../../../../../services/user.service";
-import {User} from "../../../../../models/user";
+import {DeliveryInformation, User} from "../../../../../models/user";
 import {FormGroup} from "@angular/forms";
 
 @Component({
@@ -11,6 +11,8 @@ import {FormGroup} from "@angular/forms";
 export class DeliveryToHomeComponent implements OnInit {
 
   @Input() public deliveryToHomeForm!: FormGroup;
+  @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
   public user: User | null = new User();
 
   constructor(private userService: UserService) { }
@@ -21,10 +23,14 @@ export class DeliveryToHomeComponent implements OnInit {
     })
     if (this.user?.deliveryInformation != undefined) {
       this.deliveryToHomeForm.patchValue({
-        address: this.user.deliveryInformation[0],
+        address: this.defaultDeliveryInformation,
         time: '1',
         shippingOption: 'toHome'
       })
     }
+  }
+
+  handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.selectedDeliveryInformation.emit(input);
   }
 }

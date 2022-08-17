@@ -12,6 +12,8 @@ export class WithdrawalFromLocationComponent implements OnInit {
 
   @Output() option = new EventEmitter<string>();
   @Input() public withdrawalFromLocationForm!: FormGroup;
+  @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
   public selectedOption: string = 'dpd';
   public user!: User | null;
 
@@ -40,4 +42,7 @@ export class WithdrawalFromLocationComponent implements OnInit {
     this.option.emit(input);
   }
 
+  handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.selectedDeliveryInformation.emit(input);
+  }
 }

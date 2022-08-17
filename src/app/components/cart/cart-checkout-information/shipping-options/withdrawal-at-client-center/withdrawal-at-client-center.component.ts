@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../../../../../models/user";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {DeliveryInformation, User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
 import {FormGroup} from "@angular/forms";
 
@@ -11,6 +11,8 @@ import {FormGroup} from "@angular/forms";
 export class WithdrawalAtClientCenterComponent implements OnInit {
 
   @Input() public withdrawalAtClientCenterForm!: FormGroup;
+  @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
   public user!: User | null;
 
   constructor(private userService: UserService) {
@@ -25,6 +27,10 @@ export class WithdrawalAtClientCenterComponent implements OnInit {
         address: this.user.deliveryInformation[0],
       })
     }
+  }
+
+  handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.selectedDeliveryInformation.emit(input);
   }
 
 }
