@@ -52,10 +52,10 @@
           </div>
           <div *ngIf="shippingOption === 'toHome'">
             <div
-              class="order-delivery-information">{{user.deliveryInformation[0].firstName}} {{user.deliveryInformation[0].lastName}}</div>
+              class="order-delivery-information">{{deliveryInformation.firstName}} {{deliveryInformation.lastName}}</div>
             <mat-divider></mat-divider>
             <div
-              class="order-delivery-information">{{user.deliveryInformation[0].address}} {{user.deliveryInformation[0].postalCode}} {{user.deliveryInformation[0].city}}</div>
+              class="order-delivery-information">{{deliveryInformation.address}} {{deliveryInformation.postalCode}} {{deliveryInformation.city}}</div>
             <mat-divider></mat-divider>
             <div class="order-delivery-information">Wanted delivery time</div>
             <div class="order-delivery-information"
@@ -72,14 +72,14 @@
             <div class="order-delivery-information">Information of the withdrawing person:</div>
             <mat-divider></mat-divider>
             <div
-              class="order-delivery-information">{{user.deliveryInformation[0].firstName}} {{user.deliveryInformation[0].lastName}} {{user.deliveryInformation[0].phoneNumber}}</div>
+              class="order-delivery-information">{{deliveryInformation.firstName}} {{deliveryInformation.lastName}} {{deliveryInformation.phoneNumber}}</div>
           </div>
           <div *ngIf="shippingOption === 'withdrawalFromLocation'">
             <div class="order-delivery-information">Location {{withdrawalFromLocationForm.get('locationOfWithdrawal').value}}
             </div>
             <div class="order-delivery-information">Information of the withdrawing person:</div>
             <div
-              class="order-delivery-information">{{user.deliveryInformation[0].firstName}} {{user.deliveryInformation[0].lastName}} {{user.deliveryInformation[0].phoneNumber}}</div>
+              class="order-delivery-information">{{deliveryInformation.firstName}} {{deliveryInformation.lastName}} {{deliveryInformation.phoneNumber}}</div>
           </div>
         </div>
       </div>

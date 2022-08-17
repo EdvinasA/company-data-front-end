@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {User} from "../../../../models/user";
+import {DeliveryInformation, User} from "../../../../models/user";
 import {UserService} from "../../../../services/user.service";
 
 @Component({
@@ -13,19 +13,16 @@ export class OrderInformationDisplayComponent implements OnInit {
   @Input() public deliveryToHomeForm!: FormGroup;
   @Input() public withdrawalAtClientCenterForm!: FormGroup;
   @Input() public withdrawalFromLocationForm!: FormGroup;
-  public user: User | null = new User();
+  @Input() public deliveryInformation!: DeliveryInformation;
   @Input() public totalSumOfAllItemsSubject: number = 0;
   @Input() public deliveryCost: number = 0;
   @Input() public shippingOption: string = '';
   @Input() public amountOfItems: number = 0;
   public orderInformationPanelOpenState = true;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userService.userSubject.asObservable().subscribe(user => {
-      this.user = user;
-    })
   }
 
 }

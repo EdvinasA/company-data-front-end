@@ -113,20 +113,28 @@
             <app-bank
               *ngIf="paymentOption === 'bank'"
               [paymentWithBankForm]="paymentWithBankForm"
-              (option)="updatePaymentWithBankForm($event)">
+              (option)="updatePaymentWithBankForm($event)"
+              [defaultDeliveryInformation]="selectedDeliveryInformation"
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-bank>
             <app-payment-card-klix
               *ngIf="paymentOption === 'klix'"
-              [paymentForm]="paymentForm">
+              [paymentForm]="paymentForm"
+              [defaultDeliveryInformation]="selectedDeliveryInformation"
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-payment-card-klix>
             <app-pay-three
               *ngIf="paymentOption === 'pay3'"
               [totalSum]="totalSumOfAllItemsSubject"
-              [paymentForm]="paymentForm">
+              [paymentForm]="paymentForm"
+              [defaultDeliveryInformation]="selectedDeliveryInformation"
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-pay-three>
             <app-pay-to-courier
               *ngIf="paymentOption === 'withdrawalPayment'"
-              [paymentForm]="paymentForm">
+              [paymentForm]="paymentForm"
+              [defaultDeliveryInformation]="selectedDeliveryInformation"
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-pay-to-courier>
           </div>
         </div>
@@ -134,6 +142,7 @@
       <div class="shipping-order-information">
         <app-order-information-display
           [deliveryToHomeForm]="deliveryToHomeForm"
+          [deliveryInformation]="selectedDeliveryInformation"
           [withdrawalAtClientCenterForm]="withdrawalAtClientCenterForm"
           [withdrawalFromLocationForm]="withdrawalFromLocationForm"
           [shippingOption]="shippingOption"

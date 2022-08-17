@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {User} from "../../../../../models/user";
+import {DeliveryInformation, User} from "../../../../../models/user";
 import {FormGroup} from "@angular/forms";
 import {UserService} from "../../../../../services/user.service";
 
@@ -11,14 +11,16 @@ import {UserService} from "../../../../../services/user.service";
 export class PaymentCardKlixComponent implements OnInit {
 
   @Output() option = new EventEmitter<string>();
+  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
   @Input() public paymentForm!: FormGroup;
-  public user!: User | null;
+  @Input() public defaultDeliveryInformation!: DeliveryInformation;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userService.userSubject.asObservable().subscribe(user => {
-      this.user = user;
-    })
+  }
+
+  handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.selectedDeliveryInformation.emit(input);
   }
 }

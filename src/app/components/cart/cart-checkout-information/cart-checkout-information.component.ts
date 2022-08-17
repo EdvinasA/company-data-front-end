@@ -168,11 +168,9 @@ export class CartCheckoutInformationComponent implements OnInit {
   }
 
   updatePaymentWithBankForm(input: string) {
-    console.log(input);
     this.paymentWithBankForm.patchValue({
       bank: input
     })
-    console.log(this.paymentWithBankForm.value)
   }
 
 }

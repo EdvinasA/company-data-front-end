@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {User} from "../../../../../models/user";
+import {DeliveryInformation, User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
 
 @Component({
@@ -11,15 +11,16 @@ import {UserService} from "../../../../../services/user.service";
 export class PayToCourierComponent implements OnInit {
 
   @Output() option = new EventEmitter<string>();
+  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
   @Input() public paymentForm!: FormGroup;
-  public user!: User | null;
+  @Input() public defaultDeliveryInformation!: DeliveryInformation;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userService.userSubject.asObservable().subscribe(user => {
-      this.user = user;
-    })
   }
 
+  handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.selectedDeliveryInformation.emit(input);
+  }
 }

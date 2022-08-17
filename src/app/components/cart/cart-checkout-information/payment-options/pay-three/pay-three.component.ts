@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {User} from "../../../../../models/user";
+import {DeliveryInformation, User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
 
 @Component({
@@ -12,14 +12,15 @@ export class PayThreeComponent implements OnInit {
 
   @Input() totalSum: number = 0;
   @Input() public paymentForm!: FormGroup;
-  public user!: User | null;
+  @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userService.userSubject.asObservable().subscribe(user => {
-      this.user = user;
-    })
   }
 
+  handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.selectedDeliveryInformation.emit(input);
+  }
 }
