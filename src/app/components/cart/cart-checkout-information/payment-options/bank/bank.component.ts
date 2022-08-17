@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../../../models/user";
 import {UserService} from "../../../../../services/user.service";
@@ -11,13 +11,8 @@ import {UserService} from "../../../../../services/user.service";
 export class BankComponent implements OnInit {
 
   @Output() option = new EventEmitter<string>();
-  public selectedDeliveryForm = new FormGroup({
-    address: new FormControl('', [Validators.required]),
-    time: new FormControl('', [Validators.required]),
-    shippingOption: new FormControl('', [Validators.required]),
-    additionalInformation: new FormControl('')
-  })
-  public selectedOption: string = 'dpd';
+  @Input() public paymentWithBankForm!: FormGroup;
+  @Input() public selectedOption: string = '';
   public user!: User | null;
 
   constructor(private userService: UserService) { }

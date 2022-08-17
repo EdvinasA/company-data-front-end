@@ -27,6 +27,10 @@ export class CartCheckoutInformationComponent implements OnInit {
     selectedWithdrawalProvider: new FormControl('', [Validators.required]),
     locationOfWithdrawal: new FormControl('', [Validators.required])
   })
+  public paymentWithBankForm = new FormGroup({
+    paymentOption: new FormControl('', [Validators.required]),
+    bank: new FormControl('', [Validators.required])
+  })
   public deliveryOptions = [
     {
       optionName: 'Order to set address',

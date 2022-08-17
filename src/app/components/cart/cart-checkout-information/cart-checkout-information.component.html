@@ -104,7 +104,9 @@
               <span *ngIf="paymentOption === 'withdrawalPayment'">Pay when withdrawing</span>
             </div>
             <mat-divider></mat-divider>
-            <app-bank *ngIf="paymentOption === 'bank'">
+            <app-bank
+              *ngIf="paymentOption === 'bank'"
+              [paymentWithBankForm]="paymentWithBankForm">
             </app-bank>
             <app-payment-card-klix *ngIf="paymentOption === 'klix'">
             </app-payment-card-klix>
