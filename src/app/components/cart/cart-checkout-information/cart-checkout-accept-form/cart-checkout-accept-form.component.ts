@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart-checkout-accept-form',
@@ -11,7 +10,7 @@ export class CartCheckoutAcceptFormComponent implements OnInit {
 
   @Input() formGroup!: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

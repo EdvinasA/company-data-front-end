@@ -117,64 +117,14 @@
         </div>
       </div>
       <div class="shipping-order-information">
-        <mat-accordion>
-          <mat-expansion-panel hideToggle [expanded]="orderInformationPanelOpenState">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Order information
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div>
-              <div class="order-information-row">
-                <div><strong>Cart</strong></div>
-                <div>
-                  <div class="order-information-row-two-items">
-                    <a [routerLink]="['/cart']" class="order-information-row-two-items">
-                      <mat-icon>remove_red_eye</mat-icon>
-                      <div>Review</div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="order-information-row">
-                <div>{{cart.cartItems.length}} item</div>
-                <div>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</div>
-              </div>
-              <div class="order-information-row last-row" *ngIf="shippingOption !== 'withdrawal'">
-                <div>Delivery</div>
-                <div>{{deliveryCost()}} €</div>
-              </div>
-              <mat-divider></mat-divider>
-              <div class="discount-wrapper">
-                <div>
-                  <mat-form-field appearance="fill">
-                    <input matInput placeholder="Discount code">
-                  </mat-form-field>
-                </div>
-                <div class="discount-button">
-                  <button mat-raised-button>Check</button>
-                </div>
-              </div>
-              <mat-divider></mat-divider>
-              <div class="order-total-sum">
-                <div>Total</div>
-                <div>{{totalSumOfAllItemsSubject + deliveryCost() | number : '1.2-2'}} €</div>
-              </div>
-              <div class="order-delivery-information-wrapper">
-                <div class="order-delivery-information">
-                  <div>Delivery</div>
-                  <div class="inline-components"><mat-icon class="icon-display">edit</mat-icon> Change</div>
-                </div>
-                <div class="order-delivery-information">{{user.deliveryInformation[0].firstName}} {{user.deliveryInformation[0].lastName}}</div>
-                <mat-divider></mat-divider>
-                <div class="order-delivery-information">{{user.deliveryInformation[0].address}} {{user.deliveryInformation[0].postalCode}} {{user.deliveryInformation[0].city}}</div>
-                <mat-divider></mat-divider>
-                <div class="order-delivery-information">Wanted delivery time</div>
-                <div class="order-delivery-information">08:00-18:00</div>
-              </div>
-            </div>
-          </mat-expansion-panel>
-        </mat-accordion>
+        <app-order-information-display
+          [deliveryToHomeForm]="deliveryToHomeForm"
+          [withdrawalAtClientCenterForm]="withdrawalAtClientCenterForm"
+          [shippingOption]="shippingOption"
+          [totalSumOfAllItemsSubject]="totalSumOfAllItemsSubject"
+          [deliveryCost]="deliveryCost()"
+          [amountOfItems]="cart.cartItems.length">
+        </app-order-information-display>
       </div>
     </div>
   </mat-step>

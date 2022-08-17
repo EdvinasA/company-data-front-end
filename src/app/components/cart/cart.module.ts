@@ -32,6 +32,7 @@ import { BankComponent } from './cart-checkout-information/payment-options/bank/
 import { PaymentCardKlixComponent } from './cart-checkout-information/payment-options/payment-card-klix/payment-card-klix.component';
 import { PayThreeComponent } from './cart-checkout-information/payment-options/pay-three/pay-three.component';
 import { PayToCourierComponent } from './cart-checkout-information/payment-options/pay-to-courier/pay-to-courier.component';
+import { OrderInformationDisplayComponent } from './cart-checkout-information/order-information-display/order-information-display.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PayToCourierComponent } from './cart-checkout-information/payment-optio
     BankComponent,
     PaymentCardKlixComponent,
     PayThreeComponent,
-    PayToCourierComponent
+    PayToCourierComponent,
+    OrderInformationDisplayComponent
   ],
   imports: [
     ReactiveFormsModule,

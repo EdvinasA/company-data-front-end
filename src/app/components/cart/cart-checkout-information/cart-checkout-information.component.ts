@@ -35,7 +35,7 @@ export class CartCheckoutInformationComponent implements OnInit {
     },
     {
       optionName: 'Withdrawal at client center',
-      description: 'Items for withdrawal will prepare in 1 work day.',
+      description: 'Items for withdrawal will be prepared in 1 work day.',
       optionValue: 'withdrawal'
     },
     {
