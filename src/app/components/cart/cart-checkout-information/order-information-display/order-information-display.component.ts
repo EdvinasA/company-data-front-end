@@ -12,6 +12,7 @@ export class OrderInformationDisplayComponent implements OnInit {
 
   @Input() public deliveryToHomeForm!: FormGroup;
   @Input() public withdrawalAtClientCenterForm!: FormGroup;
+  @Input() public withdrawalFromLocationForm!: FormGroup;
   public user: User | null = new User();
   @Input() public totalSumOfAllItemsSubject: number = 0;
   @Input() public deliveryCost: number = 0;

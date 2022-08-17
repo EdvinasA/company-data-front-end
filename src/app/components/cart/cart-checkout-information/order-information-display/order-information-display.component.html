@@ -66,10 +66,19 @@
             </div>
           </div>
           <div *ngIf="shippingOption === 'withdrawal'">
-            <div class="order-delivery-information">To client center at {{withdrawalAtClientCenterForm.get('withdrawalLocation').value}}</div>
+            <div class="order-delivery-information">To client center
+              at {{withdrawalAtClientCenterForm.get('withdrawalLocation').value}}</div>
             <mat-divider></mat-divider>
             <div class="order-delivery-information">Information of the withdrawing person:</div>
             <mat-divider></mat-divider>
+            <div
+              class="order-delivery-information">{{user.deliveryInformation[0].firstName}} {{user.deliveryInformation[0].lastName}} {{user.deliveryInformation[0].phoneNumber}}</div>
+          </div>
+          <div *ngIf="shippingOption === 'withdrawalFromLocation'">
+            <div class="order-delivery-information">Location {{withdrawalFromLocationForm.get('locationOfWithdrawal').value}}
+            </div>
+            <mat-divider></mat-divider>
+            <div class="order-delivery-information">Information of the withdrawing person:</div>
             <div
               class="order-delivery-information">{{user.deliveryInformation[0].firstName}} {{user.deliveryInformation[0].lastName}} {{user.deliveryInformation[0].phoneNumber}}</div>
           </div>
