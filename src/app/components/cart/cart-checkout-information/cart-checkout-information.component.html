@@ -1,4 +1,4 @@
-<mat-stepper [linear]="true">
+<mat-stepper [linear]="true" #stepper>
   <mat-step [stepControl]="getDeliveryForm()">
     <ng-template matStepLabel>Delivery</ng-template>
     <div class="shipping-wrapper" *ngIf="!isLoading">
@@ -44,52 +44,17 @@
         </div>
       </div>
       <div class="shipping-order-information">
-        <mat-accordion>
-          <mat-expansion-panel hideToggle [expanded]="orderInformationPanelOpenState">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Order information
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div>
-              <div class="order-information-row">
-                <div><strong>Cart</strong></div>
-                <div>
-                  <div class="order-information-row-two-items">
-                    <a [routerLink]="['/cart']" class="order-information-row-two-items">
-                      <mat-icon>remove_red_eye</mat-icon>
-                      <div>Review</div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="order-information-row">
-                <div>{{cart.cartItems.length}} item</div>
-                <div>{{totalSumOfAllItemsSubject | number : '1.2-2'}} €</div>
-              </div>
-              <div class="order-information-row last-row" *ngIf="shippingOption !== 'withdrawal'">
-                <div>Delivery</div>
-                <div>{{deliveryCost()}} €</div>
-              </div>
-              <mat-divider></mat-divider>
-              <div class="discount-wrapper">
-                <div>
-                  <mat-form-field appearance="fill">
-                    <input matInput placeholder="Discount code">
-                  </mat-form-field>
-                </div>
-                <div class="discount-button">
-                  <button mat-raised-button>Check</button>
-                </div>
-              </div>
-              <mat-divider></mat-divider>
-              <div class="order-total-sum">
-                <div>Total</div>
-                <div>{{totalSumOfAllItemsSubject + deliveryCost() | number : '1.2-2'}} €</div>
-              </div>
-            </div>
-          </mat-expansion-panel>
-        </mat-accordion>
+        <app-order-information-display
+          [deliveryToHomeForm]="deliveryToHomeForm"
+          [deliveryInformation]="selectedDeliveryInformation"
+          [withdrawalAtClientCenterForm]="withdrawalAtClientCenterForm"
+          [withdrawalFromLocationForm]="withdrawalFromLocationForm"
+          [shippingOption]="shippingOption"
+          [totalSumOfAllItemsSubject]="totalSumOfAllItemsSubject"
+          [deliveryCost]="deliveryCost()"
+          [amountOfItems]="cart.cartItems.length"
+          [currentStep]="getStepperIndex()">
+        </app-order-information-display>
       </div>
     </div>
   </mat-step>
@@ -154,7 +119,8 @@
           [shippingOption]="shippingOption"
           [totalSumOfAllItemsSubject]="totalSumOfAllItemsSubject"
           [deliveryCost]="deliveryCost()"
-          [amountOfItems]="cart.cartItems.length">
+          [amountOfItems]="cart.cartItems.length"
+          [currentStep]="getStepperIndex()">
         </app-order-information-display>
       </div>
     </div>

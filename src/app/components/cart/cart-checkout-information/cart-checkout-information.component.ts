@@ -1,10 +1,11 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CartService} from "../../../services/cart.service";
 import {Cart} from "../../../models/cart";
 import {UserService} from "../../../services/user.service";
 import {DeliveryInformation, User} from "../../../models/user";
 import {ConverterService} from "../../../services/converter.service";
+import {MatStepper} from "@angular/material/stepper";
 
 @Component({
   selector: 'app-cart-checkout-information',
@@ -13,6 +14,7 @@ import {ConverterService} from "../../../services/converter.service";
 })
 export class CartCheckoutInformationComponent implements OnInit {
 
+  @ViewChild('stepper') stepper!: MatStepper;
   public deliveryToHomeForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
     time: new FormControl('', [Validators.required]),
@@ -172,5 +174,10 @@ export class CartCheckoutInformationComponent implements OnInit {
       bank: input
     })
   }
+
+  getStepperIndex() {
+    return this.stepper.selectedIndex;
+  }
+
 
 }

@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {DeliveryInformation, User} from "../../../../models/user";
-import {UserService} from "../../../../services/user.service";
+import {DeliveryInformation} from "../../../../models/user";
 
 @Component({
   selector: 'app-order-information-display',
@@ -18,6 +17,7 @@ export class OrderInformationDisplayComponent implements OnInit {
   @Input() public deliveryCost: number = 0;
   @Input() public shippingOption: string = '';
   @Input() public amountOfItems: number = 0;
+  @Input() public currentStep: number = 0;
   public orderInformationPanelOpenState = true;
 
   constructor() { }
