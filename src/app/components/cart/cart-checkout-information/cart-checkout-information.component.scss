@@ -93,3 +93,11 @@
 .order-delivery-header {
   padding-top: 8px;
 }
+
+:host {
+  ::ng-deep {
+    .mat-horizontal-content-container {
+      padding: 0;
+    }
+  }
+}
