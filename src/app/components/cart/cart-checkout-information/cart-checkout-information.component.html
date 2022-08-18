@@ -38,6 +38,9 @@
               (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-withdrawal-from-location>
           </div>
+          <app-cart-checkout-accept-form
+            [formGroup]="getDeliveryForm()"
+          ></app-cart-checkout-accept-form>
         </div>
       </div>
       <div class="shipping-order-information">
@@ -137,6 +140,9 @@
               (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
             </app-pay-to-courier>
           </div>
+          <app-cart-checkout-accept-form
+            [formGroup]="getPaymentForm()"
+          ></app-cart-checkout-accept-form>
         </div>
       </div>
       <div class="shipping-order-information">

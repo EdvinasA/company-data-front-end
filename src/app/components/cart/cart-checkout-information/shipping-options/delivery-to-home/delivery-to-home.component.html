@@ -31,9 +31,6 @@
       </div>
       <mat-divider></mat-divider>
     </form>
-    <app-cart-checkout-accept-form
-      [formGroup]="deliveryToHomeForm"
-    ></app-cart-checkout-accept-form>
   </div>
   <p class="shipping-main-information" *ngIf="this.user?.deliveryInformation.length === 0">
     Enter the persons information who is going to take
