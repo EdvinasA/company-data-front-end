@@ -176,7 +176,10 @@ export class CartCheckoutInformationComponent implements OnInit {
   }
 
   getStepperIndex() {
-    return this.stepper.selectedIndex;
+    if (this.stepper != undefined) {
+      return this.stepper.selectedIndex;
+    }
+    return null;
   }
 
 
