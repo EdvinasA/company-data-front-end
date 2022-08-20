@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DeliveryInformation} from "../../../../models/user";
 import {DiscountService} from "../../../../services/discount.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {NotificationService} from "../../../../services/notification.service";
 
 @Component({
   selector: 'app-order-information-display',
@@ -27,7 +28,7 @@ export class OrderInformationDisplayComponent implements OnInit {
   public discountCode = new FormControl('', [Validators.required]);
 
   constructor(private discountService: DiscountService,
-              private _snackBar: MatSnackBar) {
+              private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -40,7 +41,9 @@ export class OrderInformationDisplayComponent implements OnInit {
         this.updateTotalSum(response.percent)
       });
     }
-    // Implement notification to inform user that discount for items of this purchase is already applied.
+    if (this.isDiscountApplied) {
+      this.notificationService.informationalMessage('Discount for this order is already applied.', '');
+    }
   }
 
   updateTotalSum(percent: number) {
@@ -49,13 +52,10 @@ export class OrderInformationDisplayComponent implements OnInit {
       this.isDiscountApplied = true;
       this.discountAppliedEvent.emit(this.isDiscountApplied);
       this.totalSumWithDiscount.emit(this.totalSumOfAllItemsSubject);
-      this._snackBar.open('Discount was applied', '', {
-        horizontalPosition: 'right',
-        verticalPosition: 'top',
-        duration: 5000,
-        panelClass: ['white-snackbar']
-      });
+      this.notificationService.informationalMessage('Discount was applied', '');
+      return;
     }
+    this.notificationService.informationalMessage('Not existing or expired discount code was used.', '');
   }
 
 }
