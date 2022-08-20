@@ -6,6 +6,7 @@ import {UserService} from "../../../services/user.service";
 import {DeliveryInformation, User} from "../../../models/user";
 import {ConverterService} from "../../../services/converter.service";
 import {MatStepper} from "@angular/material/stepper";
+import {DiscountService} from "../../../services/discount.service";
 
 @Component({
   selector: 'app-cart-checkout-information',
@@ -86,7 +87,8 @@ export class CartCheckoutInformationComponent implements OnInit {
   public isLoading: boolean = true;
 
   constructor(private cartService: CartService,
-              private userService: UserService) {
+              private userService: UserService,
+              private discountService: DiscountService) {
   }
 
   ngOnInit(): void {
@@ -181,6 +183,4 @@ export class CartCheckoutInformationComponent implements OnInit {
     }
     return null;
   }
-
-
 }

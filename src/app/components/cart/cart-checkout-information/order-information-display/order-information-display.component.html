@@ -30,11 +30,14 @@
         <div class="discount-wrapper">
           <div>
             <mat-form-field appearance="fill">
-              <input matInput placeholder="Discount code">
+              <input matInput placeholder="Discount code" [formControl]="discountCode">
+              <mat-error *ngIf="discountCode.hasError('required')">
+                Code is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="discount-button">
-            <button mat-raised-button>Check</button>
+            <button mat-raised-button [disabled]="!discountCode.valid" (click)="checkDiscountCode(discountCode.value)">Check</button>
           </div>
         </div>
         <mat-divider></mat-divider>
