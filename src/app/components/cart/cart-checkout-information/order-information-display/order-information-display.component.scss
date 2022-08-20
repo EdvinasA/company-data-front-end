@@ -70,3 +70,8 @@
     }
   }
 }
+
+::ng-deep .white-snackbar {
+  background: white;
+  color: #302d2d;
+}

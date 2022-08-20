@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DeliveryInformation} from "../../../../models/user";
 import {DiscountService} from "../../../../services/discount.service";
-import {DiscountResponse} from "../../../../models/discount";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-order-information-display',
@@ -20,11 +20,14 @@ export class OrderInformationDisplayComponent implements OnInit {
   @Input() public shippingOption: string = '';
   @Input() public amountOfItems: number = 0;
   @Input() public currentStep: number = 0;
+  @Input() public isDiscountApplied = false;
+  @Output() public totalSumWithDiscount = new EventEmitter<number>();
+  @Output() public discountAppliedEvent = new EventEmitter<boolean>();
   public orderInformationPanelOpenState = true;
-  public isDiscountApplied = false;
   public discountCode = new FormControl('', [Validators.required]);
 
-  constructor(private discountService: DiscountService) {
+  constructor(private discountService: DiscountService,
+              private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -44,6 +47,14 @@ export class OrderInformationDisplayComponent implements OnInit {
     if (percent != null) {
       this.totalSumOfAllItemsSubject = (this.totalSumOfAllItemsSubject * (100 - percent)) / 100;
       this.isDiscountApplied = true;
+      this.discountAppliedEvent.emit(this.isDiscountApplied);
+      this.totalSumWithDiscount.emit(this.totalSumOfAllItemsSubject);
+      this._snackBar.open('Discount was applied', '', {
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        duration: 5000,
+        panelClass: ['white-snackbar']
+      });
     }
   }
 

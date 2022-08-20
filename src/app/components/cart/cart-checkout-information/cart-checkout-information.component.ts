@@ -76,7 +76,7 @@ export class CartCheckoutInformationComponent implements OnInit {
       optionValue: 'withdrawalPayment'
     }
   ];
-  public orderInformationPanelOpenState = true;
+  public isDiscountApplied: boolean = false;
   public cart!: Cart;
   public selectedDeliveryInformation!: DeliveryInformation;
   public totalSumOfAllItemsSubject: number = 0;
@@ -182,5 +182,13 @@ export class CartCheckoutInformationComponent implements OnInit {
       return this.stepper.selectedIndex;
     }
     return null;
+  }
+
+  updateTotalSumWithDiscount(sum: number) {
+    this.totalSumOfAllItemsSubject = sum;
+  }
+
+  handleDiscount(change: boolean) {
+    this.isDiscountApplied = change;
   }
 }

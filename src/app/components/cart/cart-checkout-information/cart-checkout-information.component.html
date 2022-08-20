@@ -53,7 +53,10 @@
           [totalSumOfAllItemsSubject]="totalSumOfAllItemsSubject"
           [deliveryCost]="deliveryCost()"
           [amountOfItems]="cart.cartItems.length"
-          [currentStep]="getStepperIndex()">
+          [currentStep]="getStepperIndex()"
+          (totalSumWithDiscount)="updateTotalSumWithDiscount($event)"
+          [isDiscountApplied]="isDiscountApplied"
+          (discountAppliedEvent)="handleDiscount($event)">
         </app-order-information-display>
       </div>
     </div>
@@ -120,7 +123,10 @@
           [totalSumOfAllItemsSubject]="totalSumOfAllItemsSubject"
           [deliveryCost]="deliveryCost()"
           [amountOfItems]="cart.cartItems.length"
-          [currentStep]="getStepperIndex()">
+          [currentStep]="getStepperIndex()"
+          (totalSumWithDiscount)="updateTotalSumWithDiscount($event)"
+          [isDiscountApplied]="isDiscountApplied"
+          (discountAppliedEvent)="handleDiscount($event)">
         </app-order-information-display>
       </div>
     </div>
