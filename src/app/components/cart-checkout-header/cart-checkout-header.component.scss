@@ -23,13 +23,51 @@
 }
 
 .title {
-  padding-top: 22px;
+  padding-top: 15px;
   width: 50%;
 }
 
 .promises {
   color: #e1e1e1;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  display: inline-flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.promises-deep1,
+.promises-deep2,
+.promises-deep3 {
+  display: inline-flex;
+  width: 15%;
+  text-align: left;
+}
+
+.promises-deep1 {
+  padding: 0 10px 0 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .promises-deep1 div {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .promises-deep1,
+  .promises-deep2 {
+    display: none;
+  }
+
+  .promises-deep3 {
+    display: inline;
+    width: 90%;
+    text-align: right;
+  }
+
+  .title {
+    padding-left: 10px;
+  }
 }
