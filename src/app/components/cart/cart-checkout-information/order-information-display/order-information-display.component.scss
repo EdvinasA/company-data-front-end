@@ -61,3 +61,12 @@
 .order-delivery-header {
   padding-top: 8px;
 }
+
+:host {
+  ::ng-deep {
+    .mat-expansion-panel {
+      border: 1px solid #e6e6e6;
+      box-shadow: unset;
+    }
+  }
+}
