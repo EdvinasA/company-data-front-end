@@ -33,6 +33,7 @@ import {CategoriesComponent} from './components/categories/categories.component'
 import {ProfileModule} from "./components/profile/profile.module";
 import {AuthenticationGuard} from "./guards/authentication.guard";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { CartCheckoutHeaderComponent } from './components/cart-checkout-header/cart-checkout-header.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     HeaderComponent,
     FooterComponent,
     CartPopoverComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    CartCheckoutHeaderComponent
   ],
   imports: [
     ProductsListModule,

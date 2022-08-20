@@ -1,11 +1,12 @@
 <div class="header">
-  <app-header [title]="title"
-  >
+  <app-header *ngIf="isCorrectCheckoutPath()" [title]="title">
   </app-header>
+  <app-cart-checkout-header *ngIf="!isCorrectCheckoutPath()" [title]="title">
+  </app-cart-checkout-header>
 </div>
-<app-categories></app-categories>
+<app-categories *ngIf="isCorrectCheckoutPath()"></app-categories>
 <div class="container main">
-  <app-profile-menu *ngIf="isCorrectPath()"></app-profile-menu>
+  <app-profile-menu *ngIf="isCorrectProfilePath()"></app-profile-menu>
   <router-outlet>
   </router-outlet>
 </div>

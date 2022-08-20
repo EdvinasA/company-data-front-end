@@ -29,7 +29,7 @@ export class AppComponent implements OnInit{
     }
   }
 
-  isCorrectPath() {
+  isCorrectProfilePath() {
     if (this.router.url === "/profile") {
       return true;
     }
@@ -47,4 +47,13 @@ export class AppComponent implements OnInit{
     }
     return false;
   }
+
+  isCorrectCheckoutPath() {
+    if (this.router.url.includes('/shipping')) {
+      return false;
+    }
+    return true;
+  }
+
+
 }

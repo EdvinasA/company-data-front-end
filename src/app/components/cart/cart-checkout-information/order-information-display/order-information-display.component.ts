@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DeliveryInformation} from "../../../../models/user";
 import {DiscountService} from "../../../../services/discount.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {NotificationService} from "../../../../services/notification.service";
 
 @Component({
