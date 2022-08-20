@@ -14,7 +14,7 @@
     <mat-divider style="bottom: 0"></mat-divider>
   </div>
   <div
-    *ngIf="cartList?.length != 0">
+    *ngIf="cartList?.length !== 0">
     <div>Total:</div>
     <div class="popover-cart-total">
       <strong>{{cartListTotalSum | number : '1.2-2'}} €</strong>

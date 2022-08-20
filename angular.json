@@ -98,9 +98,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "company-data-front-end"
+  "defaultProject": "company-data-front-end",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
