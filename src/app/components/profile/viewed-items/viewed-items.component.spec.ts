@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ViewedItemsComponent } from './viewed-items.component';
 
 describe('ViewedItemsComponent', () => {
@@ -8,9 +7,8 @@ describe('ViewedItemsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewedItemsComponent ]
-    })
-    .compileComponents();
+      declarations: [ViewedItemsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

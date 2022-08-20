@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DeliveryInformationFormComponent } from './delivery-information-form.component';
 
 describe('DeliveryInformationFormComponent', () => {
@@ -8,9 +7,8 @@ describe('DeliveryInformationFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeliveryInformationFormComponent ]
-    })
-    .compileComponents();
+      declarations: [DeliveryInformationFormComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

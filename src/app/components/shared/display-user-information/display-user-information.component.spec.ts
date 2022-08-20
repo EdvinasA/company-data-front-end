@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DisplayUserInformationComponent } from './display-user-information.component';
 
 describe('DisplayUserInformationComponent', () => {
@@ -8,9 +7,8 @@ describe('DisplayUserInformationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DisplayUserInformationComponent ]
-    })
-    .compileComponents();
+      declarations: [DisplayUserInformationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

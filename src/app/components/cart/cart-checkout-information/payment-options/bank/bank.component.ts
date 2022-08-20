@@ -1,25 +1,23 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormGroup} from "@angular/forms";
-import {DeliveryInformation, User} from "../../../../../models/user";
-import {UserService} from "../../../../../services/user.service";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { DeliveryInformation } from '../../../../../models/user';
 
 @Component({
   selector: 'app-bank',
   templateUrl: './bank.component.html',
-  styleUrls: ['./bank.component.scss']
+  styleUrls: ['./bank.component.scss'],
 })
 export class BankComponent implements OnInit {
-
   @Output() option = new EventEmitter<string>();
   @Input() public selectedOption: string = '';
   @Input() public paymentWithBankForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
-  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
+  @Output() public selectedDeliveryInformation =
+    new EventEmitter<DeliveryInformation>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   selectOption(input: string) {
     this.selectedOption = input;
@@ -29,5 +27,4 @@ export class BankComponent implements OnInit {
   handleSelectedDeliveryInformation(input: DeliveryInformation) {
     this.selectedDeliveryInformation.emit(input);
   }
-
 }

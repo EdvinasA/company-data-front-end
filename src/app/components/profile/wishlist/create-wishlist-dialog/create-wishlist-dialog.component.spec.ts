@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CreateWishlistDialogComponent } from './create-wishlist-dialog.component';
 
 describe('CreateWishlistDialogComponent', () => {
@@ -8,9 +7,8 @@ describe('CreateWishlistDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateWishlistDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [CreateWishlistDialogComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

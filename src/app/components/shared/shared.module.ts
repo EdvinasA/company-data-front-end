@@ -1,30 +1,30 @@
-import {NgModule} from "@angular/core";
-import {DecimalPipe} from "@angular/common";
-import {ProductAsCardBaseComponent} from "./product-as-card-base/product-as-card-base.component";
-import {NgxPaginationModule, PaginatePipe} from "ngx-pagination";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatDividerModule} from "@angular/material/divider";
-import {BrowserModule} from "@angular/platform-browser";
-import {RouterModule} from "@angular/router";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatSelectModule} from "@angular/material/select";
-import {MatOptionModule} from "@angular/material/core";
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatCardModule} from "@angular/material/card";
-import {MatGridListModule} from "@angular/material/grid-list";
-import {ProductTypesModule} from "../product-types/product-types.module";
-import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { OptionsOnSideDisplayComponent } from './options-on-side-display/options-on-side-display.component';
-import {MatRadioModule} from "@angular/material/radio";
-import { DisplayUserInformationComponent } from './display-user-information/display-user-information.component';
+import { DecimalPipe } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { NgxPaginationModule, PaginatePipe } from 'ngx-pagination';
+import { ProductTypesModule } from '../product-types/product-types.module';
 import { DeliveryInformationFormComponent } from './delivery-information-form/delivery-information-form.component';
+import { DisplayUserInformationComponent } from './display-user-information/display-user-information.component';
+import { OptionsOnSideDisplayComponent } from './options-on-side-display/options-on-side-display.component';
+import { ProductAsCardBaseComponent } from './product-as-card-base/product-as-card-base.component';
+import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { DeliveryInformationFormComponent } from './delivery-information-form/de
     ProgressSpinnerComponent,
     OptionsOnSideDisplayComponent,
     DisplayUserInformationComponent,
-    DeliveryInformationFormComponent
+    DeliveryInformationFormComponent,
   ],
   imports: [
     ProductTypesModule,
@@ -59,7 +59,7 @@ import { DeliveryInformationFormComponent } from './delivery-information-form/de
     MatDividerModule,
     NgxPaginationModule,
     MatProgressSpinnerModule,
-    MatRadioModule
+    MatRadioModule,
   ],
   providers: [PaginatePipe, DecimalPipe],
   exports: [
@@ -67,10 +67,8 @@ import { DeliveryInformationFormComponent } from './delivery-information-form/de
     ProgressSpinnerComponent,
     OptionsOnSideDisplayComponent,
     DisplayUserInformationComponent,
-    DeliveryInformationFormComponent
+    DeliveryInformationFormComponent,
   ],
-  bootstrap: [ProductAsCardBaseComponent]
+  bootstrap: [ProductAsCardBaseComponent],
 })
-
-export class SharedModule {
-}
+export class SharedModule {}

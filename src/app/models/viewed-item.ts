@@ -6,6 +6,6 @@ export type ViewedItem = {
   itemCode: string;
   itemPrice: number;
   delivery: boolean;
-  withdrawal:boolean;
+  withdrawal: boolean;
   userId: string | undefined;
-}
+};

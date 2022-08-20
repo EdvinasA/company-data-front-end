@@ -1,23 +1,25 @@
-import {Injectable} from '@angular/core';
-import {ApiGatewayService} from "./api-gateway.service";
-import {BehaviorSubject, Observable, Subscription} from "rxjs";
-import {WishlistCreate, WishlistItem, WishlistProfiles} from "../models/wishlist";
-import {catchError, finalize} from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
+import {
+  WishlistCreate,
+  WishlistItem,
+  WishlistProfiles,
+} from '../models/wishlist';
+import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WishlistService {
-
-  constructor(private http: ApiGatewayService) {
-  }
+  constructor(private http: ApiGatewayService) {}
 
   public wishlistProfilesList: WishlistProfiles[] = [];
   private profilesList = new BehaviorSubject(this.wishlistProfilesList);
   currentProfilesList = this.profilesList;
 
   createWishlist(userId: string | undefined, input: WishlistCreate) {
-    this.http.post(`/wishlist/${userId}`, input).subscribe(id => {
+    this.http.post(`/wishlist/${userId}`, input).subscribe((id) => {
       if (id != undefined) {
         this.addPortfolioToList(id, input.name, userId);
       }
@@ -30,21 +32,27 @@ export class WishlistService {
 
   getWishlist(userId: string): Subscription {
     return this.http
-    .get<WishlistProfiles[]>(`/wishlist/${userId}`)
-    .pipe(
-      catchError((err) => {
-        throw err.message();
-      }),
-      finalize(() => {
-        this.profilesList.next(this.wishlistProfilesList);
-      }),
-    ).subscribe((response) => {
-      this.wishlistProfilesList = response;
-    });
+      .get<WishlistProfiles[]>(`/wishlist/${userId}`)
+      .pipe(
+        catchError((err) => {
+          throw err.message();
+        }),
+        finalize(() => {
+          this.profilesList.next(this.wishlistProfilesList);
+        })
+      )
+      .subscribe((response) => {
+        this.wishlistProfilesList = response;
+      });
   }
 
-  getWishlistItems(userId: string | undefined, wishlistProfileId: string): Observable<WishlistItem[]> {
-    return this.http.get<WishlistItem[]>(`/wishlist/${userId}/item/${wishlistProfileId}`);
+  getWishlistItems(
+    userId: string | undefined,
+    wishlistProfileId: string
+  ): Observable<WishlistItem[]> {
+    return this.http.get<WishlistItem[]>(
+      `/wishlist/${userId}/item/${wishlistProfileId}`
+    );
   }
 
   deleteWishlistItem(userId: string | undefined, wishlistItemId: string) {
@@ -52,27 +60,32 @@ export class WishlistService {
   }
 
   deleteWishlistProfile(userId: string | undefined, wishlistProfileId: string) {
-    return this.http.delete(`/wishlist/${userId}/${wishlistProfileId}`).subscribe(() => {
-      this.deletePortfolioFromList(wishlistProfileId);
-    });
+    return this.http
+      .delete(`/wishlist/${userId}/${wishlistProfileId}`)
+      .subscribe(() => {
+        this.deletePortfolioFromList(wishlistProfileId);
+      });
   }
 
-  private addPortfolioToList(id: unknown, name: string, userId: string | undefined) {
+  private addPortfolioToList(
+    id: unknown,
+    name: string,
+    userId: string | undefined
+  ) {
     let profile: WishlistProfiles = {
       id: id,
       name: name,
       items: [],
-      userId: userId
-    }
+      userId: userId,
+    };
     this.wishlistProfilesList.push(profile);
     this.profilesList.next(this.wishlistProfilesList);
   }
 
   private deletePortfolioFromList(id: string) {
-    this.wishlistProfilesList = this.wishlistProfilesList.filter(profile => {
+    this.wishlistProfilesList = this.wishlistProfilesList.filter((profile) => {
       return profile.id !== id;
-    })
+    });
     this.profilesList.next(this.wishlistProfilesList);
   }
-
 }

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductToCartDialogComponent } from './product-to-cart-dialog.component';
 
 describe('ProductToCartDialogComponent', () => {
@@ -8,9 +7,8 @@ describe('ProductToCartDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductToCartDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [ProductToCartDialogComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,41 +1,43 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProductsService} from "../../services/products.service";
-import {Page} from "../../models/page";
-import {Subscription} from "rxjs";
-import {User} from "../../models/user";
-import {UserService} from "../../services/user.service";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Page } from '../../models/page';
+import { User } from '../../models/user';
+import { ProductsService } from '../../services/products.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
-
   user!: User | null;
   itemsPage!: Page | null;
   subscription!: Subscription;
-  selectedOption = "popular";
-  defaultProductDisplay = "blocks";
-  selectedPageAmount = "8";
+  selectedOption = 'popular';
+  defaultProductDisplay = 'blocks';
+  selectedPageAmount = '8';
   selectedView = false;
   page = 0;
   isLoading: boolean = true;
 
-  constructor(private productsService: ProductsService,
-              private userService: UserService) {
-  }
+  constructor(
+    private productsService: ProductsService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.userService.userSubject.asObservable().subscribe(data => {
+    this.userService.userSubject.asObservable().subscribe((data) => {
       this.user = data;
-    })
-    this.subscription = this.productsService
-    .getPagedListOfLaptops(this.selectedPageAmount, this.page)
-    this.productsService.pageSubject.asObservable().subscribe(page => {
+    });
+    this.subscription = this.productsService.getPagedListOfLaptops(
+      this.selectedPageAmount,
+      this.page
+    );
+    this.productsService.pageSubject.asObservable().subscribe((page) => {
       this.itemsPage = page;
       this.isLoading = false;
-    })
+    });
   }
 
   changeSizeOfPage(event: string) {
@@ -49,11 +51,13 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   }
 
   request(page: number, size: string) {
-    this.subscription = this.productsService
-    .getPagedListOfLaptops(size, (page - 1));
-    this.productsService.pageSubject.asObservable().subscribe(page => {
+    this.subscription = this.productsService.getPagedListOfLaptops(
+      size,
+      page - 1
+    );
+    this.productsService.pageSubject.asObservable().subscribe((page) => {
       this.itemsPage = page;
-    })
+    });
   }
 
   ngOnDestroy(): void {
@@ -73,9 +77,14 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   getFirstAmountOfResultValues() {
     if (this.itemsPage != undefined) {
       if (this.itemsPage?.last) {
-        return this.itemsPage?.totalElements - this.itemsPage?.numberOfElements + 1;
+        return (
+          this.itemsPage?.totalElements - this.itemsPage?.numberOfElements + 1
+        );
       }
-      return ((this.getCurrentPage() * this.itemsPage?.numberOfElements) - (this.itemsPage?.numberOfElements - 1));
+      return (
+        this.getCurrentPage() * this.itemsPage?.numberOfElements -
+        (this.itemsPage?.numberOfElements - 1)
+      );
     }
     return 0;
   }
@@ -87,4 +96,3 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     return this.page;
   }
 }
-

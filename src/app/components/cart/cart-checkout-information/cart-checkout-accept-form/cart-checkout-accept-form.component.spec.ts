@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CartCheckoutAcceptFormComponent } from './cart-checkout-accept-form.component';
 
 describe('CartCheckoutAcceptFormComponent', () => {
@@ -8,9 +7,8 @@ describe('CartCheckoutAcceptFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CartCheckoutAcceptFormComponent ]
-    })
-    .compileComponents();
+      declarations: [CartCheckoutAcceptFormComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

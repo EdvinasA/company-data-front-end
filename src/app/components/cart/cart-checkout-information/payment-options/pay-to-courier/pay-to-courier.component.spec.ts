@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PayToCourierComponent } from './pay-to-courier.component';
 
 describe('PayToCourierComponent', () => {
@@ -8,9 +7,8 @@ describe('PayToCourierComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PayToCourierComponent ]
-    })
-    .compileComponents();
+      declarations: [PayToCourierComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

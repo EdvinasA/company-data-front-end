@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-menu',
   templateUrl: './profile-menu.component.html',
-  styleUrls: ['./profile-menu.component.scss']
+  styleUrls: ['./profile-menu.component.scss'],
 })
 export class ProfileMenuComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   changePage(route: string) {
-    this.router.navigateByUrl(route)
+    this.router.navigateByUrl(route);
   }
 }

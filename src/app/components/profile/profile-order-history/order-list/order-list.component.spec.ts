@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { OrderListComponent } from './order-list.component';
 
 describe('OrderListComponent', () => {
@@ -8,9 +7,8 @@ describe('OrderListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderListComponent ]
-    })
-    .compileComponents();
+      declarations: [OrderListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

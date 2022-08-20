@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { CheckoutService } from './checkout.service';
 
 describe('CheckoutService', () => {

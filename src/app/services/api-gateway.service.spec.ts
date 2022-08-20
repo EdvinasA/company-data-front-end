@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ApiGatewayService } from './api-gateway.service';
 
 describe('ApiGatewayService', () => {

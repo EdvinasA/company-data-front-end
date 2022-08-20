@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CartCheckoutHeaderComponent } from './cart-checkout-header.component';
 
 describe('CartCheckoutHeaderComponent', () => {
@@ -8,9 +7,8 @@ describe('CartCheckoutHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CartCheckoutHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [CartCheckoutHeaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

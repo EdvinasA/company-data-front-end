@@ -1,14 +1,12 @@
-import {Injectable} from '@angular/core';
-import {ApiGatewayService} from "./api-gateway.service";
-import {Country} from "../models/country";
+import { Injectable } from '@angular/core';
+import { Country } from '../models/country';
+import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CheckoutService {
-
-  constructor(public http: ApiGatewayService) {
-  }
+  constructor(public http: ApiGatewayService) {}
 
   getCountries() {
     return this.http.get<Country[]>(`/shop/countries`);

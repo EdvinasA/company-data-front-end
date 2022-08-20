@@ -1,19 +1,18 @@
-import {Injectable} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {Register} from "../models/register";
-import {Login} from "../models/login";
-import {WishlistCreate, WishlistItem} from "../models/wishlist";
-import {DeliveryInformation, SubscriptionDetails, User, UserUpdateInput} from "../models/user";
-import {CartItem} from "../models/cart";
-import {Laptop} from "../models/laptop";
-import {ViewedItem} from "../models/viewed-item";
+import { Injectable } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CartItem } from '../models/cart';
+import { Laptop } from '../models/laptop';
+import { Login } from '../models/login';
+import { Register } from '../models/register';
+import { DeliveryInformation, User, UserUpdateInput } from '../models/user';
+import { ViewedItem } from '../models/viewed-item';
+import { WishlistCreate, WishlistItem } from '../models/wishlist';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConverterService {
-
-  constructor() { }
+  constructor() {}
 
   public convertRegisterFormToBody(registerForm: FormGroup) {
     let registerBody: Register = {
@@ -37,7 +36,7 @@ export class ConverterService {
 
   public convertToWishlistBody(name: FormControl) {
     let body: WishlistCreate = {
-      name: name.value
+      name: name.value,
     };
 
     return body;
@@ -51,7 +50,7 @@ export class ConverterService {
       password: user.password,
       subscriptionDetails: user.subscriptionDetails,
       role: user.role,
-      deliveryInformation: user.deliveryInformation
+      deliveryInformation: user.deliveryInformation,
     };
 
     return input;
@@ -66,13 +65,18 @@ export class ConverterService {
       itemQuantity: 1,
       itemPrice: item.itemPrice,
       itemInsurance: false,
-      itemWarranty: false
+      itemWarranty: false,
     };
 
     return cartItem;
   }
 
-  public convertToCartItemFromProduct(item: Laptop, quantity: number, insurance: boolean, warranty: boolean) {
+  public convertToCartItemFromProduct(
+    item: Laptop,
+    quantity: number,
+    insurance: boolean,
+    warranty: boolean
+  ) {
     let cartItem: CartItem = {
       itemId: item.id,
       picture: item.picture,
@@ -81,13 +85,16 @@ export class ConverterService {
       itemQuantity: quantity,
       itemPrice: item.price,
       itemInsurance: insurance,
-      itemWarranty: warranty
+      itemWarranty: warranty,
     };
 
     return cartItem;
   }
 
-  public convertToWishlistItemFromProduct(item: Laptop, portfolioId: string | unknown) {
+  public convertToWishlistItemFromProduct(
+    item: Laptop,
+    portfolioId: string | unknown
+  ) {
     let wishlistItem: WishlistItem = {
       id: '',
       itemId: item.id,
@@ -96,7 +103,7 @@ export class ConverterService {
       itemPrice: item.price,
       itemName: item.name,
       wishListProfileId: portfolioId,
-    }
+    };
 
     return wishlistItem;
   }
@@ -110,7 +117,7 @@ export class ConverterService {
       itemQuantity: 1,
       itemPrice: item.itemPrice,
       itemInsurance: false,
-      itemWarranty: false
+      itemWarranty: false,
     };
 
     return cartItem;

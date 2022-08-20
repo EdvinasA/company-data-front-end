@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { HttpParamsService } from './http-params.service';
 
 describe('HttpParamsService', () => {

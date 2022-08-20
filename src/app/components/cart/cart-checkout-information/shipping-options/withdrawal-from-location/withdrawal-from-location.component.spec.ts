@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WithdrawalFromLocationComponent } from './withdrawal-from-location.component';
 
 describe('WithdrawalFromLocationComponent', () => {
@@ -8,9 +7,8 @@ describe('WithdrawalFromLocationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WithdrawalFromLocationComponent ]
-    })
-    .compileComponents();
+      declarations: [WithdrawalFromLocationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

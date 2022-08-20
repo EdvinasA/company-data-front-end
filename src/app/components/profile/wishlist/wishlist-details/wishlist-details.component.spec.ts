@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WishlistDetailsComponent } from './wishlist-details.component';
 
 describe('WishlistDetailsComponent', () => {
@@ -8,9 +7,8 @@ describe('WishlistDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WishlistDetailsComponent ]
-    })
-    .compileComponents();
+      declarations: [WishlistDetailsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

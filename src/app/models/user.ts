@@ -12,38 +12,38 @@ export class User {
 }
 
 export type SubscriptionDetails = {
-  id: number,
-  receiveEmails: boolean,
-  receiveEmailsDate: string,
-  receiveEmailsAboutLookedItems: boolean,
-  receiveEmailsAboutLookedItemsDate: string,
-  receiveEmailsAboutGivingFeedback: boolean,
-  receiveEmailsAboutGivingFeedbackDate: string,
-  receiveEmailsAboutServiceQuality: boolean,
-  receiveEmailsAboutServiceQualityDate: string,
-}
+  id: number;
+  receiveEmails: boolean;
+  receiveEmailsDate: string;
+  receiveEmailsAboutLookedItems: boolean;
+  receiveEmailsAboutLookedItemsDate: string;
+  receiveEmailsAboutGivingFeedback: boolean;
+  receiveEmailsAboutGivingFeedbackDate: string;
+  receiveEmailsAboutServiceQuality: boolean;
+  receiveEmailsAboutServiceQualityDate: string;
+};
 
 export type UserUpdateInput = {
-  id: string | undefined,
-  name: string | undefined,
-  lastName: string | undefined,
-  password: string | undefined,
-  subscriptionDetails: SubscriptionDetails | undefined,
-  role: string[] | undefined,
-  deliveryInformation: DeliveryInformation[] | undefined,
-}
+  id: string | undefined;
+  name: string | undefined;
+  lastName: string | undefined;
+  password: string | undefined;
+  subscriptionDetails: SubscriptionDetails | undefined;
+  role: string[] | undefined;
+  deliveryInformation: DeliveryInformation[] | undefined;
+};
 
 export type DeliveryInformation = {
-  id: number,
-  firstName: string,
-  lastName: string,
-  phoneNumber: string,
-  address: string,
-  city: string,
-  postalCode: string,
-  companyCode: string,
-  companyName: string,
-  companyPVMCode: string,
-  companyAddress: string,
-  isBeingEdited: boolean,
-}
+  id: number;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  address: string;
+  city: string;
+  postalCode: string;
+  companyCode: string;
+  companyName: string;
+  companyPVMCode: string;
+  companyAddress: string;
+  isBeingEdited: boolean;
+};

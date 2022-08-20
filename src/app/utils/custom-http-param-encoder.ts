@@ -1,5 +1,4 @@
-import {HttpParameterCodec} from "@angular/common/http";
-
+import { HttpParameterCodec } from '@angular/common/http';
 
 export class CustomHttpParamEncoder implements HttpParameterCodec {
   decodeKey(key: string): string {
@@ -17,5 +16,4 @@ export class CustomHttpParamEncoder implements HttpParameterCodec {
   encodeValue(value: string): string {
     return encodeURIComponent(value);
   }
-
 }

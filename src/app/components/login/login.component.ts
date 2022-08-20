@@ -1,27 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { UserService } from "../../services/user.service";
-import {ConverterService} from "../../services/converter.service";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ConverterService } from '../../services/converter.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   public hide = true;
   public loginForm = new FormGroup({
-    email: new FormControl('asda@gmail.com', [Validators.required, Validators.email]),
+    email: new FormControl('asda@gmail.com', [
+      Validators.required,
+      Validators.email,
+    ]),
     password: new FormControl('asd', [Validators.required]),
   });
 
-  constructor(private router: Router,
-              private userService: UserService,
-              private converter: ConverterService) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private converter: ConverterService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   submitLoginForm(loginForm: FormGroup) {
     this.userService.login(this.converter.convertLoginFormToBody(loginForm));
@@ -35,5 +39,4 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
-
 }

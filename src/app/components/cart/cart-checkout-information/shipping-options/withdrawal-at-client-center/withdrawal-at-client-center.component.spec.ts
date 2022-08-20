@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WithdrawalAtClientCenterComponent } from './withdrawal-at-client-center.component';
 
 describe('WithdrawalAtClientCenterComponent', () => {
@@ -8,9 +7,8 @@ describe('WithdrawalAtClientCenterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WithdrawalAtClientCenterComponent ]
-    })
-    .compileComponents();
+      declarations: [WithdrawalAtClientCenterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

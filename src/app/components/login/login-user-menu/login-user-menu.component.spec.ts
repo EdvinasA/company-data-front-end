@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginUserMenuComponent } from './login-user-menu.component';
 
 describe('LoginUserMenuComponent', () => {
@@ -8,9 +7,8 @@ describe('LoginUserMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginUserMenuComponent ]
-    })
-    .compileComponents();
+      declarations: [LoginUserMenuComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

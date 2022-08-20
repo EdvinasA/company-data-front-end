@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProfileOrderHistoryComponent } from './profile-order-history.component';
 
 describe('ProfileOrderHistoryComponent', () => {
@@ -8,9 +7,8 @@ describe('ProfileOrderHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileOrderHistoryComponent ]
-    })
-    .compileComponents();
+      declarations: [ProfileOrderHistoryComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

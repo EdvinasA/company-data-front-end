@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ThemePalette} from "@angular/material/core";
-import {User} from "../../../models/user";
-import {UserService} from "../../../services/user.service";
-import {ConverterService} from "../../../services/converter.service";
-import {MatSlideToggleChange} from "@angular/material/slide-toggle/slide-toggle";
-import {formatDate} from "@angular/common";
+import { formatDate } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle/slide-toggle';
+import { User } from '../../../models/user';
+import { ConverterService } from '../../../services/converter.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-subscriptions',
@@ -12,48 +12,62 @@ import {formatDate} from "@angular/common";
   styleUrls: ['./subscriptions.component.scss'],
 })
 export class SubscriptionsComponent implements OnInit {
-
   isLoading: boolean = true;
   color: ThemePalette = 'primary';
   user!: User;
 
-  constructor(private userService: UserService,
-              private converterService: ConverterService) {
-  }
+  constructor(
+    private userService: UserService,
+    private converterService: ConverterService
+  ) {}
 
   ngOnInit(): void {
-    this.userService.userSubject.asObservable().subscribe(user => {
+    this.userService.userSubject.asObservable().subscribe((user) => {
       if (user != null) {
         this.user = user;
         this.isLoading = false;
       }
-    })
+    });
   }
 
   updateSubscriptionReceiveEmails(event: MatSlideToggleChange) {
     this.user!.subscriptionDetails!.receiveEmails = event.checked;
-    this.user!.subscriptionDetails!.receiveEmailsDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.user!.subscriptionDetails!.receiveEmailsDate = formatDate(
+      new Date(),
+      'yyyy-MM-dd',
+      'en'
+    );
 
     this.updateRequest();
   }
 
   updateSubscriptionReceiveEmailsAboutLookedItems(event: MatSlideToggleChange) {
-    this.user!.subscriptionDetails!.receiveEmailsAboutLookedItems = event.checked;
-    this.user!.subscriptionDetails!.receiveEmailsAboutLookedItemsDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.user!.subscriptionDetails!.receiveEmailsAboutLookedItems =
+      event.checked;
+    this.user!.subscriptionDetails!.receiveEmailsAboutLookedItemsDate =
+      formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
     this.updateRequest();
   }
 
-  updateSubscriptionReceiveEmailsAboutServiceQuality(event: MatSlideToggleChange) {
-    this.user!.subscriptionDetails!.receiveEmailsAboutServiceQuality = event.checked;
-    this.user!.subscriptionDetails!.receiveEmailsAboutServiceQualityDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+  updateSubscriptionReceiveEmailsAboutServiceQuality(
+    event: MatSlideToggleChange
+  ) {
+    this.user!.subscriptionDetails!.receiveEmailsAboutServiceQuality =
+      event.checked;
+    this.user!.subscriptionDetails!.receiveEmailsAboutServiceQualityDate =
+      formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
     this.updateRequest();
   }
 
-  updateSubscriptionReceiveEmailsAboutGivingFeedback(event: MatSlideToggleChange) {
-    this.user!.subscriptionDetails!.receiveEmailsAboutGivingFeedback = event.checked;
-    this.user!.subscriptionDetails!.receiveEmailsAboutGivingFeedbackDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+  updateSubscriptionReceiveEmailsAboutGivingFeedback(
+    event: MatSlideToggleChange
+  ) {
+    this.user!.subscriptionDetails!.receiveEmailsAboutGivingFeedback =
+      event.checked;
+    this.user!.subscriptionDetails!.receiveEmailsAboutGivingFeedbackDate =
+      formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
     this.updateRequest();
   }
@@ -61,10 +75,11 @@ export class SubscriptionsComponent implements OnInit {
   updateRequest() {
     if (this.user != null) {
       console.log(this.user.deliveryInformation);
-      this.userService.updateUser(this.converterService.convertToUpdateUserInput(this.user)).subscribe(user => {
-        this.user = user;
-      });
+      this.userService
+        .updateUser(this.converterService.convertToUpdateUserInput(this.user))
+        .subscribe((user) => {
+          this.user = user;
+        });
     }
   }
-
 }

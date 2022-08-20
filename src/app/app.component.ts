@@ -1,48 +1,46 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {UserService} from "./services/user.service";
-import {User} from "./models/user";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from './models/user';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Shop';
   isUserLoggedIn: boolean = false;
   user!: User | null;
   token: string | undefined | null = localStorage.getItem('token');
 
-  constructor(private router: Router,
-              private userService: UserService) {
-  }
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     if (this.token != null || this.token != undefined) {
-      this.userService.userWasLoaded.asObservable().subscribe(data => {
+      this.userService.userWasLoaded.asObservable().subscribe((data) => {
         this.isUserLoggedIn = data;
       });
-      this.userService.userSubject.asObservable().subscribe(user => {
+      this.userService.userSubject.asObservable().subscribe((user) => {
         this.user = user;
-      })
+      });
     }
   }
 
   isCorrectProfilePath() {
-    if (this.router.url === "/profile") {
+    if (this.router.url === '/profile') {
       return true;
     }
-    if (this.router.url.includes("/orders")) {
+    if (this.router.url.includes('/orders')) {
       return true;
     }
-    if (this.router.url.includes("/wishlist")) {
+    if (this.router.url.includes('/wishlist')) {
       return true;
     }
-    if (this.router.url === "/viewed-items") {
+    if (this.router.url === '/viewed-items') {
       return true;
     }
-    if (this.router.url === "/subscriptions") {
+    if (this.router.url === '/subscriptions') {
       return true;
     }
     return false;
@@ -54,6 +52,4 @@ export class AppComponent implements OnInit{
     }
     return true;
   }
-
-
 }

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DeliveryToHomeComponent } from './delivery-to-home.component';
 
 describe('DeliveryToHomeComponent', () => {
@@ -8,9 +7,8 @@ describe('DeliveryToHomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeliveryToHomeComponent ]
-    })
-    .compileComponents();
+      declarations: [DeliveryToHomeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CartCheckoutInformationComponent } from './cart-checkout-information.component';
 
 describe('CartCheckoutInformationComponent', () => {
@@ -8,9 +7,8 @@ describe('CartCheckoutInformationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CartCheckoutInformationComponent ]
-    })
-    .compileComponents();
+      declarations: [CartCheckoutInformationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

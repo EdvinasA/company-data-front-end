@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginPopoverComponent } from './login-popover.component';
 
 describe('LoginPopoverComponent', () => {
@@ -8,9 +7,8 @@ describe('LoginPopoverComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginPopoverComponent ]
-    })
-    .compileComponents();
+      declarations: [LoginPopoverComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

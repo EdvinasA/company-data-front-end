@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-profile-order-history',
   templateUrl: './profile-order-history.component.html',
-  styleUrls: ['./profile-order-history.component.scss']
+  styleUrls: ['./profile-order-history.component.scss'],
 })
 export class ProfileOrderHistoryComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

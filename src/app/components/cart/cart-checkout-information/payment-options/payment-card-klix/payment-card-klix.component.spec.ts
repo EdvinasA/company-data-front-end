@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PaymentCardKlixComponent } from './payment-card-klix.component';
 
 describe('PaymentCardKlixComponent', () => {
@@ -8,9 +7,8 @@ describe('PaymentCardKlixComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaymentCardKlixComponent ]
-    })
-    .compileComponents();
+      declarations: [PaymentCardKlixComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoriesService} from "../../services/categories.service";
-import {Category} from "../../models/category";
+import { Category } from '../../models/category';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
+  categories!: Category;
 
-  categories!: Category
-
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    this.categoriesService.getCategories().subscribe(categories => {
+    this.categoriesService.getCategories().subscribe((categories) => {
       this.categories = categories;
-    })
+    });
   }
-
 }

@@ -1,9 +1,9 @@
 export type WishlistProfiles = {
-  id:string | unknown;
-  name:string;
+  id: string | unknown;
+  name: string;
   items: WishlistItem[];
   userId: string | undefined;
-}
+};
 
 export type WishlistItem = {
   id: string;
@@ -13,8 +13,8 @@ export type WishlistItem = {
   itemPicture: string;
   itemPrice: number;
   wishListProfileId: string | unknown;
-}
+};
 
 export type WishlistCreate = {
   name: string;
-}
+};

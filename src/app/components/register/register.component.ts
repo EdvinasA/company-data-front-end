@@ -1,29 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
-import {ConverterService} from "../../services/converter.service";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ConverterService } from '../../services/converter.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   public hide = true;
   public registerForm = new FormGroup({
-    email: new FormControl('asda@gmail.com', [Validators.required, Validators.email]),
+    email: new FormControl('asda@gmail.com', [
+      Validators.required,
+      Validators.email,
+    ]),
     name: new FormControl('Edvinas', [Validators.required]),
     lastName: new FormControl('Alimas', [Validators.required]),
     password: new FormControl('asd', [Validators.required]),
   });
 
-  constructor(private router: Router,
-              private userService: UserService,
-              private converter: ConverterService) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private converter: ConverterService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   submitRegisterForm(registerForm: FormGroup) {
     let registerBody = this.converter.convertRegisterFormToBody(registerForm);
@@ -42,5 +46,4 @@ export class RegisterComponent implements OnInit {
   get password() {
     return this.registerForm.get('password');
   }
-
 }

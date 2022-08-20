@@ -1,20 +1,18 @@
-import {Injectable} from '@angular/core';
-import {ApiGatewayService} from "./api-gateway.service";
-import {ViewedItem} from "../models/viewed-item";
+import { Injectable } from '@angular/core';
+import { ViewedItem } from '../models/viewed-item';
+import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ViewedItemsService {
-
-  constructor(private http: ApiGatewayService) {
-  }
+  constructor(private http: ApiGatewayService) {}
 
   createViewedItem(body: ViewedItem, userId: string | undefined) {
     return this.http.post<ViewedItem>(`/viewed-item/${userId}`, body);
   }
 
   getViewedItemsByUserId(userId: string | undefined) {
-    return this.http.get<ViewedItem[]>(`/viewed-item/${userId}`)
+    return this.http.get<ViewedItem[]>(`/viewed-item/${userId}`);
   }
 }

@@ -4,13 +4,13 @@ export class Page {
     sort?: {
       empty?: boolean;
       sorted?: boolean;
-      unsorted?: boolean
+      unsorted?: boolean;
     };
     offset?: number;
     pageNumber?: number;
     pageSize?: number;
     paged?: boolean;
-    unpaged?: boolean
+    unpaged?: boolean;
   };
   last!: boolean;
   totalElements!: number;
@@ -20,9 +20,9 @@ export class Page {
   sort!: {
     empty?: boolean;
     sorted?: boolean;
-    unsorted?: boolean
+    unsorted?: boolean;
   };
   first!: boolean;
   numberOfElements!: number;
-  empty!: boolean
+  empty!: boolean;
 }

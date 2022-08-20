@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import {ApiGatewayService} from "./api-gateway.service";
-import {Order} from "../models/order";
-import {CartItem} from "../models/cart";
+import { CartItem } from '../models/cart';
+import { Order } from '../models/order';
+import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
-
-  constructor(private http: ApiGatewayService) { }
+  constructor(private http: ApiGatewayService) {}
 
   createOrder(input: CartItem[], userId: string | undefined) {
     return this.http.post<CartItem[]>(`/order/${userId}`, input);

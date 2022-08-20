@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ViewedItemsService } from './viewed-items.service';
 
 describe('ViewedItemsService', () => {

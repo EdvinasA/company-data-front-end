@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import {ApiGatewayService} from "./api-gateway.service";
-import {Observable} from "rxjs";
-import {Category} from "../models/category";
+import { Observable } from 'rxjs';
+import { Category } from '../models/category';
+import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoriesService {
-
-  constructor(private http: ApiGatewayService) { }
+  constructor(private http: ApiGatewayService) {}
 
   getCategories(): Observable<Category> {
-    return this.http.get<Category>("/shop/categories")
+    return this.http.get<Category>('/shop/categories');
   }
 }

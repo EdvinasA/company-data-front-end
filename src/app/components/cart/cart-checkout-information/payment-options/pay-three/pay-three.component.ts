@@ -1,24 +1,22 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormGroup} from "@angular/forms";
-import {DeliveryInformation, User} from "../../../../../models/user";
-import {UserService} from "../../../../../services/user.service";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { DeliveryInformation } from '../../../../../models/user';
 
 @Component({
   selector: 'app-pay-three',
   templateUrl: './pay-three.component.html',
-  styleUrls: ['./pay-three.component.scss']
+  styleUrls: ['./pay-three.component.scss'],
 })
 export class PayThreeComponent implements OnInit {
-
   @Input() totalSum: number = 0;
   @Input() public paymentForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
-  @Output() public selectedDeliveryInformation = new EventEmitter<DeliveryInformation>();
+  @Output() public selectedDeliveryInformation =
+    new EventEmitter<DeliveryInformation>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleSelectedDeliveryInformation(input: DeliveryInformation) {
     this.selectedDeliveryInformation.emit(input);
