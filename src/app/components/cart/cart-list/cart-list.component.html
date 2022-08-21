@@ -56,7 +56,7 @@
       </button>
     </div>
     <div class="total">
-      <p><strong>{{item.itemQuantity * item.itemPrice + totalOfItemWithInsurance(item) + totalOfItemWithWarranty(item) | number : '1.2-2'}} €</strong></p>
+      <p><strong>{{getTotalAmount(item) | number : '1.2-2'}} €</strong></p>
     </div>
   </div>
   <div class="warranty">
