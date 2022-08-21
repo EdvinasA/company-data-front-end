@@ -1,3 +1,5 @@
+import { CartItem } from './cart';
+
 export type OrderedItems = {
   itemId: string;
   orderId: string;
@@ -20,4 +22,17 @@ export type Order = {
   totalPrice: number;
   orderUpdate: string;
   status: string;
+};
+
+export type OrderInput = {
+  userId: string;
+  deliveryAddress: string;
+  withdrawalLocation: string;
+  wantedDeliveryTime: string;
+  deliveryOption: string;
+  paymentMethod: string;
+  totalPrice: number;
+  appliedDiscountAmount: number;
+  deliveryPrice: number;
+  orderedItems: CartItem[];
 };

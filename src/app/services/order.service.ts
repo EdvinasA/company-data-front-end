@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cart';
-import { Order } from '../models/order';
+import { Order, OrderInput } from '../models/order';
 import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { ApiGatewayService } from './api-gateway.service';
 export class OrderService {
   constructor(private http: ApiGatewayService) {}
 
-  createOrder(input: CartItem[], userId: string | undefined) {
+  createOrder(input: OrderInput, userId: string | undefined) {
     return this.http.post<CartItem[]>(`/order/${userId}`, input);
   }
 

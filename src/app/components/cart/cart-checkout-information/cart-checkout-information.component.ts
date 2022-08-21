@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Cart } from '../../../models/cart';
+import { OrderInput } from '../../../models/order';
 import { DeliveryInformation, User } from '../../../models/user';
 import { CartService } from '../../../services/cart.service';
-import { DiscountService } from '../../../services/discount.service';
+import { OrderService } from '../../../services/order.service';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -39,17 +40,17 @@ export class CartCheckoutInformationComponent implements OnInit {
     {
       optionName: 'Order to set address',
       description: 'Delivery cost 3,99 €. Deliver in 2 work days.',
-      optionValue: 'toHome',
+      optionValue: 'TO_HOME',
     },
     {
       optionName: 'Withdrawal at client center',
       description: 'Items for withdrawal will be prepared in 1 work day.',
-      optionValue: 'withdrawal',
+      optionValue: 'WITHDRAWAL',
     },
     {
       optionName: 'Withdrawal from selected box locations',
       description: 'Items can be withdraw in two days',
-      optionValue: 'withdrawalFromLocation',
+      optionValue: 'WITHDRAWAL_FROM_LOCATION',
     },
   ];
   public paymentOptions = [
@@ -57,41 +58,41 @@ export class CartCheckoutInformationComponent implements OnInit {
       optionName: 'Bank',
       description:
         'Simply connect to your bank account system and confirm automatically formed payment for the items.',
-      optionValue: 'bank',
+      optionValue: 'BANK',
     },
     {
       optionName: 'Payment card (Klix)',
       description:
         'Correct amount will be deducted from the given card. Only confirmation of payment is needed.',
-      optionValue: 'klix',
+      optionValue: 'PAYMENT_CARD_KLIX',
     },
     {
       optionName: 'Pay 3',
       description:
         'Fill out documents needed to make payments with Pay 3 in 3 months.',
-      optionValue: 'pay3',
+      optionValue: 'PAY_3',
     },
     {
       optionName: 'Pay on withdrawal',
       description:
         'When you withdraw items from courier you can make payment with credit card if amount does not exceed 1000 Eur.',
-      optionValue: 'withdrawalPayment',
+      optionValue: 'WITHDRAWAL_PAYMENT',
     },
   ];
   public isDiscountApplied: boolean = false;
   public cart!: Cart;
   public selectedDeliveryInformation!: DeliveryInformation;
   public totalSumOfAllItemsSubject: number = 0;
-  public shippingOption: string = 'toHome';
-  public paymentOption: string = 'bank';
+  public shippingOption: string = 'TO_HOME';
+  public paymentOption: string = 'Bank';
   public pickupOption: string = 'dpd';
-  public user: User | null = new User();
+  public user!: User | null;
   public isLoading: boolean = true;
 
   constructor(
     private cartService: CartService,
     private userService: UserService,
-    private discountService: DiscountService
+    private orderService: OrderService
   ) {}
 
   ngOnInit(): void {
@@ -145,13 +146,13 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   getDeliveryForm() {
     this.updateForm();
-    if (this.shippingOption === 'toHome') {
+    if (this.shippingOption === 'TO_HOME') {
       return this.deliveryToHomeForm;
     }
-    if (this.shippingOption === 'withdrawal') {
+    if (this.shippingOption === 'WITHDRAWAL') {
       return this.withdrawalAtClientCenterForm;
     }
-    if (this.shippingOption === 'withdrawalFromLocation') {
+    if (this.shippingOption === 'WITHDRAWAL_FROM_LOCATION') {
       return this.withdrawalFromLocationForm;
     }
     return null;
@@ -193,5 +194,23 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   handleDiscount(change: boolean) {
     this.isDiscountApplied = change;
+  }
+
+  submitOrderHandler(event: boolean) {
+    let order: OrderInput = {
+      // @ts-ignore
+      userId: this.user.id,
+      deliveryAddress: 'Geležinio Vilko g. 22-29 49272 Kaunas',
+      withdrawalLocation: '',
+      wantedDeliveryTime: '08:00–18:00',
+      deliveryOption: 'TO_HOME',
+      paymentMethod: 'BANK_SWEDBANK',
+      totalPrice: this.totalSumOfAllItemsSubject,
+      appliedDiscountAmount: 10,
+      deliveryPrice: this.deliveryCost(),
+      orderedItems: this.cart.cartItems,
+    };
+
+    this.orderService.createOrder(order, this.user?.id).subscribe();
   }
 }

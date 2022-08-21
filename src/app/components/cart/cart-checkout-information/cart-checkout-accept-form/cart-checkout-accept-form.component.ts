@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,12 +8,13 @@ import { FormGroup } from '@angular/forms';
 })
 export class CartCheckoutAcceptFormComponent implements OnInit {
   @Input() formGroup!: FormGroup;
+  @Output() onChange = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onFormSubmit() {
-    console.log(this.formGroup.value);
+    this.onChange.emit(true);
   }
 }

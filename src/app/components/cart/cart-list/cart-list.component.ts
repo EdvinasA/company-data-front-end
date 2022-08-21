@@ -100,10 +100,13 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   createOrder(item: CartItem[]) {
     this.router.navigateByUrl('/cart/shipping').then();
-    // this.orderService.createOrder(item, this.user?.id).subscribe();
   }
 
   getTotalAmount(item: CartItem) {
-    return item.itemQuantity * item.itemPrice + this.totalOfItemWithInsurance(item) + this.totalOfItemWithWarranty(item);
+    return (
+      item.itemQuantity * item.itemPrice +
+      this.totalOfItemWithInsurance(item) +
+      this.totalOfItemWithWarranty(item)
+    );
   }
 }
