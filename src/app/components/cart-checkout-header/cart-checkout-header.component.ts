@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./cart-checkout-header.component.scss'],
 })
 export class CartCheckoutHeaderComponent implements OnInit {
-  @Input() title: string = '';
+  @Input() title: string = 'a';
 
   constructor() {}
 
