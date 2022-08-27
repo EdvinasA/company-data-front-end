@@ -40,6 +40,7 @@
           </div>
           <app-cart-checkout-accept-form
             [formGroup]="getDeliveryForm()"
+            (emitCreateOrder)="submitOrderHandler()"
           ></app-cart-checkout-accept-form>
         </div>
       </div>

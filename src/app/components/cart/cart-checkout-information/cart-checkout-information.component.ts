@@ -196,7 +196,7 @@ export class CartCheckoutInformationComponent implements OnInit {
     this.isDiscountApplied = change;
   }
 
-  submitOrderHandler(event: boolean) {
+  submitOrderHandler() {
     let order: OrderInput = {
       // @ts-ignore
       userId: this.user.id,
