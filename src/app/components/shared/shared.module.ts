@@ -19,7 +19,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule, PaginatePipe } from 'ngx-pagination';
-import { ProductTypesModule } from '../product-types/product-types.module';
 import { DeliveryInformationFormComponent } from './delivery-information-form/delivery-information-form.component';
 import { DisplayUserInformationComponent } from './display-user-information/display-user-information.component';
 import { OptionsOnSideDisplayComponent } from './options-on-side-display/options-on-side-display.component';
@@ -35,7 +34,6 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
     DeliveryInformationFormComponent,
   ],
   imports: [
-    ProductTypesModule,
     BrowserModule,
     RouterModule,
     FormsModule,
