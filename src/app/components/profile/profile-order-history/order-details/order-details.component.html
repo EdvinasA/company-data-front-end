@@ -1,10 +1,10 @@
 <div class="orders-second-header">
-  <h3>Order Nr. A000251723</h3>
+  <h3>Order Nr. {{order.orderNumber}}</h3>
   <div>
-    <span>Order date: 2021-12-16</span>
+    <span>Order date: {{order.orderDate}}</span>
   </div>
   <div>
-    <span>Renewed: 2021-12-23</span>
+    <span>Renewed: {{order.orderUpdate}}</span>
   </div>
 </div>
 <div>
@@ -23,7 +23,7 @@
             </div>
             <div class="order-information">
               <div class="order-information-header">Total</div>
-              <div class="order-information-description">244,25 €</div>
+              <div class="order-information-description">{{order.totalPrice}} €</div>
             </div>
           </div>
           <div>
@@ -39,21 +39,19 @@
         <div class="order-description-container">
           <div class="order-description">
             <div class="order-amount-of-items">
-              Items: 2
+              Items: {{order.orderedItems.length}}
             </div>
             <mat-divider></mat-divider>
-            <div class="order-description-row">
+            <div class="order-description-row" *ngFor="let orderedItem of order.orderedItems">
               <div class="order-description-name-column">
-                <div class="order-product-name">Mobile phone Xiaomi Redmi Note 10 5G, gray,
-                  4GB/128GB asdasdasd asdasdasd aasdasdasda asdasdasd aadssad asd
-                </div>
-                <div class="order-product-code">Product code: 960728</div>
+                <div class="order-product-name">{{orderedItem.itemName}}</div>
+                <div class="order-product-code">Product code: {{orderedItem.itemCode}}</div>
               </div>
               <div class="order-description-other-column">
-                1 vnt.
+                {{orderedItem.itemQuantity}} vnt.
               </div>
               <div class="order-description-other-column amount">
-                244,25 €
+                {{orderedItem.itemPrice * orderedItem.itemQuantity}} €
               </div>
             </div>
           </div>
@@ -91,26 +89,25 @@
       <div class="ordered-items-list-table-header-column">Total</div>
     </div>
     <div>
-      <div class="ordered-items-list-content">
+      <div class="ordered-items-list-content" *ngFor="let orderedItem of order.orderedItems">
         <div class="ordered-items-list-content-column item inline-divs">
           <div class="ordered-item-image"><img
-            src="https://ksd-images.lt/display/aikido/cache/6efb42b4fa8b3cec78b03ae033fbe1f3.jpeg?h=742&w=816"
-            alt="picture"></div>
+            src="{{orderedItem.picture}}"
+            alt="{{orderedItem.itemName}}"></div>
           <div>
-            <div>Mobile phone Xiaomi Redmi Note 10 5G, gray,
-              4GB/128GB asdasdasd asdasdasd aasdasdasda asdasdasd aadssad asd
-            </div>
-            <div>Product code: 960728</div>
+            <div>{{orderedItem.itemName}}</div>
+            <div>Product code: {{orderedItem.itemCode}}</div>
           </div>
         </div>
-        <div class="ordered-items-list-content-column">244,25 €</div>
-        <div class="ordered-items-list-content-column">1 vnt.</div>
-        <div class="ordered-items-list-content-column"><strong>244.25 €</strong></div>
+        <div class="ordered-items-list-content-column">{{orderedItem.itemPrice}} €</div>
+        <div class="ordered-items-list-content-column">{{orderedItem.itemQuantity}} vnt.</div>
+        <div class="ordered-items-list-content-column"><strong>{{orderedItem.itemPrice * orderedItem.itemQuantity}} €</strong></div>
       </div>
       <mat-divider></mat-divider>
     </div>
     <div class="ordered-items-total">
-      <strong>Total: 263,39 €</strong>
+      <div>Delivery: 3.99 €</div>
+      <div><strong>Total: {{order.totalPrice}} €</strong></div>
     </div>
   </div>
 </div>

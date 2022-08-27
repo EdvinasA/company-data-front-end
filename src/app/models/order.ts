@@ -21,7 +21,20 @@ export type Order = {
   paymentMethod: string;
   totalPrice: number;
   orderUpdate: string;
+  orderedItems: OrderedItem[];
   status: string;
+};
+
+export type OrderedItem = {
+  id: number;
+  itemId: string;
+  picture: string;
+  itemName: string;
+  itemCode: string;
+  itemPrice: number;
+  itemQuantity: number;
+  itemInsurance: boolean;
+  itemWarranty: boolean;
 };
 
 export type OrderInput = {
