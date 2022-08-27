@@ -6,21 +6,22 @@
     <div class="orders-list-header-column">Status</div>
     <div class="orders-list-header-column status">Status updated</div>
   </div>
-  <a class="ordered-item-link" [routerLink]="['/orders', 'asd']">
-    <div class="orders-list-content">
-      <div class="orders-list-content-column"><strong>A000251723</strong></div>
-      <div class="orders-list-content-column">2022-07-29</div>
-      <div class="orders-list-content-column total-bigger"><strong>244,25 €</strong> Swedbank el.
-        bank
+  <div *ngFor="let order of orders">
+    <a class="ordered-item-link" [routerLink]="['/orders', order.id]">
+      <div class="orders-list-content">
+        <div class="orders-list-content-column"><strong>{{order.orderNumber}}</strong></div>
+        <div class="orders-list-content-column">{{order.orderDate}}</div>
+        <div class="orders-list-content-column total-bigger"><strong>{{order.totalPrice}} €</strong> {{order.paymentMethod}}
+        </div>
+        <div class="orders-list-content-column">
+          <mat-chip-list>
+            <mat-chip color="primary">
+              {{order.status}}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+        <div class="orders-list-content-column status">{{order.orderUpdate}}</div>
       </div>
-      <div class="orders-list-content-column">
-        <mat-chip-list>
-          <mat-chip color="primary">
-            Delivered
-          </mat-chip>
-        </mat-chip-list>
-      </div>
-      <div class="orders-list-content-column status">2021-12-23 / 17:11</div>
-    </div>
-  </a>
+    </a>
+  </div>
 </div>

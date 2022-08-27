@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from './models/user';
-import { UserService } from './services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {User} from './models/user';
+import {UserService} from './services/user.service';
+import {OrderService} from "./services/order.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,12 @@ export class AppComponent implements OnInit {
   user!: User | null;
   token: string | undefined | null = localStorage.getItem('token');
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private orderService: OrderService
+  ) {
+  }
 
   ngOnInit(): void {
     if (this.token != null || this.token != undefined) {
@@ -23,6 +29,9 @@ export class AppComponent implements OnInit {
       });
       this.userService.userSubject.asObservable().subscribe((user) => {
         this.user = user;
+        if (user != null) {
+          this.orderService.getOrders(user.id);
+        }
       });
     }
   }

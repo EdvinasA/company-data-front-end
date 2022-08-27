@@ -1,5 +1,7 @@
 .orders-list-header {
   border-bottom: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
   background: #fafafa;
   display: inline-flex;
   justify-content: space-between;
@@ -14,6 +16,8 @@
 
 .orders-list-content {
   border-bottom: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
   background: white;
   display: inline-flex;
   justify-content: space-between;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../../../../models/order';
+import { OrderService } from '../../../../services/order.service';
 
 @Component({
   selector: 'app-order-list',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-list.component.scss'],
 })
 export class OrderListComponent implements OnInit {
-  constructor() {}
+  public orders: Order[] | null = [];
 
-  ngOnInit(): void {}
+  constructor(private orderService: OrderService) {}
+
+  ngOnInit(): void {
+    this.orderService.orderSubject.asObservable().subscribe((orders) => {
+      this.orders = orders;
+    });
+  }
 }

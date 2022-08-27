@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { ReplaySubject, Subject, Subscription } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
 import { CartItem } from '../models/cart';
 import { Order, OrderInput } from '../models/order';
 import { ApiGatewayService } from './api-gateway.service';
@@ -7,13 +9,30 @@ import { ApiGatewayService } from './api-gateway.service';
   providedIn: 'root',
 })
 export class OrderService {
+  private cachedOrders!: Order[];
+  public orderSubject: Subject<Order[] | null> = new ReplaySubject<
+    Order[] | null
+  >();
+
   constructor(private http: ApiGatewayService) {}
 
   createOrder(input: OrderInput, userId: string | undefined) {
     return this.http.post<CartItem[]>(`/order/${userId}`, input);
   }
 
-  getOrders(userId: string) {
-    return this.http.get<Order>(`/order/${userId}`);
+  getOrders(userId: string | undefined): Subscription {
+    return this.http
+      .get<Order[]>(`/order/${userId}`)
+      .pipe(
+        catchError((err) => {
+          throw err.message();
+        }),
+        finalize(() => {
+          this.orderSubject.next(this.cachedOrders);
+        })
+      )
+      .subscribe((response) => {
+        this.cachedOrders = response;
+      });
   }
 }
