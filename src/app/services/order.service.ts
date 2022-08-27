@@ -20,8 +20,8 @@ export class OrderService {
     return this.http.post<CartItem[]>(`/orders/${userId}`, input);
   }
 
-  getOrder(orderId: string) {
-    return this.http.get<Order>(`/order/${orderId}`);
+  getOrder(orderId: string | null) {
+    return this.http.get<Order>(`/orders/order/${orderId}`);
   }
 
   getOrders(userId: string | undefined): Subscription {
@@ -29,7 +29,7 @@ export class OrderService {
       .get<Order[]>(`/orders/${userId}`)
       .pipe(
         catchError((err) => {
-          throw err.message();
+          throw err;
         }),
         finalize(() => {
           this.orderSubject.next(this.cachedOrders);

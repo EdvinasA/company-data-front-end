@@ -8,7 +8,7 @@ import { OrderService } from '../../../../services/order.service';
   styleUrls: ['./order-list.component.scss'],
 })
 export class OrderListComponent implements OnInit {
-  public orders: Order[] | null = [];
+  public orders!: Order[] | null;
 
   constructor(private orderService: OrderService) {}
 
