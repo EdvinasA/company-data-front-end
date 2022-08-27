@@ -84,7 +84,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public selectedDeliveryInformation!: DeliveryInformation;
   public totalSumOfAllItemsSubject: number = 0;
   public shippingOption: string = 'TO_HOME';
-  public paymentOption: string = 'Bank';
+  public paymentOption: string = 'BANK';
   public pickupOption: string = 'dpd';
   public user!: User | null;
   public isLoading: boolean = true;
@@ -115,10 +115,10 @@ export class CartCheckoutInformationComponent implements OnInit {
   }
 
   deliveryCost() {
-    if (this.shippingOption === 'toHome') {
+    if (this.shippingOption === 'TO_HOME') {
       return 3.99;
     }
-    if (this.shippingOption === 'withdrawalFromLocation') {
+    if (this.shippingOption === 'WITHDRAWAL_FROM_LOCATION') {
       if (this.pickupOption === 'dpd') {
         return 2.79;
       }
@@ -163,7 +163,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   }
 
   getPaymentForm() {
-    if (this.paymentOption === 'bank') {
+    if (this.paymentOption === 'BANK') {
       return this.paymentWithBankForm;
     }
     return this.paymentForm;
