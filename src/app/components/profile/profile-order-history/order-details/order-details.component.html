@@ -1,10 +1,16 @@
 <div class="orders-second-header">
-  <h3>Order Nr. {{order.orderNumber}}</h3>
+  <h3>Order Nr. {{order?.orderNumber || ""}}
+    <mat-chip-list>
+      <mat-chip color="primary">
+        {{order?.status || ""}}
+      </mat-chip>
+    </mat-chip-list>
+  </h3>
   <div>
-    <span>Order date: {{order.orderDate}}</span>
+    <span>Order date: {{order?.orderDate || ""}}</span>
   </div>
   <div>
-    <span>Renewed: {{order.orderUpdate}}</span>
+    <span>Renewed: {{order?.orderUpdate || ""}}</span>
   </div>
 </div>
 <div>
@@ -23,7 +29,7 @@
             </div>
             <div class="order-information">
               <div class="order-information-header">Total</div>
-              <div class="order-information-description">{{order.totalPrice}} €</div>
+              <div class="order-information-description">{{order?.totalPrice || ""}} €</div>
             </div>
           </div>
           <div>
@@ -39,19 +45,21 @@
         <div class="order-description-container">
           <div class="order-description">
             <div class="order-amount-of-items">
-              Items: {{order.orderedItems.length}}
+              Items: {{order?.orderedItems?.length || ""}}
             </div>
             <mat-divider></mat-divider>
-            <div class="order-description-row" *ngFor="let orderedItem of order.orderedItems">
-              <div class="order-description-name-column">
-                <div class="order-product-name">{{orderedItem.itemName}}</div>
-                <div class="order-product-code">Product code: {{orderedItem.itemCode}}</div>
-              </div>
-              <div class="order-description-other-column">
-                {{orderedItem.itemQuantity}} vnt.
-              </div>
-              <div class="order-description-other-column amount">
-                {{orderedItem.itemPrice * orderedItem.itemQuantity}} €
+            <div *ngIf="order?.orderedItems != undefined">
+              <div class="order-description-row" *ngFor="let orderedItem of order?.orderedItems">
+                <div class="order-description-name-column">
+                  <div class="order-product-name">{{orderedItem?.itemName || ""}}</div>
+                  <div class="order-product-code">Product code: {{orderedItem?.itemCode || ""}}</div>
+                </div>
+                <div class="order-description-other-column">
+                  {{orderedItem?.itemQuantity || ""}} vnt.
+                </div>
+                <div class="order-description-other-column amount">
+                  {{orderedItem?.itemPrice * orderedItem?.itemQuantity || ""}} €
+                </div>
               </div>
             </div>
           </div>
@@ -88,26 +96,26 @@
       <div class="ordered-items-list-table-header-column">Amount</div>
       <div class="ordered-items-list-table-header-column">Total</div>
     </div>
-    <div>
-      <div class="ordered-items-list-content" *ngFor="let orderedItem of order.orderedItems">
+    <div *ngIf="order?.orderedItems != undefined">
+      <div class="ordered-items-list-content" *ngFor="let orderedItem of order?.orderedItems">
         <div class="ordered-items-list-content-column item inline-divs">
           <div class="ordered-item-image"><img
-            src="{{orderedItem.picture}}"
-            alt="{{orderedItem.itemName}}"></div>
+            src="{{orderedItem?.picture}}"
+            alt="{{orderedItem?.itemName}}"></div>
           <div>
-            <div>{{orderedItem.itemName}}</div>
-            <div>Product code: {{orderedItem.itemCode}}</div>
+            <div>{{orderedItem?.itemName || ""}}</div>
+            <div>Product code: {{orderedItem?.itemCode || ""}}</div>
           </div>
         </div>
-        <div class="ordered-items-list-content-column">{{orderedItem.itemPrice}} €</div>
-        <div class="ordered-items-list-content-column">{{orderedItem.itemQuantity}} vnt.</div>
-        <div class="ordered-items-list-content-column"><strong>{{orderedItem.itemPrice * orderedItem.itemQuantity}} €</strong></div>
+        <div class="ordered-items-list-content-column">{{orderedItem?.itemPrice}} €</div>
+        <div class="ordered-items-list-content-column">{{orderedItem?.itemQuantity}} vnt.</div>
+        <div class="ordered-items-list-content-column"><strong>{{orderedItem?.itemPrice * orderedItem?.itemQuantity}} €</strong></div>
       </div>
       <mat-divider></mat-divider>
     </div>
     <div class="ordered-items-total">
       <div>Delivery: 3.99 €</div>
-      <div><strong>Total: {{order.totalPrice}} €</strong></div>
+      <div><strong>Total: {{order?.totalPrice}} €</strong></div>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@ import { OrderService } from '../../../../services/order.service';
   styleUrls: ['./order-details.component.scss'],
 })
 export class OrderDetailsComponent implements OnInit {
-  public order!: Order;
+  public order!: Order | undefined;
 
   constructor(
     private orderService: OrderService,
