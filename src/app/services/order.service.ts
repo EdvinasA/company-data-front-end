@@ -17,12 +17,16 @@ export class OrderService {
   constructor(private http: ApiGatewayService) {}
 
   createOrder(input: OrderInput, userId: string | undefined) {
-    return this.http.post<CartItem[]>(`/order/${userId}`, input);
+    return this.http.post<CartItem[]>(`/orders/${userId}`, input);
+  }
+
+  getOrder(orderId: string) {
+    return this.http.get<Order>(`/order/${orderId}`);
   }
 
   getOrders(userId: string | undefined): Subscription {
     return this.http
-      .get<Order[]>(`/order/${userId}`)
+      .get<Order[]>(`/orders/${userId}`)
       .pipe(
         catchError((err) => {
           throw err.message();
