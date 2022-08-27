@@ -17,10 +17,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule, PaginatePipe } from 'ngx-pagination';
-import { ProductLaptopComponent } from './product-laptop/product-laptop.component';
 
 @NgModule({
-  declarations: [ProductLaptopComponent],
+  declarations: [],
   imports: [
     BrowserModule,
     RouterModule,
@@ -43,7 +42,7 @@ import { ProductLaptopComponent } from './product-laptop/product-laptop.componen
     MatDividerModule,
     NgxPaginationModule,
   ],
-  exports: [ProductLaptopComponent],
+  exports: [],
   providers: [PaginatePipe, DecimalPipe],
 })
 export class ProductTypesModule {}

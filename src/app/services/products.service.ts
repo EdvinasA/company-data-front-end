@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReplaySubject, Subject, Subscription } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
-import { Laptop } from '../models/laptop';
+import { Product } from '../models/product';
 import { Page } from '../models/page';
 import { ApiGatewayService } from './api-gateway.service';
 
@@ -17,7 +17,7 @@ export class ProductsService {
 
   getPagedListOfLaptops(size: string, page: number): Subscription {
     return this.http
-      .get<Page>(`/shop/laptop?page=${page}&size=${size}`)
+      .get<Page>(`/shop/product?page=${page}&size=${size}`)
       .pipe(
         catchError((err) => {
           throw err.message();
@@ -33,6 +33,6 @@ export class ProductsService {
   }
 
   getLaptopById(id: string) {
-    return this.http.get<Laptop>(`/shop/laptop/${id}`);
+    return this.http.get<Product>(`/shop/product/${id}`);
   }
 }

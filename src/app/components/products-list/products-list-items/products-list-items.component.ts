@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Laptop } from '../../../models/laptop';
+import { Product } from '../../../models/product';
 
 @Component({
   selector: 'app-products-list-items',
@@ -7,7 +7,7 @@ import { Laptop } from '../../../models/laptop';
   styleUrls: ['./products-list-items.component.scss'],
 })
 export class ProductsListItemsComponent implements OnInit {
-  @Input() laptops!: Laptop[];
+  @Input() laptops!: Product[];
   @Input() itemsPerPage!: number;
   @Input() currentPage!: number;
   @Input() totalItems!: number;

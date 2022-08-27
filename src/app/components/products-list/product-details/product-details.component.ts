@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartItem } from '../../../models/cart';
-import { Laptop } from '../../../models/laptop';
+import { Product } from '../../../models/product';
 import { User } from '../../../models/user';
 import { WishlistItem, WishlistProfiles } from '../../../models/wishlist';
 import { CartService } from '../../../services/cart.service';
@@ -21,7 +21,7 @@ import { ProductToCartDialogComponent } from '../product-to-cart-dialog/product-
 export class ProductDetailsComponent implements OnInit {
   wishlistProfiles: WishlistProfiles[] = [];
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
-  laptop!: Laptop;
+  laptop!: Product;
   private user!: User | null;
   itemQuantity: number = 1;
   itemInsurance: boolean = false;
@@ -57,7 +57,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  addItemToCart(item: Laptop) {
+  addItemToCart(item: Product) {
     let cartItem: CartItem = this.converterService.convertToCartItemFromProduct(
       item,
       this.itemQuantity,
@@ -80,7 +80,7 @@ export class ProductDetailsComponent implements OnInit {
     } else this.trigger.closeMenu();
   }
 
-  addItemToWishlist(item: Laptop, portfolioId: string | unknown) {
+  addItemToWishlist(item: Product, portfolioId: string | unknown) {
     let wishlistItem: WishlistItem =
       this.converterService.convertToWishlistItemFromProduct(item, portfolioId);
     if (this.user?.id != undefined) {

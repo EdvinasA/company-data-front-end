@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CartItem } from '../models/cart';
-import { Laptop } from '../models/laptop';
 import { Login } from '../models/login';
 import { Register } from '../models/register';
 import { DeliveryInformation, User, UserUpdateInput } from '../models/user';
 import { ViewedItem } from '../models/viewed-item';
 import { WishlistCreate, WishlistItem } from '../models/wishlist';
+import {Product} from "../models/product";
 
 @Injectable({
   providedIn: 'root',
@@ -72,7 +72,7 @@ export class ConverterService {
   }
 
   public convertToCartItemFromProduct(
-    item: Laptop,
+    item: Product,
     quantity: number,
     insurance: boolean,
     warranty: boolean
@@ -81,7 +81,7 @@ export class ConverterService {
       itemId: item.id,
       picture: item.picture,
       itemName: item.name,
-      itemCode: item.productCode,
+      itemCode: item.code,
       itemQuantity: quantity,
       itemPrice: item.price,
       itemInsurance: insurance,
@@ -92,14 +92,14 @@ export class ConverterService {
   }
 
   public convertToWishlistItemFromProduct(
-    item: Laptop,
+    item: Product,
     portfolioId: string | unknown
   ) {
     let wishlistItem: WishlistItem = {
       id: '',
       itemId: item.id,
       itemPicture: item.picture,
-      itemCode: item.productCode,
+      itemCode: item.code,
       itemPrice: item.price,
       itemName: item.name,
       wishListProfileId: portfolioId,
