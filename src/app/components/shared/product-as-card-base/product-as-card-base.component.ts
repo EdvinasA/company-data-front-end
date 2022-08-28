@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BaseItem } from '../../../models/base-item';
@@ -20,7 +20,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   @Input() public totalElements: number = 0;
   @Input() public currentPage: number = 0;
   @Input() public user!: User;
-  @Input() public productDisplay: string = 'row';
+  @Input() public productDisplay: string = 'card';
 
   constructor(
     public dialog: MatDialog,

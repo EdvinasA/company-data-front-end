@@ -25,29 +25,25 @@
       </mat-form-field>
     </div>
     <div class="header-info-display-items">
-      <mat-button-toggle-group #group="matButtonToggleGroup" [value]="defaultProductDisplay">
-        <mat-button-toggle value="list">
+      <mat-button-toggle-group
+        [value]="defaultProductDisplay"
+        (change)="changeProductDisplay($event)">
+        <mat-button-toggle value="row">
           <mat-icon>list</mat-icon>
         </mat-button-toggle>
         <span></span>
-        <mat-button-toggle value="blocks">
+        <mat-button-toggle value="card">
           <mat-icon>view_module</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
   </div>
-  <!--  <app-products-list-items *ngIf="group.value === 'list'"-->
-  <!--                           [laptops]="itemsPage.content"-->
-  <!--                           [itemsPerPage]="itemsPage.size"-->
-  <!--                           [currentPage]="page"-->
-  <!--                           [totalItems]="itemsPage.totalElements"-->
-  <!--  ></app-products-list-items>-->
-      <app-product-as-card-base *ngIf="group.value === 'blocks'"
-                                [items]="itemsPage?.content"
+      <app-product-as-card-base [items]="itemsPage?.content"
                                 [itemsPerPage]="selectedPageAmount"
                                 [currentPage]="page"
                                 [totalElements]="itemsPage?.totalElements"
-                                [user]="user">
+                                [user]="user"
+                                [productDisplay]="defaultProductDisplay">
       </app-product-as-card-base>
   <div class="paginator">
     <pagination-controls (pageChange)="changePage($event)"

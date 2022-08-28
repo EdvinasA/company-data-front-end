@@ -4,6 +4,7 @@ import { Page } from '../../models/page';
 import { User } from '../../models/user';
 import { ProductsService } from '../../services/products.service';
 import { UserService } from '../../services/user.service';
+import {MatButtonToggleChange} from "@angular/material/button-toggle";
 
 @Component({
   selector: 'app-products-list',
@@ -15,7 +16,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   itemsPage!: Page | null;
   subscription!: Subscription;
   selectedOption = 'popular';
-  defaultProductDisplay = 'blocks';
+  defaultProductDisplay = 'card';
   selectedPageAmount = '8';
   selectedView = false;
   page = 0;
@@ -94,5 +95,10 @@ export class ProductsListComponent implements OnInit, OnDestroy {
       return 1;
     }
     return this.page;
+  }
+
+  changeProductDisplay(displayType: MatButtonToggleChange) {
+    console.log(displayType);
+    this.defaultProductDisplay = displayType.value;
   }
 }
