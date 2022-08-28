@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="product-row-container" *ngIf="productDisplay === 'row'">
-    <div *ngFor="let item of items | paginate: { itemsPerPage: getSelectedAmountOfItemsInPage(), currentPage: currentPage, totalItems: totalElements }">
+    <div class="product-row-hover" *ngFor="let item of items | paginate: { itemsPerPage: getSelectedAmountOfItemsInPage(), currentPage: currentPage, totalItems: totalElements }">
       <div class="display-grid-columns">
         <div class="image">
           <a [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">
@@ -35,7 +35,7 @@
           <a class="product-link" [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
         </div>
         <div>
-          <div>{{item.price | number : '1.2-2'}} € / vnt.</div>
+          <div><strong>{{item.price | number : '1.2-2'}} €</strong> / vnt.</div>
           <div>
             <button mat-button (click)="addItemToCart(item)">
               <mat-icon>shopping_cart</mat-icon>

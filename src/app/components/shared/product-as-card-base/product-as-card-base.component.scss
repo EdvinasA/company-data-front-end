@@ -60,6 +60,11 @@
 }
 
 .display-grid-columns {
+  border-right: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
   display: grid;
   grid-template-columns: 30% 40% 30%;
+  padding: 20px;
+  transition: 1s;
 }
