@@ -98,7 +98,6 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   }
 
   changeProductDisplay(displayType: MatButtonToggleChange) {
-    console.log(displayType);
     this.defaultProductDisplay = displayType.value;
   }
 }
