@@ -31,16 +31,20 @@
             <img src="{{item.picture}}">
           </a>
         </div>
-        <div class="product-link-box">
-          <a class="product-link" [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
+        <div class="column2">
+          <div class="product-link-box">
+            <a class="product-link" [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
+          </div>
         </div>
-        <div>
+        <div class="column3">
           <div><strong>{{item.price | number : '1.2-2'}} €</strong> / vnt.</div>
           <div>
-            <button mat-button (click)="addItemToCart(item)">
-              <mat-icon>shopping_cart</mat-icon>
-              To cart
-            </button>
+            <div class="to-cart-button">
+              <button mat-button (click)="addItemToCart(item)">
+                <mat-icon>shopping_cart</mat-icon>
+                To cart
+              </button>
+            </div>
           </div>
         </div>
       </div>

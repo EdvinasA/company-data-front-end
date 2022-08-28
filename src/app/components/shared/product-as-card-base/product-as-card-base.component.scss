@@ -64,7 +64,23 @@
   border-left: 1px solid #e1e1e1;
   border-bottom: 1px solid #e1e1e1;
   display: grid;
-  grid-template-columns: 30% 40% 30%;
+  grid-template-columns: 30% 50% 20%;
   padding: 20px;
   transition: 1s;
+}
+
+.to-cart-button {
+  text-align: left;
+}
+
+.to-cart-button button {
+  @include buying-button;
+}
+
+.column2 {
+  padding-right: 250px;
+}
+
+.column3 {
+  text-align: left;
 }
