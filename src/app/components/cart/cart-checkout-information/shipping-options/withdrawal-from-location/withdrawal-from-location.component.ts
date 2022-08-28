@@ -23,12 +23,6 @@ export class WithdrawalFromLocationComponent implements OnInit {
     this.userService.userSubject.asObservable().subscribe((user) => {
       this.user = user;
     });
-    if (this.user != null) {
-      this.withdrawalFromLocationForm.patchValue({
-        address: this.user.deliveryInformation[0],
-        selectedWithdrawalProvider: 'dpd',
-      });
-    }
   }
 
   selectOption(input: string) {

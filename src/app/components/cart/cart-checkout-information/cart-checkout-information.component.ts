@@ -112,6 +112,20 @@ export class CartCheckoutInformationComponent implements OnInit {
     this.getPaymentForm().patchValue({
       selectedPayment: this.paymentOption,
     });
+    if (this.user?.deliveryInformation != undefined) {
+      this.deliveryToHomeForm.patchValue({
+        address: this.user?.deliveryInformation[0],
+        time: '1',
+        shippingOption: 'toHome',
+      });
+      this.withdrawalFromLocationForm.patchValue({
+        address: this.user.deliveryInformation[0],
+        selectedWithdrawalProvider: 'dpd',
+      });
+      this.withdrawalAtClientCenterForm.patchValue({
+        address: this.user.deliveryInformation[0],
+      });
+    }
   }
 
   deliveryCost() {
@@ -198,8 +212,7 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   submitOrderHandler() {
     let order: OrderInput = {
-      // @ts-ignore
-      userId: this.user.id,
+      userId: this.user!.id,
       deliveryAddress: 'Geležinio Vilko g. 22-29 49272 Kaunas',
       withdrawalLocation: '',
       wantedDeliveryTime: '08:00–18:00',

@@ -21,11 +21,6 @@ export class WithdrawalAtClientCenterComponent implements OnInit {
     this.userService.userSubject.asObservable().subscribe((user) => {
       this.user = user;
     });
-    if (this.user != null) {
-      this.withdrawalAtClientCenterForm.patchValue({
-        address: this.user.deliveryInformation[0],
-      });
-    }
   }
 
   handleSelectedDeliveryInformation(input: DeliveryInformation) {

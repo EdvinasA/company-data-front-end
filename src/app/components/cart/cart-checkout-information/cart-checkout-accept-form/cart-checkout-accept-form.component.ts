@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class CartCheckoutAcceptFormComponent implements OnInit {
   @Input() formGroup!: FormGroup;
+  @Input() isPaymentStep: boolean = false;
   @Output() emitCreateOrder = new EventEmitter<unknown>();
   @Output() onChange = new EventEmitter<boolean>();
 
@@ -17,7 +18,7 @@ export class CartCheckoutAcceptFormComponent implements OnInit {
 
   onFormSubmit() {
     this.onChange.emit(true);
-    if (this.formGroup.get('selectedPayment')?.value != '') {
+    if (this.isPaymentStep) {
       this.emitCreateOrder.emit();
     }
   }

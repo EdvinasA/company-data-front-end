@@ -21,13 +21,6 @@ export class DeliveryToHomeComponent implements OnInit {
     this.userService.userSubject.asObservable().subscribe((user) => {
       this.user = user;
     });
-    if (this.user?.deliveryInformation != undefined) {
-      this.deliveryToHomeForm.patchValue({
-        address: this.defaultDeliveryInformation,
-        time: '1',
-        shippingOption: 'toHome',
-      });
-    }
   }
 
   handleSelectedDeliveryInformation(input: DeliveryInformation) {
