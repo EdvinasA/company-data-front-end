@@ -2,7 +2,7 @@ export type BaseItem = {
   id: string;
   name: string;
   picture: string;
-  productCode: string;
+  code: string;
   price: number;
-  productType: string;
+  type: string;
 };

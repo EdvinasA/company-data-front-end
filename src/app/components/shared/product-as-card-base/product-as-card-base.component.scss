@@ -55,10 +55,11 @@
   display: none;
 }
 
-.product-price-and-options {
-
-}
-
 .details-to-cart-button {
   height: 56px;
+}
+
+.display-grid-columns {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
 }

@@ -20,6 +20,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   @Input() public totalElements: number = 0;
   @Input() public currentPage: number = 0;
   @Input() public user!: User;
+  @Input() public productDisplay: string = 'row';
 
   constructor(
     public dialog: MatDialog,
@@ -35,7 +36,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
       itemId: item.id,
       picture: item.picture,
       itemName: item.name,
-      itemCode: item.productCode,
+      itemCode: item.code,
       itemQuantity: 1,
       itemPrice: item.price,
       itemInsurance: false,
@@ -57,7 +58,7 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
       itemId: item.id,
       itemName: item.name,
       itemPicture: item.picture,
-      itemCode: item.productCode,
+      itemCode: item.code,
       itemPrice: item.price,
       delivery: true,
       withdrawal: true,
