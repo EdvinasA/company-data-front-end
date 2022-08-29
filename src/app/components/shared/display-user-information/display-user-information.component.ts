@@ -8,8 +8,9 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./display-user-information.component.scss'],
 })
 export class DisplayUserInformationComponent implements OnInit {
-  @Input() deliveryInformation!: DeliveryInformation | undefined;
-  @Output() selectedDeliveryInformation =
+  @Input() public deliveryInformation!: DeliveryInformation | undefined;
+  @Input() public isDeliveryInformationSelected: boolean = false;
+  @Output() public selectedDeliveryInformation =
     new EventEmitter<DeliveryInformation>();
   public isFormActivated: boolean = false;
   public isSelectDeliveryProfileActivated: boolean = false;

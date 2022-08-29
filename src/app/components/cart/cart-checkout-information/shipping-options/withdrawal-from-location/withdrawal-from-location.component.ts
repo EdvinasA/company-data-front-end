@@ -11,6 +11,7 @@ import { UserService } from '../../../../../services/user.service';
 export class WithdrawalFromLocationComponent implements OnInit {
   @Output() option = new EventEmitter<string>();
   @Input() public withdrawalFromLocationForm!: FormGroup;
+  @Input() public isDeliveryInformationSelected: boolean = false;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
   @Output() public selectedDeliveryInformation =
     new EventEmitter<DeliveryInformation>();

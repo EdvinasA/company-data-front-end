@@ -11,6 +11,7 @@ export class PayThreeComponent implements OnInit {
   @Input() totalSum: number = 0;
   @Input() public paymentForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Input() public isDeliveryInformationSelected: boolean = false;
   @Output() public selectedDeliveryInformation =
     new EventEmitter<DeliveryInformation>();
 

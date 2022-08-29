@@ -22,20 +22,23 @@
               *ngIf="shippingOption === 'TO_HOME'"
               [deliveryToHomeForm]="deliveryToHomeForm"
               [defaultDeliveryInformation]="selectedDeliveryInformation"
-              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+              [isDeliveryInformationSelected]="isDeliveryInformationSelected">
             </app-delivery-to-home>
             <app-withdrawal-at-client-center
               *ngIf="shippingOption === 'WITHDRAWAL'"
               [withdrawalAtClientCenterForm]="withdrawalAtClientCenterForm"
               [defaultDeliveryInformation]="selectedDeliveryInformation"
-              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+              [isDeliveryInformationSelected]="isDeliveryInformationSelected">
             </app-withdrawal-at-client-center>
             <app-withdrawal-from-location
               *ngIf="shippingOption === 'WITHDRAWAL_FROM_LOCATION'"
               (option)="updateSelectedPickupOption($event)"
               [withdrawalFromLocationForm]="withdrawalFromLocationForm"
               [defaultDeliveryInformation]="selectedDeliveryInformation"
-              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+              [isDeliveryInformationSelected]="isDeliveryInformationSelected">
             </app-withdrawal-from-location>
           </div>
           <app-cart-checkout-accept-form
@@ -87,26 +90,30 @@
               [paymentWithBankForm]="paymentWithBankForm"
               (option)="updatePaymentWithBankForm($event)"
               [defaultDeliveryInformation]="selectedDeliveryInformation"
-              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+              [isDeliveryInformationSelected]="isDeliveryInformationSelected">
             </app-bank>
             <app-payment-card-klix
               *ngIf="paymentOption === 'PAYMENT_CARD_KLIX'"
               [paymentForm]="paymentForm"
               [defaultDeliveryInformation]="selectedDeliveryInformation"
-              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+              [isDeliveryInformationSelected]="isDeliveryInformationSelected">
             </app-payment-card-klix>
             <app-pay-three
               *ngIf="paymentOption === 'PAY_3'"
               [totalSum]="totalSumOfAllItemsSubject"
               [paymentForm]="paymentForm"
               [defaultDeliveryInformation]="selectedDeliveryInformation"
-              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+              [isDeliveryInformationSelected]="isDeliveryInformationSelected">
             </app-pay-three>
             <app-pay-to-courier
               *ngIf="paymentOption === 'WITHDRAWAL_PAYMENT'"
               [paymentForm]="paymentForm"
               [defaultDeliveryInformation]="selectedDeliveryInformation"
-              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+              (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+              [isDeliveryInformationSelected]="isDeliveryInformationSelected">
             </app-pay-to-courier>
           </div>
           <app-cart-checkout-accept-form

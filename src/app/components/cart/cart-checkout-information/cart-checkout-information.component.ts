@@ -88,6 +88,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   public pickupOption: string = 'dpd';
   public user!: User | null;
   public isLoading: boolean = true;
+  public isDeliveryInformationSelected: boolean = false;
 
   constructor(
     private cartService: CartService,
@@ -113,6 +114,7 @@ export class CartCheckoutInformationComponent implements OnInit {
       selectedPayment: this.paymentOption,
     });
     if (this.user != undefined) {
+      this.isDeliveryInformationSelected = true;
       this.deliveryToHomeForm.patchValue({
         address: this.user.deliveryInformation[0],
         time: '1',
@@ -173,6 +175,7 @@ export class CartCheckoutInformationComponent implements OnInit {
   }
 
   handleSelectedDeliveryInformation(input: DeliveryInformation) {
+    this.isDeliveryInformationSelected = true;
     this.selectedDeliveryInformation = input;
     this.deliveryToHomeForm.patchValue({
       address: input,

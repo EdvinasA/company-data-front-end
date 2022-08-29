@@ -5,7 +5,8 @@
       <div>
         <app-display-user-information
           [deliveryInformation]="defaultDeliveryInformation"
-          (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+          (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+          [isDeliveryInformationSelected]="isDeliveryInformationSelected">
         </app-display-user-information>
       </div>
       <mat-divider></mat-divider>

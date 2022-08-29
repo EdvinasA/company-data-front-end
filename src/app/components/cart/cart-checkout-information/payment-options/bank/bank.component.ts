@@ -12,6 +12,7 @@ export class BankComponent implements OnInit {
   @Input() public selectedOption: string = '';
   @Input() public paymentWithBankForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Input() public isDeliveryInformationSelected: boolean = false;
   @Output() public selectedDeliveryInformation =
     new EventEmitter<DeliveryInformation>();
 

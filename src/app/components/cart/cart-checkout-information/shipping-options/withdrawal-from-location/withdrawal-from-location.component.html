@@ -66,7 +66,8 @@
     <div class="user-information-style">
       <app-display-user-information
         [deliveryInformation]="defaultDeliveryInformation"
-        (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)">
+        (selectedDeliveryInformation)="handleSelectedDeliveryInformation($event)"
+        [isDeliveryInformationSelected]="isDeliveryInformationSelected">
       </app-display-user-information>
     </div>
     <mat-divider></mat-divider>

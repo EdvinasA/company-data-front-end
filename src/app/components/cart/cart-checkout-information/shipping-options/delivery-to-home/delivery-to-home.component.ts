@@ -11,6 +11,8 @@ import { UserService } from '../../../../../services/user.service';
 export class DeliveryToHomeComponent implements OnInit {
   @Input() public deliveryToHomeForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Input() public isDeliveryInformationSelected: boolean = false;
+
   @Output() public selectedDeliveryInformation =
     new EventEmitter<DeliveryInformation>();
   public user: User | null = new User();

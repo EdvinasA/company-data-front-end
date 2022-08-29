@@ -11,6 +11,7 @@ import { UserService } from '../../../../../services/user.service';
 export class WithdrawalAtClientCenterComponent implements OnInit {
   @Input() public withdrawalAtClientCenterForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Input() public isDeliveryInformationSelected: boolean = false;
   @Output() public selectedDeliveryInformation =
     new EventEmitter<DeliveryInformation>();
   public user!: User | null;

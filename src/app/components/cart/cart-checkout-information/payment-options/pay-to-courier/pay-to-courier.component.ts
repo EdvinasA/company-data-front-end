@@ -13,6 +13,7 @@ export class PayToCourierComponent implements OnInit {
     new EventEmitter<DeliveryInformation>();
   @Input() public paymentForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
+  @Input() public isDeliveryInformationSelected: boolean = false;
 
   constructor() {}
 
