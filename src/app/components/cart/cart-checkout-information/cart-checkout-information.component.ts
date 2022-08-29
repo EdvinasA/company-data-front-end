@@ -112,9 +112,9 @@ export class CartCheckoutInformationComponent implements OnInit {
     this.getPaymentForm().patchValue({
       selectedPayment: this.paymentOption,
     });
-    if (this.user?.deliveryInformation != undefined) {
+    if (this.user != undefined) {
       this.deliveryToHomeForm.patchValue({
-        address: this.user?.deliveryInformation[0],
+        address: this.user.deliveryInformation[0],
         time: '1',
         shippingOption: 'toHome',
       });

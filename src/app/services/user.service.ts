@@ -110,4 +110,10 @@ export class UserService {
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
+
+  async getLoadedUser() {
+    const user = await this.userSubject.toPromise();
+
+    console.log(user);
+  }
 }

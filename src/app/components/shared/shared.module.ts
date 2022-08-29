@@ -25,7 +25,6 @@ import { OptionsOnSideDisplayComponent } from './options-on-side-display/options
 import { ProductAsCardBaseComponent } from './product-as-card-base/product-as-card-base.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 
-// @ts-ignore
 @NgModule({
   declarations: [
     ProductAsCardBaseComponent,
