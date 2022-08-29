@@ -174,6 +174,15 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   handleSelectedDeliveryInformation(input: DeliveryInformation) {
     this.selectedDeliveryInformation = input;
+    this.deliveryToHomeForm.patchValue({
+      address: input,
+    });
+    this.withdrawalFromLocationForm.patchValue({
+      address: input,
+    });
+    this.withdrawalAtClientCenterForm.patchValue({
+      address: input,
+    });
   }
 
   getPaymentForm() {
