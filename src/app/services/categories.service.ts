@@ -9,7 +9,7 @@ import { ApiGatewayService } from './api-gateway.service';
 export class CategoriesService {
   constructor(private http: ApiGatewayService) {}
 
-  getCategories(): Observable<CategoryDisplay> {
-    return this.http.get<CategoryDisplay>('/shop/category');
+  getCategories(): Observable<CategoryDisplay[]> {
+    return this.http.get<CategoryDisplay[]>('/shop/category');
   }
 }

@@ -5,8 +5,8 @@
 </div>
 
 <mat-menu #category>
-  <div class="main-category" *ngFor="let mainCategory of categories?.mainCategories">
-    <button mat-menu-item [matMenuTriggerFor]="subcategory"><span>{{mainCategory}}</span></button>
+  <div class="main-category" *ngFor="let mainCategory of categories">
+    <button mat-menu-item [matMenuTriggerFor]="subcategory"><span>{{mainCategory.categoryForDisplay}}</span></button>
     <mat-divider></mat-divider>
   </div>
 </mat-menu>
