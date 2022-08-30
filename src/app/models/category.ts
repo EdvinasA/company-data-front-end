@@ -6,4 +6,10 @@ export type CategoryDisplay = {
   categoryForDisplay: string;
   categoryForEnum: string;
   picture: string;
+  subCategoryDisplay: SubCategoryDisplay[];
+};
+
+export type SubCategoryDisplay = {
+  categoryForDisplay: string;
+  picture: string;
 };

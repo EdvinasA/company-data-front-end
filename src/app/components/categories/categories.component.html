@@ -6,13 +6,19 @@
 
 <mat-menu #category>
   <div class="main-category" *ngFor="let mainCategory of categories">
-    <button mat-menu-item [matMenuTriggerFor]="subcategory"><span>{{mainCategory.categoryForDisplay}}</span></button>
+    <button mat-menu-item
+            (click)="setSubCategories(mainCategory.subCategoryDisplay)" (mouseenter)="setSubCategories(mainCategory.subCategoryDisplay)"
+            [matMenuTriggerFor]="subcategory">
+      <span>
+        {{mainCategory.categoryForDisplay}}
+      </span>
+    </button>
     <mat-divider></mat-divider>
   </div>
 </mat-menu>
 
 <mat-menu #subcategory>
-  <div>
-    Laptops
+  <div *ngFor="let category of subCategories">
+    <span>{{category.categoryForDisplay}}</span>
   </div>
 </mat-menu>
