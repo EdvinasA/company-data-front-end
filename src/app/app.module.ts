@@ -33,6 +33,7 @@ import { ProfileModule } from './components/profile/profile.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
+import { SubCategoriesListComponent } from './components/categories/sub-categories-list/sub-categories-list.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { CategoriesListComponent } from './components/categories/categories-list
     CategoriesComponent,
     CartCheckoutHeaderComponent,
     CategoriesListComponent,
+    SubCategoriesListComponent,
   ],
   imports: [
     ProductsListModule,
