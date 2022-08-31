@@ -4,6 +4,8 @@ import { CartCheckoutInformationComponent } from './components/cart/cart-checkou
 import { CartListComponent } from './components/cart/cart-list/cart-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/cart/checkout/checkout.component';
+import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductDetailsComponent } from './components/products-list/product-details/product-details.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
@@ -19,7 +21,6 @@ import { WishlistComponent } from './components/profile/wishlist/wishlist.compon
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { LoginGuard } from './guards/login.guard';
-import {CategoriesListComponent} from "./components/categories/categories-list/categories-list.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
@@ -67,18 +68,27 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
   },
   {
-    path: 'category/:category',
-    component: CategoriesListComponent,
+    path: 'category',
+    component: CategoriesComponent,
+    children: [
+      {
+        path: ':category',
+        component: CategoriesListComponent,
+      },
+      {
+        path: ':category/:subCategory',
+        component: ProductsListComponent,
+      },
+      {
+        path: ':category/:subCategory/:id',
+        component: ProductDetailsComponent,
+      },
+    ],
   },
-  {
-    path: '',
-    component: ProductsListComponent,
-  },
-  { path: ':id', component: ProductDetailsComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

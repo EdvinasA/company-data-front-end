@@ -2,12 +2,12 @@
   <div class="category-grid-column1">
     <div class="category-column-header1">
       <strong>
-        <a class="link-style" [routerLink]="['/category', categories[0]?.categoryForEnum]">{{categories[0]?.categoryForDisplay}}</a>
+        <a class="link-style" [routerLink]="['category', categories[0]?.categoryForEnum]">{{categories[0]?.categoryForDisplay}}</a>
       </strong>
     </div>
     <div *ngFor="let subCategories of categories[0]?.subCategoryDisplay">
       <div class="category-column-additional">
-        <a class="link-style" [routerLink]="['/category', subCategories.categoryForEnum]">{{subCategories.categoryForDisplay}}</a>
+        <a class="link-style" [routerLink]="[subCategories.categoryForEnum]">{{subCategories.categoryForDisplay}}</a>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
       <div class="category-grid-template">
         <div *ngFor="let subCategories of categories[0]?.subCategoryDisplay">
           <div>
-            <a class="link-style" [routerLink]="['/category', subCategories.categoryForEnum]">
+            <a class="link-style" [routerLink]="[subCategories.categoryForEnum]">
               <div>
                 <img src="{{subCategories.picture}}">
               </div>
