@@ -11,5 +11,6 @@ export type CategoryDisplay = {
 
 export type SubCategoryDisplay = {
   categoryForDisplay: string;
+  categoryForEnum: string;
   picture: string;
 };
