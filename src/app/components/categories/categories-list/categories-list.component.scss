@@ -1,13 +1,29 @@
 .category-grid-columns {
   display: grid;
+  font-family: Roboto;
   grid-template-columns: 30% 70%;
 }
 
 .category-grid-column1 {
   border: 1px solid #e6e6e6;
+  padding-bottom: 20px;
 }
 
 .category-grid-column2 {
   border: 1px solid #e6e6e6;
   margin-left: 30px;
+}
+
+.category-column-header {
+  font-size: 16px;
+  padding: 30px;
+}
+
+.category-column-additional {
+  font-size: 16px;
+  padding: 0 30px 5px 30px;
+}
+
+.link-style {
+  color: unset;
 }
