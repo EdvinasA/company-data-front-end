@@ -12,15 +12,15 @@ import {MatButtonToggleChange} from "@angular/material/button-toggle";
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit, OnDestroy {
-  user!: User | null;
-  itemsPage!: Page | null;
-  subscription!: Subscription;
-  selectedOption = 'popular';
-  defaultProductDisplay = 'card';
-  selectedPageAmount = '8';
-  selectedView = false;
-  page = 0;
-  isLoading: boolean = true;
+  public user!: User | null;
+  public itemsPage!: Page | null;
+  public subscription!: Subscription;
+  public selectedOption = 'popular';
+  public defaultProductDisplay = 'card';
+  public selectedPageAmount = '8';
+  public selectedView = false;
+  public page = 0;
+  public isLoading: boolean = true;
 
   constructor(
     private productsService: ProductsService,
