@@ -21,6 +21,5 @@ export class CategoriesComponent implements OnInit {
 
   setSubCategories(list: SubCategoryDisplay[]) {
     this.subCategories = list;
-    console.log(list);
   }
 }
