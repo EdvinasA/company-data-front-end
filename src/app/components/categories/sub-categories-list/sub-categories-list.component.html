@@ -1,1 +1,37 @@
-<p>sub-categories-list works!</p>
+<div class="category-grid-columns">
+  <div class="category-grid-column1">
+    <div class="category-column-header1">
+      <strong>
+        <a class="link-style" [routerLink]="['category', categories[0]?.categoryForEnum]">{{categories[0]?.categoryForDisplay}}</a>
+      </strong>
+    </div>
+    <div *ngFor="let subCategories of categories[0]?.subCategoryDisplay">
+      <div class="category-column-additional">
+        <a class="link-style" [routerLink]="[subCategories.categoryForEnum]">{{subCategories.categoryForDisplay}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="category-grid-column2">
+    <div class="category-column-header2">
+      <div>
+        {{categories[0]?.categoryForDisplay}}
+      </div>
+    </div>
+    <div class="category-column-wrapper2">
+      <div class="category-grid-template">
+        <div *ngFor="let subCategories of categories[0]?.subCategoryDisplay">
+          <div>
+            <a class="link-style" [routerLink]="[subCategories.categoryForEnum]">
+              <div>
+                <img src="{{subCategories.picture}}">
+              </div>
+              <div>
+                {{subCategories.categoryForDisplay}}
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

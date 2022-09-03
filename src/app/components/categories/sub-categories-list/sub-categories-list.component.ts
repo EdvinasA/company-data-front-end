@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CategoryDisplay } from '../../../models/category';
+import { CategoriesService } from '../../../services/categories.service';
 
 @Component({
   selector: 'app-sub-categories-list',
@@ -6,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sub-categories-list.component.scss'],
 })
 export class SubCategoriesListComponent implements OnInit {
-  constructor() {}
+  public categories: CategoryDisplay[] = [];
+  public subscription!: Subscription;
 
-  ngOnInit(): void {}
+  constructor(private categoriesService: CategoriesService) {}
+
+  ngOnInit(): void {
+    this.subscription = this.categoriesService
+      .getCategories()
+      .subscribe((category) => {
+        this.categories = category;
+      });
+  }
 }
