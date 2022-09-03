@@ -80,7 +80,7 @@ const routes: Routes = [
         component: ProductsListComponent,
       },
       {
-        path: ':category/:subCategory/:id',
+        path: ':subCategory/:id',
         component: ProductDetailsComponent,
       },
     ],
@@ -88,7 +88,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

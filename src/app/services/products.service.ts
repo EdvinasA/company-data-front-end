@@ -15,9 +15,15 @@ export class ProductsService {
 
   constructor(private http: ApiGatewayService, private router: Router) {}
 
-  getPagedListOfLaptops(size: string, page: number): Subscription {
+  getPagedListOfLaptops(
+    size: string,
+    page: number,
+    subCategory: any
+  ): Subscription {
     return this.http
-      .get<Page>(`/shop/product?page=${page}&size=${size}`)
+      .get<Page>(
+        `/shop/product?page=${page}&size=${size}&subCategory=${subCategory}`
+      )
       .pipe(
         catchError((err) => {
           throw err.message();
@@ -27,7 +33,6 @@ export class ProductsService {
         })
       )
       .subscribe((response) => {
-        this.router.navigate(['/']);
         this.cachedPage = response;
       });
   }

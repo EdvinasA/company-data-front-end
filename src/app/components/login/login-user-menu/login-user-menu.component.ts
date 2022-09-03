@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Order} from '../../../models/order';
-import {OrderService} from '../../../services/order.service';
-import {UserService} from '../../../services/user.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Order } from '../../../models/order';
+import { OrderService } from '../../../services/order.service';
 
 @Component({
   selector: 'app-login-user-menu',

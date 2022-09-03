@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Page } from '../../models/page';
-import { User } from '../../models/user';
-import { ProductsService } from '../../services/products.service';
-import { UserService } from '../../services/user.service';
-import {MatButtonToggleChange} from "@angular/material/button-toggle";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {MatButtonToggleChange} from '@angular/material/button-toggle';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {Page} from '../../models/page';
+import {User} from '../../models/user';
+import {ProductsService} from '../../services/products.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-products-list',
@@ -21,20 +22,23 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   public selectedView = false;
   public page = 0;
   public isLoading: boolean = true;
+  private currentSubCategory: string = '';
 
   constructor(
     private productsService: ProductsService,
-    private userService: UserService
-  ) {}
+    private userService: UserService,
+    private route: ActivatedRoute
+  ) {
+  }
 
   ngOnInit(): void {
     this.userService.userSubject.asObservable().subscribe((data) => {
       this.user = data;
     });
-    this.subscription = this.productsService.getPagedListOfLaptops(
-      this.selectedPageAmount,
-      this.page
-    );
+    this.route.params.subscribe((params) => {
+      this.currentSubCategory = params['subCategory'];
+      this.request(this.page, this.selectedPageAmount);
+    });
     this.productsService.pageSubject.asObservable().subscribe((page) => {
       this.itemsPage = page;
       this.isLoading = false;
@@ -54,7 +58,8 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   request(page: number, size: string) {
     this.subscription = this.productsService.getPagedListOfLaptops(
       size,
-      page - 1
+      page - 1,
+      this.currentSubCategory
     );
     this.productsService.pageSubject.asObservable().subscribe((page) => {
       this.itemsPage = page;

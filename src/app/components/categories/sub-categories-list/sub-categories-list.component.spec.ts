@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SubCategoriesListComponent } from './sub-categories-list.component';
 
 describe('SubCategoriesListComponent', () => {
@@ -8,9 +7,8 @@ describe('SubCategoriesListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubCategoriesListComponent ]
-    })
-    .compileComponents();
+      declarations: [SubCategoriesListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
