@@ -19,8 +19,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private orderService: OrderService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     if (this.token != null || this.token != undefined) {

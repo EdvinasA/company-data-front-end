@@ -1,32 +1,56 @@
-<!--<div>-->
-<!--  <div-->
-<!--    *ngFor="let laptop of laptops | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }">-->
-<!--    <div class="item-container">-->
-<!--      <div class="align-image">-->
-<!--        <img-->
-<!--          src="{{laptop?.picture}}">-->
-<!--      </div>-->
-<!--      <div class="small-details">-->
-<!--        <a>{{laptop?.name}} "</a>-->
-<!--        <span class="description">Screen size: <span><strong>{{laptop?.screenSize}}-->
-<!--          "</strong></span></span>-->
-<!--        <span-->
-<!--          class="description">Installed operational system: <span><strong>{{laptop?.operationalSystem}}</strong></span></span>-->
-<!--        <span-->
-<!--          class="description">Amount of RAM: <span><strong>{{laptop?.amountOfRam}}</strong></span></span>-->
-<!--        <span class="description">Hard drive space (HDD): <span> <strong>–</strong></span></span>-->
-<!--        <span-->
-<!--          class="description">SSD space: <span> <strong>{{laptop?.dataStorageSize}}</strong></span></span>-->
-<!--        <span class="availability"><mat-icon>brightness_1</mat-icon>Delivery</span>-->
-<!--        <span class="availability"><mat-icon>brightness_1</mat-icon>Collect</span>-->
-<!--      </div>-->
-<!--      <div class="price-and-options">-->
-<!--        <span>{{laptop?.price | number : '1.2-2'}} € / vnt.</span>-->
-<!--        <button mat-button>-->
-<!--          <mat-icon>shopping_cart</mat-icon>-->
-<!--          To cart-->
-<!--        </button>-->
-<!--        <a>Add for comparison</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+<div class="container" *ngIf="!isLoading">
+  <div class="header-info">
+    <div class="header-pages-filter">
+      Showing {{getFirstAmountOfResultValues()}} - {{getSecondAmountOfResultValues()}} out
+      of {{itemsPage?.totalElements}}
+    </div>
+    <div class="filter">
+      <mat-icon>compare_arrows</mat-icon>
+      <mat-form-field>
+        <mat-select disableRipple [(ngModel)]="selectedOption">
+          <mat-option value="popular">Most popular items</mat-option>
+          <mat-option value="lowest">From lowest price</mat-option>
+          <mat-option value="highest">From highest price</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="number-of-pages">
+      <mat-form-field>
+        <mat-select (selectionChange)="changeSizeOfPage($event.value)"
+                    disableRipple
+                    [(ngModel)]="selectedPageAmount">
+          <mat-option value="4">4</mat-option>
+          <mat-option value="8">8</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="header-info-display-items">
+      <mat-button-toggle-group
+        [value]="defaultProductDisplay"
+        (change)="changeProductDisplay($event)">
+        <mat-button-toggle value="row">
+          <mat-icon>list</mat-icon>
+        </mat-button-toggle>
+        <span></span>
+        <mat-button-toggle value="card">
+          <mat-icon>view_module</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <app-product-as-card-base [items]="itemsPage?.content"
+                            [itemsPerPage]="selectedPageAmount"
+                            [currentPage]="page"
+                            [totalElements]="itemsPage?.totalElements"
+                            [user]="user"
+                            [productDisplay]="defaultProductDisplay">
+  </app-product-as-card-base>
+  <div class="paginator">
+    <pagination-controls (pageChange)="changePage($event)"
+                         previousLabel="Previous"
+                         nextLabel="Next">
+    </pagination-controls>
+  </div>
+</div>
+
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>

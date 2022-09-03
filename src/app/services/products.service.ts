@@ -18,7 +18,7 @@ export class ProductsService {
   getPagedListOfLaptops(
     size: string,
     page: number,
-    subCategory: any
+    subCategory: string | undefined
   ): Subscription {
     return this.http
       .get<Page>(
