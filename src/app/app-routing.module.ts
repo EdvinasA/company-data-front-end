@@ -21,6 +21,7 @@ import { WishlistComponent } from './components/profile/wishlist/wishlist.compon
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { LoginGuard } from './guards/login.guard';
+import {ProductsListItemsComponent} from "./components/products-list/products-list-items/products-list-items.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
@@ -69,7 +70,7 @@ const routes: Routes = [
   },
   {
     path: 'category',
-    component: CategoriesComponent,
+    component: ProductsListComponent,
     children: [
       {
         path: ':category',
@@ -77,7 +78,7 @@ const routes: Routes = [
       },
       {
         path: ':category/:subCategory',
-        component: ProductsListComponent,
+        component: ProductsListItemsComponent,
       },
       {
         path: ':category/:subCategory/:id',

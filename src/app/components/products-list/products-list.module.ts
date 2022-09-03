@@ -16,6 +16,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule, PaginatePipe } from 'ngx-pagination';
+import { CategoriesListComponent } from '../categories/categories-list/categories-list.component';
+import { CategoriesComponent } from '../categories/categories.component';
+import { SubCategoriesListComponent } from '../categories/sub-categories-list/sub-categories-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductToCartDialogComponent } from './product-to-cart-dialog/product-to-cart-dialog.component';
@@ -28,6 +31,9 @@ import { ProductsListComponent } from './products-list.component';
     ProductsListComponent,
     ProductToCartDialogComponent,
     ProductDetailsComponent,
+    CategoriesComponent,
+    CategoriesListComponent,
+    SubCategoriesListComponent,
   ],
   imports: [
     BrowserModule,

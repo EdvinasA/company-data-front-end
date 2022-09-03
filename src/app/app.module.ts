@@ -22,7 +22,9 @@ import { AppComponent } from './app.component';
 import { CartCheckoutHeaderComponent } from './components/cart-checkout-header/cart-checkout-header.component';
 import { CartPopoverComponent } from './components/cart/cart-popover/cart-popover.component';
 import { CartModule } from './components/cart/cart.module';
+import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { SubCategoriesListComponent } from './components/categories/sub-categories-list/sub-categories-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginPopoverComponent } from './components/login/login-popover/login-popover.component';
@@ -32,8 +34,6 @@ import { ProductsListModule } from './components/products-list/products-list.mod
 import { ProfileModule } from './components/profile/profile.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
-import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
-import { SubCategoriesListComponent } from './components/categories/sub-categories-list/sub-categories-list.component';
 
 @NgModule({
   declarations: [
@@ -45,10 +45,7 @@ import { SubCategoriesListComponent } from './components/categories/sub-categori
     HeaderComponent,
     FooterComponent,
     CartPopoverComponent,
-    CategoriesComponent,
     CartCheckoutHeaderComponent,
-    CategoriesListComponent,
-    SubCategoriesListComponent,
   ],
   imports: [
     ProductsListModule,
