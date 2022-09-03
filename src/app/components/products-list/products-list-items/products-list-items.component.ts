@@ -16,7 +16,7 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
   public user!: User | null;
   public itemsPage!: Page | null;
   public subscription!: Subscription;
-  public selectedOption = 'popular';
+  public selectedOption = 'asc';
   public defaultProductDisplay = 'card';
   public selectedPageAmount = '8';
   public selectedView = false;
@@ -36,7 +36,12 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
     });
     this.route.params.subscribe((params) => {
       this.currentSubCategory = params['subCategory'];
-      this.request(this.page, this.selectedPageAmount, this.currentSubCategory);
+      this.request(
+        this.page,
+        this.selectedPageAmount,
+        this.currentSubCategory,
+        this.selectedOption
+      );
     });
     this.productsService.pageSubject.asObservable().subscribe((page) => {
       this.itemsPage = page;
@@ -46,19 +51,39 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
 
   changeSizeOfPage(event: string) {
     this.selectedPageAmount = event;
-    this.request(this.page, this.selectedPageAmount);
+    this.request(
+      this.page,
+      this.selectedPageAmount,
+      this.currentSubCategory,
+      this.selectedOption
+    );
   }
 
   changePage(event: number) {
     this.page = event;
-    this.request(this.page, this.selectedPageAmount);
+    this.request(
+      this.page,
+      this.selectedPageAmount,
+      this.currentSubCategory,
+      this.selectedOption
+    );
   }
 
-  request(page: number, size: string, subCategory?: string) {
+  changeSort() {
+    this.request(
+      this.page,
+      this.selectedPageAmount,
+      this.currentSubCategory,
+      this.selectedOption
+    );
+  }
+
+  request(page: number, size: string, subCategory?: string, sort?: string) {
     this.subscription = this.productsService.getPagedListOfLaptops(
       size,
       page - 1,
-      subCategory
+      subCategory,
+      sort
     );
     this.productsService.pageSubject.asObservable().subscribe((page) => {
       this.itemsPage = page;

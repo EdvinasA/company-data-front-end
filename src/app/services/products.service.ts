@@ -18,11 +18,12 @@ export class ProductsService {
   getPagedListOfLaptops(
     size: string,
     page: number,
-    subCategory: string | undefined
+    subCategory: string | undefined,
+    sort: string | undefined
   ): Subscription {
     return this.http
       .get<Page>(
-        `/shop/product?page=${page}&size=${size}&subCategory=${subCategory}`
+        `/shop/product?page=${page}&size=${size}&subCategory=${subCategory}&sort=price,${sort}`
       )
       .pipe(
         catchError((err) => {

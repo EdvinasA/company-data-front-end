@@ -7,10 +7,10 @@
     <div class="filter">
       <mat-icon>compare_arrows</mat-icon>
       <mat-form-field>
-        <mat-select disableRipple [(ngModel)]="selectedOption">
-          <mat-option value="popular">Most popular items</mat-option>
-          <mat-option value="lowest">From lowest price</mat-option>
-          <mat-option value="highest">From highest price</mat-option>
+        <mat-select disableRipple [(ngModel)]="selectedOption" (selectionChange)="changeSort()">
+<!--          <mat-option value="popular">Most popular items</mat-option>-->
+          <mat-option value="asc">From lowest price</mat-option>
+          <mat-option value="desc">From highest price</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
