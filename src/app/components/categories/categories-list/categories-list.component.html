@@ -1,1 +1,23 @@
-<div>A</div>
+<div class="categories-container">
+  <button mat-button
+          [matMenuTriggerFor]="category">
+    Menu
+  </button>
+</div>
+
+<mat-menu #category="matMenu">
+  <div *ngFor="let category of categories">
+    <button mat-menu-item
+            [matMenuTriggerFor]="subCategory"
+            (click)="selectCategory(category)"
+            (mouseenter)="selectCategory(category)">
+      {{category.categoryForDisplay}}
+    </button>
+  </div>
+</mat-menu>
+
+<mat-menu #subCategory="matMenu">
+  <div *ngFor="let subCategory of selectedCategory?.subCategoryDisplay">
+    <div>{{subCategory.categoryForDisplay}}</div>
+  </div>
+</mat-menu>

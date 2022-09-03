@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CategoryDisplay } from '../../../models/category';
 import { CategoriesService } from '../../../services/categories.service';
@@ -8,17 +8,26 @@ import { CategoriesService } from '../../../services/categories.service';
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss'],
 })
-export class CategoriesListComponent implements OnInit {
-  // public categories: CategoryDisplay[] = [];
-  // public subscription!: Subscription;
+export class CategoriesListComponent implements OnInit, OnDestroy {
+  public categories: CategoryDisplay[] = [];
+  public subscription!: Subscription;
+  public selectedCategory: CategoryDisplay | null = null;
 
   constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    // this.subscription = this.categoriesService
-    //   .getCategories()
-    //   .subscribe((category) => {
-    //     this.categories = category;
-    //   });
+    this.subscription = this.categoriesService
+      .getCategories()
+      .subscribe((category) => {
+        this.categories = category;
+      });
+  }
+
+  selectCategory(category: CategoryDisplay) {
+    this.selectedCategory = category;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

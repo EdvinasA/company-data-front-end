@@ -32,6 +32,7 @@ import { ProductsListModule } from './components/products-list/products-list.mod
 import { ProfileModule } from './components/profile/profile.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AuthenticationGuard } from './guards/authentication.guard';
     FooterComponent,
     CartPopoverComponent,
     CartCheckoutHeaderComponent,
+    HomeComponent,
   ],
   imports: [
     ProductsListModule,

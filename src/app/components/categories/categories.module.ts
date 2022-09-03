@@ -45,6 +45,10 @@ import { SubCategoriesListComponent } from './sub-categories-list/sub-categories
     SharedModule,
     MatProgressSpinnerModule,
   ],
+  exports: [
+    CategoriesComponent,
+    CategoriesListComponent
+  ]
 })
 // @ts-ignore
 export class CategoriesModule {}
