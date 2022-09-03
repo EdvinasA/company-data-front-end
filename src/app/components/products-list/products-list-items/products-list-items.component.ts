@@ -19,9 +19,9 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
   public selectedOption = 'asc';
   public defaultProductDisplay = 'card';
   public selectedPageAmount = '8';
-  public selectedView = false;
   public page = 0;
   public isLoading: boolean = true;
+  public sortOptions: string[] = [];
   private currentSubCategory: string = '';
 
   constructor(
@@ -36,11 +36,14 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
     });
     this.route.params.subscribe((params) => {
       this.currentSubCategory = params['subCategory'];
+      this.sortOptions = ['price,asc', 'price,desc'];
       this.request(
         this.page,
         this.selectedPageAmount,
-        this.currentSubCategory,
-        this.selectedOption
+        [{ field: 'subCategory', value: this.currentSubCategory }],
+        this.selectedOption === 'asc'
+          ? [this.sortOptions[0]]
+          : [this.sortOptions[1]]
       );
     });
     this.productsService.pageSubject.asObservable().subscribe((page) => {
@@ -51,40 +54,55 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
 
   changeSizeOfPage(event: string) {
     this.selectedPageAmount = event;
+    this.sortOptions = ['price,asc', 'price,desc'];
     this.request(
       this.page,
       this.selectedPageAmount,
-      this.currentSubCategory,
-      this.selectedOption
+      [{ field: 'subCategory', value: this.currentSubCategory }],
+      this.selectedOption === 'asc'
+        ? [this.sortOptions[0]]
+        : [this.sortOptions[1]]
     );
   }
 
-  changePage(event: number) {
+  changePage(event: number, resetPage = -1) {
     this.page = event;
+    this.sortOptions = ['price,asc', 'price,desc'];
+    const page = this.page === 0 ? 0 : this.page - 1;
     this.request(
-      this.page,
+      page,
       this.selectedPageAmount,
-      this.currentSubCategory,
-      this.selectedOption
+      [{ field: 'subCategory', value: this.currentSubCategory }],
+      this.selectedOption === 'asc'
+        ? [this.sortOptions[0]]
+        : [this.sortOptions[1]]
     );
   }
 
   changeSort() {
+    this.sortOptions = ['price,asc', 'price,desc'];
     this.request(
       this.page,
       this.selectedPageAmount,
-      this.currentSubCategory,
-      this.selectedOption
+      [{ field: 'subCategory', value: this.currentSubCategory }],
+      this.selectedOption === 'asc'
+        ? [this.sortOptions[0]]
+        : [this.sortOptions[1]]
     );
   }
 
-  request(page: number, size: string, subCategory?: string, sort?: string) {
-    this.subscription = this.productsService.getPagedListOfLaptops(
-      size,
-      page - 1,
-      subCategory,
-      sort
-    );
+  request(
+    page: number,
+    size: string,
+    filter?: { field: string | object | undefined; value: string }[],
+    sort?: string[]
+  ) {
+    this.subscription = this.productsService.getPagedListOfLaptops({
+      page: page,
+      size: Number(size),
+      filter: filter,
+      sort: sort,
+    });
     this.productsService.pageSubject.asObservable().subscribe((page) => {
       this.itemsPage = page;
     });
