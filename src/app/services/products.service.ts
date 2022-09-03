@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReplaySubject, Subject, Subscription } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
-import { Product } from '../models/product';
 import { Page } from '../models/page';
+import { Product } from '../models/product';
 import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({

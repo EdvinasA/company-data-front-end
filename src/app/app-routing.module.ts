@@ -5,10 +5,12 @@ import { CartListComponent } from './components/cart/cart-list/cart-list.compone
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/cart/checkout/checkout.component';
 import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { SubCategoriesListComponent } from './components/categories/sub-categories-list/sub-categories-list.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductDetailsComponent } from './components/products-list/product-details/product-details.component';
 import { ProductsListItemsComponent } from './components/products-list/products-list-items/products-list-items.component';
-import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProfileDisplayComponent } from './components/profile/profile-display/profile-display.component';
 import { OrderDetailsComponent } from './components/profile/profile-order-history/order-details/order-details.component';
 import { OrderListComponent } from './components/profile/profile-order-history/order-list/order-list.component';
@@ -21,10 +23,9 @@ import { WishlistComponent } from './components/profile/wishlist/wishlist.compon
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { LoginGuard } from './guards/login.guard';
-import {CategoriesComponent} from "./components/categories/categories.component";
-import {SubCategoriesListComponent} from "./components/categories/sub-categories-list/sub-categories-list.component";
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   {
     path: 'cart',

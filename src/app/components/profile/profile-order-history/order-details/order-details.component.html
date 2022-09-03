@@ -48,7 +48,7 @@
               Items: {{order?.orderedItems?.length || ""}}
             </div>
             <mat-divider></mat-divider>
-            <div *ngIf="order?.orderedItems != undefined">
+            <div *ngIf="order?.orderedItems !== undefined">
               <div class="order-description-row" *ngFor="let orderedItem of order?.orderedItems">
                 <div class="order-description-name-column">
                   <div class="order-product-name">{{orderedItem?.itemName || ""}}</div>
@@ -96,7 +96,7 @@
       <div class="ordered-items-list-table-header-column">Amount</div>
       <div class="ordered-items-list-table-header-column">Total</div>
     </div>
-    <div *ngIf="order?.orderedItems != undefined">
+    <div *ngIf="order?.orderedItems !== undefined">
       <div class="ordered-items-list-content" *ngFor="let orderedItem of order?.orderedItems">
         <div class="ordered-items-list-content-column item inline-divs">
           <div class="ordered-item-image"><img

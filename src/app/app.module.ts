@@ -25,6 +25,7 @@ import { CartModule } from './components/cart/cart.module';
 import { CategoriesModule } from './components/categories/categories.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginPopoverComponent } from './components/login/login-popover/login-popover.component';
 import { LoginUserMenuComponent } from './components/login/login-user-menu/login-user-menu.component';
 import { LoginComponent } from './components/login/login.component';
@@ -32,7 +33,6 @@ import { ProductsListModule } from './components/products-list/products-list.mod
 import { ProfileModule } from './components/profile/profile.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
-import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [

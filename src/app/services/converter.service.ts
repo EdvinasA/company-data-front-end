@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CartItem } from '../models/cart';
 import { Login } from '../models/login';
+import { Product } from '../models/product';
 import { Register } from '../models/register';
 import { DeliveryInformation, User, UserUpdateInput } from '../models/user';
 import { ViewedItem } from '../models/viewed-item';
 import { WishlistCreate, WishlistItem } from '../models/wishlist';
-import {Product} from "../models/product";
 
 @Injectable({
   providedIn: 'root',

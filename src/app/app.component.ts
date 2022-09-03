@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {User} from './models/user';
-import {UserService} from './services/user.service';
-import {OrderService} from "./services/order.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from './models/user';
+import { OrderService } from './services/order.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
