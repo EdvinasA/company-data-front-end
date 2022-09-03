@@ -28,7 +28,7 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
   }
 
   navigate(category: CategoryDisplay) {
-    this.router.navigate(['/category', category.categoryForEnum]);
+    this.router.navigate(['/category', category.categoryForEnum]).then();
   }
 
   selectCategory(category: CategoryDisplay) {

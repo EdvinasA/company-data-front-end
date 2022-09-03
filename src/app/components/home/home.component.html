@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="home-grid">
+  <div class="home-sub-category-options">
+    <div *ngFor="let category of categories">
+      <button mat-menu-item
+              [matMenuTriggerFor]="subCategory"
+              (click)="navigate(category)"
+              (mouseenter)="selectCategory(category)">{{category.categoryForDisplay}}</button>
+    </div>
+  </div>
+</div>
+
+<mat-menu #subCategory="matMenu">
+  <div class="home-sub-category-options" *ngFor="let subCategory of selectedCategory?.subCategoryDisplay">
+    <div>{{subCategory.categoryForDisplay}}</div>
+  </div>
+</mat-menu>

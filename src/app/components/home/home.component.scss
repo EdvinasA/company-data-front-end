@@ -1,0 +1,15 @@
+.home-grid {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+}
+
+:host {
+  ::ng-deep{
+    .mat-menu-item {
+      white-space: break-spaces;
+      overflow: unset;
+      text-overflow: unset;
+      line-height: 25px;
+    }
+  }
+}
