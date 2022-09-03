@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoryDisplay } from '../../../models/category';
 import { CategoriesService } from '../../../services/categories.service';
@@ -13,7 +14,10 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
   public subscription!: Subscription;
   public selectedCategory: CategoryDisplay | null = null;
 
-  constructor(private categoriesService: CategoriesService) {}
+  constructor(
+    private categoriesService: CategoriesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.subscription = this.categoriesService
@@ -21,6 +25,10 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
       .subscribe((category) => {
         this.categories = category;
       });
+  }
+
+  navigate(category: CategoryDisplay) {
+    this.router.navigate(['/category', category.categoryForEnum]);
   }
 
   selectCategory(category: CategoryDisplay) {

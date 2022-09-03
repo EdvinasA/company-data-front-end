@@ -9,7 +9,7 @@
   <div *ngFor="let category of categories">
     <button mat-menu-item
             [matMenuTriggerFor]="subCategory"
-            (click)="selectCategory(category)"
+            (click)="navigate(category)"
             (mouseenter)="selectCategory(category)">
       {{category.categoryForDisplay}}
     </button>
