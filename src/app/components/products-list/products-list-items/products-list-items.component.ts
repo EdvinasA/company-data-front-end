@@ -65,7 +65,7 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
     );
   }
 
-  changePage(event: number, resetPage = -1) {
+  changePage(event: number) {
     this.page = event;
     this.sortOptions = ['price,asc', 'price,desc'];
     const page = this.page === 0 ? 0 : this.page - 1;
