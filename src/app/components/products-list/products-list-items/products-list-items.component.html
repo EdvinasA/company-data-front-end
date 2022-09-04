@@ -1,56 +1,58 @@
-<div class="container" *ngIf="!isLoading">
-  <div class="header-info">
-    <div class="header-pages-filter">
-      Showing {{getFirstAmountOfResultValues()}} - {{getSecondAmountOfResultValues()}} out
-      of {{itemsPage?.totalElements}}
+<div class="product-display-grid">
+  <div class="first-column">AAAAAAAAAA</div>
+  <div class="container" *ngIf="!isLoading">
+    <div class="header-info">
+      <div class="header-pages-filter">
+        Showing {{getFirstAmountOfResultValues()}} - {{getSecondAmountOfResultValues()}} out
+        of {{itemsPage?.totalElements}}
+      </div>
+      <div class="filter">
+        <mat-icon>compare_arrows</mat-icon>
+        <mat-form-field>
+          <mat-select disableRipple [(ngModel)]="selectedOption" (selectionChange)="changeSort()">
+            <!--          <mat-option value="popular">Most popular items</mat-option>-->
+            <mat-option value="asc">From lowest price</mat-option>
+            <mat-option value="desc">From highest price</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="number-of-pages">
+        <mat-form-field>
+          <mat-select (selectionChange)="changeSizeOfPage($event.value)"
+                      disableRipple
+                      [(ngModel)]="selectedPageAmount">
+            <mat-option value="4">4</mat-option>
+            <mat-option value="8">8</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="header-info-display-items">
+        <mat-button-toggle-group
+          [value]="defaultProductDisplay"
+          (change)="changeProductDisplay($event)">
+          <mat-button-toggle value="row">
+            <mat-icon>list</mat-icon>
+          </mat-button-toggle>
+          <span></span>
+          <mat-button-toggle value="card">
+            <mat-icon>view_module</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
     </div>
-    <div class="filter">
-      <mat-icon>compare_arrows</mat-icon>
-      <mat-form-field>
-        <mat-select disableRipple [(ngModel)]="selectedOption" (selectionChange)="changeSort()">
-<!--          <mat-option value="popular">Most popular items</mat-option>-->
-          <mat-option value="asc">From lowest price</mat-option>
-          <mat-option value="desc">From highest price</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <app-product-as-card-base [items]="itemsPage?.content"
+                              [itemsPerPage]="selectedPageAmount"
+                              [currentPage]="page"
+                              [totalElements]="itemsPage?.totalElements"
+                              [user]="user"
+                              [productDisplay]="defaultProductDisplay">
+    </app-product-as-card-base>
+    <div class="paginator">
+      <pagination-controls (pageChange)="changePage($event)"
+                           previousLabel="Previous"
+                           nextLabel="Next">
+      </pagination-controls>
     </div>
-    <div class="number-of-pages">
-      <mat-form-field>
-        <mat-select (selectionChange)="changeSizeOfPage($event.value)"
-                    disableRipple
-                    [(ngModel)]="selectedPageAmount">
-          <mat-option value="4">4</mat-option>
-          <mat-option value="8">8</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="header-info-display-items">
-      <mat-button-toggle-group
-        [value]="defaultProductDisplay"
-        (change)="changeProductDisplay($event)">
-        <mat-button-toggle value="row">
-          <mat-icon>list</mat-icon>
-        </mat-button-toggle>
-        <span></span>
-        <mat-button-toggle value="card">
-          <mat-icon>view_module</mat-icon>
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
-  </div>
-  <app-product-as-card-base [items]="itemsPage?.content"
-                            [itemsPerPage]="selectedPageAmount"
-                            [currentPage]="page"
-                            [totalElements]="itemsPage?.totalElements"
-                            [user]="user"
-                            [productDisplay]="defaultProductDisplay">
-  </app-product-as-card-base>
-  <div class="paginator">
-    <pagination-controls (pageChange)="changePage($event)"
-                         previousLabel="Previous"
-                         nextLabel="Next">
-    </pagination-controls>
   </div>
 </div>
-
 <app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
