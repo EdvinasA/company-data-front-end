@@ -23,6 +23,7 @@ import { WishlistComponent } from './components/profile/wishlist/wishlist.compon
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { LoginGuard } from './guards/login.guard';
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -92,6 +93,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
