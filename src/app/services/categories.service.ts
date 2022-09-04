@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CategoryDisplay } from '../models/category';
+import { CategoryDisplay, SubCategoryDisplay } from '../models/category';
 import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
@@ -11,5 +11,9 @@ export class CategoriesService {
 
   getCategories(): Observable<CategoryDisplay[]> {
     return this.http.get<CategoryDisplay[]>('/shop/category');
+  }
+
+  getSubCategories(category: string): Observable<SubCategoryDisplay[]> {
+    return this.http.get<SubCategoryDisplay[]>(`/shop/category/${category}`);
   }
 }
