@@ -4,7 +4,7 @@
          *ngFor="let item of items | paginate: { itemsPerPage: getSelectedAmountOfItemsInPage(), currentPage: currentPage, totalItems: totalElements }">
       <div class="product-card">
         <div class="image">
-          <a [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">
+          <a [routerLink]="[item.id]" (click)="addItemToViewedItems(item)">
             <img src="{{item.picture}}">
           </a>
         </div>
@@ -17,7 +17,7 @@
             To cart
           </button>
           <div class="product-link-box">
-            <a class="product-link" [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
+            <a class="product-link" [routerLink]="[item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
           </div>
         </div>
       </div>
@@ -27,13 +27,13 @@
     <div class="product-row-hover" *ngFor="let item of items | paginate: { itemsPerPage: getSelectedAmountOfItemsInPage(), currentPage: currentPage, totalItems: totalElements }">
       <div class="display-grid-columns">
         <div class="image">
-          <a [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">
+          <a [routerLink]="[item.id]" (click)="addItemToViewedItems(item)">
             <img src="{{item.picture}}">
           </a>
         </div>
         <div class="column2">
           <div class="product-link-box">
-            <a class="product-link" [routerLink]="['', item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
+            <a class="product-link" [routerLink]="[item.id]" (click)="addItemToViewedItems(item)">{{item.name}} "</a>
           </div>
         </div>
         <div class="column3">

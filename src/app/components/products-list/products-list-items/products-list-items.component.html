@@ -45,7 +45,9 @@
                               [currentPage]="page"
                               [totalElements]="itemsPage?.totalElements"
                               [user]="user"
-                              [productDisplay]="defaultProductDisplay">
+                              [productDisplay]="defaultProductDisplay"
+                              [currentCategory]="currentCategory"
+                              [currentSubCategory]="currentSubCategory">
     </app-product-as-card-base>
     <div class="paginator">
       <pagination-controls (pageChange)="changePage($event)"

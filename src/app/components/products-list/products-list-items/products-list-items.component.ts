@@ -22,7 +22,8 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
   public page = 0;
   public isLoading: boolean = true;
   public sortOptions: string[] = [];
-  private currentSubCategory: string = '';
+  public currentSubCategory: string = '';
+  public currentCategory: string = '';
 
   constructor(
     private productsService: ProductsService,
@@ -36,6 +37,7 @@ export class ProductsListItemsComponent implements OnInit, OnDestroy {
     });
     this.route.params.subscribe((params) => {
       this.currentSubCategory = params['subCategory'];
+      this.currentCategory = params['category'];
       this.sortOptions = ['price,asc', 'price,desc'];
       this.request(
         this.page,

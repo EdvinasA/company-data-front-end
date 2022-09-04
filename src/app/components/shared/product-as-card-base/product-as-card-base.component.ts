@@ -21,6 +21,8 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
   @Input() public currentPage: number = 0;
   @Input() public user!: User;
   @Input() public productDisplay: string = 'card';
+  @Input() public currentSubCategory: string = '';
+  @Input() public currentCategory: string = '';
 
   constructor(
     public dialog: MatDialog,
