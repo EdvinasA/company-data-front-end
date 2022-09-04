@@ -4,7 +4,6 @@ import { CartCheckoutInformationComponent } from './components/cart/cart-checkou
 import { CartListComponent } from './components/cart/cart-list/cart-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/cart/checkout/checkout.component';
-import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SubCategoriesListComponent } from './components/categories/sub-categories-list/sub-categories-list.component';
 import { HomeComponent } from './components/home/home.component';
@@ -76,26 +75,9 @@ const routes: Routes = [
     component: CategoriesComponent,
     children: [
       {
-        path: '',
-        data: {
-          breadcrumb: [
-            {
-              label: 'Categories',
-              url: '',
-            },
-          ],
-        },
-        component: CategoriesListComponent,
-      },
-      {
         path: ':category',
         data: {
-          breadcrumb: [
-            {
-              label: '{{categoryLabel}}',
-              url: '/category/:category',
-            },
-          ],
+          breadcrumb: 'category',
         },
         component: SubCategoriesListComponent,
       },

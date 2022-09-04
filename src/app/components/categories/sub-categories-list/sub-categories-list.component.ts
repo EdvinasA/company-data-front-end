@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoryDisplay, SubCategoryDisplay } from '../../../models/category';
 import { CategoriesService } from '../../../services/categories.service';
-import {NgDynamicBreadcrumbService} from "ng-dynamic-breadcrumb";
 
 @Component({
   selector: 'app-sub-categories-list',
@@ -18,14 +17,10 @@ export class SubCategoriesListComponent implements OnInit {
 
   constructor(
     private categoriesService: CategoriesService,
-    private route: ActivatedRoute,
-    private ngDynamicBreadcrumbService: NgDynamicBreadcrumbService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.ngDynamicBreadcrumbService.updateBreadcrumbLabels({
-      categoryLabel: this.currentCategory,
-    });
     this.route.params.subscribe((params) => {
       this.currentCategory = params['category'];
       this.subscription = this.categoriesService
