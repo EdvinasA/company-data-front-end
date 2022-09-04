@@ -29,24 +29,20 @@
 }
 
 @mixin card-container-3 {
-  width: 33.33%;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 @mixin card-container-2 {
-  width: 50%;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @mixin card-container-1 {
-  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
 }
 
 @mixin card-container {
   background: white;
-  float: left;
-  width: 25%;
   border: 1px solid #e1e1e1;
-  min-height: auto;
-  transition: height 0.1s;
 }
 
 @mixin card-display-container {
