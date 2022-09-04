@@ -7,4 +7,5 @@ export interface Product {
   quantity: number;
   type: string;
   category: string;
+  subCategory: string;
 }

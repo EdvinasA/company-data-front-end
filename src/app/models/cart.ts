@@ -1,9 +1,6 @@
 export class Cart {
   id!: string;
   cartItems!: CartItem[];
-  purchaseDate!: Date | null;
-  userId!: string;
-  status!: string;
 }
 
 export class CartItem {
