@@ -9,6 +9,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { SubCategoriesListComponent } from './components/categories/sub-categories-list/sub-categories-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductDetailsComponent } from './components/products-list/product-details/product-details.component';
 import { ProductsListItemsComponent } from './components/products-list/products-list-items/products-list-items.component';
 import { ProfileDisplayComponent } from './components/profile/profile-display/profile-display.component';
@@ -23,7 +24,6 @@ import { WishlistComponent } from './components/profile/wishlist/wishlist.compon
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { LoginGuard } from './guards/login.guard';
-import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -77,10 +77,26 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        data: {
+          breadcrumb: [
+            {
+              label: 'Categories',
+              url: '',
+            },
+          ],
+        },
         component: CategoriesListComponent,
       },
       {
         path: ':category',
+        data: {
+          breadcrumb: [
+            {
+              label: '{{categoryLabel}}',
+              url: '/category/:category',
+            },
+          ],
+        },
         component: SubCategoriesListComponent,
       },
       {

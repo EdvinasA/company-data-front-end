@@ -29,11 +29,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginPopoverComponent } from './components/login/login-popover/login-popover.component';
 import { LoginUserMenuComponent } from './components/login/login-user-menu/login-user-menu.component';
 import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsListModule } from './components/products-list/products-list.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {NgDynamicBreadcrumbModule} from "ng-dynamic-breadcrumb";
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatSnackBarModule,
     NgxPaginationModule,
     MatProgressSpinnerModule,
+    NgDynamicBreadcrumbModule,
   ],
   providers: [PaginatePipe, DecimalPipe, AuthenticationGuard],
   bootstrap: [AppComponent],
