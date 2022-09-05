@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartCheckoutInformationComponent } from './components/cart/cart-checkout-information/cart-checkout-information.component';
 import { CartListComponent } from './components/cart/cart-list/cart-list.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutCreditCartComponent } from './components/cart/checkout/checkout-credit-cart/checkout-credit-cart.component';
 import { CheckoutComponent } from './components/cart/checkout/checkout.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SubCategoriesListComponent } from './components/categories/sub-categories-list/sub-categories-list.component';
@@ -35,7 +36,11 @@ const routes: Routes = [
       { path: 'shipping', component: CartCheckoutInformationComponent },
     ],
   },
-  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    children: [{ path: '', component: CheckoutCreditCartComponent }],
+  },
   { path: 'register', component: RegisterComponent, canActivate: [LoginGuard] },
   {
     path: 'viewed-items',

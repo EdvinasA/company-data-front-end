@@ -30,6 +30,7 @@ import { WithdrawalFromLocationComponent } from './cart-checkout-information/shi
 import { CartDeliveryComponent } from './cart-delivery/cart-delivery.component';
 import { CartListComponent } from './cart-list/cart-list.component';
 import { CartComponent } from './cart.component';
+import { CheckoutCreditCartComponent } from './checkout/checkout-credit-cart/checkout-credit-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
@@ -48,6 +49,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     PayThreeComponent,
     PayToCourierComponent,
     OrderInformationDisplayComponent,
+    CheckoutCreditCartComponent,
   ],
   imports: [
     ReactiveFormsModule,
