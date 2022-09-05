@@ -4,7 +4,7 @@
   <app-cart-checkout-header *ngIf="!isCorrectCheckoutPath()" [title]="title">
   </app-cart-checkout-header>
 </div>
-<app-categories-list></app-categories-list>
+<app-categories-list *ngIf="isCorrectCheckoutPath()"></app-categories-list>
 <div class="container main">
   <app-profile-menu *ngIf="isCorrectProfilePath()"></app-profile-menu>
   <router-outlet>

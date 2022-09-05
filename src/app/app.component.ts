@@ -58,6 +58,9 @@ export class AppComponent implements OnInit {
     if (this.router.url.includes('/shipping')) {
       return false;
     }
+    if (this.router.url.includes('/checkout')) {
+      return false;
+    }
     return true;
   }
 }

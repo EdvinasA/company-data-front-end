@@ -1,0 +1,43 @@
+.checkmark-container {
+  display: flex;
+  justify-content: center;
+  padding: 200px 0 0 0;
+}
+
+.checkout-container {
+  background: #1098F7;
+  text-align: center;
+  color:#FFFFFF;
+}
+
+.checkmark {
+  display:inline-flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+}
+
+.checkmark_stem {
+  position: absolute;
+  width:20px;
+  height:110px;
+  background-color:#FFF2F2;
+  left:11px;
+  bottom: 8px;
+}
+
+.checkmark_kick {
+  position: absolute;
+  width:65px;
+  height:20px;
+  background-color:#FFFFFF;
+  right: 0;
+  top:2px;
+}
+
+.checkout-success-text-container {
+  padding: 20px 0 0 0;
+}
