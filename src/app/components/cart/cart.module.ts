@@ -32,6 +32,8 @@ import { CartListComponent } from './cart-list/cart-list.component';
 import { CartComponent } from './cart.component';
 import { CheckoutCreditCartComponent } from './checkout/checkout-credit-cart/checkout-credit-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutSuccessComponent } from './checkout/checkout-success/checkout-success.component';
+import { CheckoutFailedComponent } from './checkout/checkout-failed/checkout-failed.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     PayToCourierComponent,
     OrderInformationDisplayComponent,
     CheckoutCreditCartComponent,
+    CheckoutSuccessComponent,
+    CheckoutFailedComponent,
   ],
   imports: [
     ReactiveFormsModule,
