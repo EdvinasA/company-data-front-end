@@ -1,0 +1,36 @@
+.failed-container {
+  display: flex;
+}
+
+.x{
+  width: 100px;
+  height: 100px;
+  position:relative;
+  border-radius:50px;
+  background-color: red;
+}
+.x::after,.x::before{
+  position:absolute;
+  top:40px;
+  left:10px;
+  content:'';
+  display:block;
+  width:80px;
+  height:20px;
+  background-color: white;
+
+}
+.x::after{
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.x::before{
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}

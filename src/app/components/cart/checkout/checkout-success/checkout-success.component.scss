@@ -41,3 +41,12 @@
 .checkout-success-text-container {
   padding: 20px 0 0 0;
 }
+
+:host {
+  ::ng-deep .container {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
