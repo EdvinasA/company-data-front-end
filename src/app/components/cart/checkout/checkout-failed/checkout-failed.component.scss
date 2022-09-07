@@ -1,5 +1,11 @@
+.display-container {
+  padding: 200px 0 0 0;
+  text-align: center;
+}
+
 .failed-container {
   display: flex;
+  justify-content: center;
 }
 
 .x{
