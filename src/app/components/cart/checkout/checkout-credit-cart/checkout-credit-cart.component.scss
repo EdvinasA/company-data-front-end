@@ -7,6 +7,7 @@
 .checkout-details {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   min-height: 384px;
+  padding: 20px 0 0 0;
   width: 500px;
 }
 
@@ -50,6 +51,11 @@
   width: 50%;
 }
 
+.expiration-month {
+  padding: 0 10px 0 0;
+  width: 50%;
+}
+
 .cvc-number {
   display: inline-flex;
   padding: 0 0 0 21px;
@@ -61,8 +67,21 @@
     width: 50px;
     height: 30px;
   }
+  .mat-form-field {
+    line-height: unset;
+  }
 }
 
 .checkout-card-number-input {
-  padding: 0 8px 0 10px;
+  padding: 0 25px;
+}
+
+.expiration-different {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 25px;
+}
+
+.expiration-different div {
+  max-width: 148px;
 }

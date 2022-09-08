@@ -14,7 +14,20 @@ export class CheckoutCreditCartComponent implements OnInit {
     2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045,
     2046, 2047, 2048, 2049, 2050,
   ];
-  public listOfMonths: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  public listOfMonths: string[] = [
+    '01',
+    '02',
+    '03',
+    '04',
+    '05',
+    '06',
+    '07',
+    '08',
+    '09',
+    '10',
+    '11',
+    '12',
+  ];
   public countries: Country[] = [];
   public checkoutCreditCardForm = new FormGroup({
     cardNumber: new FormControl('', Validators.required),
