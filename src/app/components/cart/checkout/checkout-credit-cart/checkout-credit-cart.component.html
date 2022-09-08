@@ -18,7 +18,7 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="expiration-different">
+      <div class="expiration">
         <div>
           <mat-form-field appearance="fill">
             <mat-label>YYYY</mat-label>
@@ -28,7 +28,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'expirationYear')">
-              Expiration is <strong>required</strong>
+              Year <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -41,7 +41,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'expirationMonth')">
-              Expiration is <strong>required</strong>
+              Month <strong>missing</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -50,7 +50,7 @@
             <mat-label>CVC</mat-label>
             <input matInput placeholder="CVC" formControlName="cvc">
             <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'cvc')">
-              CVC is <strong>required</strong>
+              CVC <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
