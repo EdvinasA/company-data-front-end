@@ -40,16 +40,20 @@
 }
 
 .expiration {
-  padding: 0 10px 0 10px;
+  padding: 0 8px 0 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.expiration-year {
+  padding: 0 10px 0 0;
   width: 50%;
-  display: inline-flex;
 }
 
 .cvc-number {
   display: inline-flex;
   padding: 0 0 0 21px;
   width: 50%;
-
 }
 
 ::ng-deep {

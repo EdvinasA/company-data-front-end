@@ -18,7 +18,8 @@ export class CheckoutCreditCartComponent implements OnInit {
   public countries: Country[] = [];
   public checkoutCreditCardForm = new FormGroup({
     cardNumber: new FormControl('', Validators.required),
-    expiration: new FormControl('', Validators.required),
+    expirationYear: new FormControl('', Validators.required),
+    expirationMonth: new FormControl('', Validators.required),
     cvc: new FormControl('', Validators.required),
     country: new FormControl('Lithuania', Validators.required),
   });

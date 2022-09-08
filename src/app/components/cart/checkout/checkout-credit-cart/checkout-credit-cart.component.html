@@ -19,24 +19,43 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div class="">
+        <div>
           <div class="expiration">
-            <mat-form-field appearance="fill">
-              <mat-label>Expiration</mat-label>
-              <input matInput placeholder="MM / YY" formControlName="expiration">
-              <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'expiration')">
-                Expiration is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="cvc-number">
-            <mat-form-field appearance="fill">
-              <mat-label>CVC</mat-label>
-              <input matInput placeholder="CVC" formControlName="cvc">
-              <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'cvc')">
-                CVC is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
+            <div class="expiration-year">
+              <mat-form-field appearance="fill">
+                <mat-label>YYYY</mat-label>
+                <mat-select matInput formControlName="expirationYear">
+                  <mat-option *ngFor="let year of listOfYears" [value]="year">
+                    {{year}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'expirationYear')">
+                  Expiration is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="expiration-month">
+              <mat-form-field appearance="fill">
+                <mat-label>MM</mat-label>
+                <mat-select matInput formControlName="expirationMonth">
+                  <mat-option *ngFor="let month of listOfMonths" [value]="month">
+                    {{month}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'expirationMonth')">
+                  Expiration is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>CVC</mat-label>
+                <input matInput placeholder="CVC" formControlName="cvc">
+                <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'cvc')">
+                  CVC is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
           </div>
         </div>
         <div class="checkout-card-number-input">
