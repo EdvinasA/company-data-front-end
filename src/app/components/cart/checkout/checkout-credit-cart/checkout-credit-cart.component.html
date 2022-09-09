@@ -1,10 +1,16 @@
+<script>
+  document.getElementById('card').addEventListener('input', function (e) {
+    e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+  });
+  console.log("ASDASD");
+</script>
 <div class="checkout-container">
   <div class="checkout-details">
     <form [formGroup]="checkoutCreditCardForm" (ngSubmit)="onSubmit()">
       <div class="checkout-card-number-input">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Card number</mat-label>
-          <input matInput placeholder="1234  1234  1234  1234" formControlName="cardNumber">
+          <input matInput id="card" name="card" placeholder="1234 1234 1234 1234" formControlName="cardNumber" maxlength="19">
           <mat-icon matSuffix>
             <img
               src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg"
@@ -48,7 +54,7 @@
         <div>
           <mat-form-field appearance="fill">
             <mat-label>CVC</mat-label>
-            <input matInput placeholder="CVC" formControlName="cvc">
+            <input matInput placeholder="CVC" formControlName="cvc" maxlength="3">
             <mat-error *ngIf="checkoutCreditCardForm.hasError('required', 'cvc')">
               CVC <strong>required</strong>
             </mat-error>
