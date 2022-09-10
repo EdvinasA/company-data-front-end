@@ -43,7 +43,6 @@
           </div>
           <app-cart-checkout-accept-form
             [formGroup]="getDeliveryForm()"
-            (emitCreateOrder)="submitOrderHandler()"
           ></app-cart-checkout-accept-form>
         </div>
       </div>
@@ -143,7 +142,8 @@
   <mat-step>
     <ng-template matStepLabel>Order completed</ng-template>
     <div>
-      <app-checkout-credit-cart></app-checkout-credit-cart>
+      <app-checkout-credit-cart (emitCreateOrder)="submitOrderHandler($event)">
+      </app-checkout-credit-cart>
     </div>
   </mat-step>
 </mat-stepper>
