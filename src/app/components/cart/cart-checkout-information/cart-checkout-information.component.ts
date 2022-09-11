@@ -224,19 +224,23 @@ export class CartCheckoutInformationComponent implements OnInit {
 
   submitOrderHandler(creditCard: any) {
     console.log(creditCard);
-    // let order: OrderInput = {
-    //   userId: this.user!.id,
-    //   deliveryAddress: 'Geležinio Vilko g. 22-29 49272 Kaunas',
-    //   withdrawalLocation: '',
-    //   wantedDeliveryTime: '08:00–18:00',
-    //   deliveryOption: 'TO_HOME',
-    //   paymentMethod: 'BANK_SWEDBANK',
-    //   totalPrice: this.totalSumOfAllItemsSubject,
-    //   appliedDiscountAmount: 10,
-    //   deliveryPrice: this.deliveryCost(),
-    //   orderedItems: this.cart.cartItems,
-    // };
-    //
-    // this.orderService.createOrder(order, this.user?.id).subscribe();
+    let order: OrderInput = {
+      userId: this.user!.id,
+      deliveryAddress: 'Geležinio Vilko g. 22-29 49272 Kaunas',
+      withdrawalLocation: '',
+      wantedDeliveryTime: '08:00–18:00',
+      deliveryOption: 'TO_HOME',
+      paymentMethod: 'BANK_SWEDBANK',
+      totalPrice: this.totalSumOfAllItemsSubject,
+      appliedDiscountAmount: 10,
+      deliveryPrice: this.deliveryCost(),
+      orderedItems: this.cart.cartItems,
+    };
+
+    this.orderService
+      .createOrder(order, this.user?.id)
+      .subscribe((checkoutInfo) => {
+        window.location.href = checkoutInfo.url;
+      });
   }
 }

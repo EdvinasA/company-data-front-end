@@ -49,3 +49,7 @@ export type OrderInput = {
   deliveryPrice: number;
   orderedItems: CartItem[];
 };
+
+export type CheckoutUrl = {
+  url: string;
+};

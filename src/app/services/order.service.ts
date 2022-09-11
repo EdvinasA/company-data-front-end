@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ReplaySubject, Subject, Subscription } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { CartItem } from '../models/cart';
-import { Order, OrderInput } from '../models/order';
+import {CheckoutUrl, Order, OrderInput} from '../models/order';
 import { ApiGatewayService } from './api-gateway.service';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class OrderService {
   constructor(private http: ApiGatewayService) {}
 
   createOrder(input: OrderInput, userId: string | undefined) {
-    return this.http.post<CartItem[]>(`/orders/${userId}`, input);
+    return this.http.post<CheckoutUrl>(`/orders/${userId}`, input);
   }
 
   getOrder(orderId: string | null) {
