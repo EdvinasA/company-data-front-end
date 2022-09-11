@@ -63,4 +63,17 @@ export class AppComponent implements OnInit {
     }
     return true;
   }
+
+  isCorrectCheckoutPathWithWildcard() {
+    if (this.router.url.includes('/shipping')) {
+      return false;
+    }
+    if (this.router.url.includes('/checkout')) {
+      return false;
+    }
+    if (this.router.getCurrentNavigation() === null) {
+      return false;
+    }
+    return true;
+  }
 }

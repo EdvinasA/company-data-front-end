@@ -3,3 +3,22 @@
   justify-content: space-around;
   width: 100%;
 }
+
+.not-found-image {
+  width: 100%;
+  height: fit-content;
+}
+
+.container-for-page {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
