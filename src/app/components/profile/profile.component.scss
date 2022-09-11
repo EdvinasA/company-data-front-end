@@ -3,7 +3,28 @@
   grid-template-columns: 20% 1fr;
 }
 
+.menu-for-small-screen {
+  display: none;
+}
+
+.content-display {
+  padding: 0 30px 0 0;
+}
+
 .container {
   max-width: 1280px;
   padding: 10px 0;
+}
+
+@media (max-width: 1000px) {
+  .menu-for-big-screen {
+    display: none;
+  }
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+  .menu-for-small-screen {
+    display: block;
+    padding: 0 32px 0 40px;
+  }
 }

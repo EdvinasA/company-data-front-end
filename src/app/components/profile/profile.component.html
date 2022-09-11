@@ -1,9 +1,21 @@
 <div class="container">
   <div class="profile-grid">
-    <div>
+    <div class="menu-for-big-screen">
       <app-profile-menu></app-profile-menu>
     </div>
-    <div>
+    <div class="menu-for-small-screen">
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              My profile
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-profile-menu></app-profile-menu>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="content-display">
       <router-outlet></router-outlet>
     </div>
   </div>
