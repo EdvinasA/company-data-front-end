@@ -8,10 +8,9 @@
   @include profile-page-header;
 }
 
-.viewed-card-display-container {
-  width: 100%;
-  display: inline-block;
-  overflow: hidden;
+.viewed-card-display-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .viewed-card-container {
