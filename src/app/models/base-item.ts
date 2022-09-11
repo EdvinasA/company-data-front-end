@@ -5,4 +5,6 @@ export type BaseItem = {
   code: string;
   price: number;
   type: string;
+  category: string;
+  subCategory: string;
 };

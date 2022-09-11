@@ -43,6 +43,8 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
       itemPrice: item.price,
       itemInsurance: false,
       itemWarranty: false,
+      category: item.category,
+      subCategory: item.subCategory,
     };
     this.cartService.updateCartList(cartItem, this.user?.id);
     this.openAddedItemToCartDialog(cartItem);
@@ -65,6 +67,8 @@ export class ProductAsCardBaseComponent<T extends BaseItem> implements OnInit {
       delivery: true,
       withdrawal: true,
       userId: this.user?.id,
+      category: item.category,
+      subCategory: item.subCategory,
     };
     this.viewedItemService
       .createViewedItem(viewedItem, this.user?.id)

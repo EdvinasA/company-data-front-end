@@ -18,7 +18,7 @@
 <div *ngFor="let item of cart?.cartItems">
   <div class="item-container">
     <div class="picture">
-      <a [routerLink]="['', item.itemId]">
+      <a [routerLink]="['/category',item.category,item.subCategory,item.itemId]">
         <img
           src="{{item.picture}}"
           alt="{{item.itemName}}">
@@ -26,7 +26,7 @@
     </div>
     <div class="name">
       <div>
-        <a [routerLink]="['', item.itemId]">
+        <a [routerLink]="['/category',item.category,item.subCategory,item.itemId]">
           {{item.itemName}}
         </a>
         <p class="code-color">Product code: {{item.itemCode}}</p>

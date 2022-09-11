@@ -1,17 +1,5 @@
 import { CartItem } from './cart';
 
-export type OrderedItems = {
-  itemId: string;
-  orderId: string;
-  picture: string;
-  itemName: string;
-  itemCode: string;
-  itemPrice: number;
-  itemQuantity: number;
-  itemInsurance: boolean;
-  itemWarranty: boolean;
-};
-
 export type Order = {
   id: string;
   userId: string;
@@ -35,6 +23,8 @@ export type OrderedItem = {
   itemQuantity: number;
   itemInsurance: boolean;
   itemWarranty: boolean;
+  category: string;
+  subCategory: string;
 };
 
 export type OrderInput = {

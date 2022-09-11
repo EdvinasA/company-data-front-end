@@ -66,6 +66,8 @@ export class ConverterService {
       itemPrice: item.itemPrice,
       itemInsurance: false,
       itemWarranty: false,
+      category: item.category,
+      subCategory: item.subCategory,
     };
 
     return cartItem;
@@ -86,6 +88,8 @@ export class ConverterService {
       itemPrice: item.price,
       itemInsurance: insurance,
       itemWarranty: warranty,
+      category: item.category,
+      subCategory: item.subCategory,
     };
 
     return cartItem;
@@ -103,6 +107,8 @@ export class ConverterService {
       itemPrice: item.price,
       itemName: item.name,
       wishListProfileId: portfolioId,
+      category: item.category,
+      subCategory: item.subCategory,
     };
 
     return wishlistItem;
@@ -118,6 +124,8 @@ export class ConverterService {
       itemPrice: item.itemPrice,
       itemInsurance: false,
       itemWarranty: false,
+      category: item.category,
+      subCategory: item.subCategory,
     };
 
     return cartItem;

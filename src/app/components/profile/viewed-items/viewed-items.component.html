@@ -4,7 +4,7 @@
     <div class="viewed-card-display-grid">
       <div class="viewed-card-container" *ngFor="let item of viewedItems">
         <div class="viewed-image">
-          <a [routerLink]="['', item.itemId]">
+          <a [routerLink]="['/category',item.category,item.subCategory,item.itemId]">
             <img src="{{item.itemPicture}}">
           </a>
         </div>
@@ -13,7 +13,7 @@
         </div>
         <div class="viewed-price-and-options">
           <div class="viewed-item-link-box">
-            <a class="viewed-item-link" [routerLink]="['', item.itemId]">{{item.itemName}}
+            <a class="viewed-item-link" [routerLink]="['/category',item.category,item.subCategory,item.itemId]">{{item.itemName}}
               "</a>
           </div>
         </div>

@@ -13,6 +13,8 @@ export type WishlistItem = {
   itemPicture: string;
   itemPrice: number;
   wishListProfileId: string | unknown;
+  category: string;
+  subCategory: string;
 };
 
 export type WishlistCreate = {

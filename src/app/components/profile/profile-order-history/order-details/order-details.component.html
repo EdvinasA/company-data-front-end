@@ -99,6 +99,7 @@
     <div *ngIf="order?.orderedItems !== undefined">
       <div class="ordered-items-list-content" *ngFor="let orderedItem of order?.orderedItems">
         <div class="ordered-items-list-content-column item inline-divs">
+          <a [routerLink]="['/category',orderedItem.category,orderedItem.subCategory,orderedItem.itemId]">
           <div class="ordered-item-image"><img
             src="{{orderedItem?.picture}}"
             alt="{{orderedItem?.itemName}}"></div>
@@ -106,6 +107,7 @@
             <div>{{orderedItem?.itemName || ""}}</div>
             <div>Product code: {{orderedItem?.itemCode || ""}}</div>
           </div>
+          </a>
         </div>
         <div class="ordered-items-list-content-column">{{orderedItem?.itemPrice}} €</div>
         <div class="ordered-items-list-content-column">{{orderedItem?.itemQuantity}} vnt.</div>

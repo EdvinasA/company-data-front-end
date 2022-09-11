@@ -12,4 +12,6 @@ export class CartItem {
   itemPrice!: number;
   itemInsurance!: boolean;
   itemWarranty!: boolean;
+  category!: string;
+  subCategory!: string;
 }

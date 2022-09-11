@@ -6,7 +6,7 @@
 <div class="wishlist-card-display-container" *ngIf="!isLoading">
   <div class="wishlist-card-container" *ngFor="let item of items">
     <div class="wishlist-image">
-      <a [routerLink]="['', item.itemId]">
+      <a [routerLink]="['/category',item.category,item.subCategory,item.itemId]">
         <img src="{{item.itemPicture}}">
       </a>
     </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="wishlist-price-and-options">
       <div class="wishlist-product-link-box">
-        <a class="wishlist-product-link" [routerLink]="['', item.itemId]">{{item.itemName}} "</a>
+        <a class="wishlist-product-link" [routerLink]="['/category',item.category,item.subCategory,item.itemId]">{{item.itemName}} "</a>
       </div>
     </div>
     <div class="wishlist-button-box">

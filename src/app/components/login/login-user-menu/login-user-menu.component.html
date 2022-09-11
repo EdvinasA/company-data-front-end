@@ -1,10 +1,10 @@
 <div class="host">
   <div class="item">
     <button mat-raised-button (click)="changePage('/profile')">My profile</button>
-    <button mat-raised-button (click)="changePage('/orders')">Orders ({{orders.length}})</button>
-    <button mat-raised-button (click)="changePage('/wishlist')">Wishlist</button>
-    <button mat-raised-button (click)="changePage('/viewed-items')">Viewed items</button>
-    <button mat-raised-button (click)="changePage('/subscriptions')">Subscriptions</button>
+    <button mat-raised-button (click)="changePage('/profile/orders')">Orders ({{orders.length}})</button>
+    <button mat-raised-button (click)="changePage('/profile/wishlist')">Wishlist</button>
+    <button mat-raised-button (click)="changePage('/profile/viewed-items')">Viewed items</button>
+    <button mat-raised-button (click)="changePage('/profile/subscriptions')">Subscriptions</button>
     <mat-divider></mat-divider>
   </div>
   <div class="item">

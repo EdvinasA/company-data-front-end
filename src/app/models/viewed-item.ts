@@ -8,4 +8,6 @@ export type ViewedItem = {
   delivery: boolean;
   withdrawal: boolean;
   userId: string | undefined;
+  category: string;
+  subCategory: string;
 };
