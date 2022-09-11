@@ -70,3 +70,27 @@ a:active, a:focus {
   justify-content: center;
   width: 147px;
 }
+
+@media (max-width: 1000px) {
+  .wishlist-button-in-header {
+    display: none;
+  }
+}
+
+@media (max-width: 864px) {
+  .bottom-header input {
+    width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bottom-header input {
+    width: 150px;
+  }
+}
+
+@media (max-width: 476px) {
+  .bottom-header input {
+    width: 60px;
+  }
+}
