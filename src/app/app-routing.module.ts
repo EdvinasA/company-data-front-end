@@ -18,6 +18,7 @@ import { ProfileDisplayComponent } from './components/profile/profile-display/pr
 import { OrderDetailsComponent } from './components/profile/profile-order-history/order-details/order-details.component';
 import { OrderListComponent } from './components/profile/profile-order-history/order-list/order-list.component';
 import { ProfileOrderHistoryComponent } from './components/profile/profile-order-history/profile-order-history.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { SubscriptionsComponent } from './components/profile/subscriptions/subscriptions.component';
 import { ViewedItemsComponent } from './components/profile/viewed-items/viewed-items.component';
 import { WishlistDetailsComponent } from './components/profile/wishlist/wishlist-details/wishlist-details.component';
@@ -49,37 +50,42 @@ const routes: Routes = [
   },
   { path: 'register', component: RegisterComponent, canActivate: [LoginGuard] },
   {
-    path: 'viewed-items',
-    component: ViewedItemsComponent,
-    canActivate: [AuthenticationGuard],
-  },
-  {
     path: 'profile',
-    component: ProfileDisplayComponent,
-    canActivate: [AuthenticationGuard],
-  },
-  {
-    path: 'orders',
-    component: ProfileOrderHistoryComponent,
+    component: ProfileComponent,
     canActivate: [AuthenticationGuard],
     children: [
-      { path: '', component: OrderListComponent },
-      { path: ':id', component: OrderDetailsComponent },
+      { path: '', component: ProfileDisplayComponent },
+      {
+        path: 'orders',
+        component: ProfileOrderHistoryComponent,
+        children: [
+          { path: '', component: OrderListComponent },
+          { path: ':id', component: OrderDetailsComponent },
+        ],
+      },
+      {
+        path: 'wishlist',
+        component: WishlistComponent,
+        canActivate: [AuthenticationGuard],
+        children: [
+          { path: '', component: WishlistListComponent },
+          {
+            path: ':id/:wishlistProfileName',
+            component: WishlistDetailsComponent,
+          },
+        ],
+      },
+      {
+        path: 'subscriptions',
+        component: SubscriptionsComponent,
+        canActivate: [AuthenticationGuard],
+      },
+      {
+        path: 'viewed-items',
+        component: ViewedItemsComponent,
+        canActivate: [AuthenticationGuard],
+      },
     ],
-  },
-  {
-    path: 'wishlist',
-    component: WishlistComponent,
-    canActivate: [AuthenticationGuard],
-    children: [
-      { path: '', component: WishlistListComponent },
-      { path: ':id/:wishlistProfileName', component: WishlistDetailsComponent },
-    ],
-  },
-  {
-    path: 'subscriptions',
-    component: SubscriptionsComponent,
-    canActivate: [AuthenticationGuard],
   },
   {
     path: 'category',

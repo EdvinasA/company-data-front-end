@@ -1,0 +1,9 @@
+.profile-grid {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 10px 0;
+}
