@@ -55,3 +55,12 @@
   text-decoration: none;
   color: black;
 }
+
+@media (max-width: 734px) {
+  .orders-list-header {
+    display: none;
+  }
+  .orders-list-content {
+    display: block;
+  }
+}
