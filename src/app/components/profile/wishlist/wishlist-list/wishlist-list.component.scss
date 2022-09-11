@@ -48,3 +48,15 @@
 .wishlist-profile-container {
   padding-bottom: 10px;
 }
+
+@media (max-width: 560px) {
+  .wishlist-box {
+    width: 40%;
+  }
+  .wishlist-button {
+    display: unset;
+    vertical-align: unset;
+    text-align: unset;
+    width: 30%;
+  }
+}
