@@ -22,14 +22,13 @@
     span {
       white-space: break-spaces;
     }
+    .mat-slide-toggle {
+      height: unset;
+    }
   }
 }
 
 .subscription-information {
   font-size: 10px;
   color: #999999;
-}
-
-.extended-text {
-  padding: 10px 0 0 0;
 }
