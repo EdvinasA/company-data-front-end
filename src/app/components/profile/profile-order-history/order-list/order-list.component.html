@@ -7,7 +7,7 @@
     <div class="orders-list-header-column status">Status updated</div>
   </div>
   <div *ngFor="let order of orders">
-    <a class="ordered-item-link" [routerLink]="['/orders', order.id]">
+    <a class="ordered-item-link" [routerLink]="['/profile/orders', order.id]">
       <div class="orders-list-content">
         <div class="orders-list-content-column"><strong>{{order.orderNumber}}</strong></div>
         <div class="orders-list-content-column">{{order.orderDate}}</div>
