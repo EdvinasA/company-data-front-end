@@ -31,19 +31,19 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .card-container {
+  .wishlist-card-display-container {
     @include card-container-3;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .card-container {
+  .wishlist-card-display-container {
     @include card-container-2;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .card-container {
+  .wishlist-card-display-container {
     @include card-container-1;
   }
 }
