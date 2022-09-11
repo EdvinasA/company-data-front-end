@@ -1,5 +1,8 @@
 <div class="shipping-main-fourth-row position">
-  <div class="shipping-main-fourth-row">
+  <div [ngClass]="{
+  'shipping-main-fourth-row': formGroup.valid,
+  'disabled-button' : !formGroup.valid
+  }">
     <form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
       <button mat-raised-button matStepperNext [disabled]="!formGroup.valid">Continue ></button>
     </form>

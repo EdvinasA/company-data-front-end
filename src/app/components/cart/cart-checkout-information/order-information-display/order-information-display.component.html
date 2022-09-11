@@ -36,7 +36,10 @@
               </mat-error>
             </mat-form-field>
           </div>
-          <div class="discount-button">
+          <div [ngClass]="{
+          'discount-button': discountCode.valid,
+          'disabled-button': !discountCode.valid
+              }">
             <button mat-raised-button [disabled]="!discountCode.valid" (click)="checkDiscountCode(discountCode.value)">Check</button>
           </div>
         </div>
