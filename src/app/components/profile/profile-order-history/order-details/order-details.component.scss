@@ -165,17 +165,43 @@ h3 {
   display: inline-flex;
 }
 
-@media (max-width: 734px) {
+@media (max-width: 760px) {
   .orders-list-header {
     display: none;
   }
   .orders-list-content {
     display: block;
   }
+  .order-information-container {
+    display: unset;
+  }
   :host {
     ::ng-deep {
       .mat-expansion-panel-header {
         height: 150px;
+        display: unset;
+        width: 400px;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .orders-list-header {
+    display: none;
+  }
+  .orders-list-content {
+    display: block;
+  }
+  .order-information-container {
+    display: unset;
+  }
+  :host {
+    ::ng-deep {
+      .mat-expansion-panel-header {
+        height: 150px;
+        display: unset;
+        width: 80px;
       }
     }
   }
