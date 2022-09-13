@@ -8,24 +8,25 @@
 }
 
 .header-info {
-  display: flex;
+  //display: flex;
   height: 50px;
   border: 1px solid #e1e1e1;
   background: #f9f9f9;
 }
 
 .header-pages-filter {
-  padding: 15px 5px 0 20px;
-  width: 55%;
-  border-right: 1px solid #e1e1e1;
+  padding: 12px 0 0 0;
 }
 
 .header-info-display-items {
-
+  height: 45px;
+  border-left: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
 }
 
 .number-of-pages {
-  width: 8%;
+  height: 47px;
+  width: 55%;
   text-align: center;
   padding: 0 10px 0 10px;
   border-left: 1px solid #e1e1e1;
@@ -37,11 +38,8 @@
 }
 
 .filter {
-  padding: 0 10px 0 10px;
-  width: 33%;
-  display: block ruby;
-  justify-content: space-between;
-  text-align: center;
+  border-left: 1px solid #e1e1e1;
+  height: 47px;
 }
 
 .filter mat-icon {
@@ -140,4 +138,16 @@
 .first-column {
   border: 1px solid #e1e1e1;
   margin: 20px 20px 0 0;
+}
+
+.header-grid-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 48px;
+  border: 1px solid #e8e8e8;
+}
+
+.selections-grid-columns {
+  display: grid;
+  grid-template-columns: 60% 21% 19%;
 }
