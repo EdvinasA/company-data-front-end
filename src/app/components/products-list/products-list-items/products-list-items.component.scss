@@ -151,3 +151,14 @@
   display: grid;
   grid-template-columns: 60% 21% 19%;
 }
+
+@media (max-width: 800px) {
+  .header-grid-columns {
+    grid-template-columns: 1fr;
+    margin-bottom: 50px;
+  }
+  .selections-grid-columns {
+    display: flex;
+    flex-direction: row;
+  }
+}
