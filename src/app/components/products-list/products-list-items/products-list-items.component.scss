@@ -170,3 +170,21 @@
     padding: 20px 0 0 0;
   }
 }
+
+@media (max-width: 700px) {
+  .header-grid-columns {
+    grid-template-columns: 80%;
+  }
+  .number-of-pages {
+    width: 15%;
+  }
+}
+
+@media (max-width: 450px) {
+  .header-grid-columns {
+    grid-template-columns: 60%;
+  }
+  .number-of-pages {
+    width: 15%;
+  }
+}
