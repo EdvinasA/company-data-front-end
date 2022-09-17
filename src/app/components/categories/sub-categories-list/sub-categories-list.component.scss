@@ -1,11 +1,13 @@
+@import "src/mixin.scss";
+
 .category-grid-columns {
+  @include default-font-family;
   display: grid;
-  font-family: Roboto;
   grid-template-columns: 30% 70%;
 }
 
 .category-grid-column1 {
-  border: 1px solid #e6e6e6;
+  @include default-border;
   padding-bottom: 20px;
 }
 
@@ -14,7 +16,7 @@
 }
 
 .category-column-wrapper2 {
-  border: 1px solid #e6e6e6;
+  @include default-border;
 }
 
 .category-column-header1 {
@@ -32,8 +34,8 @@
 }
 
 .category-grid-template {
+  @include default-font-family;
   display: grid;
-  font-family: Roboto;
   font-size: 12px;
   text-align: center;
   grid-template-columns: repeat(4, 1fr);
@@ -41,7 +43,7 @@
 }
 
 .category-column-header2 {
-  border: 1px solid #e6e6e6;
+  @include default-border;
   font-size: 24px;
   padding: 15px;
   margin-bottom: 15px;

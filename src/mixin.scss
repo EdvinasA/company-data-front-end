@@ -128,9 +128,14 @@
   border-right: 1px solid #e1e1e1;
 }
 
-@mixin border-without-left-and-right {
+@mixin border-with-top-and-bottom {
   border-top: 1px solid #e1e1e1;
   border-bottom: 1px solid #e1e1e1;
+}
+
+@mixin border-with-right-and-left {
+  border-right: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
 }
 
 @mixin default-header-color {

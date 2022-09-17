@@ -108,7 +108,7 @@
 }
 
 .ordered-items-list-table-header {
-  @include border-without-left-and-right;
+  @include border-with-top-and-bottom;
   @include default-header-color;
   display: inline-flex;
   justify-content: space-between;

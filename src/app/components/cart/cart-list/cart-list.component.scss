@@ -53,13 +53,12 @@
 }
 
 .item-container {
+  @include border-with-right-and-left;
+  @include default-font-family;
   display: grid;
   text-align: center;
   grid-template-columns: 60% 10% 20% 10%;
   width: 100%;
-  font-family: Roboto, sans-serif;
-  border-right: 1px solid #e1e1e1;
-  border-left: 1px solid #e1e1e1;
   background: white;
   padding-top: 25px;
 }
@@ -73,14 +72,14 @@
   max-width: 100%;
   max-height: 100%;
   height: 140px;
-  margin: 20px 0 0 0;
+  margin-top: 20px;
   padding-left: 10px;
 }
 
 .name {
   font-size: 13px;
   text-align: left;
-  padding: 0 0 0 15px;
+  padding-left: 15px;
 }
 
 .code-color {
@@ -111,11 +110,9 @@
 }
 
 .warranty {
-  border-right: 1px solid #e1e1e1;
-  border-left: 1px solid #e1e1e1;
-  border-bottom: 1px solid #e1e1e1;
+  @include border-without-top;
+  @include default-font-family;
   width: 100%;
-  font-family: Roboto, sans-serif;
   background: white;
   padding: 40px 0 0 250px;
   display: grid;
@@ -123,20 +120,17 @@
   text-align: left;
 }
 
+.extended-warranty,
 .normal-warranty {
+  @include default-border;
   width: 40%;
-  border: 1px solid #e1e1e1;
   margin-bottom: 10px;
   font-size: 10px;
   padding: 10px 0 0 15px;
 }
 
 .extended-warranty {
-  width: 40%;
-  border: 1px solid #e1e1e1;
   margin-bottom: 30px;
-  font-size: 10px;
-  padding: 10px 0 0 15px;
 }
 
 .warranty a {
@@ -154,20 +148,17 @@
   text-align: right;
 }
 
+.total-price,
 .delivery {
+  @include default-border;
   text-align: left;
   width: 100%;
   background: white;
   margin-top: 20px;
-  border: 1px solid #e1e1e1;
 }
 
 .total-price {
   text-align: right;
-  width: 100%;
-  background: white;
-  margin-top: 20px;
-  border: 1px solid #e1e1e1;
 }
 
 .grid-container {
@@ -178,7 +169,7 @@
 
 .empty-space {
   display: inline;
-  padding: 0 40px 0 0;
+  padding-right: 40px;
 }
 
 .delivery-icon {
@@ -188,7 +179,7 @@
 .total-box {
   height: 100%;
   margin: 30px 40px 0 40px;
-  padding: 0 0 25px 0;
+  padding-bottom: 25px;
 }
 
 .buy-button {
