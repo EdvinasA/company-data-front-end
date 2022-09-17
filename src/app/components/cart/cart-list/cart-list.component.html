@@ -1,13 +1,17 @@
-<div [ngClass]="{
-  'button-and-header' : true,
+<div class="grid-container1">
+  <div class="grid-container1-first">
+    <h2>Cart</h2>
+  </div>
+  <div [ngClass]="{
+  'grid-container1-second' : true,
   'disabled-checkout-button' : getCartAmountOfItems() === 0
   }">
-  <h2>Cart</h2>
-  <button mat-button
-          [disabled]="getCartAmountOfItems() === 0"
-          (click)="createOrder(cart?.cartItems)">Continue
-    <mat-icon>arrow_right_alt</mat-icon>
-  </button>
+    <button mat-button
+            [disabled]="getCartAmountOfItems() === 0"
+            (click)="createOrder(cart?.cartItems)">Continue
+      <mat-icon>arrow_right_alt</mat-icon>
+    </button>
+  </div>
 </div>
 <div>
   <div class="header-info">
@@ -33,12 +37,12 @@
             </a>
             <p class="code-color">Product code: {{item.itemCode}}</p>
           </div>
-        </div>
-        <div class="delivery-icon">
-          <mat-icon
-            matTooltip="Will be delivered in 2 days">
-            directions_car
-          </mat-icon>
+          <div class="delivery-icon">
+            <mat-icon
+              matTooltip="Will be delivered in 2 days">
+              directions_car
+            </mat-icon>
+          </div>
         </div>
       </div>
       <div class="price">

@@ -9,7 +9,7 @@
   background: #f9f9f9;
   color: #666;
   font-size: 14px;
-  padding: 13px 0 0 50px;
+  padding: 13px 0 0 20px;
 }
 
 .icon-align {
@@ -28,4 +28,24 @@
   font-size: 10px;
   color: #666;
   padding: 0 0 0 35px;
+}
+
+@media (max-width: 550px) {
+  .text,
+  .deliver-info {
+    font-size: 8px;
+  }
+  .header {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 415px) {
+  .text,
+  .deliver-info {
+    font-size: 6px;
+  }
+  .header {
+    font-size: 10px;
+  }
 }
