@@ -60,7 +60,7 @@ export class CartListComponent implements OnInit, OnDestroy {
     } else
       this.cartService.updateCartItemQuantity(
         item,
-        event.target.value,
+        Number(event.target.value),
         true,
         this.user?.id
       );
