@@ -136,3 +136,19 @@
 @mixin default-header-color {
   background: #fafafa;
 }
+
+@mixin background-red {
+  background: #ed1c24;
+}
+
+@mixin border-red {
+  border: 1px solid #ed1c24;
+}
+
+@mixin color-red {
+  color: #ed1c24;
+}
+
+@mixin default-border {
+  border: 1px solid #e1e1e1;
+}

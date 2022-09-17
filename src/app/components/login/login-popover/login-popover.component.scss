@@ -1,9 +1,11 @@
+@import "src/mixin.scss";
+
 .host {
   display: block;
   max-width: 250px;
   background-color: #FFFFFF;
   height: 100%;
-  padding: 10px 0 0 0;
+  padding-top: 10px;
 }
 
 .item {
@@ -18,23 +20,19 @@
 
 .google-popover {
   float: left;
-  padding: 0 0 0 40px;
+  padding-left: 40px;
 }
 
 .login-button button {
+  @include background-red;
   height: 80%;
   color: white;
-  background: #ed1c24;
   width: 100%;
   margin: 10px 0 0 0;
 }
 
+.register-popover,
 .login-button {
-  margin: 10px 0 0 0;
-  padding: 0 20px 20px 20px;
-}
-
-.register-popover {
   margin: 10px 0 0 0;
   padding: 0 20px 20px 20px;
 }
@@ -42,13 +40,13 @@
 .register-popover span {
   font-size: 12px;
   font-weight: 600;
-  padding: 0 10px 0 0;
+  padding-right: 10px;
 }
 
 .register-popover button {
+  @include background-red;
   height: 80%;
   color: white;
-  background: #ed1c24;
   width: 100%;
-  margin: 10px 0 0 0;
+  margin-top: 10px;
 }

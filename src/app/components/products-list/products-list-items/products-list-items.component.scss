@@ -1,16 +1,15 @@
 @import "src/mixin";
 
 .container {
-  font-family: Roboto, sans-serif;
+  @include default-font-family;
   text-align: center;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
   max-width: 1280px;
 }
 
 .header-info {
-  //display: flex;
+  @include default-border;
   height: 50px;
-  border: 1px solid #e1e1e1;
   background: #f9f9f9;
 }
 
@@ -19,15 +18,15 @@
 }
 
 .header-info-display-items {
-  border-left: 1px solid #e1e1e1;
+  @include default-border;
 }
 
 .number-of-pages {
+  @include default-border;
   height: 49px;
   width: 55%;
   text-align: center;
   padding: 0 10px 0 10px;
-  border-left: 1px solid #e1e1e1;
 }
 
 .number-of-pages mat-form-field {
@@ -35,7 +34,7 @@
 }
 
 .filter {
-  border-left: 1px solid #e1e1e1;
+  @include default-border;
   height: 47px;
 }
 
@@ -56,7 +55,7 @@
 
 .product-link-box {
   text-align: left;
-  padding: 0 20px 0 20px;
+  padding: 0 20px;
 }
 
 .image {
@@ -133,7 +132,7 @@
 }
 
 .first-column {
-  border: 1px solid #e1e1e1;
+  @include default-border;
   margin: 20px 20px 0 0;
 }
 
