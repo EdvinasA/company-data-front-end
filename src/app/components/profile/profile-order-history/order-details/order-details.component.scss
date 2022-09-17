@@ -12,7 +12,7 @@
 
 .order-information {
   width: 100%;
-  padding: 0 100px 0 0;
+  padding-right: 100px;
 }
 
 .order-information-container {
@@ -31,7 +31,7 @@
 
 .order-description-container {
   width: 100%;
-  padding: 0 0 0 25px
+  padding-left: 25px
 }
 
 .order-description-row {
@@ -73,7 +73,7 @@
 }
 
 .order-other {
-  border: 1px solid #e1e1e1;
+  @include default-border;
   background: white;
   display: inline-flex;
   justify-content: space-between;
