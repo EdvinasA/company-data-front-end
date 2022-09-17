@@ -1,7 +1,9 @@
+@import "src/mixin.scss";
+
 .dialog-container {
+  @include default-font-family;
   padding: 15px;
   min-width: 600px;
-  font-family: Roboto;
 }
 .dialog-header {
   padding: 20px;
@@ -22,7 +24,7 @@
 }
 
 .dialog-item-picture {
-  padding: 15px 0 0 0;
+  padding-top: 15px;
   width: 20%;
 }
 
@@ -32,6 +34,7 @@
   height: 80px;
 }
 
+..dialog-item-price,
 .dialog-item-name {
   float: left;
   padding: 15px 0 0 20px;
@@ -39,34 +42,28 @@
 }
 
 .dialog-item-price {
-  float: left;
-  padding: 15px 0 0 20px;
   width: 20%;
 }
 
 .warranty {
+  @include default-font-family;
   width: 100%;
-  font-family: Roboto;
   background: white;
   padding: 100px 0 20px 0;
   text-align: center;
 }
 
-.normal-warranty {
-  text-align: left;
-  width: 100%;
-  border: 1px solid #e1e1e1;
-  font-size: 10px;
-  padding: 5px;
-  margin: 0 0 5px;
-}
-
+normal-warranty,
 .extended-warranty {
   width: 100%;
   border: 1px solid #e1e1e1;
   font-size: 10px;
   padding: 5px;
   text-align: left;
+}
+
+.normal-warranty {
+  margin: 0 0 5px;
 }
 
 .warranty a {
@@ -81,7 +78,7 @@
 
 .button-cart-or-stay {
   text-align: center;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
 }
 
 .continue {
