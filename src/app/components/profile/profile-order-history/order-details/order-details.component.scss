@@ -173,7 +173,13 @@ h3 {
     display: block;
   }
   .order-information-container {
-    display: unset;
+    width: 275px;
+  }
+  .order-information {
+    padding: 0 0 0 20px;
+  }
+  .order-information-description {
+   font-size: 14px;
   }
   :host {
     ::ng-deep {
@@ -186,6 +192,59 @@ h3 {
   }
 }
 
+@media (max-width: 450px) {
+  .order-information-container {
+    display: unset;
+  }
+  .order-information {
+    padding: 0 0 0 20px;
+  }
+  .order-description-container {
+    padding: 0 0 0 0;
+  }
+  .order-description-row {
+    display: block;
+  }
+  .order-description-other-column {
+    width: 100%;
+  }
+  .order-description-name-column {
+    width: 100%;
+  }
+  .order-other {
+    display: block;
+  }
+  .order-other-container {
+    width: 100%;
+    padding-right: 0;
+  }
+  .order-other-header {
+    padding-bottom: 5px;
+  }
+  .order-other-description {
+    padding-top: 5px;
+  }
+  .ordered-items-list-table-header {
+    display: none;
+  }
+  .ordered-items-list-content {
+    display: block;
+  }
+  .ordered-items-list-content-column {
+    width: 100%;
+  }
+  .item {
+    width: 100%;
+  }
+  .ordered-item-image {
+    padding: 0 0 0 0;
+  }
+  .ordered-item-image img {
+    height: 120px;
+    width: 80px;
+  }
+}
+
 @media (max-width: 420px) {
   .orders-list-header {
     display: none;
@@ -194,7 +253,10 @@ h3 {
     display: block;
   }
   .order-information-container {
-    display: unset;
+    width: 150px;
+  }
+  .orders-second-header {
+    padding: 10px 0;
   }
   :host {
     ::ng-deep {
