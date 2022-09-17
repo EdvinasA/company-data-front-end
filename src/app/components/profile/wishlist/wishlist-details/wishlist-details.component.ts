@@ -16,11 +16,11 @@ import { ProductToCartDialogComponent } from '../../../products-list/product-to-
   styleUrls: ['./wishlist-details.component.scss'],
 })
 export class WishlistDetailsComponent implements OnInit {
-  items: WishlistItem[] = [];
-  wishlistProfileName: string = '';
-  wishlistProfileId: string = '';
-  user!: User | null;
-  isLoading: boolean = true;
+  public items: WishlistItem[] = [];
+  public wishlistProfileName: string = '';
+  public wishlistProfileId: string = '';
+  public user!: User | null;
+  public isLoading: boolean = true;
 
   constructor(
     private wishlistService: WishlistService,

@@ -11,7 +11,7 @@ import { WishlistService } from '../../../../services/wishlist.service';
   styleUrls: ['./create-wishlist-dialog.component.scss'],
 })
 export class CreateWishlistDialogComponent implements OnInit {
-  name = new FormControl('', [Validators.required]);
+  public name = new FormControl('', [Validators.required]);
 
   constructor(
     public dialogRef: MatDialogRef<CreateWishlistDialogComponent>,

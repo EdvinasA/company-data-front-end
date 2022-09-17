@@ -13,9 +13,9 @@ import { CreateWishlistDialogComponent } from '../create-wishlist-dialog/create-
   styleUrls: ['./wishlist-list.component.scss'],
 })
 export class WishlistListComponent implements OnInit {
-  wishlistProfiles: WishlistProfiles[] = [];
-  user!: User | null;
-  isLoading: boolean = true;
+  public wishlistProfiles: WishlistProfiles[] = [];
+  public user!: User | null;
+  public isLoading: boolean = true;
 
   constructor(
     private wishlistService: WishlistService,

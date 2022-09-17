@@ -6,9 +6,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./options-on-side-display.component.scss'],
 })
 export class OptionsOnSideDisplayComponent implements OnInit {
-  @Input() selectedOption!: string;
-  @Input() options: any[] = [];
-  @Output() newSelectedOption = new EventEmitter<string>();
+  @Input() public selectedOption!: string;
+  @Input() public options: any[] = [];
+  @Output() public newSelectedOption = new EventEmitter<string>();
 
   constructor() {}
 
