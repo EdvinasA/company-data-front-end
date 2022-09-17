@@ -78,9 +78,7 @@
 }
 
 .display-grid-columns {
-  border-right: 1px solid #e1e1e1;
-  border-left: 1px solid #e1e1e1;
-  border-bottom: 1px solid #e1e1e1;
+  @include border-without-top;
   display: grid;
   grid-template-columns: 30% 50% 20%;
   padding: 20px;
