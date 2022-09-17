@@ -16,25 +16,16 @@
   width: 100%;
 }
 
+.shipping-main-first-row-column ::ng-deep .mat-form-field,
+.shipping-main-second-row ::ng-deep .mat-form-field,
+.shipping-main-second-row,
+.shipping-main-first-row-object,
 .shipping-main-first-row-column {
   width: 100%;
 }
 
 .shipping-main-first-row-column ::ng-deep .mat-form-field {
   padding: 0 10px 0 0;
-  width: 100%;
-}
-
-.shipping-main-first-row-object {
-  width: 100%;
-}
-
-.shipping-main-second-row {
-  width: 100%;
-}
-
-.shipping-main-second-row ::ng-deep .mat-form-field {
-  width: 100%;
 }
 
 .shipping-main-third-row button {
