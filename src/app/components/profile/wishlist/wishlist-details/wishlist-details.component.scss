@@ -21,8 +21,8 @@
 
 .wishlist-product-link {
   @include item-link;
+  @include default-font-family;
   font-size: 12px;
-  font-family: Roboto;
 }
 
 .wishlist-product-link-box {
@@ -75,7 +75,7 @@
 }
 
 .wishlist-item-price {
-  padding: 0 0 0 20px;
+  padding-left: 20px;
 }
 
 .wishlist-delete-button {

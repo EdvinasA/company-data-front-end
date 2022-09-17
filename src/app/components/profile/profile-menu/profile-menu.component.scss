@@ -1,3 +1,5 @@
+@import "src/mixin.scss";
+
 .profile-menu {
   background: white;
   border: 1px solid #e1e1e1;
@@ -9,7 +11,7 @@
 }
 
 .profile-menu button {
-  font-font: Roboto;
+  @include default-font-family;
   font-size: 16px;
   height: 60px;
   text-align: left;

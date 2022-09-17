@@ -1,11 +1,11 @@
+@import 'src/mixin.scss';
+
 .orders-list-header {
-  border-bottom: 1px solid #e1e1e1;
-  border-left: 1px solid #e1e1e1;
-  border-right: 1px solid #e1e1e1;
+  @include border-without-top;
   background: #fafafa;
   display: inline-flex;
   justify-content: space-between;
-  padding: 10px 50px 10px 50px;
+  padding: 10px 50px;
   width: 100%;
 }
 
@@ -15,9 +15,7 @@
 }
 
 .orders-list-content {
-  border-bottom: 1px solid #e1e1e1;
-  border-left: 1px solid #e1e1e1;
-  border-right: 1px solid #e1e1e1;
+  @include border-without-top;
   background: white;
   display: inline-flex;
   justify-content: space-between;

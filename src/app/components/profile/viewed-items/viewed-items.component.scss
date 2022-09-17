@@ -21,8 +21,8 @@
 
 .viewed-item-link {
   @include item-link;
+  @include default-font-family;
   font-size: 12px;
-  font-family: Roboto;
 }
 
 .viewed-item-link-box {

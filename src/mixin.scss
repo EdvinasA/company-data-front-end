@@ -117,3 +117,22 @@
   font-size: 11px;
   font-weight: 500;
 }
+
+@mixin default-font-family {
+  font-family: Roboto, sans-serif;
+}
+
+@mixin border-without-top {
+  border-bottom: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+}
+
+@mixin border-without-left-and-right {
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+@mixin default-header-color {
+  background: #fafafa;
+}

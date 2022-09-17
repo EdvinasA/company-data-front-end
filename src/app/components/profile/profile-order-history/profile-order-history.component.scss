@@ -7,12 +7,3 @@
 .orders-header {
   @include profile-page-header;
 }
-
-.orders-details {
-  @include profile-page-details;
-}
-
-.orders-second-header {
-  border: 1px solid #e1e1e1;
-  background: white;
-}
