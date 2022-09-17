@@ -19,14 +19,14 @@ import { ProductToCartDialogComponent } from '../product-to-cart-dialog/product-
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
-  wishlistProfiles: WishlistProfiles[] = [];
-  @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
-  laptop!: Product;
-  private user!: User | null;
-  itemQuantity: number = 1;
-  itemInsurance: boolean = false;
-  itemWarranty: boolean = false;
-  isLoading: boolean = true;
+  public wishlistProfiles: WishlistProfiles[] = [];
+  @ViewChild(MatMenuTrigger) public trigger!: MatMenuTrigger;
+  public laptop!: Product;
+  public user!: User | null;
+  public itemQuantity: number = 1;
+  public itemInsurance: boolean = false;
+  public itemWarranty: boolean = false;
+  public isLoading: boolean = true;
 
   constructor(
     private productService: ProductsService,

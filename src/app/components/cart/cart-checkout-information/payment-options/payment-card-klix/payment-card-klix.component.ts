@@ -8,7 +8,7 @@ import { DeliveryInformation } from '../../../../../models/user';
   styleUrls: ['./payment-card-klix.component.scss'],
 })
 export class PaymentCardKlixComponent implements OnInit {
-  @Output() option = new EventEmitter<string>();
+  @Output() public option = new EventEmitter<string>();
   @Output() public selectedDeliveryInformation =
     new EventEmitter<DeliveryInformation>();
   @Input() public paymentForm!: FormGroup;

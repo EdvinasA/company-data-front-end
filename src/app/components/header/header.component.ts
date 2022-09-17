@@ -12,12 +12,12 @@ import { UserService } from '../../services/user.service';
 })
 export class HeaderComponent implements OnInit {
   private subscription!: Subscription;
-  @Input() title: string = '';
-  isUserLoggedIn: boolean = false;
-  user!: User | null;
-  isLoading: boolean = true;
-  listOfItems: CartItem[] = [];
-  token: string | null = localStorage.getItem('token');
+  @Input() public title: string = '';
+  public isUserLoggedIn: boolean = false;
+  public user!: User | null;
+  public isLoading: boolean = true;
+  public listOfItems: CartItem[] = [];
+  private token: string | null = localStorage.getItem('token');
 
   constructor(
     private cartService: CartService,

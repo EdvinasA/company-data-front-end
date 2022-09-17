@@ -11,7 +11,6 @@ import { UserService } from '../../../services/user.service';
 export class ProfileDisplayComponent implements OnInit {
   public user!: User | null;
   public isLoading: boolean = true;
-  public isUpdateFormActivated: boolean = false;
   public isAddFormActivated: boolean = false;
 
   constructor(

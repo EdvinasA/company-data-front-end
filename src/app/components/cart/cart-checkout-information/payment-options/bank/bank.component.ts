@@ -8,7 +8,7 @@ import { DeliveryInformation } from '../../../../../models/user';
   styleUrls: ['./bank.component.scss'],
 })
 export class BankComponent implements OnInit {
-  @Output() option = new EventEmitter<string>();
+  @Output() public option = new EventEmitter<string>();
   @Input() public selectedOption: string = '';
   @Input() public paymentWithBankForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;

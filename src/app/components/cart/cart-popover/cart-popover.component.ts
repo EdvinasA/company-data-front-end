@@ -8,8 +8,8 @@ import { CartService } from '../../../services/cart.service';
   styleUrls: ['./cart-popover.component.scss'],
 })
 export class CartPopoverComponent implements OnInit {
-  cartList: CartItem[] = [];
-  cartListTotalSum = 0;
+  public cartList: CartItem[] = [];
+  public cartListTotalSum = 0;
 
   constructor(private cartService: CartService) {}
 

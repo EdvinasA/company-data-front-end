@@ -13,10 +13,10 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./cart-list.component.scss'],
 })
 export class CartListComponent implements OnInit, OnDestroy {
-  cart!: Cart;
-  user!: User | null;
-  subscription!: Subscription;
-  totalSumOfAllItemsSubject: number = 0;
+  public cart!: Cart;
+  public user!: User | null;
+  private subscription!: Subscription;
+  public totalSumOfAllItemsSubject: number = 0;
 
   constructor(
     private cartService: CartService,

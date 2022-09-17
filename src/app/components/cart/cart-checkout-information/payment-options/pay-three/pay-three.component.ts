@@ -8,7 +8,7 @@ import { DeliveryInformation } from '../../../../../models/user';
   styleUrls: ['./pay-three.component.scss'],
 })
 export class PayThreeComponent implements OnInit {
-  @Input() totalSum: number = 0;
+  @Input() public totalSum: number = 0;
   @Input() public paymentForm!: FormGroup;
   @Input() public defaultDeliveryInformation!: DeliveryInformation;
   @Input() public isDeliveryInformationSelected: boolean = false;

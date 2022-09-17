@@ -7,10 +7,10 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./cart-checkout-accept-form.component.scss'],
 })
 export class CartCheckoutAcceptFormComponent implements OnInit {
-  @Input() formGroup!: FormGroup;
-  @Input() isPaymentStep: boolean = false;
-  @Output() emitCreateOrder = new EventEmitter<unknown>();
-  @Output() onChange = new EventEmitter<boolean>();
+  @Input() public formGroup!: FormGroup;
+  @Input() public isPaymentStep: boolean = false;
+  @Output() public emitCreateOrder = new EventEmitter<unknown>();
+  @Output() public onChange = new EventEmitter<boolean>();
 
   constructor() {}
 

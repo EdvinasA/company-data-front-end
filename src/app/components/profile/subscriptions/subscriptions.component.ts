@@ -12,9 +12,9 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./subscriptions.component.scss'],
 })
 export class SubscriptionsComponent implements OnInit {
-  isLoading: boolean = true;
-  color: ThemePalette = 'primary';
-  user!: User;
+  public isLoading: boolean = true;
+  public color: ThemePalette = 'primary';
+  public user!: User;
 
   constructor(
     private userService: UserService,
