@@ -227,7 +227,7 @@
   background: gray;
 }
 
-@media (max-width: 825px) {
+@media (max-width: 850px) {
   .header-info {
     height: 0;
   }
@@ -239,6 +239,13 @@
   }
   .item-container{
     grid-template-columns: 1fr;
+  }
+  .warranty {
+    padding: 0;
+  }
+  .extended-warranty,
+  .normal-warranty {
+    width: 100%;
   }
 }
 
