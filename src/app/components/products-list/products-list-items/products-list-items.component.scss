@@ -14,7 +14,7 @@
 }
 
 .header-pages-filter {
-  padding: 12px 0 0 0;
+  padding-top: 12px;
 }
 
 .header-info-display-items {
@@ -26,7 +26,7 @@
   height: 49px;
   width: 55%;
   text-align: center;
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
 }
 
 .number-of-pages mat-form-field {
@@ -166,19 +166,17 @@
   }
   .filter mat-icon {
     display: flex;
-    padding: 20px 0 0 0;
+    padding-top: 20px;
   }
 }
 
 @media (max-width: 700px) {
+  .product-display-grid,
   .header-grid-columns {
     grid-template-columns: 100%;
   }
   .number-of-pages {
     width: 15%;
-  }
-  .product-display-grid {
-    grid-template-columns: 100%;
   }
   .first-column {
     display: none;
