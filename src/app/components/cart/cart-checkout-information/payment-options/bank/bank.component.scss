@@ -30,17 +30,14 @@
   visibility: hidden;
 }
 
+.delivery-provider-selected,
 .delivery-provider:hover {
-  border: 3px solid #5bb01c;
-}
-
-.delivery-provider-selected {
   border: 3px solid #5bb01c;
 }
 
 .select-location {
   width: 100%;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
 }
 
 .select-location .mat-form-field {

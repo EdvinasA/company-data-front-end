@@ -1,11 +1,13 @@
+@import "src/mixin.scss";
+
 .container {
   width: 100%;
-  padding: 0 0 0 0;
+  padding: 0;
 }
 
 .header {
+  @include default-border;
   height: 45px;
-  border-bottom: 1px solid #e1e1e1;
   background: #f9f9f9;
   color: #666;
   font-size: 14px;
@@ -27,7 +29,7 @@
 .deliver-info {
   font-size: 10px;
   color: #666;
-  padding: 0 0 0 35px;
+  padding-left: 35px;
 }
 
 @media (max-width: 550px) {

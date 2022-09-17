@@ -6,7 +6,7 @@
 }
 
 .shipping-options {
-  border-right: 1px solid #e6e6e6;
+  @include default-border;
   width: 35%
 }
 
@@ -21,7 +21,7 @@
 }
 
 .shipping-content {
-  border: solid 1px #e6e6e6;
+  @include default-border;
   display: inline-flex;
   width: 75%;
 }
@@ -56,8 +56,7 @@
 }
 
 .discount-wrapper {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 0;
 }
 
 .order-total-sum {
