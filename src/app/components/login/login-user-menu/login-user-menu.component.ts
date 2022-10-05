@@ -9,13 +9,15 @@ import { OrderService } from '../../../services/order.service';
   styleUrls: ['./login-user-menu.component.scss'],
 })
 export class LoginUserMenuComponent implements OnInit {
-  public orders: Order[] | null = [];
+  public orders: Order[] = [];
 
   constructor(private router: Router, private orderService: OrderService) {}
 
   ngOnInit(): void {
     this.orderService.orderSubject.asObservable().subscribe((orders) => {
-      this.orders = orders;
+      if (orders != null || orders != undefined) {
+        this.orders = orders;
+      }
     });
   }
 

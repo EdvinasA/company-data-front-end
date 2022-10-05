@@ -11,14 +11,21 @@ import { CategoriesService } from '../../../services/categories.service';
 })
 export class SubCategoriesListComponent implements OnInit {
   public subCategories: SubCategoryDisplay[] = [];
-  public category!: CategoryDisplay;
+  public category: CategoryDisplay;
   public currentCategory: string = '';
   public subscription!: Subscription;
 
   constructor(
     private categoriesService: CategoriesService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.category = {
+      categoryForEnum: '',
+      categoryForDisplay: '',
+      subCategoryDisplay: [],
+      picture: '',
+    };
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

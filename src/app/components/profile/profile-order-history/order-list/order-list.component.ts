@@ -8,13 +8,15 @@ import { OrderService } from '../../../../services/order.service';
   styleUrls: ['./order-list.component.scss'],
 })
 export class OrderListComponent implements OnInit {
-  public orders!: Order[] | null;
+  public orders: Order[] = [];
 
   constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
     this.orderService.orderSubject.asObservable().subscribe((orders) => {
-      this.orders = orders;
+      if (orders != null || orders != undefined) {
+        this.orders = orders;
+      }
     });
   }
 }
